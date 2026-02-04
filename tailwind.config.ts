@@ -14,7 +14,8 @@ const config: Config = {
           neutral: '#E8E3DA',     // Beige/cream - NEUTRAL role
           gold: '#C19A5B',        // Gold/bronze - ACCENT role
           text: '#3A3A3A',        // Dark charcoal - TEXT role
-          brown: '#A07856',       // Brown - HERO secondary
+          brown: '#A07856',       // Brown - HERO secondary (deprecated, use dark-brown)
+          'dark-brown': '#2a1f1a', // Very dark brown - New HERO/background color
         },
       },
       screens: {
@@ -26,7 +27,9 @@ const config: Config = {
         '3xl': '3840px', // 4K
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        sans: ['var(--font-lato)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        lato: ['var(--font-lato)', 'sans-serif'],
+        cormorant: ['var(--font-cormorant)', 'serif'],
       },
       letterSpacing: {
         widest: '.25em',

@@ -32,7 +32,7 @@ export default function Header() {
               href="/tour"
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
-              ONLINE TOUR
+              VIRTUAL TOUR
             </Link>
             <Link 
               href="/menu"
@@ -48,9 +48,9 @@ export default function Header() {
             </Link>
             <Link 
               href="/contact"
-              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
-              CONTACT →
+              BOOK YOUR TOUR →
             </Link>
           </div>
 
@@ -88,7 +88,7 @@ export default function Header() {
                 className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                ONLINE TOUR
+                VIRTUAL TOUR
               </Link>
               <Link 
                 href="/menu"
@@ -106,10 +106,10 @@ export default function Header() {
               </Link>
               <Link 
                 href="/contact"
-                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-brown transition-colors text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                CONTACT →
+                BOOK YOUR TOUR →
               </Link>
             </div>
           </div>

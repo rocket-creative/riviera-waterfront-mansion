@@ -4,6 +4,7 @@ import GoogleReviews from './components/GoogleReviews';
 import SocialFeed from './components/SocialFeed';
 import Image from 'next/image';
 import Link from 'next/link';
+import { imageConfig } from './lib/imageConfig';
 
 export default function Home() {
   return (
@@ -11,8 +12,18 @@ export default function Home() {
       <Header />
       
       <main id="main">
-        {/* Hero Section - Immediate Hook */}
-        <section className="relative h-[75vh] md:h-[85vh] bg-riviera-neutral">
+        {/* Hero Section - Photography First, Editorial Style */}
+        <section className="relative h-[75vh] md:h-[85vh] overflow-hidden">
+          {/* Hero Image - Priority loading for above fold */}
+          <Image 
+            src={imageConfig.hero[0]}
+            alt="Stunning waterfront wedding ceremony at Riviera Waterfront Mansion in Massapequa, Long Island"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+            quality={90}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
           <div className="relative h-full flex items-center justify-center text-center px-4">
             <div className="max-w-5xl">
@@ -26,16 +37,16 @@ export default function Home() {
               <p className="text-lg sm:text-xl md:text-2xl font-light text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Three generations of wedding excellence on a stunning waterfront estate in Massapequa, Long Island. One wedding at a time. Your day, exclusively yours with complete venue access.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <Link 
                   href="/contact"
-                  className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg"
+                  className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg text-center"
                 >
                   SCHEDULE YOUR VISIT →
                 </Link>
                 <Link 
                   href="/tour"
-                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 text-center"
                 >
                   TAKE A VIRTUAL TOUR
                 </Link>
@@ -90,7 +101,7 @@ export default function Home() {
         </section>
 
         {/* Live Google Reviews - Social Proof */}
-        <section className="bg-riviera-brown py-16 md:py-20 overflow-hidden">
+        <section className="relative py-16 md:py-20 overflow-hidden bg-riviera-dark-brown">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
             <div className="text-center">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">REAL LONG ISLAND WEDDING REVIEWS</p>
@@ -110,14 +121,14 @@ export default function Home() {
               href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-brown"
+              className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-dark-brown"
             >
               READ ALL REVIEWS ON GOOGLE →
             </a>
           </div>
         </section>
 
-        {/* Why Choose Us - Value Proposition */}
+        {/* Why Choose Us - Editorial Magazine Style with Photography */}
         <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -135,10 +146,10 @@ export default function Home() {
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-8">
                   Our service and your wedding experience are second to none. Warm welcomes, constant smiles, exceptional service, and delicious Continental cuisine elevate your day to dream wedding status. Our dedicated team ensures every detail of your Massapequa waterfront wedding is flawlessly executed.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
                   <Link 
                     href="/contact"
-                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
+                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
                   >
                     DOWNLOAD BROCHURE →
                   </Link>
@@ -150,9 +161,15 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="order-1 md:order-2 relative h-[400px] md:h-[600px]">
-                <div className="absolute inset-0 bg-riviera-neutral" />
-                {/* Image placeholder - replace with actual venue image */}
+              <div className="order-1 md:order-2 relative h-[400px] md:h-[600px] overflow-hidden">
+                <Image 
+                  src={imageConfig.homepage.whyChooseUs}
+                  alt="Historic Riviera Waterfront Mansion ballroom with elegant reception setup and waterfront views in Massapequa, Long Island"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
+                />
               </div>
             </div>
           </div>
@@ -183,6 +200,33 @@ export default function Home() {
             </div>
 
             <SocialFeed />
+          </div>
+        </section>
+
+        {/* Editorial Photo Showcase - Full Bleed Magazine Style */}
+        <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+          <Image 
+            src={imageConfig.homepage.venue}
+            alt="Elegant Long Island wedding reception at Riviera Waterfront Mansion in Massapequa with stunning table settings and waterfront views"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+            <div className="max-w-4xl">
+              <p className="text-riviera-gold text-sm tracking-widest mb-4">WHERE TIMELESS ELEGANCE MEETS WATERFRONT BEAUTY</p>
+              <h2 className="font-cormorant text-3xl md:text-4xl lg:text-6xl font-light tracking-wide text-white mb-6 leading-tight">
+                Every detail designed for your perfect Long Island wedding celebration
+              </h2>
+              <Link 
+                href="/tour"
+                className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              >
+                EXPLORE THE VENUE →
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -288,7 +332,7 @@ export default function Home() {
             <div className="text-center">
               <Link 
                 href="/tour"
-                className="inline-block bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                className="inline-block bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
               >
                 EXPLORE ALL FEATURES →
               </Link>
@@ -297,7 +341,7 @@ export default function Home() {
         </section>
 
         {/* Static Testimonials - Additional Social Proof */}
-        <section className="bg-riviera-brown py-20 md:py-28 px-4 sm:px-6 lg:px-8 text-white">
+        <section className="relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 text-white bg-riviera-dark-brown">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">LONG ISLAND WEDDING TESTIMONIALS</p>
@@ -355,23 +399,23 @@ export default function Home() {
         {/* Final CTA - Conversion */}
         <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-white text-center">
           <div className="max-w-4xl mx-auto">
-            <p className="text-riviera-gold text-sm tracking-widest mb-4">READY TO BEGIN?</p>
+            <p className="text-riviera-gold text-sm tracking-widest mb-4">READY TO BOOK YOUR LONG ISLAND WATERFRONT WEDDING?</p>
             <h2 className="font-cormorant text-3xl md:text-4xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6 leading-tight">
-              Start planning your dream wedding today
+              Start planning your dream Massapequa waterfront wedding today
             </h2>
             <p className="text-lg md:text-xl font-light text-riviera-text/70 mb-10 max-w-2xl mx-auto">
-              Schedule a personal tour of our waterfront mansion and experience the magic for yourself. Limited dates available.
+              Schedule a personal tour of our historic Riviera Waterfront Mansion in Massapequa, NY and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
               <Link 
                 href="/contact"
-                className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg"
+                className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg text-center"
               >
                 SCHEDULE YOUR VISIT →
               </Link>
               <a 
                 href="tel:+15165415020"
-                className="border-2 border-riviera-gold text-riviera-gold px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                className="border-2 border-riviera-gold text-riviera-gold px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
               >
                 CALL (516) 541 5020
               </a>

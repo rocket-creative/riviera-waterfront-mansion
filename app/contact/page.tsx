@@ -13,10 +13,10 @@ export default function ContactPage() {
         <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
-              Let's start planning
+              Start planning your Long Island waterfront wedding
             </h1>
             <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto mb-6">
-              Contact us to schedule a tour, check availability, or request information
+              Contact Riviera Waterfront Mansion in Massapequa to schedule a private venue tour, check wedding date availability, or request Long Island wedding information. Limited dates available.
             </p>
             <div className="bg-white p-6 max-w-md mx-auto border border-riviera-neutral">
               <h2 className="text-sm tracking-widest text-riviera-gold mb-4">OFFICE HOURS</h2>
@@ -40,24 +40,24 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               <div className="bg-riviera-neutral p-8">
                 <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
-                  Wedding Inquiries
+                  Long Island wedding inquiries
                 </h2>
                 <p className="text-sm font-light text-riviera-text/80 mb-6">
-                  If you are interested in hosting your wedding at Riviera Waterfront Mansion, please use the form below or download our wedding pricing pamphlet.
+                  If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below or download our comprehensive Long Island wedding pricing brochure. Limited dates available for 2026 and 2027.
                 </p>
                 <Link 
                   href="/contact#form"
-                  className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                  className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
                 >
                   INQUIRE HERE →
                 </Link>
               </div>
               <div className="bg-white border border-riviera-neutral p-8">
                 <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
-                  Other Event Inquiries
+                  Other event inquiries at our Long Island venue
                 </h2>
                 <p className="text-sm font-light text-riviera-text/80 mb-6">
-                  If you are looking to host other events at Riviera Waterfront Mansion, we would love to hear from you.
+                  If you are looking to host other special events at our Massapequa waterfront venue, we would love to hear from you. Please note: Riviera Waterfront Mansion specializes exclusively in weddings.
                 </p>
                 <Link 
                   href="/contact#form"
@@ -72,7 +72,7 @@ export default function ContactPage() {
               {/* Contact Form */}
               <div id="form">
                 <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                  Request Your Date
+                  Request your Long Island wedding date
                 </h2>
                 <InquiryForm />
               </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
               {/* Contact Information */}
               <div>
                 <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                  Visit us
+                  Visit our Massapequa waterfront wedding venue
                 </h2>
                 
                 <div className="space-y-8 mb-12">
@@ -103,30 +103,31 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-sm tracking-widest text-riviera-gold mb-3">OFFICE HOURS</h3>
+                    <h3 className="text-sm tracking-widest text-riviera-gold mb-3">WEDDING CONSULTATION HOURS</h3>
                     <div className="text-sm font-light text-riviera-text/80 leading-relaxed">
-                      <p>Monday: Closed</p>
+                      <p>Monday: Appointment only</p>
                       <p>Tuesday: 11:00 am to 7:00 pm</p>
                       <p>Wednesday: 11:00 am to 7:00 pm</p>
                       <p>Thursday: 11:00 am to 7:00 pm</p>
                       <p>Friday: 11:00 am to 7:00 pm</p>
                       <p>Saturday: 11:00 am to 7:00 pm</p>
                       <p>Sunday: 11:00 am to 7:00 pm</p>
+                      <p className="mt-2 text-riviera-gold">Schedule your private Long Island wedding venue tour today</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-riviera-neutral p-8">
                   <h3 className="font-cormorant text-lg font-light tracking-wide text-riviera-text mb-4">
-                    Download our brochure
+                    Download our Long Island wedding brochure
                   </h3>
                   <p className="text-sm font-light text-riviera-text/70 mb-6">
-                    Get detailed information about our venue, packages, and pricing
+                    Get detailed information about our Massapequa waterfront venue, Long Island wedding packages, menu options, and comprehensive pricing for Riviera Waterfront Mansion
                   </p>
                   <a
                     href="/brochure.pdf"
                     download
-                    className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
                   >
                     DOWNLOAD PDF →
                   </a>
@@ -140,7 +141,7 @@ export default function ContactPage() {
         <section className="bg-riviera-neutral py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8 text-center">
-              Easy to reach from anywhere on Long Island
+              Conveniently located Massapequa waterfront venue, easy to reach from anywhere on Long Island
             </h2>
             <div className="aspect-video bg-white border border-riviera-neutral/50">
               {/* Map placeholder - In production, embed Google Maps */}
