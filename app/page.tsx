@@ -122,18 +122,18 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
-                <p className="text-riviera-gold text-sm tracking-widest mb-4">CELEBRATING 100 YEARS OF WEDDING EXCELLENCE</p>
+                <p className="text-riviera-gold text-sm tracking-widest mb-4">CELEBRATING 100 YEARS OF WEDDING EXCELLENCE IN MASSAPEQUA NY</p>
                 <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-8 leading-tight">
-                  The only venue in New York held by the same family for over 75 years
+                  The only Long Island wedding venue in New York held by the same family for over 75 years
                 </h2>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
-                  We set the standards for all to follow. As a third generation, family owned and operated venue since 1947, we bring unmatched experience and dedication to every celebration.
+                  We set the standards for all Long Island wedding venues to follow. As a third generation family owned and operated waterfront wedding venue since 1947, we bring unmatched experience and dedication to every celebration in Massapequa, NY.
                 </p>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
-                  Our waterfront mansion is kept in pristine condition with continuous updates and renovations throughout our tenure, making this a genuinely one of a kind modern yet classic destination wedding venue.
+                  Our historic waterfront mansion is kept in pristine condition with continuous updates and renovations throughout our tenure, making this a genuinely one of a kind modern yet classic destination wedding venue on Long Island. From outdoor waterfront ceremonies to elegant ballroom receptions, our venue offers everything couples dream of.
                 </p>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-8">
-                  Our service and your experience are second to none. Warm welcomes, constant smiles, fast service, and delicious food elevate your day to Dream Wedding Status.
+                  Our service and your wedding experience are second to none. Warm welcomes, constant smiles, exceptional service, and delicious Continental cuisine elevate your day to dream wedding status. Our dedicated team ensures every detail of your Massapequa waterfront wedding is flawlessly executed.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
@@ -162,12 +162,12 @@ export default function Home() {
         <section className="bg-riviera-neutral py-20 md:py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">FOLLOW OUR JOURNEY</p>
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">FOLLOW OUR LONG ISLAND WEDDING VENUE</p>
               <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                See real weddings at Riviera
+                See real Long Island waterfront weddings at Riviera Waterfront Mansion
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto mb-8">
-                Get a front row seat to stunning weddings, behind the scenes setups, and must know venue updates. Be inspired by real couples and dreamy décor.
+                Get a front row seat to stunning waterfront weddings at our Massapequa venue, behind the scenes setups, and must know Long Island wedding venue updates. Be inspired by real couples celebrating at our historic waterfront estate and dreamy decor.
               </p>
               <a
                 href="https://www.instagram.com/rivierawaterfrontmansion/"
@@ -190,12 +190,12 @@ export default function Home() {
         <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">EVERYTHING YOU NEED</p>
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">EVERYTHING YOU NEED FOR YOUR LONG ISLAND WEDDING</p>
               <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                One of a kind, historic waterfront venue
+                One of a kind historic waterfront wedding venue in Massapequa NY
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
-                From ceremony to reception, our estate offers every amenity for your perfect day
+                From ceremony to reception, our complete Long Island waterfront estate offers every amenity for your perfect wedding day with indoor and outdoor options
               </p>
             </div>
 
@@ -300,9 +300,9 @@ export default function Home() {
         <section className="bg-riviera-brown py-20 md:py-28 px-4 sm:px-6 lg:px-8 text-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">TESTIMONIALS</p>
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">LONG ISLAND WEDDING TESTIMONIALS</p>
               <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-4">
-                Couples love their Riviera experience
+                Couples love their Riviera Waterfront Mansion wedding experience
               </h2>
             </div>
 
