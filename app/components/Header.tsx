@@ -7,7 +7,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white">
+    <header className="sticky top-0 z-40 bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
       <nav className="mx-auto px-6 sm:px-8 lg:px-12" aria-label="Main navigation">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
