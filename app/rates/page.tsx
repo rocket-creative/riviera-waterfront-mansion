@@ -13,7 +13,7 @@ import Image from 'next/image';
 const ratesFAQs = [
   {
     question: 'How much does a wedding at Riviera Waterfront Mansion cost?',
-    answer: 'Wedding packages at Riviera start at $150 pp++ for 2027. Pricing varies by day of week and season. Thursday and Sunday weddings start at $150 pp++ with 150 guest minimum. Saturday weddings start at $216 pp++ with 250 guest minimum. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
+    answer: 'Wedding packages at Riviera start at $150 pp++ for 2027. Pricing varies by day of week and season. All wedding days require a minimum of 150 guests. Thursday and Sunday weddings start at $150 pp++, Friday at $180 pp++, and Saturday at $216 pp++. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
   },
   {
     question: 'What is included in a Riviera wedding package?',
@@ -132,7 +132,7 @@ export default function RatesPage() {
                   <div className="text-4xl font-light text-riviera-gold mb-4">$180 pp++</div>
                   <h3 className="text-xs tracking-widest text-riviera-text mb-3">FRIDAY</h3>
                   <p className="text-sm font-light text-riviera-text/70">
-                    200 guest minimum
+                    150 guest minimum
                   </p>
                 </div>
               </AnimatedSection>
@@ -142,7 +142,7 @@ export default function RatesPage() {
                   <div className="text-4xl font-light text-riviera-gold mb-4">$216 pp++</div>
                   <h3 className="text-xs tracking-widest text-riviera-text mb-3">SATURDAY</h3>
                   <p className="text-sm font-light text-riviera-text/70">
-                    250 guest minimum
+                    150 guest minimum
                   </p>
                 </div>
               </AnimatedSection>

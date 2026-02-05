@@ -19,7 +19,7 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rivierawaterfrontmansion.com'),
   title: 'Long Island Waterfront Wedding Venue | Riviera Waterfront Mansion Massapequa NY',
-  description: 'Premier Long Island waterfront wedding venue in Massapequa, NY. Historic mansion with stunning water views, elegant grand ballroom, indoor and outdoor ceremony options, and chef inspired Continental catering. Third generation family owned and operated since 1947. Accommodates up to 350 guests.',
+  description: 'Premier Long Island waterfront wedding venue in Massapequa, NY. Historic mansion with stunning water views, elegant grand ballroom, indoor and outdoor ceremony options, and chef inspired Continental catering. Third generation family owned and operated since 1947. Accommodates 150 to 350 guests.',
   keywords: 'Long Island wedding venue, Massapequa wedding venue, waterfront wedding venue NY, Long Island waterfront weddings, historic wedding venue, outdoor wedding ceremony Long Island, indoor wedding venue, wedding venues near me, Long Island wedding catering, elegant wedding venue NY, waterfront wedding reception, Massapequa NY weddings',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com'

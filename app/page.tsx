@@ -20,7 +20,7 @@ import { useFadeInUp, useStaggerChildren, useScrollTriggerCleanup } from './lib/
 const homepageFAQs = [
   {
     question: 'How many guests can Riviera Waterfront Mansion accommodate?',
-    answer: 'Our Long Island waterfront venue can accommodate up to 350 guests for your wedding celebration. We offer flexible seating arrangements in our grand ballroom to suit your specific needs.'
+    answer: 'Our Long Island waterfront venue can accommodate 150 to 350 guests for your wedding celebration. We require a minimum of 150 guests and offer flexible seating arrangements in our grand ballroom to suit your specific needs.'
   },
   {
     question: 'Do you host multiple weddings on the same day?',

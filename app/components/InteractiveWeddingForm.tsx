@@ -144,7 +144,7 @@ export default function InteractiveWeddingForm() {
             How many guests are you expecting?
           </h3>
           <p className="text-sm text-riviera-text/60 text-center mb-8 font-light">
-            Minimum 100 guests required
+            Minimum 150 guests required
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[

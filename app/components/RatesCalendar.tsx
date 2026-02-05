@@ -200,8 +200,8 @@ export default function RatesCalendar() {
       2: { rate: 150, minimum: 150 }, // Tuesday
       3: { rate: 150, minimum: 150 }, // Wednesday
       4: { rate: 150, minimum: 150 }, // Thursday
-      5: { rate: 180, minimum: 200 }, // Friday
-      6: { rate: 216, minimum: 250 }, // Saturday
+      5: { rate: 180, minimum: 150 }, // Friday
+      6: { rate: 216, minimum: 150 }, // Saturday
     };
 
     const pricing = baseRates[day.dayOfWeek];
