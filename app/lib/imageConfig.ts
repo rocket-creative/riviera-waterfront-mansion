@@ -19,7 +19,7 @@ export const imageConfig = {
     '/images/large/_2004282-sm-t.jpg',
     '/images/large/_24M0956-jb-25-P.jpg',
     '/images/large/_COL3623ca-p.jpg',
-    '/images/large/_DSC5029aa-port-2.jpg',
+    '/images/large/_DSC5114aa-port-2.jpg',
     '/images/large/_GS29387sc-p.jpg',
   ],
 

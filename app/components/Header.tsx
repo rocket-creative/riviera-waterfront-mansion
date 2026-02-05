@@ -3,8 +3,28 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const tourSections = [
+  { title: 'All Spaces', slug: '' },
+  { title: 'Entrance Lobby', slug: 'entrance-lobby' },
+  { title: 'Bridal Suite', slug: 'bridal-suite' },
+  { title: 'Indoor Ceremony', slug: 'indoor-ceremony' },
+  { title: 'Outdoor Ceremony', slug: 'outdoor-ceremony' },
+  { title: 'Indoor Cocktail', slug: 'indoor-cocktail' },
+  { title: 'Outdoor Cocktail', slug: 'outdoor-cocktail' },
+  { title: 'Grand Ballroom', slug: 'main-ballroom' },
+  { title: 'Bride & Groom Table', slug: 'sweetheart-table' },
+  { title: 'Guest Seating', slug: 'guest-seating' },
+  { title: 'Dancefloor', slug: 'dancefloor' },
+  { title: 'Entertainment', slug: 'entertainment' },
+  { title: 'Top Shelf Bar', slug: 'main-bar' },
+  { title: 'Balconies', slug: 'balconies' },
+  { title: 'Photo Locations', slug: 'photo-locations' },
+];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [tourDropdownOpen, setTourDropdownOpen] = useState(false);
+  const [mobileTourOpen, setMobileTourOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
@@ -28,12 +48,44 @@ export default function Header() {
             >
               HOME
             </Link>
-            <Link 
-              href="/tour"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+            
+            {/* Virtual Tour Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setTourDropdownOpen(true)}
+              onMouseLeave={() => setTourDropdownOpen(false)}
             >
-              VIRTUAL TOUR
-            </Link>
+              <button
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1"
+                aria-expanded={tourDropdownOpen}
+                aria-haspopup="true"
+              >
+                VIRTUAL TOUR
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-200 ${tourDropdownOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {tourDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl border border-riviera-neutral z-50">
+                  {tourSections.map((section) => (
+                    <Link
+                      key={section.slug}
+                      href={section.slug ? `/tour/${section.slug}` : '/tour'}
+                      className="block px-6 py-3 text-sm font-light tracking-wider text-riviera-text hover:bg-riviera-gold hover:text-white transition-colors focus:outline-none focus:bg-riviera-gold focus:text-white"
+                    >
+                      {section.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <Link 
               href="/menu"
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
@@ -83,13 +135,43 @@ export default function Header() {
               >
                 HOME
               </Link>
-              <Link 
-                href="/tour"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                VIRTUAL TOUR
-              </Link>
+              
+              {/* Mobile Virtual Tour Dropdown */}
+              <div>
+                <button
+                  onClick={() => setMobileTourOpen(!mobileTourOpen)}
+                  className="w-full text-left text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold flex items-center justify-between"
+                  aria-expanded={mobileTourOpen}
+                >
+                  VIRTUAL TOUR
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-200 ${mobileTourOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {mobileTourOpen && (
+                  <div className="mt-2 ml-4 flex flex-col gap-2 border-l-2 border-riviera-gold pl-4">
+                    {tourSections.map((section) => (
+                      <Link
+                        key={section.slug}
+                        href={section.slug ? `/tour/${section.slug}` : '/tour'}
+                        className="text-sm font-light tracking-wider text-riviera-text/80 hover:text-riviera-gold transition-colors py-1 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setMobileTourOpen(false);
+                        }}
+                      >
+                        {section.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <Link 
                 href="/menu"
                 className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
