@@ -167,7 +167,7 @@ export default function Home() {
         </section>
 
         {/* Interactive Wedding Planner Form */}
-        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
+        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-white">
           <AnimatedSection animation="fadeInUp" as="div">
             <InteractiveWeddingForm />
           </AnimatedSection>
@@ -309,11 +309,11 @@ export default function Home() {
           imageSrc={imageConfig.homepage.venue}
           imageAlt="Elegant Long Island wedding reception at Riviera Waterfront Mansion in Massapequa with stunning table settings and waterfront views"
           imagePosition="left"
-          background="white"
+          background="neutral"
         />
 
         {/* Venue Features - What You Get */}
-        <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-riviera-neutral">
+        <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">EVERYTHING YOU NEED FOR YOUR LONG ISLAND WEDDING</p>
