@@ -140,14 +140,34 @@ export default function InteractiveWeddingForm() {
       {step === 2 && (
         <div className="animate-fadeIn">
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            How many guests are you planning?
+            How many guests are you expecting?
           </h3>
-          <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { value: '50-100', label: '50 - 100', subtitle: 'Intimate' },
-              { value: '100-200', label: '100 - 200', subtitle: 'Medium' },
-              { value: '200-300', label: '200 - 300', subtitle: 'Large' },
-              { value: '300+', label: '300+', subtitle: 'Grand' },
+              { 
+                value: '50-100', 
+                emoji: '👫', 
+                label: 'Intimate (50-100)', 
+                subtitle: 'A cozy celebration with your closest loved ones' 
+              },
+              { 
+                value: '100-200', 
+                emoji: '👨‍👩‍👧‍👦', 
+                label: 'Medium (100-200)', 
+                subtitle: 'Room for family, friends, and colleagues' 
+              },
+              { 
+                value: '200-300', 
+                emoji: '🎉', 
+                label: 'Large (200-300)', 
+                subtitle: 'A grand celebration with everyone you love' 
+              },
+              { 
+                value: '300-350', 
+                emoji: '👑', 
+                label: 'Grand (300-350)', 
+                subtitle: 'Our full venue for your spectacular day' 
+              },
             ].map((option) => (
               <button
                 key={option.value}
@@ -155,12 +175,17 @@ export default function InteractiveWeddingForm() {
                   updateFormData('guestCount', option.value);
                   nextStep();
                 }}
-                className={`p-8 border-2 transition-all hover:border-riviera-gold hover:shadow-md ${
+                className={`p-6 border-2 transition-all hover:border-riviera-gold hover:shadow-md text-left ${
                   formData.guestCount === option.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
                 }`}
               >
-                <div className="font-light text-2xl text-riviera-text mb-2">{option.label}</div>
-                <div className="text-sm text-riviera-text/50">{option.subtitle}</div>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl flex-shrink-0">{option.emoji}</div>
+                  <div>
+                    <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
+                    <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
+                  </div>
+                </div>
               </button>
             ))}
           </div>
