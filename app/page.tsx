@@ -74,7 +74,7 @@ export default function Home() {
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   LONG ISLAND'S PREMIERE WATERFRONT WEDDING VENUE
                 </p>
-                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
+                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
                   YOUR DREAM
                   <span className="block text-riviera-gold">WEDDING</span>
                   <span className="block">DESERVES</span>

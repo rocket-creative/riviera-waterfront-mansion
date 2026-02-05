@@ -170,7 +170,7 @@ export default async function TourSectionPage({ params }: Props) {
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   VIRTUAL TOUR
                 </p>
-                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
+                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
                   {section.title}
                 </h1>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">

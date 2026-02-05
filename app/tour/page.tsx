@@ -96,7 +96,7 @@ export default function TourPage() {
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   EXPLORE OUR MASSAPEQUA WATERFRONT VENUE
                 </p>
-                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
+                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
                   VIRTUAL TOUR
                   <span className="block text-riviera-gold">OF RIVIERA</span>
                   <span className="block">WATERFRONT</span>
