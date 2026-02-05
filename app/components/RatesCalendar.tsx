@@ -1,0 +1,334 @@
+'use client';
+
+import { useState } from 'react';
+import { HoverScale } from './HoverScale';
+import Link from 'next/link';
+
+interface CalendarDay {
+  date: number;
+  month: number;
+  year: number;
+  dayOfWeek: number; // 0 = Sunday, 6 = Saturday
+  isBooked: boolean;
+  isBusySeason: boolean;
+}
+
+export default function RatesCalendar() {
+  const [currentMonth, setCurrentMonth] = useState(0); // 0 = January 2026
+  const [selectedDate, setSelectedDate] = useState<CalendarDay | null>(null);
+  const [guestCount, setGuestCount] = useState(150);
+
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const busyMonths = [4, 5, 6, 7, 8, 9, 10]; // May through November (0-indexed)
+
+  // Simulated booked dates (you would fetch this from your database)
+  const bookedDates = [
+    { month: 5, date: 20 }, // June 20
+    { month: 6, date: 4 },  // July 4
+    { month: 8, date: 6 },  // September 6
+    { month: 9, date: 11 }, // October 11
+  ];
+
+  const isDateBooked = (month: number, date: number) => {
+    return bookedDates.some(d => d.month === month && d.date === date);
+  };
+
+  const getDaysInMonth = (month: number, year: number) => {
+    return new Date(year, month + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (month: number, year: number) => {
+    return new Date(year, month, 1).getDay();
+  };
+
+  const generateCalendarDays = () => {
+    const year = 2026;
+    const daysInMonth = getDaysInMonth(currentMonth, year);
+    const firstDay = getFirstDayOfMonth(currentMonth, year);
+    const days: (CalendarDay | null)[] = [];
+
+    // Add empty cells for days before the first of the month
+    for (let i = 0; i < firstDay; i++) {
+      days.push(null);
+    }
+
+    // Add actual days
+    for (let date = 1; date <= daysInMonth; date++) {
+      const dayOfWeek = new Date(year, currentMonth, date).getDay();
+      days.push({
+        date,
+        month: currentMonth,
+        year,
+        dayOfWeek,
+        isBooked: isDateBooked(currentMonth, date),
+        isBusySeason: busyMonths.includes(currentMonth)
+      });
+    }
+
+    return days;
+  };
+
+  const getPricing = (day: CalendarDay | null) => {
+    if (!day) return null;
+
+    const baseRates: { [key: number]: { rate: number; minimum: number } } = {
+      0: { rate: 150, minimum: 150 }, // Sunday
+      1: { rate: 150, minimum: 150 }, // Monday
+      2: { rate: 150, minimum: 150 }, // Tuesday
+      3: { rate: 150, minimum: 150 }, // Wednesday
+      4: { rate: 150, minimum: 150 }, // Thursday
+      5: { rate: 180, minimum: 200 }, // Friday
+      6: { rate: 216, minimum: 250 }, // Saturday
+    };
+
+    const pricing = baseRates[day.dayOfWeek];
+    const rate = day.isBusySeason ? Math.round(pricing.rate * 1.2) : pricing.rate;
+
+    return {
+      rate,
+      minimum: pricing.minimum,
+      dayName: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day.dayOfWeek]
+    };
+  };
+
+  const calendarDays = generateCalendarDays();
+
+  const nextMonth = () => {
+    if (currentMonth < 11) setCurrentMonth(currentMonth + 1);
+  };
+
+  const prevMonth = () => {
+    if (currentMonth > 0) setCurrentMonth(currentMonth - 1);
+  };
+
+  return (
+    <div className="max-w-5xl mx-auto">
+      {/* Calendar Header */}
+      <div className="bg-white border-2 border-riviera-gold/20 p-6 mb-8">
+        <div className="flex items-center justify-between mb-6">
+          <button
+            onClick={prevMonth}
+            disabled={currentMonth === 0}
+            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            aria-label="Previous month"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <h3 className="font-cormorant text-3xl font-light text-riviera-text">
+            {months[currentMonth]} 2026
+          </h3>
+
+          <button
+            onClick={nextMonth}
+            disabled={currentMonth === 11}
+            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            aria-label="Next month"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {busyMonths.includes(currentMonth) && (
+          <div className="bg-riviera-gold/10 border border-riviera-gold/30 p-3 mb-6 text-center">
+            <p className="text-xs tracking-wider text-riviera-text">
+              <strong className="font-normal">BUSY SEASON MONTH</strong> - All rates include +20% seasonal adjustment
+            </p>
+          </div>
+        )}
+
+        {/* Day Headers */}
+        <div className="grid grid-cols-7 gap-2 mb-2">
+          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+            <div key={day} className="text-center text-xs tracking-wider text-riviera-text/60 font-light py-2">
+              {day}
+            </div>
+          ))}
+        </div>
+
+        {/* Calendar Grid */}
+        <div className="grid grid-cols-7 gap-2">
+          {calendarDays.map((day, index) => {
+            if (!day) {
+              return <div key={`empty-${index}`} className="aspect-square" />;
+            }
+
+            const pricing = getPricing(day);
+            const isSelected = selectedDate?.date === day.date && selectedDate?.month === day.month;
+
+            if (day.isBooked) {
+              return (
+                <div
+                  key={`${day.month}-${day.date}`}
+                  className="aspect-square border border-riviera-neutral/30 bg-riviera-neutral/20 flex items-center justify-center relative"
+                >
+                  <span className="text-sm font-light text-riviera-text/30 line-through">{day.date}</span>
+                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/30">BOOKED</span>
+                </div>
+              );
+            }
+
+            return (
+              <button
+                key={`${day.month}-${day.date}`}
+                onClick={() => setSelectedDate(day)}
+                className={`aspect-square border-2 transition-all hover:border-riviera-gold hover:shadow-md relative group ${
+                  isSelected ? 'border-riviera-gold bg-riviera-gold/10' : 'border-riviera-neutral/30 bg-white'
+                }`}
+              >
+                <div className="flex flex-col items-center justify-center h-full p-1">
+                  <span className={`text-sm md:text-base font-light ${isSelected ? 'text-riviera-gold' : 'text-riviera-text'}`}>
+                    {day.date}
+                  </span>
+                  {pricing && (
+                    <span className={`text-[9px] md:text-[10px] tracking-wider mt-1 ${isSelected ? 'text-riviera-gold' : 'text-riviera-text/50 group-hover:text-riviera-gold'}`}>
+                      ${pricing.rate}++
+                    </span>
+                  )}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Legend */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-xs">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 border-2 border-riviera-neutral/30 bg-white"></div>
+            <span className="font-light text-riviera-text/60">Available</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 border-2 border-riviera-gold bg-riviera-gold/10"></div>
+            <span className="font-light text-riviera-text/60">Selected</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 border border-riviera-neutral/30 bg-riviera-neutral/20"></div>
+            <span className="font-light text-riviera-text/60">Booked</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Selected Date Info */}
+      {selectedDate && (
+        <div className="bg-white border-2 border-riviera-gold/20 p-8 animate-fadeIn">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Date Details */}
+            <div>
+              <p className="text-riviera-gold text-xs tracking-widest mb-3">SELECTED DATE</p>
+              <h3 className="font-cormorant text-3xl font-light text-riviera-text mb-4">
+                {months[selectedDate.month]} {selectedDate.date}, 2026
+              </h3>
+              
+              {(() => {
+                const pricing = getPricing(selectedDate);
+                return pricing ? (
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
+                      <span className="text-sm font-light text-riviera-text/70">Day of Week</span>
+                      <span className="text-sm font-light text-riviera-text">{pricing.dayName}</span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
+                      <span className="text-sm font-light text-riviera-text/70">Rate Per Person</span>
+                      <span className="text-lg font-light text-riviera-gold">${pricing.rate}++</span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
+                      <span className="text-sm font-light text-riviera-text/70">Guest Minimum</span>
+                      <span className="text-sm font-light text-riviera-text">{pricing.minimum} guests</span>
+                    </div>
+                    {selectedDate.isBusySeason && (
+                      <div className="bg-riviera-gold/10 p-3 text-center">
+                        <p className="text-xs font-light text-riviera-text/70">
+                          Busy season rate (+20% applied)
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ) : null;
+              })()}
+            </div>
+
+            {/* Estimate Calculator */}
+            <div>
+              <p className="text-riviera-gold text-xs tracking-widest mb-3">ESTIMATE YOUR TOTAL</p>
+              <div className="mb-4">
+                <label className="block text-sm font-light text-riviera-text mb-2">
+                  Number of Guests
+                </label>
+                <input
+                  type="number"
+                  min={getPricing(selectedDate)?.minimum || 100}
+                  max={350}
+                  value={guestCount}
+                  onChange={(e) => setGuestCount(Number(e.target.value))}
+                  className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                />
+              </div>
+
+              {(() => {
+                const pricing = getPricing(selectedDate);
+                if (!pricing) return null;
+                
+                const estimatedTotal = pricing.rate * guestCount;
+                const meetsMinimum = guestCount >= pricing.minimum;
+
+                return (
+                  <div className="bg-riviera-neutral/20 p-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-sm font-light text-riviera-text/70">Estimated Starting Total</span>
+                      <span className="font-cormorant text-3xl font-light text-riviera-gold">
+                        ${estimatedTotal.toLocaleString()}++
+                      </span>
+                    </div>
+                    {!meetsMinimum && (
+                      <p className="text-xs text-red-600 mb-4">
+                        Minimum {pricing.minimum} guests required for {pricing.dayName}
+                      </p>
+                    )}
+                    <p className="text-xs font-light text-riviera-text/60 leading-relaxed">
+                      This is a starting estimate before tax and service. Your final proposal may differ based on menu, bar selections, and enhancements.
+                    </p>
+                  </div>
+                );
+              })()}
+
+              <div className="flex flex-col gap-3 mt-6">
+                <HoverScale effect="lift">
+                  <Link
+                    href="/contact"
+                    className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                  >
+                    REQUEST PROPOSAL →
+                  </Link>
+                </HoverScale>
+                <HoverScale effect="lift">
+                  <Link
+                    href="/contact"
+                    className="border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                  >
+                    SCHEDULE TOUR
+                  </Link>
+                </HoverScale>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!selectedDate && (
+        <div className="bg-riviera-neutral/20 border border-riviera-neutral/30 p-8 text-center">
+          <p className="text-sm font-light text-riviera-text/70">
+            Select a date from the calendar to see specific pricing and availability for that date
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}

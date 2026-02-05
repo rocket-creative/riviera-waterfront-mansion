@@ -93,6 +93,12 @@ export default function Header() {
               MENU
             </Link>
             <Link 
+              href="/rates"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+            >
+              RATES
+            </Link>
+            <Link 
               href="/vendors"
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
@@ -178,6 +184,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 MENU
+              </Link>
+              <Link 
+                href="/rates"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                RATES
               </Link>
               <Link 
                 href="/vendors"
