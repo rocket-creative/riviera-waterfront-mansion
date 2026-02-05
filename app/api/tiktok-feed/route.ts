@@ -9,7 +9,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_001',
     caption: 'POV: You\'re getting married at the most stunning waterfront venue on Long Island #RivieraWedding',
-    thumbnail_url: '/optimized/medium/_24m3717-sm-r 2.jpg',
+    thumbnail_url: '/images/medium/_0359671-by-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date().toISOString(),
@@ -18,7 +18,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_002',
     caption: 'Venue tour part 1: The Grand Entrance #wedding #weddingvenue #longisland',
-    thumbnail_url: '/optimized/medium/_0350469-by-d.jpg',
+    thumbnail_url: '/images/medium/_DSC3791kj-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 86400000).toISOString(),
@@ -27,7 +27,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_003',
     caption: 'When the golden hour hits different at your wedding #goldenhour #weddinggoals',
-    thumbnail_url: '/optimized/medium/_24m3871-sm-r 3.jpg',
+    thumbnail_url: '/images/medium/_0359672-by-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 172800000).toISOString(),
@@ -36,7 +36,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_004',
     caption: 'This is why couples choose waterfront weddings #waterfrontwedding #dreamwedding',
-    thumbnail_url: '/optimized/medium/l1020458-by-2nd.jpg',
+    thumbnail_url: '/images/medium/_DSC4647cb-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 259200000).toISOString(),
@@ -45,7 +45,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_005',
     caption: 'The bridal suite reveal everyone asks for #bridalsuite #weddingday',
-    thumbnail_url: '/optimized/medium/_1058675-by-d 7.jpg',
+    thumbnail_url: '/images/medium/_DSC6150aa-port-2.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 345600000).toISOString(),
@@ -54,7 +54,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_006',
     caption: 'Setting up for today\'s ceremony #weddingsetup #behindthescenes',
-    thumbnail_url: '/optimized/medium/_col4956-sm-2nd.jpg',
+    thumbnail_url: '/images/medium/_0359684-by-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 432000000).toISOString(),
@@ -63,7 +63,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_007',
     caption: 'That first dance energy #firstdance #weddingvibes #celebration',
-    thumbnail_url: '/optimized/medium/_2007713-jd-d 4.jpg',
+    thumbnail_url: '/images/medium/_50M1180-jj-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 518400000).toISOString(),
@@ -72,7 +72,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_008',
     caption: 'The venue transformation is INSANE. Day to night magic!',
-    thumbnail_url: '/optimized/medium/_col8940-jb-25-2nd 4.jpg',
+    thumbnail_url: '/images/medium/_DSC8864sa-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 604800000).toISOString(),
@@ -81,7 +81,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_009',
     caption: 'Cocktail hour hits different when you have THIS view #cocktailhour',
-    thumbnail_url: '/optimized/medium/_col9407-jb-25-2nd 3.jpg',
+    thumbnail_url: '/images/medium/_GS28903sc-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 691200000).toISOString(),
@@ -90,7 +90,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_010',
     caption: '75+ years of wedding perfection. Family owned since 1947 #longislandwedding',
-    thumbnail_url: '/optimized/medium/_col7435-tc-2nd.jpg',
+    thumbnail_url: '/images/medium/_COL3623ca-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 777600000).toISOString(),

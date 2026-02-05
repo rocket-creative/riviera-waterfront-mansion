@@ -9,70 +9,70 @@ const PLACEHOLDER_POSTS = [
   {
     id: 'inst_001',
     caption: 'Stunning waterfront ceremony at golden hour. Another perfect day at Riviera! #RivieraWedding #WaterfrontWedding #LongIslandWedding',
-    media_url: '/optimized/medium/_24m1474-jb-25-r 2.jpg',
+    media_url: '/images/medium/_0359652-by-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date().toISOString()
   },
   {
     id: 'inst_002',
     caption: 'The grand ballroom transformation is complete. Ready for tonight\'s celebration! #WeddingVenue #BallroomWedding #ElegantWedding',
-    media_url: '/optimized/medium/_1058351-jj-p 6.jpg',
+    media_url: '/images/medium/_DSC5114aa-port-2.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 86400000).toISOString()
   },
   {
     id: 'inst_003',
     caption: 'Our gorgeous bridal suite with those dreamy waterfront views. #BridalSuite #WeddingPrep #GettingReady',
-    media_url: '/optimized/medium/_1058554-jj-p 4.jpg',
+    media_url: '/images/medium/_DSC5139aa-port-2.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 172800000).toISOString()
   },
   {
     id: 'inst_004',
     caption: 'Cocktail hour perfection! Indoor and outdoor spaces flowing seamlessly #CocktailHour #WeddingReception #Celebrations',
-    media_url: '/optimized/medium/_24m6248-jd-p 6.jpg',
+    media_url: '/images/medium/_DSC4964cb-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 259200000).toISOString()
   },
   {
     id: 'inst_005',
     caption: 'That first dance moment. Magic happens here every weekend #FirstDance #WeddingReception #NewlyWeds',
-    media_url: '/optimized/medium/_50m1191-jj-p 4.jpg',
+    media_url: '/images/medium/_50M1318-jj-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 345600000).toISOString()
   },
   {
     id: 'inst_006',
     caption: 'Table settings on point. Every detail matters at Riviera #WeddingDecor #TableSettings #ReceptionDetails',
-    media_url: '/optimized/medium/_1058806-jj-p 4.jpg',
+    media_url: '/images/medium/_DSC8820sa-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 432000000).toISOString()
   },
   {
     id: 'inst_007',
     caption: 'The venue at dusk is absolutely magical. #NightWedding #VenueVibes #WaterfrontMagic',
-    media_url: '/optimized/medium/_col7437-tc-2nd 6.jpg',
+    media_url: '/images/medium/_DSC8849sa-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 518400000).toISOString()
   },
   {
     id: 'inst_008',
     caption: 'Behind the scenes: Our team setting up for today\'s ceremony #WeddingSetup #BehindTheScenes #EventPlanning',
-    media_url: '/optimized/medium/_0350379-by-c2 3.jpg',
+    media_url: '/images/medium/_0359665-by-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 604800000).toISOString()
   },
   {
     id: 'inst_009',
     caption: 'Outdoor ceremony with water views never gets old. #OutdoorWedding #CeremonyViews #DreamWedding',
-    media_url: '/optimized/medium/_24m3500-sm-p 6.jpg',
+    media_url: '/images/medium/_DSC4629cb-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 691200000).toISOString()
   },
   {
     id: 'inst_010',
     caption: 'Cheers to another beautiful celebration! #WeddingToast #Celebration #RivieraLove',
-    media_url: '/optimized/medium/_50m1460-jj-r 4.jpg',
+    media_url: '/images/medium/_50M1265-jj-p.jpg',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 777600000).toISOString()
   }
