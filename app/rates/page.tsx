@@ -13,7 +13,7 @@ import Image from 'next/image';
 const ratesFAQs = [
   {
     question: 'How much does a wedding at Riviera Waterfront Mansion cost?',
-    answer: 'Wedding packages at Riviera start at $150 per person for 2027. Pricing varies by day of week and season. Thursday and Sunday weddings start at $150 per person with 150 guest minimum. Saturday weddings start at $216 per person with 250 guest minimum. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
+    answer: 'Wedding packages at Riviera start at $150 pp++ for 2027. Pricing varies by day of week and season. Thursday and Sunday weddings start at $150 pp++ with 150 guest minimum. Saturday weddings start at $216 pp++ with 250 guest minimum. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
   },
   {
     question: 'What is included in a Riviera wedding package?',
@@ -112,14 +112,14 @@ export default function RatesPage() {
                 Simple, transparent pricing
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
-                Our 2027 rates are designed to be simple and predictable, based on per person pricing starting at $150++
+                Our 2027 rates are designed to be simple and predictable, based on per person pricing starting at $150 pp++
               </p>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               <AnimatedSection animation="fadeInUp" delay={0.1} as="div">
                 <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-5xl font-light text-riviera-gold mb-4">$150</div>
+                  <div className="text-4xl font-light text-riviera-gold mb-4">$150 pp++</div>
                   <h3 className="text-xs tracking-widest text-riviera-text mb-3">THURSDAY & SUNDAY</h3>
                   <p className="text-sm font-light text-riviera-text/70">
                     150 guest minimum
@@ -129,7 +129,7 @@ export default function RatesPage() {
 
               <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
                 <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-5xl font-light text-riviera-gold mb-4">$180</div>
+                  <div className="text-4xl font-light text-riviera-gold mb-4">$180 pp++</div>
                   <h3 className="text-xs tracking-widest text-riviera-text mb-3">FRIDAY</h3>
                   <p className="text-sm font-light text-riviera-text/70">
                     200 guest minimum
@@ -139,7 +139,7 @@ export default function RatesPage() {
 
               <AnimatedSection animation="fadeInUp" delay={0.3} as="div">
                 <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-5xl font-light text-riviera-gold mb-4">$216</div>
+                  <div className="text-4xl font-light text-riviera-gold mb-4">$216 pp++</div>
                   <h3 className="text-xs tracking-widest text-riviera-text mb-3">SATURDAY</h3>
                   <p className="text-sm font-light text-riviera-text/70">
                     250 guest minimum
@@ -161,7 +161,7 @@ export default function RatesPage() {
             <AnimatedSection animation="fadeInUp" delay={0.5} as="div">
               <div className="bg-riviera-gold/10 border border-riviera-gold/30 p-6 text-center">
                 <p className="text-sm font-light text-riviera-text/80 leading-relaxed">
-                  <strong className="font-normal text-riviera-text">Riviera Waterfront Mansion wedding packages start at $150 per person for 2027</strong>, with all inclusive pricing that covers ceremony, cocktail hour, reception, catering, and bar service. Pricing varies by day of week (Thursday through Sunday) and season, with busy months (May through November) reflecting a 20% increase. Payment plans and flexible deposits are available.
+                  <strong className="font-normal text-riviera-text">Riviera Waterfront Mansion wedding packages start at $150 pp++ for 2027</strong>, with all inclusive pricing that covers ceremony, cocktail hour, reception, catering, and bar service. Pricing varies by day of week (Thursday through Sunday) and season, with busy months (May through November) reflecting a 20% increase. Payment plans and flexible deposits are available.
                 </p>
               </div>
             </AnimatedSection>

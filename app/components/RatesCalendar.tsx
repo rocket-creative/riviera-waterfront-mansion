@@ -309,7 +309,7 @@ export default function RatesCalendar() {
                   </span>
                   {pricing && (
                     <span className={`text-[9px] md:text-[10px] tracking-wider mt-1 ${isSelected ? 'text-riviera-gold' : 'text-riviera-text/50 group-hover:text-riviera-gold'}`}>
-                      ${pricing.rate}++
+                      ${pricing.rate} pp++
                     </span>
                   )}
                 </div>
@@ -356,7 +356,7 @@ export default function RatesCalendar() {
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
                       <span className="text-sm font-light text-riviera-text/70">Rate Per Person</span>
-                      <span className="text-lg font-light text-riviera-gold">${pricing.rate}++</span>
+                      <span className="text-lg font-light text-riviera-gold">${pricing.rate} pp++</span>
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
                       <span className="text-sm font-light text-riviera-text/70">Guest Minimum</span>
