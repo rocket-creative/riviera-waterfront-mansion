@@ -74,11 +74,11 @@ export default function ContactPage() {
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Schedule a private tour, check wedding date availability, or request information about our Massapequa waterfront venue. Limited dates available for 2026 and 2027.
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
                     <a 
                       href="#inquiry-form"
-                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block"
+                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block w-full"
                     >
                       INQUIRE NOW →
                     </a>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   <HoverScale effect="lift">
                     <a 
                       href="tel:+15165415020"
-                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block whitespace-nowrap"
+                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block w-full whitespace-nowrap"
                     >
                       CALL (516) 541 5020
                     </a>

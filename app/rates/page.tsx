@@ -67,11 +67,11 @@ export default function RatesPage() {
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Transparent, date based pricing for your Riviera wedding. We know that clear, upfront pricing makes planning easier.
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
                     <Link 
                       href="/contact"
-                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
+                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
                     >
                       CHECK MY DATE →
                     </Link>
@@ -79,7 +79,7 @@ export default function RatesPage() {
                   <HoverScale effect="lift">
                     <a 
                       href="tel:+15165415020"
-                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block whitespace-nowrap"
+                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full whitespace-nowrap"
                     >
                       CALL (516) 541 5020
                     </a>

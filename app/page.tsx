@@ -89,11 +89,11 @@ export default function Home() {
                   <HeroInquiryForm />
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
                     <Link 
                       href="/contact"
-                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
+                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
                     >
                       BOOK A TOUR →
                     </Link>
@@ -101,7 +101,7 @@ export default function Home() {
                   <HoverScale effect="lift">
                     <Link 
                       href="/tour"
-                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
+                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
                     >
                       VIRTUAL TOUR
                     </Link>
