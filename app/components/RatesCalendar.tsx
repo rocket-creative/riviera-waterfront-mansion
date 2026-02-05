@@ -443,7 +443,7 @@ export default function RatesCalendar() {
                 <HoverScale effect="lift">
                   <Link
                     href="/contact"
-                    className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block w-full focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
                   >
                     REQUEST PROPOSAL →
                   </Link>
@@ -451,7 +451,7 @@ export default function RatesCalendar() {
                 <HoverScale effect="lift">
                   <Link
                     href="/contact"
-                    className="border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block w-full focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
                   >
                     SCHEDULE TOUR
                   </Link>

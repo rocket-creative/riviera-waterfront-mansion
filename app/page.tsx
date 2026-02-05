@@ -189,13 +189,13 @@ export default function Home() {
 
           <GoogleReviews />
 
-          <AnimatedSection animation="fadeInUp" delay={0.2} className="text-center mt-12" as="div">
+          <AnimatedSection animation="fadeInUp" delay={0.2} className="text-center mt-12 max-w-md mx-auto" as="div">
             <HoverScale effect="lift">
               <a
                 href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-text"
+                className="border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-text text-center block w-full"
               >
                 READ ALL REVIEWS ON GOOGLE →
               </a>
@@ -511,11 +511,11 @@ export default function Home() {
               </div>
             </div>
 
-            <AnimatedSection animation="fadeInUp" delay={0.3} className="text-center" as="div">
+            <AnimatedSection animation="fadeInUp" delay={0.3} className="text-center max-w-md mx-auto" as="div">
               <HoverScale effect="lift">
                 <Link 
                   href="/tour"
-                  className="inline-block bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                  className="bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
                 >
                   EXPLORE ALL FEATURES →
                 </Link>

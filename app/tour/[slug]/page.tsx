@@ -179,7 +179,7 @@ export default async function TourSectionPage({ params }: Props) {
                 <HoverScale effect="lift">
                   <a 
                     href="#photo-gallery"
-                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block max-w-md w-full"
                   >
                     VIEW PHOTOS →
                   </a>

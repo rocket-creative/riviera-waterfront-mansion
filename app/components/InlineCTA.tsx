@@ -46,7 +46,7 @@ export default function InlineCTA({
             <HoverScale effect="lift">
               <Link
                 href={buttonHref}
-                className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block max-w-md w-full"
               >
                 {buttonText}
               </Link>

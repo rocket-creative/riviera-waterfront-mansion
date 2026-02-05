@@ -89,7 +89,7 @@ export default function MenuPage() {
                 <HoverScale effect="lift">
                   <a 
                     href="#menu-content"
-                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block max-w-md w-full"
                   >
                     EXPLORE MENU →
                   </a>

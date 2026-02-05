@@ -168,7 +168,7 @@ export default function ContactPage() {
                   <HoverScale effect="lift">
                     <a 
                       href="#inquiry-form"
-                      className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors"
+                      className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center block w-full"
                     >
                       WEDDING INQUIRY →
                     </a>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   <HoverScale effect="lift">
                     <a 
                       href="#inquiry-form"
-                      className="inline-block bg-white border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all"
+                      className="bg-white border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center block w-full"
                     >
                       GENERAL INQUIRY →
                     </a>
@@ -269,10 +269,10 @@ export default function ContactPage() {
                       Get detailed information about our Massapequa waterfront venue, Long Island wedding packages, menu options, and comprehensive pricing
                     </p>
                     <HoverScale effect="lift">
-                      <a
+                      <a 
                         href="/brochure.pdf"
                         download
-                        className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors"
+                        className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center block w-full"
                       >
                         DOWNLOAD PDF →
                       </a>
@@ -340,7 +340,7 @@ export default function ContactPage() {
                     href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block max-w-md mx-auto"
                   >
                     GET DIRECTIONS →
                   </a>
