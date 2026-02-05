@@ -89,7 +89,7 @@ export default function Home() {
                   <HeroInquiryForm />
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <HoverScale effect="lift">
                     <Link 
                       href="/contact"
@@ -235,16 +235,16 @@ export default function Home() {
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-8">
                   Our service and your wedding experience are second to none. Warm welcomes, constant smiles, exceptional service, and delicious Continental cuisine elevate your day to dream wedding status. Our dedicated team ensures every detail of your Massapequa waterfront wedding is flawlessly executed.
                 </p>
-                <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex flex-col gap-4 max-w-md">
                   <Link 
                     href="/contact"
-                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
                   >
                     DOWNLOAD BROCHURE →
                   </Link>
                   <a 
                     href="tel:+15165415020"
-                    className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center whitespace-nowrap"
+                    className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block whitespace-nowrap"
                   >
                     CALL (516) 541 5020
                   </a>

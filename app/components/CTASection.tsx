@@ -80,7 +80,7 @@ export default function CTASection({
             {description}
           </p>
         )}
-        <div className="flex flex-col md:flex-row gap-4 justify-center">
+        <div className="flex flex-col gap-4 justify-center max-w-md mx-auto">
           {buttons.map((button, index) => {
             const colorScheme = isDark ? intentColorsDark[button.intent] : intentColors[button.intent];
             

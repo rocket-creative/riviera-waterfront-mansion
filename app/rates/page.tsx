@@ -67,7 +67,7 @@ export default function RatesPage() {
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Transparent, date based pricing for your Riviera wedding. We know that clear, upfront pricing makes planning easier.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <HoverScale effect="lift">
                     <Link 
                       href="/contact"
