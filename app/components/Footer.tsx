@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CookieSettings from './CookieSettings';
 
 export default function Footer() {
   return (
@@ -116,11 +117,21 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/20 text-center">
-          <p className="text-sm font-light opacity-75">
+        <div className="mt-12 pt-8 border-t border-white/20">
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <Link 
+              href="/privacy" 
+              className="text-sm font-light opacity-75 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-sm font-light opacity-50">•</span>
+            <CookieSettings />
+          </div>
+          <p className="text-sm font-light opacity-75 text-center">
             © 2026 Riviera Waterfront Mansion. All Rights Reserved.
           </p>
-          <p className="text-xs font-light opacity-60 mt-2">
+          <p className="text-xs font-light opacity-60 mt-2 text-center">
             Third generation family owned Long Island waterfront wedding venue since 1947 in Massapequa, NY
           </p>
         </div>

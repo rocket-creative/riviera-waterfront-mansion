@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Lato } from 'next/font/google';
 import './globals.css';
+import CookieConsent from './components/CookieConsent';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -86,6 +87,9 @@ export default function RootLayout({
             {children}
           </div>
         </div>
+
+        {/* Cookie consent banner */}
+        <CookieConsent />
       </body>
     </html>
   );
