@@ -194,10 +194,13 @@ export default function RatesCalendar() {
   const getPricing = (day: CalendarDay | null) => {
     if (!day) return null;
 
+    // Monday and Tuesday are not available for booking
+    if (day.dayOfWeek === 1 || day.dayOfWeek === 2) {
+      return null;
+    }
+
     const baseRates: { [key: number]: { rate: number; minimum: number } } = {
       0: { rate: 150, minimum: 150 }, // Sunday
-      1: { rate: 150, minimum: 150 }, // Monday
-      2: { rate: 150, minimum: 150 }, // Tuesday
       3: { rate: 150, minimum: 150 }, // Wednesday
       4: { rate: 150, minimum: 150 }, // Thursday
       5: { rate: 180, minimum: 150 }, // Friday
@@ -205,6 +208,8 @@ export default function RatesCalendar() {
     };
 
     const pricing = baseRates[day.dayOfWeek];
+    if (!pricing) return null;
+
     const rate = day.isBusySeason ? Math.round(pricing.rate * 1.2) : pricing.rate;
 
     return {
@@ -283,6 +288,19 @@ export default function RatesCalendar() {
             const pricing = getPricing(day);
             const isSelected = selectedDate?.date === day.date && selectedDate?.month === day.month;
 
+            // Monday and Tuesday - Not Available
+            if (day.dayOfWeek === 1 || day.dayOfWeek === 2) {
+              return (
+                <div
+                  key={`${day.month}-${day.date}`}
+                  className="aspect-square border border-riviera-neutral/30 bg-riviera-neutral/20 flex items-center justify-center relative"
+                >
+                  <span className="text-sm font-light text-riviera-text/30 line-through">{day.date}</span>
+                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/30">N/A</span>
+                </div>
+              );
+            }
+
             if (day.isBooked) {
               return (
                 <div
@@ -309,7 +327,7 @@ export default function RatesCalendar() {
                   </span>
                   {pricing && (
                     <span className={`text-[9px] md:text-[10px] tracking-wider mt-1 ${isSelected ? 'text-riviera-gold' : 'text-riviera-text/50 group-hover:text-riviera-gold'}`}>
-                      ${pricing.rate} pp++
+                      ${pricing.rate} pp<sup>++</sup>
                     </span>
                   )}
                 </div>
@@ -330,9 +348,12 @@ export default function RatesCalendar() {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 border border-riviera-neutral/30 bg-riviera-neutral/20"></div>
-            <span className="font-light text-riviera-text/60">Booked</span>
+            <span className="font-light text-riviera-text/60">Booked / N/A</span>
           </div>
         </div>
+        <p className="text-xs text-center mt-4 font-light text-riviera-text/60">
+          Monday and Tuesday are not available for booking
+        </p>
       </div>
 
       {/* Selected Date Info */}
@@ -356,7 +377,7 @@ export default function RatesCalendar() {
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
                       <span className="text-sm font-light text-riviera-text/70">Rate Per Person</span>
-                      <span className="text-lg font-light text-riviera-gold">${pricing.rate} pp++</span>
+                      <span className="text-lg font-light text-riviera-gold">${pricing.rate} pp<sup>++</sup></span>
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-riviera-neutral/30">
                       <span className="text-sm font-light text-riviera-text/70">Guest Minimum</span>
@@ -403,7 +424,7 @@ export default function RatesCalendar() {
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-sm font-light text-riviera-text/70">Estimated Starting Total</span>
                       <span className="font-cormorant text-3xl font-light text-riviera-gold">
-                        ${estimatedTotal.toLocaleString()}++
+                        ${estimatedTotal.toLocaleString()}<sup>++</sup>
                       </span>
                     </div>
                     {!meetsMinimum && (

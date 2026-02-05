@@ -51,12 +51,12 @@ export default function Header() {
             
             {/* Virtual Tour Dropdown */}
             <div 
-              className="relative"
+              className="relative py-2 -my-2"
               onMouseEnter={() => setTourDropdownOpen(true)}
               onMouseLeave={() => setTourDropdownOpen(false)}
             >
               <button
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1 pb-2"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1"
                 aria-expanded={tourDropdownOpen}
                 aria-haspopup="true"
               >
