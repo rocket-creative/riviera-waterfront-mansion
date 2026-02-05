@@ -56,7 +56,7 @@ export default function Header() {
               onMouseLeave={() => setTourDropdownOpen(false)}
             >
               <button
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1 pb-2"
                 aria-expanded={tourDropdownOpen}
                 aria-haspopup="true"
               >
@@ -72,7 +72,7 @@ export default function Header() {
               </button>
               
               {tourDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl border border-riviera-neutral z-50">
+                <div className="absolute top-full left-0 w-56 bg-white shadow-xl border border-riviera-neutral z-50">
                   {tourSections.map((section) => (
                     <Link
                       key={section.slug}

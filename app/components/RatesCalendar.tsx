@@ -25,12 +25,131 @@ export default function RatesCalendar() {
 
   const busyMonths = [4, 5, 6, 7, 8, 9, 10]; // May through November (0-indexed)
 
-  // Simulated booked dates (you would fetch this from your database)
+  // Simulated booked dates - heavy on Thursdays and Sundays (typical budget days)
   const bookedDates = [
-    { month: 5, date: 20 }, // June 20
-    { month: 6, date: 4 },  // July 4
-    { month: 8, date: 6 },  // September 6
-    { month: 9, date: 11 }, // October 11
+    // January
+    { month: 0, date: 3 },  // Sunday
+    { month: 0, date: 17 }, // Sunday
+    { month: 0, date: 22 }, // Thursday
+    { month: 0, date: 29 }, // Thursday
+    // February
+    { month: 1, date: 7 },  // Sunday
+    { month: 1, date: 11 }, // Thursday
+    { month: 1, date: 14 }, // Sunday (Valentine's)
+    { month: 1, date: 21 }, // Sunday
+    // March
+    { month: 2, date: 7 },  // Sunday
+    { month: 2, date: 14 }, // Sunday
+    { month: 2, date: 18 }, // Thursday
+    { month: 2, date: 25 }, // Thursday
+    { month: 2, date: 28 }, // Sunday
+    // April
+    { month: 3, date: 4 },  // Sunday
+    { month: 3, date: 10 }, // Saturday
+    { month: 3, date: 15 }, // Thursday
+    { month: 3, date: 18 }, // Sunday
+    { month: 3, date: 24 }, // Saturday
+    { month: 3, date: 29 }, // Thursday
+    // May (Busy Season)
+    { month: 4, date: 1 },  // Saturday
+    { month: 4, date: 2 },  // Sunday
+    { month: 4, date: 8 },  // Saturday
+    { month: 4, date: 9 },  // Sunday
+    { month: 4, date: 13 }, // Thursday
+    { month: 4, date: 15 }, // Saturday
+    { month: 4, date: 16 }, // Sunday
+    { month: 4, date: 20 }, // Thursday
+    { month: 4, date: 22 }, // Saturday
+    { month: 4, date: 23 }, // Sunday
+    { month: 4, date: 27 }, // Thursday
+    { month: 4, date: 29 }, // Saturday
+    { month: 4, date: 30 }, // Sunday
+    // June (Busy Season)
+    { month: 5, date: 3 },  // Thursday
+    { month: 5, date: 5 },  // Saturday
+    { month: 5, date: 6 },  // Sunday
+    { month: 5, date: 10 }, // Thursday
+    { month: 5, date: 12 }, // Saturday
+    { month: 5, date: 13 }, // Sunday
+    { month: 5, date: 17 }, // Thursday
+    { month: 5, date: 19 }, // Saturday
+    { month: 5, date: 20 }, // Sunday
+    { month: 5, date: 24 }, // Thursday
+    { month: 5, date: 26 }, // Saturday
+    { month: 5, date: 27 }, // Sunday
+    // July (Busy Season)
+    { month: 6, date: 1 },  // Thursday
+    { month: 6, date: 3 },  // Saturday
+    { month: 6, date: 4 },  // Sunday (July 4th)
+    { month: 6, date: 8 },  // Thursday
+    { month: 6, date: 10 }, // Saturday
+    { month: 6, date: 11 }, // Sunday
+    { month: 6, date: 15 }, // Thursday
+    { month: 6, date: 17 }, // Saturday
+    { month: 6, date: 18 }, // Sunday
+    { month: 6, date: 24 }, // Saturday
+    { month: 6, date: 25 }, // Sunday
+    { month: 6, date: 29 }, // Thursday
+    { month: 6, date: 31 }, // Saturday
+    // August (Busy Season)
+    { month: 7, date: 1 },  // Sunday
+    { month: 7, date: 5 },  // Thursday
+    { month: 7, date: 7 },  // Saturday
+    { month: 7, date: 8 },  // Sunday
+    { month: 7, date: 12 }, // Thursday
+    { month: 7, date: 14 }, // Saturday
+    { month: 7, date: 15 }, // Sunday
+    { month: 7, date: 19 }, // Thursday
+    { month: 7, date: 21 }, // Saturday
+    { month: 7, date: 22 }, // Sunday
+    { month: 7, date: 26 }, // Thursday
+    { month: 7, date: 28 }, // Saturday
+    { month: 7, date: 29 }, // Sunday
+    // September (Busy Season)
+    { month: 8, date: 2 },  // Thursday
+    { month: 8, date: 4 },  // Saturday
+    { month: 8, date: 5 },  // Sunday (Labor Day)
+    { month: 8, date: 9 },  // Thursday
+    { month: 8, date: 11 }, // Saturday
+    { month: 8, date: 12 }, // Sunday
+    { month: 8, date: 16 }, // Thursday
+    { month: 8, date: 18 }, // Saturday
+    { month: 8, date: 19 }, // Sunday
+    { month: 8, date: 23 }, // Thursday
+    { month: 8, date: 25 }, // Saturday
+    { month: 8, date: 26 }, // Sunday
+    { month: 8, date: 30 }, // Thursday
+    // October (Busy Season)
+    { month: 9, date: 2 },  // Saturday
+    { month: 9, date: 3 },  // Sunday
+    { month: 9, date: 7 },  // Thursday
+    { month: 9, date: 9 },  // Saturday
+    { month: 9, date: 10 }, // Sunday
+    { month: 9, date: 14 }, // Thursday
+    { month: 9, date: 16 }, // Saturday
+    { month: 9, date: 17 }, // Sunday
+    { month: 9, date: 21 }, // Thursday
+    { month: 9, date: 23 }, // Saturday
+    { month: 9, date: 24 }, // Sunday
+    { month: 9, date: 28 }, // Thursday
+    { month: 9, date: 30 }, // Saturday
+    { month: 9, date: 31 }, // Sunday
+    // November (Busy Season)
+    { month: 10, date: 4 },  // Thursday
+    { month: 10, date: 6 },  // Saturday
+    { month: 10, date: 7 },  // Sunday
+    { month: 10, date: 11 }, // Thursday
+    { month: 10, date: 13 }, // Saturday
+    { month: 10, date: 14 }, // Sunday
+    { month: 10, date: 20 }, // Saturday
+    { month: 10, date: 25 }, // Thursday (Thanksgiving)
+    { month: 10, date: 27 }, // Saturday
+    { month: 10, date: 28 }, // Sunday
+    // December
+    { month: 11, date: 4 },  // Saturday
+    { month: 11, date: 11 }, // Saturday
+    { month: 11, date: 18 }, // Saturday
+    { month: 11, date: 31 }, // Friday (New Year's Eve)
   ];
 
   const isDateBooked = (month: number, date: number) => {
@@ -46,7 +165,7 @@ export default function RatesCalendar() {
   };
 
   const generateCalendarDays = () => {
-    const year = 2026;
+    const year = 2027;
     const daysInMonth = getDaysInMonth(currentMonth, year);
     const firstDay = getFirstDayOfMonth(currentMonth, year);
     const days: (CalendarDay | null)[] = [];
@@ -122,7 +241,7 @@ export default function RatesCalendar() {
           </button>
 
           <h3 className="font-cormorant text-3xl font-light text-riviera-text">
-            {months[currentMonth]} 2026
+            {months[currentMonth]} 2027
           </h3>
 
           <button
@@ -224,7 +343,7 @@ export default function RatesCalendar() {
             <div>
               <p className="text-riviera-gold text-xs tracking-widest mb-3">SELECTED DATE</p>
               <h3 className="font-cormorant text-3xl font-light text-riviera-text mb-4">
-                {months[selectedDate.month]} {selectedDate.date}, 2026
+                {months[selectedDate.month]} {selectedDate.date}, 2027
               </h3>
               
               {(() => {

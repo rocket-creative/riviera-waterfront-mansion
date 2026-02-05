@@ -8,11 +8,12 @@ import RatesCalendar from '../components/RatesCalendar';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ratesFAQs = [
   {
     question: 'How much does a wedding at Riviera Waterfront Mansion cost?',
-    answer: 'Wedding packages at Riviera start at $150 per person for 2026. Pricing varies by day of week and season. Thursday and Sunday weddings start at $150 per person with 150 guest minimum. Saturday weddings start at $216 per person with 250 guest minimum. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
+    answer: 'Wedding packages at Riviera start at $150 per person for 2027. Pricing varies by day of week and season. Thursday and Sunday weddings start at $150 per person with 150 guest minimum. Saturday weddings start at $216 per person with 250 guest minimum. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
   },
   {
     question: 'What is included in a Riviera wedding package?',
@@ -57,10 +58,10 @@ export default function RatesPage() {
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
               <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
-                  2026 AVAILABILITY
+                  2027 AVAILABILITY
                 </p>
                 <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
-                  2026 Rates &
+                  2027 Rates &
                   <span className="block text-riviera-gold">Availability</span>
                 </h1>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
@@ -88,13 +89,16 @@ export default function RatesPage() {
             </div>
 
             {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden bg-riviera-neutral">
-              <div className="absolute inset-0 bg-gradient-to-br from-riviera-gold/20 to-riviera-text/40 flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <div className="text-8xl md:text-9xl font-light opacity-90 mb-4">2026</div>
-                  <p className="text-xl md:text-2xl font-light tracking-widest">BOOK YOUR DATE</p>
-                </div>
-              </div>
+            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden">
+              <Image
+                src="/images/large/_DSC5114aa-port-2.jpg"
+                alt="Elegant wedding reception at Riviera Waterfront Mansion grand ballroom in Massapequa, Long Island"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                quality={90}
+              />
             </div>
           </div>
         </section>
@@ -108,7 +112,7 @@ export default function RatesPage() {
                 Simple, transparent pricing
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
-                Our 2026 rates are designed to be simple and predictable, based on per person pricing starting at $150++
+                Our 2027 rates are designed to be simple and predictable, based on per person pricing starting at $150++
               </p>
             </AnimatedSection>
 
@@ -157,7 +161,7 @@ export default function RatesPage() {
             <AnimatedSection animation="fadeInUp" delay={0.5} as="div">
               <div className="bg-riviera-gold/10 border border-riviera-gold/30 p-6 text-center">
                 <p className="text-sm font-light text-riviera-text/80 leading-relaxed">
-                  <strong className="font-normal text-riviera-text">Riviera Waterfront Mansion wedding packages start at $150 per person for 2026</strong>, with all inclusive pricing that covers ceremony, cocktail hour, reception, catering, and bar service. Pricing varies by day of week (Thursday through Sunday) and season, with busy months (May through November) reflecting a 20% increase. Payment plans and flexible deposits are available.
+                  <strong className="font-normal text-riviera-text">Riviera Waterfront Mansion wedding packages start at $150 per person for 2027</strong>, with all inclusive pricing that covers ceremony, cocktail hour, reception, catering, and bar service. Pricing varies by day of week (Thursday through Sunday) and season, with busy months (May through November) reflecting a 20% increase. Payment plans and flexible deposits are available.
                 </p>
               </div>
             </AnimatedSection>
@@ -168,9 +172,9 @@ export default function RatesPage() {
         <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-white">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">2026 CALENDAR</p>
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">2027 CALENDAR</p>
               <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                Explore 2026 dates & starting rates
+                Explore 2027 dates & starting rates
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
                 Click any available date to see the starting per person rate, the guest minimum for that day, and an estimated total based on your guest count
@@ -289,9 +293,9 @@ export default function RatesPage() {
 
         {/* Final CTA */}
         <CTASection
-          eyebrow="READY TO RESERVE YOUR 2026 DATE?"
+          eyebrow="READY TO RESERVE YOUR 2027 DATE?"
           headline="Let's plan your dream Massapequa waterfront wedding"
-          description="Schedule a personal tour of our historic Riviera Waterfront Mansion and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available for 2026. Call now or submit an inquiry to check your date."
+          description="Schedule a personal tour of our historic Riviera Waterfront Mansion and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available for 2027. Call now or submit an inquiry to check your date."
           background="dark"
           buttons={[
             {
