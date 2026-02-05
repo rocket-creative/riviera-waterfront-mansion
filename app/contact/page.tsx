@@ -309,16 +309,30 @@ export default function ContactPage() {
         </section>
 
         {/* Map Section */}
-        <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-white">
+        <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-riviera-neutral">
+          {/* Google Maps Embed */}
           <div className="absolute inset-0">
-            {/* In production, embed Google Maps iframe here */}
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-riviera-gold text-sm tracking-widest mb-3">OUR LOCATION</p>
-                <h3 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.8995934891676!2d-73.47327!3d40.664396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e9de0a9d7d7d7d%3A0x7d7d7d7d7d7d7d7d!2sRiviera%20Waterfront%20Mansion!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(100%) contrast(90%)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Riviera Waterfront Mansion Location Map"
+            />
+          </div>
+          
+          {/* Overlay Content */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-white/40 flex items-center justify-center">
+            <div className="text-center px-6 max-w-2xl">
+              <AnimatedSection animation="fadeInUp" as="div">
+                <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-4 font-light">OUR LOCATION</p>
+                <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
                   200 E Shore Dr, Massapequa, NY 11758
                 </h3>
-                <p className="text-sm font-light text-riviera-text/70 mb-6">
+                <p className="text-sm md:text-base font-light text-riviera-text/70 mb-8 leading-relaxed">
                   Conveniently located on Long Island, easy to reach from anywhere in the tri-state area
                 </p>
                 <HoverScale effect="lift">
@@ -326,12 +340,12 @@ export default function ContactPage() {
                     href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors"
+                    className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
                   >
                     GET DIRECTIONS →
                   </a>
                 </HoverScale>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
