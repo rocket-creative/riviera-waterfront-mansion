@@ -7,7 +7,7 @@ import { submitInquiryForm } from '../actions/inquiry';
 interface FormData {
   season?: string;
   guestCount?: string;
-  dayOfWeek?: string;
+  ceremonyVision?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -20,7 +20,7 @@ export default function InteractiveWeddingForm() {
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<{ success: boolean; message?: string } | null>(null);
 
-  const totalSteps = 5;
+  const totalSteps = 4;
 
   const updateFormData = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -34,7 +34,8 @@ export default function InteractiveWeddingForm() {
     if (step > 1) setStep(step - 1);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const submissionData = new FormData();
     submissionData.append('name', formData.name || '');
     submissionData.append('email', formData.email || '');
@@ -42,9 +43,9 @@ export default function InteractiveWeddingForm() {
     submissionData.append('weddingDate', formData.weddingDate || '');
     submissionData.append('guestCount', formData.guestCount || '');
     submissionData.append('desiredSeason', formData.season || '');
-    submissionData.append('dayOfWeek', formData.dayOfWeek || '');
-    submissionData.append('ceremonyLocation', 'On Site');
-    submissionData.append('message', 'Interactive form submission');
+    submissionData.append('dayOfWeek', 'Flexible');
+    submissionData.append('ceremonyLocation', formData.ceremonyVision || 'On Site');
+    submissionData.append('message', `Interactive form: Season ${formData.season}, Guests ${formData.guestCount}, Ceremony ${formData.ceremonyVision}`);
 
     startTransition(async () => {
       const response = await submitInquiryForm(submissionData);
@@ -192,51 +193,97 @@ export default function InteractiveWeddingForm() {
         </div>
       )}
 
-      {/* Step 3: Day of Week */}
+      {/* Step 3: Ceremony Vision */}
       {step === 3 && (
         <div className="animate-fadeIn">
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            What day of the week works best?
+            What&apos;s your ceremony vision?
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
             {[
-              { value: 'Friday', label: 'Friday' },
-              { value: 'Saturday', label: 'Saturday' },
-              { value: 'Sunday', label: 'Sunday' },
-              { value: 'Thursday', label: 'Thursday' },
-              { value: 'Wednesday', label: 'Wednesday' },
-              { value: 'Flexible', label: 'Flexible' },
+              { 
+                value: 'Outdoor Waterfront', 
+                emoji: '🌊', 
+                label: 'Outdoor Waterfront', 
+                subtitle: 'Exchange vows at our stunning gazebo overlooking the water' 
+              },
+              { 
+                value: 'Indoor Elegance', 
+                emoji: '✨', 
+                label: 'Indoor Elegance', 
+                subtitle: 'Say "I do" in our elegant indoor space with water views' 
+              },
+              { 
+                value: 'Still Deciding', 
+                emoji: '🤔', 
+                label: 'Still Deciding', 
+                subtitle: 'I\'d love to see both options during my tour' 
+              },
             ].map((option) => (
               <button
                 key={option.value}
                 onClick={() => {
-                  updateFormData('dayOfWeek', option.value);
+                  updateFormData('ceremonyVision', option.value);
                   nextStep();
                 }}
-                className={`p-6 border-2 transition-all hover:border-riviera-gold hover:shadow-md ${
-                  formData.dayOfWeek === option.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
+                className={`p-6 border-2 transition-all hover:border-riviera-gold hover:shadow-md text-left ${
+                  formData.ceremonyVision === option.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
                 }`}
               >
-                <div className="font-light text-lg text-riviera-text">{option.label}</div>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl flex-shrink-0">{option.emoji}</div>
+                  <div>
+                    <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
+                    <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
+                  </div>
+                </div>
               </button>
             ))}
           </div>
         </div>
       )}
 
-      {/* Step 4: Contact Info */}
+      {/* Step 4: Contact Info & Submit */}
       {step === 4 && (
         <div className="animate-fadeIn">
-          <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            Tell us how to reach you
-          </h3>
-          <div className="space-y-6 max-w-xl mx-auto">
+          <div className="text-center mb-8">
+            <div className="text-5xl mb-4">💍</div>
+            <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-4">
+              Your Perfect Day Awaits!
+            </h3>
+            <p className="text-base font-light text-riviera-text/70 mb-8">
+              Based on your preferences, here&apos;s a summary of your dream wedding:
+            </p>
+          </div>
+
+          {/* Summary Cards */}
+          <div className="grid grid-cols-3 gap-4 mb-8 max-w-xl mx-auto">
+            <div className="bg-riviera-neutral/20 p-4 text-center border border-riviera-gold/20">
+              <div className="text-xs tracking-widest text-riviera-gold mb-2">SEASON</div>
+              <div className="text-sm font-light text-riviera-text">{formData.season}</div>
+            </div>
+            <div className="bg-riviera-neutral/20 p-4 text-center border border-riviera-gold/20">
+              <div className="text-xs tracking-widest text-riviera-gold mb-2">GUEST COUNT</div>
+              <div className="text-sm font-light text-riviera-text">{formData.guestCount}</div>
+            </div>
+            <div className="bg-riviera-neutral/20 p-4 text-center border border-riviera-gold/20">
+              <div className="text-xs tracking-widest text-riviera-gold mb-2">CEREMONY STYLE</div>
+              <div className="text-sm font-light text-riviera-text">{formData.ceremonyVision}</div>
+            </div>
+          </div>
+
+          <p className="text-center text-sm font-light text-riviera-text/70 mb-8 max-w-xl mx-auto">
+            Let&apos;s make it happen! Fill in your details and we&apos;ll reach out to schedule your personalized tour.
+          </p>
+
+          <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto">
             <div>
               <label className="block text-sm tracking-wider text-riviera-text mb-2">YOUR NAME *</label>
               <input
                 type="text"
                 value={formData.name || ''}
                 onChange={(e) => updateFormData('name', e.target.value)}
+                required
                 className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
                 placeholder="Enter your name"
               />
@@ -247,6 +294,7 @@ export default function InteractiveWeddingForm() {
                 type="email"
                 value={formData.email || ''}
                 onChange={(e) => updateFormData('email', e.target.value)}
+                required
                 className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
                 placeholder="your@email.com"
               />
@@ -257,106 +305,64 @@ export default function InteractiveWeddingForm() {
                 type="tel"
                 value={formData.phone || ''}
                 onChange={(e) => updateFormData('phone', e.target.value)}
+                required
                 className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
                 placeholder="(555) 123 4567"
               />
             </div>
             <div>
-              <label className="block text-sm tracking-wider text-riviera-text mb-2">PREFERRED DATE (OPTIONAL)</label>
+              <label className="block text-sm tracking-wider text-riviera-text mb-2">PREFERRED WEDDING DATE (IF KNOWN)</label>
               <input
                 type="date"
                 value={formData.weddingDate || ''}
                 onChange={(e) => updateFormData('weddingDate', e.target.value)}
                 className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
               />
+              <p className="text-xs text-riviera-text/50 mt-2">mm/dd/yyyy</p>
             </div>
-          </div>
+
+            <HoverScale effect="lift">
+              <button
+                type="submit"
+                disabled={isPending}
+                className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isPending ? 'SENDING...' : 'REQUEST MY CONSULTATION →'}
+              </button>
+            </HoverScale>
+          </form>
         </div>
       )}
 
-      {/* Step 5: Review & Submit */}
-      {step === 5 && (
-        <div className="animate-fadeIn">
-          <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            Ready to start planning?
-          </h3>
-          <div className="max-w-xl mx-auto bg-riviera-neutral/20 p-8 mb-8">
-            <h4 className="text-sm tracking-widest text-riviera-gold mb-4">YOUR WEDDING DETAILS</h4>
-            <div className="space-y-3 text-sm font-light text-riviera-text">
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Season:</span>
-                <span className="font-normal">{formData.season}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Guest Count:</span>
-                <span className="font-normal">{formData.guestCount}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Day of Week:</span>
-                <span className="font-normal">{formData.dayOfWeek}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Name:</span>
-                <span className="font-normal">{formData.name}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Email:</span>
-                <span className="font-normal">{formData.email}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-riviera-text/60">Phone:</span>
-                <span className="font-normal">{formData.phone}</span>
-              </div>
-            </div>
-          </div>
-          <p className="text-center text-sm font-light text-riviera-text/70 mb-8">
-            Our team will contact you within 24 hours to discuss your dream wedding at Riviera Waterfront Mansion.
-          </p>
+      {/* Navigation Buttons - Only show Back button for steps 1-3 */}
+      {step < 4 && (
+        <div className="flex gap-4 mt-12">
+          {step > 1 && (
+            <HoverScale effect="lift" className="flex-1">
+              <button
+                onClick={prevStep}
+                className="w-full border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all"
+              >
+                ← BACK
+              </button>
+            </HoverScale>
+          )}
+          
+          {step === 1 && <div className="flex-1" />}
         </div>
       )}
 
-      {/* Navigation Buttons */}
-      <div className="flex gap-4 mt-12">
-        {step > 1 && (
-          <HoverScale effect="lift" className="flex-1">
-            <button
-              onClick={prevStep}
-              disabled={isPending}
-              className="w-full border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all disabled:opacity-50"
-            >
-              ← BACK
-            </button>
-          </HoverScale>
-        )}
-        
-        {step < 4 && (
-          <div className="flex-1" />
-        )}
-
-        {step === 4 && (
-          <HoverScale effect="lift" className="flex-1">
-            <button
-              onClick={nextStep}
-              disabled={!formData.name || !formData.email || !formData.phone}
-              className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              CONTINUE →
-            </button>
-          </HoverScale>
-        )}
-
-        {step === 5 && (
-          <HoverScale effect="lift" className="flex-1">
-            <button
-              onClick={handleSubmit}
-              disabled={isPending}
-              className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isPending ? 'SENDING...' : 'SUBMIT REQUEST →'}
-            </button>
-          </HoverScale>
-        )}
-      </div>
+      {/* Step 4 has Back to Quiz button inside the form */}
+      {step === 4 && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={prevStep}
+            className="text-sm text-riviera-gold hover:text-riviera-text transition-colors tracking-wider"
+          >
+            ← Back to Quiz
+          </button>
+        </div>
+      )}
     </div>
   );
 }
