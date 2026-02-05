@@ -232,7 +232,7 @@ export default function RatesCalendar() {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Calendar Header */}
-      <div className="bg-white border-2 border-riviera-gold/20 p-6 mb-8">
+      <div className="bg-white border-2 border-riviera-gold/40 p-6 mb-8 shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={prevMonth}
@@ -293,10 +293,10 @@ export default function RatesCalendar() {
               return (
                 <div
                   key={`${day.month}-${day.date}`}
-                  className="aspect-square border border-riviera-neutral/30 bg-riviera-neutral/20 flex items-center justify-center relative"
+                  className="aspect-square border-2 border-riviera-neutral/50 bg-riviera-neutral/30 flex items-center justify-center relative"
                 >
-                  <span className="text-sm font-light text-riviera-text/30 line-through">{day.date}</span>
-                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/30">N/A</span>
+                  <span className="text-sm font-light text-riviera-text/40 line-through">{day.date}</span>
+                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/40 font-medium">N/A</span>
                 </div>
               );
             }
@@ -305,10 +305,10 @@ export default function RatesCalendar() {
               return (
                 <div
                   key={`${day.month}-${day.date}`}
-                  className="aspect-square border border-riviera-neutral/30 bg-riviera-neutral/20 flex items-center justify-center relative"
+                  className="aspect-square border-2 border-riviera-neutral/50 bg-riviera-neutral/30 flex items-center justify-center relative"
                 >
-                  <span className="text-sm font-light text-riviera-text/30 line-through">{day.date}</span>
-                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/30">BOOKED</span>
+                  <span className="text-sm font-light text-riviera-text/40 line-through">{day.date}</span>
+                  <span className="absolute bottom-1 text-[8px] tracking-wider text-riviera-text/40 font-medium">BOOKED</span>
                 </div>
               );
             }
@@ -317,16 +317,16 @@ export default function RatesCalendar() {
               <button
                 key={`${day.month}-${day.date}`}
                 onClick={() => setSelectedDate(day)}
-                className={`aspect-square border-2 transition-all hover:border-riviera-gold hover:shadow-md relative group ${
-                  isSelected ? 'border-riviera-gold bg-riviera-gold/10' : 'border-riviera-neutral/30 bg-white'
+                className={`aspect-square border-2 transition-all hover:border-riviera-gold hover:shadow-lg relative group ${
+                  isSelected ? 'border-riviera-gold bg-riviera-gold/15 shadow-md' : 'border-riviera-gold/30 bg-white hover:bg-riviera-gold/5'
                 }`}
               >
                 <div className="flex flex-col items-center justify-center h-full p-1">
-                  <span className={`text-sm md:text-base font-light ${isSelected ? 'text-riviera-gold' : 'text-riviera-text'}`}>
+                  <span className={`text-sm md:text-base font-normal ${isSelected ? 'text-riviera-gold font-medium' : 'text-riviera-text'}`}>
                     {day.date}
                   </span>
                   {pricing && (
-                    <span className={`text-[9px] md:text-[10px] tracking-wider mt-1 ${isSelected ? 'text-riviera-gold' : 'text-riviera-text/50 group-hover:text-riviera-gold'}`}>
+                    <span className={`text-[9px] md:text-[10px] tracking-wider mt-1 font-medium ${isSelected ? 'text-riviera-gold' : 'text-riviera-text/70 group-hover:text-riviera-gold'}`}>
                       ${pricing.rate} pp<sup>++</sup>
                     </span>
                   )}
@@ -339,26 +339,26 @@ export default function RatesCalendar() {
         {/* Legend */}
         <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-xs">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 border-2 border-riviera-neutral/30 bg-white"></div>
-            <span className="font-light text-riviera-text/60">Available</span>
+            <div className="w-5 h-5 border-2 border-riviera-gold/30 bg-white"></div>
+            <span className="font-medium text-riviera-text/70">Available</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 border-2 border-riviera-gold bg-riviera-gold/10"></div>
-            <span className="font-light text-riviera-text/60">Selected</span>
+            <div className="w-5 h-5 border-2 border-riviera-gold bg-riviera-gold/15"></div>
+            <span className="font-medium text-riviera-text/70">Selected</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 border border-riviera-neutral/30 bg-riviera-neutral/20"></div>
-            <span className="font-light text-riviera-text/60">Booked / N/A</span>
+            <div className="w-5 h-5 border-2 border-riviera-neutral/50 bg-riviera-neutral/30"></div>
+            <span className="font-medium text-riviera-text/70">Booked / N/A</span>
           </div>
         </div>
-        <p className="text-xs text-center mt-4 font-light text-riviera-text/60">
+        <p className="text-xs text-center mt-4 font-medium text-riviera-text/70">
           Monday and Tuesday are not available for booking
         </p>
       </div>
 
       {/* Selected Date Info */}
       {selectedDate && (
-        <div className="bg-white border-2 border-riviera-gold/20 p-8 animate-fadeIn">
+        <div className="bg-white border-2 border-riviera-gold/40 p-8 animate-fadeIn shadow-md">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Date Details */}
             <div>
@@ -463,8 +463,8 @@ export default function RatesCalendar() {
       )}
 
       {!selectedDate && (
-        <div className="bg-riviera-neutral/20 border border-riviera-neutral/30 p-8 text-center">
-          <p className="text-sm font-light text-riviera-text/70">
+        <div className="bg-riviera-neutral/30 border-2 border-riviera-neutral/50 p-8 text-center">
+          <p className="text-sm font-medium text-riviera-text/70">
             Select a date from the calendar to see specific pricing and availability for that date
           </p>
         </div>

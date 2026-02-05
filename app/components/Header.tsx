@@ -49,6 +49,13 @@ export default function Header() {
               HOME
             </Link>
             
+            <Link 
+              href="/rates"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+            >
+              RATES
+            </Link>
+            
             {/* Virtual Tour Dropdown */}
             <div 
               className="relative py-2 -my-2"
@@ -91,12 +98,6 @@ export default function Header() {
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
               MENU
-            </Link>
-            <Link 
-              href="/rates"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
-            >
-              RATES
             </Link>
             <Link 
               href="/vendors"
@@ -142,6 +143,14 @@ export default function Header() {
                 HOME
               </Link>
               
+              <Link 
+                href="/rates"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                RATES
+              </Link>
+              
               {/* Mobile Virtual Tour Dropdown */}
               <div>
                 <button
@@ -184,13 +193,6 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 MENU
-              </Link>
-              <Link 
-                href="/rates"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                RATES
               </Link>
               <Link 
                 href="/vendors"
