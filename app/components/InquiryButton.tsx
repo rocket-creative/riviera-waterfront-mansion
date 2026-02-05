@@ -15,7 +15,7 @@ export default function InquiryButton({ children, className = '', variant = 'pri
   const baseClasses = 'px-8 py-4 text-sm font-light tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-riviera-gold text-white hover:bg-riviera-dark-brown',
+    primary: 'bg-riviera-gold text-white hover:bg-riviera-text',
     secondary: 'bg-white text-riviera-text hover:bg-riviera-gold hover:text-white',
     outline: 'border-2 border-riviera-gold text-riviera-gold hover:bg-riviera-gold hover:text-white'
   };

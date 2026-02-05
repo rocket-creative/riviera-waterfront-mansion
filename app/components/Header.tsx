@@ -7,8 +7,8 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-riviera-neutral">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <header className="sticky top-0 z-40 bg-white">
+      <nav className="mx-auto px-6 sm:px-8 lg:px-12" aria-label="Main navigation">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -48,7 +48,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/contact"
-              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
               BOOK YOUR TOUR →
             </Link>
@@ -106,7 +106,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/contact"
-                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 BOOK YOUR TOUR →

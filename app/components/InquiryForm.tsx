@@ -250,7 +250,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
         <button
           type="submit"
           disabled={isPending}
-          className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+          className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
         >
           {isPending ? 'SENDING...' : 'SUBMIT INQUIRY →'}
         </button>

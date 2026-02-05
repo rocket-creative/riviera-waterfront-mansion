@@ -6,6 +6,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import {
   fadeInUp,
   fadeInScale,
@@ -129,21 +130,31 @@ export const useStaggerChildren = (
 
 /**
  * Image reveal with mask entrance
+ * Animation runs once on mount and preserves final state
  */
 export const useImageReveal = (
   options?: Parameters<typeof imageReveal>[1]
 ) => {
   const ref = useRef<HTMLElement>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
     if (!ref.current || respectReducedMotion()) return;
+    
+    // Only set up animation once
+    if (animationRef.current) return;
 
-    const animation = imageReveal(ref.current, options);
+    animationRef.current = imageReveal(ref.current, options) as gsap.core.Tween;
 
+    // Don't kill animation on cleanup - preserve the revealed state
     return () => {
-      animation?.kill();
+      // Ensure element stays visible if animation completed
+      if (ref.current) {
+        ref.current.style.clipPath = 'inset(0% 0 0 0)';
+      }
     };
-  }, [options]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps - only run once on mount
 
   return ref;
 };

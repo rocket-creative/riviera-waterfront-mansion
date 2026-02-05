@@ -53,7 +53,7 @@ export default function SocialFeed() {
           href="https://www.instagram.com/rivierawaterfrontmansion/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-riviera-gold text-white px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors"
+          className="inline-block bg-riviera-gold text-white px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors"
         >
           FOLLOW US ON INSTAGRAM →
         </a>

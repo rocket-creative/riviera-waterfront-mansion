@@ -52,8 +52,8 @@ export default function GoogleReviews() {
   return (
     <div className="relative overflow-hidden py-4">
       {/* Gradient overlays for visual polish */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-riviera-dark-brown to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-riviera-dark-brown to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-riviera-text to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-riviera-text to-transparent z-10 pointer-events-none" />
       
       <div className="flex animate-scroll-smooth gap-6">
         {duplicatedReviews.map((review, index) => (

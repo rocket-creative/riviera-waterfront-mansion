@@ -71,7 +71,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`scroll-smooth ${cormorant.variable} ${lato.variable}`}>
-      <body className="antialiased bg-[#FAF8F5] font-lato">
+      <body className="antialiased bg-[#F0EDE8] font-lato">
         {/* Skip to main content link for accessibility */}
         <a 
           href="#main" 

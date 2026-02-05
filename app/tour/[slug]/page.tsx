@@ -1,10 +1,14 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import CTASection from '../../components/CTASection';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getTourImages } from '../../lib/imageConfig';
+import { getTourImages, getTourPreview } from '../../lib/imageConfig';
+import { AnimatedSection } from '../../components/AnimatedSection';
+import { HoverScale } from '../../components/HoverScale';
+import TourDetailClient from './TourDetailClient';
 
 const tourSections = {
   'entrance-lobby': {
@@ -78,10 +82,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${section.title} | Riviera Waterfront Mansion`,
+    title: `${section.title} | Long Island Wedding Venue Tour | Riviera Waterfront Mansion`,
     description: section.description,
     alternates: {
       canonical: `https://www.rivierawaterfrontmansion.com/tour/${slug}`
+    },
+    openGraph: {
+      title: `${section.title} | Riviera Waterfront Mansion`,
+      description: section.description,
+      url: `https://www.rivierawaterfrontmansion.com/tour/${slug}`,
+      siteName: 'Riviera Waterfront Mansion',
+      locale: 'en_US',
+      type: 'website',
     },
   };
 }
@@ -104,122 +116,132 @@ export default async function TourSectionPage({ params }: Props) {
   const currentIndex = allSlugs.indexOf(slug);
   const previousSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
   const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
+  const images = getTourImages(slug);
 
   return (
     <>
       <Header />
       
       <main id="main">
-        {/* Hero Section */}
-        <section className="bg-riviera-neutral py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <nav className="mb-6" aria-label="Breadcrumb">
-              <ol className="flex items-center gap-2 text-sm">
-                <li>
-                  <Link 
-                    href="/" 
-                    className="text-riviera-text/60 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="text-riviera-text/40">/</li>
-                <li>
-                  <Link 
-                    href="/tour" 
-                    className="text-riviera-text/60 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                  >
-                    Tour
-                  </Link>
-                </li>
-                <li className="text-riviera-text/40">/</li>
-                <li className="text-riviera-text" aria-current="page">{section.title}</li>
-              </ol>
-            </nav>
-            
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-6">
-              {section.title}
-            </h1>
-            <p className="text-lg font-light text-riviera-text/70 leading-relaxed">
-              {section.description}
-            </p>
-          </div>
-        </section>
+        {/* Hero Section - Editorial 2-Column Layout */}
+        <section className="relative min-h-[80vh] overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
+            {/* Image Column - Full Height */}
+            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-1 overflow-hidden">
+              <Image 
+                src={getTourPreview(slug)}
+                alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
+                fill
+                priority
+                className="object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                quality={90}
+              />
+            </div>
 
-        {/* Photography Gallery - Magazine Style, Asymmetric Layouts */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Editorial grid with varying sizes */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-              {getTourImages(slug).map((imagePath, index) => {
-                // Create asymmetric, editorial layouts - some images larger than others
-                const isLarge = index === 0 || index === 3;
-                const isMedium = index === 1 || index === 4;
-                
-                return (
-                  <div 
-                    key={imagePath}
-                    className={`
-                      relative overflow-hidden
-                      ${isLarge ? 'col-span-2 row-span-2 aspect-[16/10]' : ''}
-                      ${isMedium ? 'col-span-1 aspect-[4/5]' : ''}
-                      ${!isLarge && !isMedium ? 'col-span-1 aspect-square' : ''}
-                    `}
+            {/* Text Column */}
+            <div className="lg:col-span-5 flex items-center order-2 lg:order-2 bg-white">
+              <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
+                {/* Breadcrumb */}
+                <nav className="mb-6" aria-label="Breadcrumb">
+                  <ol className="flex items-center gap-2 text-sm">
+                    <li>
+                      <Link 
+                        href="/" 
+                        className="text-riviera-text/60 hover:text-riviera-gold transition-colors"
+                      >
+                        Home
+                      </Link>
+                    </li>
+                    <li className="text-riviera-text/40">/</li>
+                    <li>
+                      <Link 
+                        href="/tour" 
+                        className="text-riviera-text/60 hover:text-riviera-gold transition-colors"
+                      >
+                        Tour
+                      </Link>
+                    </li>
+                    <li className="text-riviera-text/40">/</li>
+                    <li className="text-riviera-text" aria-current="page">{section.title}</li>
+                  </ol>
+                </nav>
+
+                <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
+                  VIRTUAL TOUR
+                </p>
+                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
+                  {section.title}
+                </h1>
+                <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
+                  {section.description}
+                </p>
+                <HoverScale effect="lift">
+                  <a 
+                    href="#photo-gallery"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block"
                   >
-                    <Image 
-                      src={imagePath}
-                      alt={`${section.title} at Riviera Waterfront Mansion wedding venue in Massapequa, Long Island`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      quality={85}
-                    />
-                  </div>
-                );
-              })}
+                    VIEW PHOTOS →
+                  </a>
+                </HoverScale>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Navigation */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-riviera-neutral">
+        {/* Photography Gallery - Magazine Style, Asymmetric Layouts */}
+        <section id="photo-gallery" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
+          <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
+            <p className="text-riviera-gold text-sm tracking-widest mb-3">PHOTO GALLERY</p>
+            <h2 className="font-cormorant text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-riviera-text">
+              Explore the {section.title.toLowerCase()}
+            </h2>
+          </AnimatedSection>
+
+          <TourDetailClient images={images} sectionTitle={section.title} />
+        </section>
+
+        {/* Navigation Between Sections */}
+        <section className="py-12 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center">
-              <div>
+              <div className="flex-1">
                 {previousSlug && (
                   <Link
                     href={`/tour/${previousSlug}`}
-                    className="group flex items-center gap-2 text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="group flex items-center gap-3 text-riviera-text hover:text-riviera-gold transition-colors"
                   >
-                    <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                     <div>
-                      <div className="text-xs tracking-wider text-riviera-text/60 mb-1">PREVIOUS</div>
+                      <div className="text-xs tracking-widest text-riviera-gold mb-1">PREVIOUS</div>
                       <div className="text-sm font-light">{tourSections[previousSlug as keyof typeof tourSections].title}</div>
                     </div>
                   </Link>
                 )}
               </div>
               
-              <Link
-                href="/tour"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
-              >
-                VIEW ALL
-              </Link>
+              <HoverScale effect="lift">
+                <Link
+                  href="/tour"
+                  className="bg-riviera-text text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold transition-colors"
+                >
+                  VIEW ALL SPACES
+                </Link>
+              </HoverScale>
 
-              <div>
+              <div className="flex-1 flex justify-end">
                 {nextSlug && (
                   <Link
                     href={`/tour/${nextSlug}`}
-                    className="group flex items-center gap-2 text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="group flex items-center gap-3 text-riviera-text hover:text-riviera-gold transition-colors"
                   >
                     <div className="text-right">
-                      <div className="text-xs tracking-wider text-riviera-text/60 mb-1">NEXT</div>
+                      <div className="text-xs tracking-widest text-riviera-gold mb-1">NEXT</div>
                       <div className="text-sm font-light">{tourSections[nextSlug as keyof typeof tourSections].title}</div>
                     </div>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
@@ -229,31 +251,26 @@ export default async function TourSectionPage({ params }: Props) {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-riviera-gold py-16 px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-6">
-              Ready to book your Long Island waterfront wedding date?
-            </h2>
-            <p className="text-lg font-light mb-8 opacity-90">
-              Contact Riviera Waterfront Mansion today to check wedding date availability and schedule an in person tour of our historic Massapequa venue
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Link 
-                href="/contact"
-                className="bg-white text-riviera-text px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-gold text-center"
-              >
-                CONTACT US →
-              </Link>
-              <a 
-                href="tel:+15165415020"
-                className="border-2 border-white text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-gold transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-gold text-center"
-              >
-                CALL (516) 541 5020
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* CTA Section - Book Tour */}
+        <CTASection
+          eyebrow="READY TO BOOK YOUR LONG ISLAND WATERFRONT WEDDING?"
+          headline="Experience our venue in person"
+          description="Contact Riviera Waterfront Mansion today to check wedding date availability and schedule an in person tour of our historic Massapequa venue. See the spaces you have just explored come to life and envision your perfect celebration."
+          background="dark"
+          buttons={[
+            {
+              text: 'SCHEDULE A VISIT →',
+              href: '/contact',
+              intent: 'schedule',
+            },
+            {
+              text: 'CALL (516) 541 5020',
+              href: 'tel:+15165415020',
+              intent: 'call',
+              external: true,
+            },
+          ]}
+        />
       </main>
 
       <Footer />

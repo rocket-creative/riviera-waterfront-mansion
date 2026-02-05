@@ -44,6 +44,19 @@
     @apply bg-white shadow-lg;
   }
 
+  /* Hero carousel - center subjects (people) in frame */
+  .hero-carousel-image {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* For portrait-oriented images, ensure faces are centered */
+  @media (max-width: 768px) {
+    .hero-carousel-image {
+      object-position: center 35%;
+    }
+  }
+
   /* Smooth horizontal scrolling animation for reviews */
   @keyframes scroll-smooth {
     0% {

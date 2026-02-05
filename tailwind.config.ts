@@ -11,11 +11,11 @@ const config: Config = {
       colors: {
         // Riviera color palette from provided image
         'riviera': {
-          neutral: '#E8E3DA',     // Beige/cream - NEUTRAL role
-          gold: '#C19A5B',        // Gold/bronze - ACCENT role
-          text: '#3A3A3A',        // Dark charcoal - TEXT role
-          brown: '#A07856',       // Brown - HERO secondary (deprecated, use dark-brown)
-          'dark-brown': '#2a1f1a', // Very dark brown - New HERO/background color
+          'neutral-light': '#F5F3EF',  // Very light warm beige - LIGHT NEUTRAL
+          neutral: '#E8E3DA',          // Beige/cream - NEUTRAL role
+          gold: '#C19A5B',             // Gold/bronze - ACCENT role
+          text: '#3A3A3A',             // Dark charcoal - TEXT role
+          brown: '#A07856',            // Brown - HERO secondary (deprecated)
         },
       },
       backgroundImage: {
