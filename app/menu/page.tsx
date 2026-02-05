@@ -616,21 +616,21 @@ export default function MenuPage() {
               ].map((item) => (
                 <AnimatedSection key={item.title} animation="fadeInUp" as="div">
                   <HoverScale effect="lift">
-                    <div className="bg-white overflow-hidden group border border-riviera-neutral/40">
+                    <div className="bg-white overflow-hidden group border border-riviera-neutral/40 h-full flex flex-col">
                       <div className="relative aspect-[4/3] bg-white overflow-hidden border-b border-riviera-neutral/40">
                         <div className="absolute inset-0 flex items-center justify-center">
                           <svg className="w-16 h-16 text-riviera-text/10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-xs tracking-widest text-riviera-gold mb-3">{item.title}</h3>
-                          <p className="text-sm font-light text-riviera-text/70 leading-relaxed">{item.desc}</p>
+                          </svg>
                         </div>
                       </div>
-                    </HoverScale>
-                  </AnimatedSection>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <h3 className="text-xs tracking-widest text-riviera-gold mb-3">{item.title}</h3>
+                        <p className="text-sm font-light text-riviera-text/70 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </HoverScale>
+                </AnimatedSection>
               ))}
             </div>
           </div>
@@ -871,21 +871,21 @@ export default function MenuPage() {
               ].map((item) => (
                 <AnimatedSection key={item.title} animation="fadeInUp" as="div">
                   <HoverScale effect="lift">
-                    <div className="bg-white overflow-hidden group border border-riviera-neutral/40">
+                    <div className="bg-white overflow-hidden group border border-riviera-neutral/40 h-full flex flex-col">
                       <div className="relative aspect-[4/3] bg-white overflow-hidden border-b border-riviera-neutral/40">
                         <div className="absolute inset-0 flex items-center justify-center">
                           <svg className="w-16 h-16 text-riviera-text/10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-xs tracking-widest text-riviera-gold mb-3">{item.title}</h3>
-                          <p className="text-sm font-light text-riviera-text/70 leading-relaxed">{item.desc}</p>
+                          </svg>
                         </div>
                       </div>
-                    </HoverScale>
-                  </AnimatedSection>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <h3 className="text-xs tracking-widest text-riviera-gold mb-3">{item.title}</h3>
+                        <p className="text-sm font-light text-riviera-text/70 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </HoverScale>
+                </AnimatedSection>
               ))}
             </div>
           </div>
