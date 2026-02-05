@@ -14,7 +14,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="text-xl font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="font-cormorant text-xl font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:text-riviera-gold"
             >
               RIVIERA WATERFRONT MANSION
             </Link>

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import GoogleReviews from './components/GoogleReviews';
 import DualSocialFeed from './components/DualSocialFeed';
+import HeroInquiryForm from './components/HeroInquiryForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import { imageConfig } from './lib/imageConfig';
@@ -25,7 +26,7 @@ export default function Home() {
       
       <main id="main">
         {/* Hero Section - Photography First, Editorial Style */}
-        <section className="relative h-[75vh] md:h-[85vh] overflow-hidden">
+        <section className="relative min-h-[95vh] md:min-h-screen overflow-hidden flex items-center">
           {/* Hero Image - Priority loading for above fold */}
           <Image 
             src={imageConfig.hero[0]}
@@ -36,24 +37,32 @@ export default function Home() {
             sizes="100vw"
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
-          <div className="relative h-full flex items-center justify-center text-center px-4">
-            <div ref={heroContentRef as any} className="max-w-5xl">
-              <p className="text-riviera-gold text-sm sm:text-base tracking-widest mb-4 font-light">
-                LONG ISLAND'S PREMIERE WATERFRONT WEDDING VENUE IN MASSAPEQUA NY
-              </p>
-              <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider text-white mb-6 leading-tight">
-                YOUR DREAM WEDDING
-                <span className="block text-riviera-gold mt-2">DESERVES PERFECTION</span>
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl font-light text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Three generations of wedding excellence on a stunning waterfront estate in Massapequa, Long Island. One wedding at a time. Your day, exclusively yours with complete venue access.
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
+          <div className="relative w-full py-16 md:py-20 px-4">
+            <div ref={heroContentRef as any} className="max-w-6xl mx-auto">
+              <div className="text-center mb-8 md:mb-10">
+                <p className="text-riviera-gold text-sm sm:text-base tracking-widest mb-4 font-light">
+                  LONG ISLAND'S PREMIERE WATERFRONT WEDDING VENUE IN MASSAPEQUA NY
+                </p>
+                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider text-white mb-6 leading-tight">
+                  YOUR DREAM WEDDING
+                  <span className="block text-riviera-gold mt-2">DESERVES PERFECTION</span>
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl font-light text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
+                  Three generations of wedding excellence on a stunning waterfront estate in Massapequa, Long Island. One wedding at a time. Your day, exclusively yours with complete venue access.
+                </p>
+              </div>
+
+              {/* Hero Inquiry Form - Above the Fold */}
+              <div className="mb-8">
+                <HeroInquiryForm />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <HoverScale effect="lift">
                   <Link 
                     href="/contact"
-                    className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg text-center block"
+                    className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 text-center block"
                   >
                     SCHEDULE YOUR VISIT →
                   </Link>
@@ -61,7 +70,7 @@ export default function Home() {
                 <HoverScale effect="lift">
                   <Link 
                     href="/tour"
-                    className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 text-center block"
+                    className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 text-center block"
                   >
                     TAKE A VIRTUAL TOUR
                   </Link>
@@ -293,77 +302,77 @@ export default function Home() {
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">INDOOR CEREMONY OPTION</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Beautiful indoor ceremony space available for any weather
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">WATERFRONT COCKTAIL AREAS</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Indoor and outdoor waterfront cocktail reception spaces
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">GRAND BALLROOM</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Stunning water view grand ballroom with spacious dance floor
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">BRIDAL SUITE</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Private luxury suite with two balconies and private restroom
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">BALCONY OVERLOOK</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Elevated viewing area overlooking the dance floor for dramatic moments
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">TOP SHELF BARS</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Multiple indoor and outdoor full service top shelf bars
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">LIVE MUSIC & DJ WELCOME</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Your choice of entertainment options fully supported
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">BACKUP GENERATOR</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Uninterrupted service guaranteed with full backup power
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">CLIMATE CONTROLLED</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Air conditioned comfort throughout the venue year round
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">COAT CHECK SERVICE</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Professional guest coat check service available
                 </p>
               </div>
               
-              <div className="bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
+              <div className="feature-card bg-riviera-neutral/30 p-8 hover:bg-riviera-neutral/50 transition-colors">
                 <h3 className="text-sm tracking-widest text-riviera-text mb-4 font-medium">FULL GROUNDS ACCESS</h3>
                 <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
                   Complete access to our beautiful indoor and outdoor spaces
@@ -371,19 +380,21 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center">
-              <Link 
-                href="/tour"
-                className="inline-block bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
-              >
-                EXPLORE ALL FEATURES →
-              </Link>
-            </div>
+            <AnimatedSection animation="fadeInUp" delay={0.3} className="text-center" as="div">
+              <HoverScale effect="lift">
+                <Link 
+                  href="/tour"
+                  className="inline-block bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                >
+                  EXPLORE ALL FEATURES →
+                </Link>
+              </HoverScale>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* Final CTA - Conversion */}
-        <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-white text-center">
+        <AnimatedSection animation="fadeInUp" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-white text-center">
           <div className="max-w-4xl mx-auto">
             <p className="text-riviera-gold text-sm tracking-widest mb-4">READY TO BOOK YOUR LONG ISLAND WATERFRONT WEDDING?</p>
             <h2 className="font-cormorant text-3xl md:text-4xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6 leading-tight">
@@ -393,24 +404,28 @@ export default function Home() {
               Schedule a personal tour of our historic Riviera Waterfront Mansion in Massapequa, NY and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-              <Link 
-                href="/contact"
-                className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg text-center"
-              >
-                SCHEDULE YOUR VISIT →
-              </Link>
-              <a 
-                href="tel:+15165415020"
-                className="border-2 border-riviera-gold text-riviera-gold px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
-              >
-                CALL (516) 541 5020
-              </a>
+              <HoverScale effect="magnetic" strength={0.2}>
+                <Link 
+                  href="/contact"
+                  className="bg-riviera-gold text-white px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 shadow-lg text-center block"
+                >
+                  SCHEDULE YOUR VISIT →
+                </Link>
+              </HoverScale>
+              <HoverScale effect="magnetic" strength={0.2}>
+                <a 
+                  href="tel:+15165415020"
+                  className="border-2 border-riviera-gold text-riviera-gold px-10 py-5 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
+                >
+                  CALL (516) 541 5020
+                </a>
+              </HoverScale>
             </div>
             <p className="text-sm text-riviera-text/60">
               Available Tuesday through Sunday, 11:00 AM to 7:00 PM
             </p>
           </div>
-        </section>
+        </AnimatedSection>
       </main>
 
       <Footer />

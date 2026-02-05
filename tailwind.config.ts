@@ -18,6 +18,14 @@ const config: Config = {
           'dark-brown': '#2a1f1a', // Very dark brown - New HERO/background color
         },
       },
+      backgroundImage: {
+        // Natural sunlight gradients - mimics sun hitting a dark brown surface
+        'sunlight-vertical': 'linear-gradient(to bottom, #2a1f1a 0%, #4a3426 35%, #6b4d38 60%, #947554 80%, #c19a5b 100%)',
+        'sunlight-diagonal': 'linear-gradient(135deg, #2a1f1a 0%, #4a3426 30%, #6b4d38 55%, #947554 75%, #c19a5b 100%)',
+        'sunlight-radial': 'radial-gradient(circle at top right, #c19a5b 0%, #947554 25%, #6b4d38 50%, #4a3426 75%, #2a1f1a 100%)',
+        'sunlight-spotlight': 'radial-gradient(ellipse at center, #c19a5b 0%, #947554 20%, #6b4d38 40%, #4a3426 65%, #2a1f1a 90%)',
+        'sunlight-horizon': 'linear-gradient(to top, #2a1f1a 0%, #3d2c1f 40%, #6b4d38 70%, #947554 85%, #d4a968 100%)',
+      },
       screens: {
         'sm': '393px',   // iPhone 14 Pro
         'md': '810px',   // iPad 10.2"

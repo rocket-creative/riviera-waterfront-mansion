@@ -1,9 +1,16 @@
+'use client';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import InquiryForm from '../components/InquiryForm';
 import Link from 'next/link';
+import { AnimatedSection } from '../components/AnimatedSection';
+import { HoverScale } from '../components/HoverScale';
+import { useScrollTriggerCleanup } from '../lib/useAnimations';
 
 export default function ContactPage() {
+  useScrollTriggerCleanup();
+
   return (
     <>
       <Header />
@@ -11,7 +18,7 @@ export default function ContactPage() {
       <main id="main">
         {/* Hero Section */}
         <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection animation="fadeInUp" className="max-w-4xl mx-auto text-center" as="div">
             <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
               Start planning your Long Island waterfront wedding
             </h1>
@@ -30,7 +37,7 @@ export default function ContactPage() {
                 <p><strong>Sunday:</strong> 10:00 am – 7:00 pm</p>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Contact Content */}
@@ -38,50 +45,61 @@ export default function ContactPage() {
           <div className="max-w-6xl mx-auto">
             {/* Inquiry Options */}
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <div className="bg-riviera-neutral p-8">
-                <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
-                  Long Island wedding inquiries
-                </h2>
-                <p className="text-sm font-light text-riviera-text/80 mb-6">
-                  If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below or download our comprehensive Long Island wedding pricing brochure. Limited dates available for 2026 and 2027.
-                </p>
-                <Link 
-                  href="/contact#form"
-                  className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                >
-                  INQUIRE HERE →
-                </Link>
-              </div>
-              <div className="bg-white border border-riviera-neutral p-8">
-                <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
-                  Other event inquiries at our Long Island venue
-                </h2>
-                <p className="text-sm font-light text-riviera-text/80 mb-6">
-                  If you are looking to host other special events at our Massapequa waterfront venue, we would love to hear from you. Please note: Riviera Waterfront Mansion specializes exclusively in weddings.
-                </p>
-                <Link 
-                  href="/contact#form"
-                  className="inline-block bg-white border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold"
-                >
-                  INQUIRE HERE →
-                </Link>
-              </div>
+              <AnimatedSection animation="revealFromLeft" as="div">
+                <div className="bg-riviera-neutral p-8 h-full">
+                  <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
+                    Long Island wedding inquiries
+                  </h2>
+                  <p className="text-sm font-light text-riviera-text/80 mb-6">
+                    If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below or download our comprehensive Long Island wedding pricing brochure. Limited dates available for 2026 and 2027.
+                  </p>
+                  <HoverScale effect="lift">
+                    <Link 
+                      href="/contact#form"
+                      className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                    >
+                      INQUIRE HERE →
+                    </Link>
+                  </HoverScale>
+                </div>
+              </AnimatedSection>
+              <AnimatedSection animation="revealFromRight" delay={0.1} as="div">
+                <div className="bg-white border border-riviera-neutral p-8 h-full">
+                  <h2 className="text-2xl font-light tracking-wide text-riviera-text mb-4">
+                    Other event inquiries at our Long Island venue
+                  </h2>
+                  <p className="text-sm font-light text-riviera-text/80 mb-6">
+                    If you are looking to host other special events at our Massapequa waterfront venue, we would love to hear from you. Please note: Riviera Waterfront Mansion specializes exclusively in weddings.
+                  </p>
+                  <HoverScale effect="lift">
+                    <Link 
+                      href="/contact#form"
+                      className="inline-block bg-white border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                    >
+                      INQUIRE HERE →
+                    </Link>
+                  </HoverScale>
+                </div>
+              </AnimatedSection>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div id="form">
-                <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                  Request your Long Island wedding date
-                </h2>
-                <InquiryForm />
-              </div>
+              <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
+                <div id="form">
+                  <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
+                    Request your Long Island wedding date
+                  </h2>
+                  <InquiryForm />
+                </div>
+              </AnimatedSection>
 
               {/* Contact Information */}
-              <div>
-                <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                  Visit our Massapequa waterfront wedding venue
-                </h2>
+              <AnimatedSection animation="fadeInUp" delay={0.3} as="div">
+                <div>
+                  <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
+                    Visit our Massapequa waterfront wedding venue
+                  </h2>
                 
                 <div className="space-y-8 mb-12">
                   <div>
@@ -124,15 +142,18 @@ export default function ContactPage() {
                   <p className="text-sm font-light text-riviera-text/70 mb-6">
                     Get detailed information about our Massapequa waterfront venue, Long Island wedding packages, menu options, and comprehensive pricing for Riviera Waterfront Mansion
                   </p>
-                  <a
-                    href="/brochure.pdf"
-                    download
-                    className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
-                  >
-                    DOWNLOAD PDF →
-                  </a>
+                  <HoverScale effect="lift">
+                    <a
+                      href="/brochure.pdf"
+                      download
+                      className="inline-block bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-dark-brown transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    >
+                      DOWNLOAD PDF →
+                    </a>
+                  </HoverScale>
                 </div>
               </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>

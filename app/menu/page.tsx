@@ -1,22 +1,15 @@
+'use client';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion Massapequa NY',
-  description: 'Chef inspired Continental wedding menu in Massapequa NY. Five hour top shelf open bar, customizable cocktail hour with butcher block carving stations, gourmet entrees, and professional wedding catering for Long Island celebrations.',
-  alternates: {
-    canonical: 'https://www.rivierawaterfrontmansion.com/menu'
-  },
-  openGraph: {
-    title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion',
-    description: 'Chef inspired Continental wedding cuisine with five hour top shelf open bar and customizable Long Island wedding catering',
-    url: 'https://www.rivierawaterfrontmansion.com/menu',
-  },
-};
+import { AnimatedSection } from '../components/AnimatedSection';
+import { HoverScale } from '../components/HoverScale';
+import { useScrollTriggerCleanup } from '../lib/useAnimations';
 
 export default function MenuPage() {
+  useScrollTriggerCleanup();
+
   return (
     <>
       <Header />
@@ -24,7 +17,7 @@ export default function MenuPage() {
       <main id="main">
         {/* Hero Section */}
         <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection animation="fadeInUp" className="max-w-4xl mx-auto text-center" as="div">
             <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
               Long Island wedding catering and chef inspired menu
             </h1>
@@ -34,11 +27,11 @@ export default function MenuPage() {
             <p className="text-base font-light text-riviera-text/70 max-w-2xl mx-auto">
               With seasonal wedding menu options added regularly, please request an updated menu for your Long Island celebration. All Riviera waterfront weddings include a five hour top shelf open bar serving premium liquors, craft beers, fine wines, champagne, and soft drinks throughout your reception.
             </p>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Important Notice */}
-        <section className="bg-riviera-gold py-8 px-4 sm:px-6 lg:px-8">
+        <section className="bg-sunlight-vertical py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-2">
               Limited Long Island wedding dates available!
@@ -843,18 +836,22 @@ export default function MenuPage() {
               Schedule a private tasting appointment at our Massapequa venue to sample our chef inspired Continental cuisine and design your perfect wedding menu
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Link 
-                href="/contact"
-                className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-dark-brown text-center"
-              >
-                REQUEST TASTING →
-              </Link>
-              <a 
-                href="tel:+15165415020"
-                className="border-2 border-white text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-dark-brown transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-dark-brown text-center"
-              >
-                CALL (516) 541 5020
-              </a>
+              <HoverScale effect="lift">
+                <Link 
+                  href="/contact"
+                  className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-dark-brown text-center block"
+                >
+                  REQUEST TASTING →
+                </Link>
+              </HoverScale>
+              <HoverScale effect="lift">
+                <a 
+                  href="tel:+15165415020"
+                  className="border-2 border-white text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-dark-brown transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-dark-brown text-center block"
+                >
+                  CALL (516) 541 5020
+                </a>
+              </HoverScale>
             </div>
           </div>
         </section>
