@@ -244,7 +244,7 @@ export default function Home() {
                   </Link>
                   <a 
                     href="tel:+15165415020"
-                    className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center"
+                    className="inline-block border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center whitespace-nowrap"
                   >
                     CALL (516) 541 5020
                   </a>

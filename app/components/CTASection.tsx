@@ -92,7 +92,7 @@ export default function CTASection({
                     download={button.download}
                     target={button.download ? undefined : '_blank'}
                     rel={button.download ? undefined : 'noopener noreferrer'}
-                    className={`px-10 py-5 text-sm font-light tracking-widest transition-all text-center block ${colorScheme} focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2`}
+                    className={`px-10 py-5 text-sm font-light tracking-widest transition-all text-center block whitespace-nowrap ${colorScheme} focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2`}
                   >
                     {button.text}
                   </a>
@@ -104,7 +104,7 @@ export default function CTASection({
               <HoverScale key={index} effect="lift">
                 <Link
                   href={button.href}
-                  className={`px-10 py-5 text-sm font-light tracking-widest transition-all text-center block ${colorScheme} focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2`}
+                  className={`px-10 py-5 text-sm font-light tracking-widest transition-all text-center block whitespace-nowrap ${colorScheme} focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2`}
                 >
                   {button.text}
                 </Link>
