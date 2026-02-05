@@ -143,24 +143,27 @@ export default function InteractiveWeddingForm() {
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
             How many guests are you expecting?
           </h3>
+          <p className="text-sm text-riviera-text/60 text-center mb-8 font-light">
+            Minimum 100 guests required
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { 
-                value: '50-100', 
+                value: '100-150', 
                 emoji: '👫', 
-                label: 'Intimate (50-100)', 
+                label: 'Intimate (100-150)', 
                 subtitle: 'A cozy celebration with your closest loved ones' 
               },
               { 
-                value: '100-200', 
+                value: '150-225', 
                 emoji: '👨‍👩‍👧‍👦', 
-                label: 'Medium (100-200)', 
+                label: 'Medium (150-225)', 
                 subtitle: 'Room for family, friends, and colleagues' 
               },
               { 
-                value: '200-300', 
+                value: '225-300', 
                 emoji: '🎉', 
-                label: 'Large (200-300)', 
+                label: 'Large (225-300)', 
                 subtitle: 'A grand celebration with everyone you love' 
               },
               { 
