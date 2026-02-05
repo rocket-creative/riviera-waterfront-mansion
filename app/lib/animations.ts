@@ -43,6 +43,11 @@ export const fadeInUp = (
     scrollTrigger = true,
   } = options;
 
+  // Safety check - return empty timeline if no element
+  if (!element) {
+    return gsap.timeline();
+  }
+
   // Set initial state (GSAP controls visibility, not CSS)
   gsap.set(element, { 
     opacity: 0, 
@@ -275,7 +280,14 @@ export const staggerChildren = (
     scrollTrigger = true,
   } = options;
 
-  const elements = gsap.utils.toArray(`${container as string} ${children}`);
+  // Get child elements from container
+  const containerEl = container as HTMLElement;
+  const elements = containerEl ? Array.from(containerEl.querySelectorAll(children)) : [];
+
+  // Safety check - return early if no elements found
+  if (!elements || elements.length === 0) {
+    return gsap.timeline(); // Return empty timeline for cleanup
+  }
 
   gsap.set(elements, { 
     opacity: 0, 
