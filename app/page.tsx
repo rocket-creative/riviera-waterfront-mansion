@@ -9,6 +9,7 @@ import HeroCarousel from './components/HeroCarousel';
 import CTASection from './components/CTASection';
 import InlineCTA from './components/InlineCTA';
 import FAQSection from './components/FAQSection';
+import InteractiveWeddingForm from './components/InteractiveWeddingForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import { imageConfig } from './lib/imageConfig';
@@ -163,6 +164,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Interactive Wedding Planner Form */}
+        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
+          <AnimatedSection animation="fadeInUp" as="div">
+            <InteractiveWeddingForm />
+          </AnimatedSection>
         </section>
 
         {/* Live Google Reviews - Social Proof */}

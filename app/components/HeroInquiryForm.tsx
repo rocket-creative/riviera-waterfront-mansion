@@ -36,7 +36,7 @@ export default function HeroInquiryForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-sm p-6 md:p-8 shadow-2xl">
+      <form onSubmit={handleSubmit} className="bg-stone-50 backdrop-blur-sm p-6 md:p-8 shadow-2xl">
         <div className="mb-4">
           <p className="text-riviera-gold text-xs tracking-widest mb-2 text-center">CHECK AVAILABILITY</p>
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text text-center mb-6">
