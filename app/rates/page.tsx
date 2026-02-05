@@ -299,7 +299,7 @@ export default function RatesPage() {
           background="dark"
           buttons={[
             {
-              text: 'REQUEST MY PROPOSAL →',
+              text: 'REQUEST PROPOSAL →',
               href: '/contact',
               intent: 'schedule',
             },

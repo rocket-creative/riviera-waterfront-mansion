@@ -95,7 +95,7 @@ export default function Home() {
                       href="/contact"
                       className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
                     >
-                      SCHEDULE YOUR VISIT →
+                      BOOK A TOUR →
                     </Link>
                   </HoverScale>
                   <HoverScale effect="lift">
@@ -540,7 +540,7 @@ export default function Home() {
           background="dark"
           buttons={[
             {
-              text: 'SCHEDULE YOUR VISIT →',
+              text: 'BOOK A TOUR →',
               href: '/contact',
               intent: 'schedule',
             },

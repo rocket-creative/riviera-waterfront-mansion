@@ -330,7 +330,7 @@ export default function InteractiveWeddingForm() {
                 disabled={isPending}
                 className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isPending ? 'SENDING...' : 'REQUEST MY CONSULTATION →'}
+                {isPending ? 'SENDING...' : 'REQUEST CONSULTATION →'}
               </button>
             </HoverScale>
           </form>
