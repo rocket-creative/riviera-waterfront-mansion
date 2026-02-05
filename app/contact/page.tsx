@@ -201,10 +201,10 @@ export default function ContactPage() {
         {/* Main Contact Section */}
         <section id="inquiry-form" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Contact Form */}
-              <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
-                <div className="bg-white p-8 md:p-10">
+              <AnimatedSection animation="fadeInUp" delay={0.2} as="div" className="h-full">
+                <div className="bg-white p-8 md:p-10 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">REQUEST INFORMATION</p>
                   <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
                     Request your Long Island wedding date
@@ -214,8 +214,8 @@ export default function ContactPage() {
               </AnimatedSection>
 
               {/* Contact Information & Office Hours */}
-              <AnimatedSection animation="fadeInUp" delay={0.3} as="div">
-                <div className="space-y-8">
+              <AnimatedSection animation="fadeInUp" delay={0.3} as="div" className="h-full">
+                <div className="flex flex-col gap-8 h-full">
                   {/* Office Hours */}
                   <div className="bg-riviera-text p-8 text-white">
                     <p className="text-riviera-gold text-xs tracking-widest mb-3">CONSULTATION HOURS</p>
@@ -280,14 +280,16 @@ export default function ContactPage() {
                   </div>
 
                   {/* Quick Contact */}
-                  <div className="bg-white p-8">
-                    <p className="text-riviera-gold text-xs tracking-widest mb-3">PREFER TO CALL?</p>
-                    <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                      Speak with our team
-                    </h3>
-                    <p className="text-sm font-light text-riviera-text/70 mb-4">
-                      Our friendly staff is ready to answer your questions and help you begin planning your dream Long Island waterfront wedding
-                    </p>
+                  <div className="bg-white p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      <p className="text-riviera-gold text-xs tracking-widest mb-3">PREFER TO CALL?</p>
+                      <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
+                        Speak with our team
+                      </h3>
+                      <p className="text-sm font-light text-riviera-text/70 mb-6">
+                        Our friendly staff is ready to answer your questions and help you begin planning your dream Long Island waterfront wedding
+                      </p>
+                    </div>
                     <HoverScale effect="lift">
                       <a
                         href="tel:+15165415020"
