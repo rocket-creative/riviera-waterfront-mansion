@@ -41,7 +41,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-8">
+          <div className="hidden lg:flex lg:items-center lg:gap-4">
             <Link 
               href="/"
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
@@ -107,13 +107,13 @@ export default function Header() {
             </Link>
             <Link 
               href="/wedding-brochure"
-              className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
               WEDDING BROCHURE
             </Link>
             <Link 
               href="/contact"
-              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
               BOOK YOUR TOUR →
             </Link>
@@ -122,7 +122,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            className="lg:hidden p-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle mobile menu"
@@ -139,7 +139,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-riviera-neutral">
+          <div className="lg:hidden py-4 border-t border-riviera-neutral">
             <div className="flex flex-col gap-4">
               <Link 
                 href="/"
