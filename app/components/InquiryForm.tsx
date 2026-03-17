@@ -15,6 +15,15 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+
+    const guestCount = parseInt(formData.get('guestCount') as string || '0', 10);
+    if (guestCount < 150) {
+      setResult({
+        success: false,
+        error: 'Our minimum guest count is 150. Please update your guest count or call us at (516) 541 5020.'
+      });
+      return;
+    }
     
     startTransition(async () => {
       const response = await submitInquiryForm(formData);
@@ -126,12 +135,13 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="guestCount"
               name="guestCount"
               required
-              placeholder="Est. number of guests"
-              min="1"
+              placeholder="Min. 150 guests"
+              min="150"
               max="350"
               className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             />
+            <p className="mt-1 text-xs text-riviera-text/50">Minimum 150 guests required</p>
             {result?.error?.guestCount && (
               <p className="mt-2 text-sm text-red-600">{result.error.guestCount[0]}</p>
             )}

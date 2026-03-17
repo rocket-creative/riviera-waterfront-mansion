@@ -237,10 +237,10 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col gap-4 max-w-md">
                   <Link 
-                    href="/contact"
+                    href="/wedding-brochure"
                     className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
                   >
-                    DOWNLOAD BROCHURE →
+                    WEDDING BROCHURE →
                   </Link>
                   <a 
                     href="tel:+15165415020"
@@ -581,8 +581,20 @@ export default function Home() {
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
                 opens: '11:00',
+                closes: '20:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Saturday'],
+                opens: '10:00',
+                closes: '20:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Sunday'],
+                opens: '10:00',
                 closes: '19:00'
               }
             ],

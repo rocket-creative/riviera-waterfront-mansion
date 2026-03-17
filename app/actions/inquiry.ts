@@ -9,7 +9,10 @@ const InquiryFormSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().min(1, 'Phone is required'),
   weddingDate: z.string().min(1, 'Wedding date is required'),
-  guestCount: z.string().min(1, 'Guest count is required'),
+  guestCount: z.string().min(1, 'Guest count is required').refine(
+    (val) => parseInt(val, 10) >= 150,
+    { message: 'Our minimum guest count is 150. Please update your guest count or call us at (516) 541 5020.' }
+  ),
   desiredSeason: z.enum(['Spring', 'Summer', 'Fall', 'Winter'], {
     errorMap: () => ({ message: 'Please select a season' })
   }),

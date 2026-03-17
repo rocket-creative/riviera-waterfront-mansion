@@ -42,8 +42,8 @@ const contactFAQs = [
     answer: 'Bring your guest count estimate, preferred wedding date or season, and any specific questions or must haves for your celebration. If you are ready to book, we will provide all necessary paperwork during your visit.'
   },
   {
-    question: 'Can I download pricing information before visiting?',
-    answer: 'Yes! You can download our comprehensive wedding brochure with pricing, package details, and menu options. Look for the download button on this page or request it via email at appointments@rivierawaterfrontmansion.com.'
+    question: 'Can I get wedding information before visiting?',
+    answer: 'Yes! You can request our comprehensive wedding brochure with package details, menu options, and venue information at rivierawaterfrontmansion.com/wedding-brochure, or reach us directly at appointments@rivierawaterfrontmansion.com.'
   }
 ];
 
@@ -163,7 +163,7 @@ export default function ContactPage() {
                     Long Island wedding inquiries
                   </h3>
                   <p className="text-sm font-light text-riviera-text/80 mb-6 flex-grow">
-                    If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below or download our comprehensive Long Island wedding pricing brochure. Limited dates available for 2026 and 2027.
+                    If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below. Limited dates available for 2026 and 2027.
                   </p>
                   <HoverScale effect="lift">
                     <a 
@@ -259,23 +259,22 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Download Brochure */}
+                  {/* Wedding Brochure */}
                   <div className="bg-white p-8 border-2 border-riviera-gold">
-                    <p className="text-riviera-gold text-xs tracking-widest mb-3">FREE DOWNLOAD</p>
+                    <p className="text-riviera-gold text-xs tracking-widest mb-3">WEDDING BROCHURE</p>
                     <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                      Wedding brochure & pricing
+                      Get our wedding brochure
                     </h3>
                     <p className="text-sm font-light text-riviera-text/70 mb-6">
-                      Get detailed information about our Massapequa waterfront venue, Long Island wedding packages, menu options, and comprehensive pricing
+                      Request our comprehensive wedding brochure covering our Massapequa waterfront venue, Long Island wedding packages, menu options, and more
                     </p>
                     <HoverScale effect="lift">
-                      <a 
-                        href="/brochure.pdf"
-                        download
+                      <Link
+                        href="/wedding-brochure"
                         className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center block w-full"
                       >
-                        DOWNLOAD PDF →
-                      </a>
+                        REQUEST BROCHURE →
+                      </Link>
                     </HoverScale>
                   </div>
 

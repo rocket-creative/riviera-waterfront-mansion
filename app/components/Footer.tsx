@@ -31,13 +31,13 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-light tracking-widest mb-4">OFFICE HOURS</h3>
             <div className="text-sm font-light leading-relaxed opacity-90">
-              <p>Monday: Closed</p>
-              <p>Tuesday: 11:00 am to 7:00 pm</p>
-              <p>Wednesday: 11:00 am to 7:00 pm</p>
-              <p>Thursday: 11:00 am to 7:00 pm</p>
-              <p>Friday: 11:00 am to 7:00 pm</p>
-              <p>Saturday: 11:00 am to 7:00 pm</p>
-              <p>Sunday: 11:00 am to 7:00 pm</p>
+              <p>Monday: Appointment Only</p>
+              <p>Tuesday: 11:00 am – 8:00 pm</p>
+              <p>Wednesday: 11:00 am – 8:00 pm</p>
+              <p>Thursday: 11:00 am – 8:00 pm</p>
+              <p>Friday: 11:00 am – 8:00 pm</p>
+              <p>Saturday: 10:00 am – 8:00 pm</p>
+              <p>Sunday: 10:00 am – 7:00 pm</p>
             </div>
           </div>
 

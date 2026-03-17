@@ -106,6 +106,12 @@ export default function Header() {
               VENDORS
             </Link>
             <Link 
+              href="/wedding-brochure"
+              className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+            >
+              WEDDING BROCHURE
+            </Link>
+            <Link 
               href="/contact"
               className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
             >
@@ -200,6 +206,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 VENDORS
+              </Link>
+              <Link 
+                href="/wedding-brochure"
+                className="border border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                WEDDING BROCHURE
               </Link>
               <Link 
                 href="/contact"

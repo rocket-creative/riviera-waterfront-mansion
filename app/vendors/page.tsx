@@ -87,7 +87,6 @@ const vendorCategories = [
     title: 'Bakery',
     icon: '🎂',
     vendors: [
-      { name: 'Batter Up Bakery', website: 'https://batterupbakeryny.com', phone: '(516) 681 4743' },
       { name: "Francesco's Bakery", website: 'https://www.francescosbakery.com', phone: '(516) 931 6821' },
     ]
   },
@@ -119,7 +118,6 @@ const vendorCategories = [
     vendors: [
       { name: 'Starfire Corporation', description: 'Charles Rappa', phone: '(631) 624 4972' },
       { name: 'Grucci Fireworks', website: 'https://www.grucci.com', phone: '(631) 286 0088' },
-      { name: 'Volt Live', email: 'info@voltlive.com', phone: '1 800 606 3716' },
     ]
   },
   {
@@ -149,7 +147,6 @@ const vendorCategories = [
     title: 'Special Services',
     icon: '⭐',
     vendors: [
-      { name: 'Till Death Do Us Art (Live Painter)', description: '@Tildeathdous.art', email: 'Paintmyweddingbyelle@gmail.com', phone: '(718) 689 2686' },
       { name: 'Village Cigar Headquarters', website: 'https://www.villagecigarhq.com', phone: '(631) 307 9033' },
       { name: 'Rainbow Tents (Heater Rentals)', website: 'https://www.rainbowtents.com', phone: '(631) 665 RENT' },
     ]
