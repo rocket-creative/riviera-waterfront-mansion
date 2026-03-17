@@ -339,7 +339,7 @@ export default function ContactPage() {
                     href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block max-w-md mx-auto"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block max-w-md mx-auto"
                   >
                     GET DIRECTIONS →
                   </a>

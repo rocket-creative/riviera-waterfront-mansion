@@ -54,7 +54,7 @@ export default function HeroInquiryForm() {
               id="hero-name"
               name="name"
               required
-              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors text-sm"
+              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
               aria-required="true"
             />
             {result?.error?.name && (
@@ -71,7 +71,7 @@ export default function HeroInquiryForm() {
               id="hero-email"
               name="email"
               required
-              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors text-sm"
+              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
               aria-required="true"
             />
             {result?.error?.email && (
@@ -88,7 +88,7 @@ export default function HeroInquiryForm() {
               id="hero-weddingDate"
               name="weddingDate"
               required
-              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors text-sm"
+              className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
               aria-required="true"
             />
             {result?.error?.weddingDate && (
@@ -100,7 +100,7 @@ export default function HeroInquiryForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full bg-riviera-gold text-white px-6 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+          className="w-full bg-riviera-gold text-white px-6 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
         >
           {isPending ? 'CHECKING AVAILABILITY...' : 'CHECK AVAILABILITY →'}
         </button>

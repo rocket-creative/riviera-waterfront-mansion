@@ -14,13 +14,13 @@ export default function Footer() {
               Massapequa, NY 11758<br />
               <a 
                 href="tel:+15165415020" 
-                className="hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 (516) 541 5020
               </a><br />
               <a 
                 href="mailto:appointments@rivierawaterfrontmansion.com" 
-                className="hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 Email Us
               </a>
@@ -47,25 +47,25 @@ export default function Footer() {
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
               <Link 
                 href="/tour" 
-                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 Virtual Venue Tour
               </Link>
               <Link 
                 href="/menu" 
-                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 Wedding Menu & Catering
               </Link>
               <Link 
                 href="/vendors" 
-                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 Wedding Vendors
               </Link>
               <Link 
                 href="/contact" 
-                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light opacity-90 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               >
                 Contact & Book Tour
               </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                 href="https://instagram.com/rivierawaterfrontmansion" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -94,7 +94,7 @@ export default function Footer() {
                 href="https://facebook.com/rivierawaterfrontmansion" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 aria-label="Facebook"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -105,7 +105,7 @@ export default function Footer() {
                 href="https://tiktok.com/@rivierawaterfrontmansion" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-white hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 aria-label="TikTok"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -121,7 +121,7 @@ export default function Footer() {
           <div className="flex justify-center items-center gap-4 mb-4">
             <Link 
               href="/privacy" 
-              className="text-sm font-light opacity-75 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+              className="text-sm font-light opacity-75 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
             >
               Privacy Policy
             </Link>

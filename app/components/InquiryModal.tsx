@@ -49,7 +49,7 @@ export default function InquiryModal({ isOpen, onClose }: InquiryModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+          className="absolute top-4 right-4 z-10 text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
           aria-label="Close inquiry form"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

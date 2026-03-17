@@ -12,7 +12,7 @@ interface InquiryButtonProps {
 export default function InquiryButton({ children, className = '', variant = 'primary' }: InquiryButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const baseClasses = 'px-8 py-4 text-sm font-light tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2';
+  const baseClasses = 'px-8 py-4 text-sm font-light tracking-widest transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2';
   
   const variantClasses = {
     primary: 'bg-riviera-gold text-white hover:bg-riviera-text',

@@ -154,7 +154,7 @@ export default function CookieConsent() {
                     type="checkbox"
                     checked={true}
                     disabled
-                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus:ring-stone-500"
+                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus-visible:ring-stone-500"
                   />
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function CookieConsent() {
                     onChange={(e) =>
                       setPreferences({ ...preferences, preferences: e.target.checked })
                     }
-                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus:ring-stone-500"
+                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus-visible:ring-stone-500"
                   />
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function CookieConsent() {
                     onChange={(e) =>
                       setPreferences({ ...preferences, analytics: e.target.checked })
                     }
-                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus:ring-stone-500"
+                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus-visible:ring-stone-500"
                   />
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function CookieConsent() {
                     onChange={(e) =>
                       setPreferences({ ...preferences, marketing: e.target.checked })
                     }
-                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus:ring-stone-500"
+                    className="w-5 h-5 text-stone-900 border-stone-300 rounded focus-visible:ring-stone-500"
                   />
                 </div>
               </div>

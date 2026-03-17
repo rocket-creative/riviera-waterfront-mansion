@@ -93,7 +93,7 @@ export default function Home() {
                   <HoverScale effect="lift">
                     <Link 
                       href="/contact"
-                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
+                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block w-full"
                     >
                       BOOK A TOUR →
                     </Link>
@@ -101,7 +101,7 @@ export default function Home() {
                   <HoverScale effect="lift">
                     <Link 
                       href="/tour"
-                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
+                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block w-full"
                     >
                       VIRTUAL TOUR
                     </Link>
@@ -124,7 +124,7 @@ export default function Home() {
           <div className="absolute bottom-8 left-6 lg:left-auto lg:right-8 z-20">
             <a 
               href="#trust-bar" 
-              className="text-riviera-text/50 text-xs tracking-widest flex flex-col items-center gap-2 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+              className="text-riviera-text/50 text-xs tracking-widest flex flex-col items-center gap-2 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
               aria-label="Scroll to learn more"
             >
               <span>DISCOVER MORE</span>
@@ -195,7 +195,7 @@ export default function Home() {
                 href="https://www.google.com/maps/place/Riviera+Waterfront+Mansion"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-text text-center block w-full"
+                className="border-2 border-riviera-gold text-riviera-gold px-8 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-text text-center block w-full"
               >
                 READ ALL REVIEWS ON GOOGLE →
               </a>
@@ -238,13 +238,13 @@ export default function Home() {
                 <div className="flex flex-col gap-4 max-w-md">
                   <Link 
                     href="/wedding-brochure"
-                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block"
+                    className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block"
                   >
                     WEDDING BROCHURE →
                   </Link>
                   <a 
                     href="tel:+15165415020"
-                    className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block whitespace-nowrap"
+                    className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block whitespace-nowrap"
                   >
                     CALL (516) 541 5020
                   </a>
@@ -326,7 +326,7 @@ export default function Home() {
             </AnimatedSection>
 
             <div ref={featuresRef as any} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_24m1474-jb-25-r 2.jpg" alt="Outdoor waterfront ceremony" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -343,7 +343,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_1058770-jj-d.jpg" alt="Indoor ceremony space" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -360,7 +360,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/l1020458-by-2nd.jpg" alt="Waterfront cocktail area" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -377,7 +377,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_1058351-jj-p 6.jpg" alt="Grand ballroom" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -394,7 +394,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_1058484-by-r.jpg" alt="Bridal suite" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -411,7 +411,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_1058806-jj-p 4.jpg" alt="Balcony overlook" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -428,7 +428,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_col5824-sm-2nd 4.jpg" alt="Top shelf bar" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -445,7 +445,7 @@ export default function Home() {
                 </div>
               </Link>
               
-              <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
+              <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <Image src="/images/optimized/medium/_0350894-by-r 5.jpg" alt="Entertainment and DJ" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -515,7 +515,7 @@ export default function Home() {
               <HoverScale effect="lift">
                 <Link 
                   href="/tour"
-                  className="bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
+                  className="bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block w-full"
                 >
                   EXPLORE ALL FEATURES →
                 </Link>

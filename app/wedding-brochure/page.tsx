@@ -56,7 +56,7 @@ export default function WeddingBrochurePage() {
                 Prefer to speak with someone? Call us at{' '}
                 <a
                   href="tel:+15165415020"
-                  className="text-riviera-gold hover:underline focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                  className="text-riviera-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 >
                   (516) 541 5020
                 </a>

@@ -76,7 +76,7 @@ export default function RootLayout({
         {/* Skip to main content link for accessibility */}
         <a 
           href="#main" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-white focus:p-4 focus:z-50 focus:ring-2 focus:ring-riviera-gold"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-white focus:p-4 focus:z-50 focus-visible:ring-2 focus-visible:ring-riviera-gold"
         >
           Skip to main content
         </a>

@@ -287,7 +287,7 @@ export default function InteractiveWeddingForm() {
                 value={formData.name || ''}
                 onChange={(e) => updateFormData('name', e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20"
                 placeholder="Enter your name"
               />
             </div>
@@ -298,7 +298,7 @@ export default function InteractiveWeddingForm() {
                 value={formData.email || ''}
                 onChange={(e) => updateFormData('email', e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20"
                 placeholder="your@email.com"
               />
             </div>
@@ -309,7 +309,7 @@ export default function InteractiveWeddingForm() {
                 value={formData.phone || ''}
                 onChange={(e) => updateFormData('phone', e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20"
                 placeholder="(555) 123 4567"
               />
             </div>
@@ -319,7 +319,7 @@ export default function InteractiveWeddingForm() {
                 type="date"
                 value={formData.weddingDate || ''}
                 onChange={(e) => updateFormData('weddingDate', e.target.value)}
-                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20"
               />
               <p className="text-xs text-riviera-text/50 mt-2">mm/dd/yyyy</p>
             </div>

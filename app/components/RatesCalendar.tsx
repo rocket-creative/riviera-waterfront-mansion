@@ -237,7 +237,7 @@ export default function RatesCalendar() {
           <button
             onClick={prevMonth}
             disabled={currentMonth === 0}
-            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
             aria-label="Previous month"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -252,7 +252,7 @@ export default function RatesCalendar() {
           <button
             onClick={nextMonth}
             disabled={currentMonth === 11}
-            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            className="text-riviera-gold hover:text-riviera-text transition-colors disabled:opacity-30 disabled:cursor-not-allowed p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
             aria-label="Next month"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -408,7 +408,7 @@ export default function RatesCalendar() {
                   max={350}
                   value={guestCount}
                   onChange={(e) => setGuestCount(Number(e.target.value))}
-                  className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20"
+                  className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20"
                 />
               </div>
 
@@ -443,7 +443,7 @@ export default function RatesCalendar() {
                 <HoverScale effect="lift">
                   <Link
                     href="/contact"
-                    className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block w-full focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
                   >
                     REQUEST PROPOSAL →
                   </Link>
@@ -451,7 +451,7 @@ export default function RatesCalendar() {
                 <HoverScale effect="lift">
                   <Link
                     href="/contact"
-                    className="border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block w-full focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                    className="border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all text-center block w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
                   >
                     SCHEDULE TOUR
                   </Link>

@@ -62,7 +62,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="name"
               name="name"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             />
             {result?.error?.name && (
@@ -79,7 +79,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             />
             {result?.error?.email && (
@@ -99,7 +99,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
             name="phone"
             required
             placeholder="(555) 123 4567"
-            className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+            className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
             aria-required="true"
           />
           {result?.error?.phone && (
@@ -118,7 +118,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="weddingDate"
               name="weddingDate"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             />
             {result?.error?.weddingDate && (
@@ -138,7 +138,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               placeholder="Min. 150 guests"
               min="150"
               max="350"
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             />
             <p className="mt-1 text-xs text-riviera-text/50">Minimum 150 guests required</p>
@@ -158,7 +158,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="desiredSeason"
               name="desiredSeason"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             >
               <option value="">Select season</option>
@@ -180,7 +180,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="dayOfWeek"
               name="dayOfWeek"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             >
               <option value="">Select day</option>
@@ -205,7 +205,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
             <select
               id="secondChoiceDay"
               name="secondChoiceDay"
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
             >
               <option value="">Select day</option>
               <option value="Wednesday">Wednesday</option>
@@ -227,7 +227,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               id="ceremonyLocation"
               name="ceremonyLocation"
               required
-              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors"
+              className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors"
               aria-required="true"
             >
               <option value="">Select location</option>
@@ -250,7 +250,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
             name="message"
             rows={4}
             placeholder="Tell us more about your vision for your special day"
-            className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold/20 transition-colors resize-none"
+            className="w-full px-4 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors resize-none"
           />
           {result?.error?.message && (
             <p className="mt-2 text-sm text-red-600">{result.error.message[0]}</p>
@@ -260,7 +260,7 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
         <button
           type="submit"
           disabled={isPending}
-          className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+          className="w-full bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
         >
           {isPending ? 'SENDING...' : 'SUBMIT INQUIRY →'}
         </button>

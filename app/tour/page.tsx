@@ -160,7 +160,7 @@ export default function TourPage() {
               <div key={section.slug} className="tour-card">
                 <Link
                   href={`/tour/${section.slug}`}
-                  className="group relative overflow-hidden block aspect-[4/3] focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+                  className="group relative overflow-hidden block aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
                 >
                   {/* Photo does the heavy lifting */}
                   <div className="relative w-full h-full overflow-hidden">

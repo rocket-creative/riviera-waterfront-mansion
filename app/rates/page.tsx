@@ -94,7 +94,7 @@ export default function RatesPage() {
             </p>
             <a
               href="tel:+15165415020"
-              className="text-lg font-light tracking-wide underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-gold"
+              className="text-lg font-light tracking-wide underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-gold"
             >
               (516) 541 5020
             </a>
@@ -220,13 +220,13 @@ export default function RatesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-text"
+                className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-text"
               >
                 BOOK A TOUR &rarr;
               </Link>
               <a
                 href="tel:+15165415020"
-                className="inline-block border border-white/40 text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-text"
+                className="inline-block border border-white/40 text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-text"
               >
                 CALL (516) 541 5020
               </a>

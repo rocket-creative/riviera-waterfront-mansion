@@ -20,7 +20,7 @@ export default function CookieSettings() {
   return (
     <button
       onClick={handleOpenSettings}
-      className="text-sm font-light opacity-75 hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+      className="text-sm font-light opacity-75 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
     >
       Cookie Settings
     </button>

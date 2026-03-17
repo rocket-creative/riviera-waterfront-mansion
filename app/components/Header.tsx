@@ -44,14 +44,14 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center lg:gap-4">
             <Link 
               href="/"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               HOME
             </Link>
             
             <Link 
               href="/rates"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               RATES
             </Link>
@@ -63,7 +63,7 @@ export default function Header() {
               onMouseLeave={() => setTourDropdownOpen(false)}
             >
               <button
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 flex items-center gap-1"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 flex items-center gap-1"
                 aria-expanded={tourDropdownOpen}
                 aria-haspopup="true"
               >
@@ -95,25 +95,25 @@ export default function Header() {
             
             <Link 
               href="/menu"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               MENU
             </Link>
             <Link 
               href="/vendors"
-              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               VENDORS
             </Link>
             <Link 
               href="/wedding-brochure"
-              className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               WEDDING BROCHURE
             </Link>
             <Link 
               href="/contact"
-              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2"
+              className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
               BOOK YOUR TOUR →
             </Link>
@@ -122,7 +122,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+            className="lg:hidden p-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle mobile menu"
@@ -143,7 +143,7 @@ export default function Header() {
             <div className="flex flex-col gap-4">
               <Link 
                 href="/"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 HOME
@@ -151,7 +151,7 @@ export default function Header() {
               
               <Link 
                 href="/rates"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 RATES
@@ -161,7 +161,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setMobileTourOpen(!mobileTourOpen)}
-                  className="w-full text-left text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold flex items-center justify-between"
+                  className="w-full text-left text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold flex items-center justify-between"
                   aria-expanded={mobileTourOpen}
                 >
                   VIRTUAL TOUR
@@ -180,7 +180,7 @@ export default function Header() {
                       <Link
                         key={section.slug}
                         href={section.slug ? `/tour/${section.slug}` : '/tour'}
-                        className="text-sm font-light tracking-wider text-riviera-text/80 hover:text-riviera-gold transition-colors py-1 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                        className="text-sm font-light tracking-wider text-riviera-text/80 hover:text-riviera-gold transition-colors py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setMobileTourOpen(false);
@@ -195,28 +195,28 @@ export default function Header() {
               
               <Link 
                 href="/menu"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 MENU
               </Link>
               <Link 
                 href="/vendors"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 VENDORS
               </Link>
               <Link 
                 href="/wedding-brochure"
-                className="border border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="border border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 WEDDING BROCHURE
               </Link>
               <Link 
                 href="/contact"
-                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus:ring-2 focus:ring-riviera-gold"
+                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 BOOK YOUR TOUR →
