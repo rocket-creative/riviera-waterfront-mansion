@@ -1,319 +1,267 @@
-'use client';
-
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CTASection from '../components/CTASection';
-import FAQSection from '../components/FAQSection';
-import RatesCalendar from '../components/RatesCalendar';
-import { AnimatedSection } from '../components/AnimatedSection';
-import { HoverScale } from '../components/HoverScale';
 import Link from 'next/link';
-import Image from 'next/image';
+import type { Metadata } from 'next';
 
-const ratesFAQs = [
+export const metadata: Metadata = {
+  title: 'Rates & Availability | Long Island Wedding Venue | Riviera Waterfront Mansion',
+  description: 'Pricing and availability for Riviera Waterfront Mansion, Long Island premier waterfront wedding venue in Massapequa NY. Accommodates 150 to 350 guests. Weddings Thursday through Sunday. Contact us for current rates and personalized proposals.',
+  alternates: {
+    canonical: 'https://www.rivierawaterfrontmansion.com/rates'
+  },
+  openGraph: {
+    title: 'Rates & Availability | Riviera Waterfront Mansion Long Island',
+    description: 'Wedding pricing and availability at our Massapequa waterfront venue. 150-350 guests, Thursday-Sunday.',
+    url: 'https://www.rivierawaterfrontmansion.com/rates',
+  },
+};
+
+const includedItems = [
+  'Exclusive use of the mansion and all grounds for the entire event',
+  'Indoor and outdoor ceremony options',
+  'Private bridal suite for the wedding party',
+  'Elegant grand ballroom reception with professional service staff',
+  'Customizable floor plans and event timeline guidance',
+  'Manicured waterfront gardens and gazebo for photos',
+  "Professional Maitre'D to orchestrate your ceremony and reception",
+  'Bridal attendant for the couple throughout the day',
+  'Five hour top shelf open bar',
+  'Chef inspired Continental cuisine: cocktail hour and plated dinner',
+  'Tables, linens, and full setup',
+  'Backup generator for uninterrupted service',
+  'Climate controlled facilities',
+  'One event at a time — the entire venue is exclusively yours',
+];
+
+const faqs = [
   {
-    question: 'How much does a wedding at Riviera Waterfront Mansion cost?',
-    answer: 'Wedding packages at Riviera start at $150 pp++ for 2027. Pricing varies by day of week and season. All wedding days require a minimum of 150 guests. Thursday and Sunday weddings start at $150 pp++, Friday at $180 pp++, and Saturday at $216 pp++. Busy season months (May through November) have a 20% increase. Contact us for a personalized quote based on your date and guest count.'
+    question: 'Do you host more than one event at a time?',
+    answer:
+      'No. Riviera Waterfront Mansion hosts one wedding at a time. Once your date is reserved, the entire venue is exclusively yours for the duration of your event.',
   },
   {
-    question: 'What is included in a Riviera wedding package?',
-    answer: 'Our all inclusive packages include outdoor ceremony setup, cocktail hour with passed hors d\'oeuvres, gourmet continental dinner service, premium open bar (5+ hours), professional wait staff, linens and table settings, dedicated event coordinator, and exclusive use of the venue for your celebration. You may bring your own DJ, photographer, and florist.'
+    question: 'What days of the week do you host weddings?',
+    answer: 'We host weddings Thursday through Sunday.',
   },
   {
-    question: 'Does Riviera offer payment plans for weddings?',
-    answer: 'Yes, Riviera Waterfront Mansion offers flexible payment plans to help you budget for your celebration. Deposits secure your date, with remaining payments spread over scheduled milestones leading up to your wedding. Our team will work with you to create a payment timeline that fits your needs.'
+    question: 'What is the guest minimum?',
+    answer:
+      'Our minimum is 150 guests. Our grand ballroom accommodates up to 350 guests.',
   },
   {
-    question: 'How far in advance should I book my wedding date at Riviera?',
-    answer: 'Popular Saturday dates in peak season (May through October) book 12 to 18 months in advance. For the most date flexibility, we recommend reaching out 12+ months before your preferred date. Thursday, Friday, and Sunday dates often have more availability with shorter lead times. Check our calendar or contact us to see current availability.'
+    question: 'What does pricing include?',
+    answer:
+      'All packages include ceremony, cocktail hour, plated reception dinner, five hour top shelf open bar, and full use of the venue and grounds. All pricing is plus a 22% admin fee and NYS tax.',
   },
   {
-    question: 'Are there discounts for off peak wedding dates?',
-    answer: 'Yes! Our non busy months (January, February, March, April, and December) offer lower per person pricing without the 20% seasonal increase. Thursday and Sunday weddings also provide significant savings compared to Saturday events. Contact us to discuss budget friendly date options that still deliver a beautiful Riviera celebration.'
+    question: 'How do I get pricing?',
+    answer:
+      'Contact our team to schedule a private tour and receive a personalized proposal for your date.',
   },
   {
-    question: 'What does "++" mean?',
-    answer: '"++" indicates that standard tax and service are additional. Your detailed proposal will show how tax and service are applied to your total.'
+    question: 'What is your cancellation policy?',
+    answer: 'Contact us directly for details on our policies and payment schedule.',
   },
-  {
-    question: 'Do you ever host more than one event per day?',
-    answer: 'No. Riviera Waterfront Mansion is a one event per day venue. Once a date is reserved, that day is closed to any other event.'
-  },
-  {
-    question: 'What if my guest count changes?',
-    answer: 'We understand that final guest counts can shift. Your contract will list the agreed minimum, and final billing is based on your guaranteed guest count provided closer to the event date.'
-  }
 ];
 
 export default function RatesPage() {
   return (
     <>
       <Header />
-      
+
       <main id="main">
-        {/* Hero Section - Editorial 2-Column Layout */}
-        <section className="relative min-h-[80vh] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
-            {/* Text Column */}
-            <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
-              <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
-                <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
-                  2027 AVAILABILITY
-                </p>
-                <h1 className="font-cormorant text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
-                  2027 Rates &
-                  <span className="block text-riviera-gold">Availability</span>
-                </h1>
-                <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
-                  Transparent, date based pricing for your Riviera wedding. We know that clear, upfront pricing makes planning easier.
-                </p>
-                <div className="flex flex-col gap-4 max-w-md">
-                  <HoverScale effect="lift">
-                    <Link 
-                      href="/contact"
-                      className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full"
-                    >
-                      CHECK MY DATE →
-                    </Link>
-                  </HoverScale>
-                  <HoverScale effect="lift">
-                    <a 
-                      href="tel:+15165415020"
-                      className="border-2 border-riviera-gold text-riviera-gold px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-gold hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 text-center block w-full whitespace-nowrap"
-                    >
-                      CALL (516) 541 5020
-                    </a>
-                  </HoverScale>
-                </div>
-              </div>
-            </div>
 
-            {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden">
-              <Image
-                src="/images/large/_DSC5114aa-port-2.jpg"
-                alt="Elegant wedding reception at Riviera Waterfront Mansion grand ballroom in Massapequa, Long Island"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                quality={90}
-              />
-            </div>
+        {/* Hero Section */}
+        <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
+              Rates and availability for your Long Island waterfront wedding
+            </h1>
+            <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto">
+              Every Riviera Waterfront Mansion wedding is priced based on your chosen date, guest count, and menu selections. Contact us for a personalized proposal.
+            </p>
           </div>
         </section>
 
-        {/* Pricing Overview */}
-        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">HOW OUR PRICING WORKS</p>
-              <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                Simple, transparent pricing
-              </h2>
-              <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
-                Our 2027 rates are designed to be simple and predictable, based on per person pricing starting at $150 pp++. We book weddings Wednesday through Sunday.
-              </p>
-            </AnimatedSection>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <AnimatedSection animation="fadeInUp" delay={0.1} as="div">
-                <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-4xl font-light text-riviera-gold mb-4">$150 pp<sup>++</sup></div>
-                  <h3 className="text-xs tracking-widest text-riviera-text mb-3">THURSDAY & SUNDAY</h3>
-                  <p className="text-sm font-light text-riviera-text/70">
-                    150 guest minimum
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
-                <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-4xl font-light text-riviera-gold mb-4">$180 pp<sup>++</sup></div>
-                  <h3 className="text-xs tracking-widest text-riviera-text mb-3">FRIDAY</h3>
-                  <p className="text-sm font-light text-riviera-text/70">
-                    150 guest minimum
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.3} as="div">
-                <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-4xl font-light text-riviera-gold mb-4">$216 pp<sup>++</sup></div>
-                  <h3 className="text-xs tracking-widest text-riviera-text mb-3">SATURDAY</h3>
-                  <p className="text-sm font-light text-riviera-text/70">
-                    150 guest minimum
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.4} as="div">
-                <div className="bg-white p-8 text-center border-2 border-riviera-gold/20">
-                  <div className="text-5xl font-light text-riviera-gold mb-4">+20%</div>
-                  <h3 className="text-xs tracking-widest text-riviera-text mb-3">BUSY SEASON</h3>
-                  <p className="text-sm font-light text-riviera-text/70">
-                    May through November
-                  </p>
-                </div>
-              </AnimatedSection>
-            </div>
-
-            <AnimatedSection animation="fadeInUp" delay={0.5} as="div">
-              <div className="bg-riviera-gold/10 border border-riviera-gold/30 p-6 text-center">
-                <p className="text-sm font-light text-riviera-text/80 leading-relaxed">
-                  <strong className="font-normal text-riviera-text">Riviera Waterfront Mansion wedding packages start at $150 pp++ for 2027</strong>, with all inclusive pricing that covers ceremony, cocktail hour, reception, catering, and bar service. We book weddings Wednesday through Sunday. Pricing varies by day of week and season, with busy months (May through November) reflecting a 20% increase. Payment plans and flexible deposits are available.
-                </p>
-              </div>
-            </AnimatedSection>
+        {/* Important Notice Bar */}
+        <section className="bg-riviera-gold py-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <p className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-3">
+              Limited 2026 and 2027 wedding dates remaining
+            </p>
+            <p className="text-sm font-light tracking-widest opacity-90 mb-3">
+              CALL TUESDAY THROUGH SUNDAY TO CHECK AVAILABILITY FOR YOUR DATE
+            </p>
+            <a
+              href="tel:+15165415020"
+              className="text-lg font-light tracking-wide underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-gold"
+            >
+              (516) 541 5020
+            </a>
           </div>
         </section>
 
-        {/* Interactive Calendar */}
-        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">2027 CALENDAR</p>
-              <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                Explore 2027 dates & starting rates
+        {/* How Pricing Works */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12">
+              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-6">
+                How our Long Island wedding pricing works
               </h2>
-              <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
-                Click any available date to see the starting per person rate, the guest minimum for that day, and an estimated total based on your guest count
-              </p>
-            </AnimatedSection>
+              <div className="max-w-3xl">
+                <p className="text-base font-light text-riviera-text/70 leading-relaxed">
+                  All packages include ceremony, cocktail hour, plated reception dinner, Continental cuisine, and a five hour top shelf open bar. All pricing is plus a 22% admin fee and NYS tax. Contact us for a personalized proposal.
+                </p>
+              </div>
+            </div>
 
-            <RatesCalendar />
+            <div className="grid sm:grid-cols-3 gap-0 border border-riviera-neutral">
+              <div className="p-8 border-b sm:border-b-0 sm:border-r border-riviera-neutral">
+                <h3 className="text-xs tracking-widest text-riviera-gold mb-4">AVAILABLE DAYS</h3>
+                <p className="font-cormorant text-xl font-light text-riviera-text mb-2">
+                  Thursday through Sunday
+                </p>
+                <p className="text-sm font-light text-riviera-text/60 leading-relaxed">
+                  We host weddings four days a week to ensure each couple receives our full attention and service.
+                </p>
+              </div>
+              <div className="p-8 border-b sm:border-b-0 sm:border-r border-riviera-neutral">
+                <h3 className="text-xs tracking-widest text-riviera-gold mb-4">GUEST COUNT</h3>
+                <p className="font-cormorant text-xl font-light text-riviera-text mb-2">
+                  150 to 350 guests
+                </p>
+                <p className="text-sm font-light text-riviera-text/60 leading-relaxed">
+                  A 150 guest minimum is required. Our grand ballroom accommodates up to 350 guests.
+                </p>
+              </div>
+              <div className="p-8">
+                <h3 className="text-xs tracking-widest text-riviera-gold mb-4">PRICING</h3>
+                <p className="font-cormorant text-xl font-light text-riviera-text mb-2">
+                  Contact us for current rates
+                </p>
+                <p className="text-sm font-light text-riviera-text/60 leading-relaxed">
+                  Personalized proposals available. Contact us to receive current rates for your date.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* What's Included */}
-        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">WHAT&apos;S INCLUDED</p>
-              <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                When you reserve your date
-              </h2>
-            </AnimatedSection>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <AnimatedSection animation="fadeInUp" delay={0.1} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">EXCLUSIVE USE OF THE VENUE</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Complete access to the mansion and grounds for the duration of your event
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.15} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">INDOOR & OUTDOOR CEREMONY OPTIONS</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Beautiful ceremony spaces with weather contingency planning
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">PRIVATE BRIDAL SUITE & GROOM&apos;S QUARTERS</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Elegant preparation spaces for your wedding party
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.25} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">ELEGANT BALLROOM RECEPTION</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Professional service staff and customizable floor plans
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.3} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">WATERFRONT GARDENS & DOCK ACCESS</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Manicured grounds perfect for stunning portraits
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fadeInUp" delay={0.35} as="div">
-                <div className="bg-white p-8 border border-riviera-gold/20">
-                  <div className="flex items-start gap-4">
-                    <div className="text-riviera-gold text-2xl flex-shrink-0">✓</div>
-                    <div>
-                      <h3 className="text-sm tracking-wider text-riviera-text mb-2 font-medium">VENDOR COORDINATION</h3>
-                      <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                        Work with your chosen vendors for a seamless event flow
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
+        <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
+              {"What's included with every Riviera Waterfront Mansion wedding"}
+            </h2>
+            <p className="text-base font-light text-riviera-text/70 mb-10 max-w-2xl">
+              Every Riviera Waterfront Mansion wedding includes full access to the mansion, the grounds, and our complete team of wedding professionals.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
+              {includedItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <svg
+                    className="w-4 h-4 text-riviera-gold mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-base font-light text-riviera-text/80 leading-snug">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <FAQSection 
-          faqs={ratesFAQs}
-          title="Common questions about rates & booking"
-          eyebrow="QUESTIONS ANSWERED"
-          background="white"
-        />
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-10">
+              Frequently asked questions about rates and availability
+            </h2>
+            <div className="divide-y divide-riviera-neutral">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group py-6">
+                  <summary className="flex items-center justify-between cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 rounded-sm">
+                    <span className="font-cormorant text-xl font-light text-riviera-text pr-8">
+                      {faq.question}
+                    </span>
+                    <span className="flex-shrink-0 text-riviera-gold" aria-hidden="true">
+                      <svg
+                        className="w-5 h-5 transition-transform duration-200 group-open:rotate-45"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-base font-light text-riviera-text/70 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Final CTA */}
-        <CTASection
-          eyebrow="READY TO RESERVE YOUR 2027 DATE?"
-          headline="Let's plan your dream Massapequa waterfront wedding"
-          description="Schedule a personal tour of our historic Riviera Waterfront Mansion and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available for 2027. Call now or submit an inquiry to check your date."
-          background="dark"
-          buttons={[
-            {
-              text: 'REQUEST PROPOSAL →',
-              href: '/contact',
-              intent: 'schedule',
-            },
-            {
-              text: 'CALL (516) 541 5020',
-              href: 'tel:+15165415020',
-              intent: 'call',
-              external: true,
-            },
-          ]}
-        />
+        <section className="bg-riviera-text py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-6">
+              Ready to check your date at Riviera Waterfront Mansion?
+            </h2>
+            <p className="text-base font-light opacity-70 mb-10 max-w-xl mx-auto">
+              Schedule a private tour and speak with our team about availability, pricing, and everything your wedding day will include.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 focus:ring-offset-riviera-text"
+              >
+                BOOK A TOUR &rarr;
+              </Link>
+              <a
+                href="tel:+15165415020"
+                className="inline-block border border-white/40 text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-riviera-text"
+              >
+                CALL (516) 541 5020
+              </a>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       <Footer />
+
+      {/* JSON-LD Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.rivierawaterfrontmansion.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Rates',
+                item: 'https://www.rivierawaterfrontmansion.com/rates',
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

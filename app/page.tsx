@@ -48,7 +48,7 @@ const homepageFAQs = [
   },
   {
     question: 'Is there parking available at the venue?',
-    answer: 'Yes, we provide ample complimentary parking for all your wedding guests on our Massapequa waterfront property. The parking area is conveniently located near the entrance.'
+    answer: 'Riviera Waterfront Mansion offers professional valet parking service for all guests. Our dedicated valet team takes care of every vehicle so your guests can focus entirely on celebrating.'
   }
 ];
 
@@ -113,7 +113,7 @@ export default function Home() {
             {/* Image Column - 65% (roughly 7/12) - Carousel of couples */}
             <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2">
               <HeroCarousel 
-                images={imageConfig.heroCarousel}
+                images={imageConfig.hero}
                 interval={6000}
                 alt="Wedding couple at Riviera Waterfront Mansion in Massapequa, Long Island"
               />
@@ -209,7 +209,7 @@ export default function Home() {
             {/* Image Column - Full Height */}
             <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-1 overflow-hidden">
               <Image 
-                src="/images/large/_0350091-by-p.jpg"
+                src="/images/optimized/large/_0350091-by-p.jpg"
                 alt="Elegant wedding ceremony at Riviera Waterfront Mansion in Massapequa, Long Island"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -222,9 +222,9 @@ export default function Home() {
             {/* Text Column */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-2">
               <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
-                <p className="text-riviera-gold text-sm tracking-widest mb-4">CELEBRATING 100 YEARS OF WEDDING EXCELLENCE IN MASSAPEQUA NY</p>
+                <p className="text-riviera-gold text-sm tracking-widest mb-4">75+ YEARS OF WEDDING EXCELLENCE IN MASSAPEQUA NY</p>
                 <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-8 leading-tight">
-                  The only Long Island wedding venue in New York held by the same family for over 75 years
+                  The only Long Island wedding venue held by the same family for over 75 years
                 </h2>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
                   We set the standards for all Long Island wedding venues to follow. As a third generation family owned and operated waterfront wedding venue since 1947, we bring unmatched experience and dedication to every celebration in Massapequa, NY.
@@ -328,7 +328,7 @@ export default function Home() {
             <div ref={featuresRef as any} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC4629cb-p.jpg" alt="Outdoor waterfront ceremony" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_24m1474-jb-25-r 2.jpg" alt="Outdoor waterfront ceremony" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -345,7 +345,7 @@ export default function Home() {
               
               <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC4647cb-p.jpg" alt="Indoor ceremony space" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_1058770-jj-d.jpg" alt="Indoor ceremony space" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -362,7 +362,7 @@ export default function Home() {
               
               <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC4964cb-p.jpg" alt="Waterfront cocktail area" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/l1020458-by-2nd.jpg" alt="Waterfront cocktail area" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -379,7 +379,7 @@ export default function Home() {
               
               <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC5114aa-port-2.jpg" alt="Grand ballroom" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_1058351-jj-p 6.jpg" alt="Grand ballroom" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -396,7 +396,7 @@ export default function Home() {
               
               <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC5139aa-port-2.jpg" alt="Bridal suite" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_1058484-by-r.jpg" alt="Bridal suite" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -413,7 +413,7 @@ export default function Home() {
               
               <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC6150aa-port-2.jpg" alt="Balcony overlook" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_1058806-jj-p 4.jpg" alt="Balcony overlook" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -430,7 +430,7 @@ export default function Home() {
               
               <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8472jj-p.jpg" alt="Top shelf bar" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_col5824-sm-2nd 4.jpg" alt="Top shelf bar" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -447,7 +447,7 @@ export default function Home() {
               
               <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus:ring-2 focus:ring-riviera-gold focus:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8594sa-p.jpg" alt="Entertainment and DJ" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_0350894-by-r 5.jpg" alt="Entertainment and DJ" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -464,7 +464,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8607sa-p.jpg" alt="Venue amenities" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_col7437-tc-2nd 6.jpg" alt="Venue amenities" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">BACKUP GENERATOR</h3>
@@ -476,7 +476,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8650sa-p.jpg" alt="Climate controlled venue" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_0350469-by-d.jpg" alt="Climate controlled venue" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">CLIMATE CONTROLLED</h3>
@@ -488,7 +488,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8809jj-p2.jpg" alt="Coat check service" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_24m6248-jd-p 6.jpg" alt="Coat check service" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">COAT CHECK SERVICE</h3>
@@ -500,7 +500,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative h-40 overflow-hidden">
-                  <Image src="/images/medium/_DSC8820sa-p.jpg" alt="Full grounds access" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src="/images/optimized/medium/_24m3500-sm-p 6.jpg" alt="Full grounds access" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">FULL GROUNDS ACCESS</h3>
