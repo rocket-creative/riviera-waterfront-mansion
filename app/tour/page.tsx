@@ -6,6 +6,7 @@ import CTASection from '../components/CTASection';
 import InlineCTA from '../components/InlineCTA';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
+import MobileStickyCTA from '../components/MobileStickyCTA';
 import Image from 'next/image';
 import { getTourPreview, imageConfig } from '../lib/imageConfig';
 import { AnimatedSection } from '../components/AnimatedSection';
@@ -75,12 +76,12 @@ export default function TourPage() {
       
       <main id="main">
         {/* Hero Section - Editorial 2-Column Layout */}
-        <section className="relative min-h-[80vh] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
+        <section className="relative min-h-dvh overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-1 overflow-hidden">
+            <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-1 overflow-hidden">
               <Image 
-                src="/images/large/_DSC8868sa-p.jpg"
+                src="/images/large/_DSC8864sa-p.jpg"
                 alt="Stunning virtual tour of Riviera Waterfront Mansion Long Island wedding venue in Massapequa NY"
                 fill
                 priority
@@ -289,6 +290,7 @@ export default function TourPage() {
           })
         }}
       />
+      <MobileStickyCTA />
     </>
   );
 }

@@ -1,20 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion Massapequa NY',
-  description: 'Chef inspired Continental wedding menu in Massapequa NY. Five hour top shelf open bar, customizable cocktail hour with butcher block carving stations, gourmet entrees, and professional wedding catering for Long Island celebrations.',
-  alternates: {
-    canonical: 'https://www.rivierawaterfrontmansion.com/menu'
-  },
-  openGraph: {
-    title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion',
-    description: 'Chef inspired Continental wedding cuisine with five hour top shelf open bar and customizable Long Island wedding catering',
-    url: 'https://www.rivierawaterfrontmansion.com/menu',
-  },
-};
 
 export default function MenuPage() {
   return (
@@ -40,9 +26,9 @@ export default function MenuPage() {
         {/* Important Notice */}
         <section className="bg-riviera-gold py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-2">
+            <p className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-2">
               Limited Long Island wedding dates available!
-            </h2>
+            </p>
             <p className="text-sm tracking-wider mb-3">
               Please note: We only host weddings at our Massapequa waterfront venue
             </p>
@@ -875,7 +861,8 @@ export default function MenuPage() {
               {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'Menu'
+                name: 'Menu',
+                item: 'https://www.rivierawaterfrontmansion.com/menu'
               }
             ]
           })

@@ -55,7 +55,7 @@ export default function InlineCTA({
         </div>
 
         {/* Image Column - Full Height */}
-        <div className={`relative lg:col-span-7 h-[50vh] lg:h-auto ${imagePosition === 'right' ? 'order-2 lg:order-1' : 'order-1 lg:order-2'} overflow-hidden`}>
+        <div className={`relative lg:col-span-7 h-[50svh] lg:h-auto ${imagePosition === 'right' ? 'order-2 lg:order-1' : 'order-1 lg:order-2'} overflow-hidden`}>
           <Image
             src={imageSrc}
             alt={imageAlt}

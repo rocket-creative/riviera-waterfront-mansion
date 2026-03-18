@@ -6,14 +6,31 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Wedding Brochure | Riviera Waterfront Mansion Massapequa NY',
-  description: 'Request the Riviera Waterfront Mansion wedding brochure. Get detailed information about our Massapequa waterfront venue, Long Island wedding packages, menu options, and more.',
+  description: 'Request the Riviera Waterfront Mansion wedding brochure. Venue details, Long Island wedding packages, menu options, and availability for 2026 and 2027.',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/wedding-brochure'
   },
   openGraph: {
     title: 'Wedding Brochure | Riviera Waterfront Mansion',
-    description: 'Request the Riviera Waterfront Mansion wedding brochure for Long Island wedding venue details, packages, and more.',
+    description: 'Request the Riviera Waterfront Mansion wedding brochure. Venue details, Long Island wedding packages, menu options, and availability.',
     url: 'https://www.rivierawaterfrontmansion.com/wedding-brochure',
+    siteName: 'Riviera Waterfront Mansion',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.rivierawaterfrontmansion.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Riviera Waterfront Mansion wedding brochure Long Island venue',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wedding Brochure | Riviera Waterfront Mansion',
+    description: 'Request the wedding brochure for our Massapequa waterfront venue. Packages, menu, and availability for 2026 and 2027.',
+    images: ['https://www.rivierawaterfrontmansion.com/og-image.jpg'],
   },
 };
 
@@ -24,7 +41,7 @@ export default function WeddingBrochurePage() {
 
       <main id="main">
         {/* Split layout: image left, form right */}
-        <section className="min-h-[calc(100vh-80px)] grid md:grid-cols-2">
+        <section className="min-h-[calc(100dvh-80px)] grid md:grid-cols-2">
 
           {/* Left — Brochure cover image */}
           <div className="relative min-h-[50vh] md:min-h-0">

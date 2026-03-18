@@ -1,10 +1,20 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import CookieSettings from './CookieSettings';
 
 export default function Footer() {
   return (
-    <footer className="relative text-white bg-riviera-text">
+    <footer className="relative text-white bg-riviera-text pb-[56px] md:pb-0">
       <div className="mx-auto px-6 sm:px-8 lg:px-12 py-12">
+        <div className="flex justify-center mb-10">
+          <Image
+            src="/riviera-logo.png"
+            alt="Riviera Waterfront Mansion"
+            width={280}
+            height={80}
+            className="object-contain"
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact Info */}
           <div>

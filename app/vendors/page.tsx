@@ -6,6 +6,7 @@ import CTASection from '../components/CTASection';
 import InlineCTA from '../components/InlineCTA';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
+import MobileStickyCTA from '../components/MobileStickyCTA';
 import Image from 'next/image';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
@@ -171,8 +172,8 @@ export default function VendorsPage() {
       
       <main id="main">
         {/* Hero Section - Editorial 2-Column Layout */}
-        <section className="relative min-h-[80vh] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
+        <section className="relative min-h-dvh overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Text Column */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
               <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
@@ -199,7 +200,7 @@ export default function VendorsPage() {
             </div>
 
             {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden">
+            <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-2 overflow-hidden">
               <Image 
                 src="/images/large/_0359671-by-p.jpg"
                 alt="Preferred wedding vendors at Riviera Waterfront Mansion Long Island wedding venue"
@@ -261,7 +262,7 @@ export default function VendorsPage() {
                   className="vendor-category bg-white p-8 hover:shadow-lg transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="text-2xl">{category.icon}</span>
+                    <span className="text-2xl" aria-hidden="true">{category.icon}</span>
                     <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text">
                       {category.title}
                     </h2>
@@ -375,7 +376,8 @@ export default function VendorsPage() {
               {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'Preferred Vendors'
+                name: 'Preferred Vendors',
+                item: 'https://www.rivierawaterfrontmansion.com/vendors'
               }
             ]
           })
@@ -399,6 +401,7 @@ export default function VendorsPage() {
           })
         }}
       />
+      <MobileStickyCTA />
     </>
   );
 }

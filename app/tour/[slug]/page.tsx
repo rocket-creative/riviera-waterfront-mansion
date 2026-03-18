@@ -81,19 +81,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const descriptionTrimmed = section.description.length > 160
+    ? section.description.slice(0, 157) + '...'
+    : section.description;
+
   return {
-    title: `${section.title} | Long Island Wedding Venue Tour | Riviera Waterfront Mansion`,
-    description: section.description,
+    title: `${section.title} | Riviera Waterfront Mansion`,
+    description: descriptionTrimmed,
     alternates: {
       canonical: `https://www.rivierawaterfrontmansion.com/tour/${slug}`
     },
     openGraph: {
       title: `${section.title} | Riviera Waterfront Mansion`,
-      description: section.description,
+      description: descriptionTrimmed,
       url: `https://www.rivierawaterfrontmansion.com/tour/${slug}`,
       siteName: 'Riviera Waterfront Mansion',
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: 'https://www.rivierawaterfrontmansion.com/og-tour.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${section.title} at Riviera Waterfront Mansion Long Island wedding venue`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${section.title} | Riviera Waterfront Mansion`,
+      description: descriptionTrimmed,
+      images: ['https://www.rivierawaterfrontmansion.com/og-tour.jpg'],
     },
   };
 }
@@ -124,10 +142,10 @@ export default async function TourSectionPage({ params }: Props) {
       
       <main id="main">
         {/* Hero Section - Editorial 2-Column Layout */}
-        <section className="relative min-h-[80vh] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
+        <section className="relative min-h-dvh overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-1 overflow-hidden">
+            <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-1 overflow-hidden">
               <Image 
                 src={getTourPreview(slug)}
                 alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
@@ -298,7 +316,8 @@ export default async function TourSectionPage({ params }: Props) {
               {
                 '@type': 'ListItem',
                 position: 3,
-                name: section.title
+                name: section.title,
+                item: `https://www.rivierawaterfrontmansion.com/tour/${slug}`
               }
             ]
           })

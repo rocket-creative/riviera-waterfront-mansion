@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Preferred Wedding Vendors | Long Island Wedding Professionals | Riviera Waterfront Mansion',
-  description: 'Trusted Long Island wedding vendors recommended by Riviera Waterfront Mansion in Massapequa, NY. Hand selected photographers, DJs, florists, bakers, lighting, transportation, officiants, and more. Over 30 vetted wedding professionals who excel at our waterfront venue.',
+  title: 'Long Island Wedding Vendors | Riviera Waterfront Mansion',
+  description: 'Trusted Long Island wedding vendors recommended by Riviera Waterfront Mansion in Massapequa, NY. Hand selected photographers, DJs, florists, bakers, lighting, and transportation. Over 30 vetted professionals.',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/vendors'
   },

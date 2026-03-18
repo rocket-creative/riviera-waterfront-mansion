@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Virtual Tour | Long Island Waterfront Wedding Venue | Riviera Waterfront Mansion',
-  description: 'Take a virtual tour of Riviera Waterfront Mansion in Massapequa, NY. Explore our grand entrance, bridal suite, ceremony spaces, cocktail areas, grand ballroom, and stunning waterfront views. See why couples choose our historic Long Island wedding venue.',
+  title: 'Virtual Venue Tour | Riviera Waterfront Mansion Long Island',
+  description: 'Tour Riviera Waterfront Mansion in Massapequa, NY. Explore the bridal suite, ceremony spaces, cocktail areas, grand ballroom, and waterfront views. See why couples choose our Long Island venue.',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/tour'
   },
@@ -38,5 +38,32 @@ export default function TourLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      {children}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.rivierawaterfrontmansion.com'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Virtual Tour',
+                item: 'https://www.rivierawaterfrontmansion.com/tour'
+              }
+            ]
+          })
+        }}
+      />
+    </>
+  );
 }

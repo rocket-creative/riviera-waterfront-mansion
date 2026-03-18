@@ -6,6 +6,7 @@ import InquiryForm from '../components/InquiryForm';
 import CTASection from '../components/CTASection';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
+import MobileStickyCTA from '../components/MobileStickyCTA';
 import Image from 'next/image';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
@@ -57,8 +58,8 @@ export default function ContactPage() {
       
       <main id="main">
         {/* Hero Section - Editorial 2-Column Layout */}
-        <section className="relative min-h-[80vh] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] gap-0">
+        <section className="relative min-h-dvh overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Text Column */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
               <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
@@ -96,7 +97,7 @@ export default function ContactPage() {
             </div>
 
             {/* Image Column - Full Height */}
-            <div className="relative lg:col-span-7 h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden">
+            <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-2 overflow-hidden">
               <Image 
                 src="/images/large/_0359652-by-p.jpg"
                 alt="Contact Riviera Waterfront Mansion to plan your Long Island wedding"
@@ -111,7 +112,7 @@ export default function ContactPage() {
         </section>
 
         {/* Quick Contact Info Bar */}
-        <section className="bg-riviera-neutral py-10 md:py-12">
+        <section className="bg-riviera-neutral py-10 md:py-12" aria-label="Contact information">
           <div className="mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <AnimatedSection animation="fadeInUp" delay={0}>
@@ -136,7 +137,7 @@ export default function ContactPage() {
                 <h3 className="text-xs tracking-widest text-riviera-gold mb-2">EMAIL</h3>
                 <a 
                   href="mailto:appointments@rivierawaterfrontmansion.com" 
-                  className="text-base font-light text-riviera-text/90 hover:text-riviera-gold transition-colors"
+                  className="text-base font-light text-riviera-text/90 hover:text-riviera-gold transition-colors break-all"
                 >
                   appointments@rivierawaterfrontmansion.com
                 </a>
@@ -199,14 +200,14 @@ export default function ContactPage() {
         </section>
 
         {/* Main Contact Section */}
-        <section id="inquiry-form" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
+        <section id="inquiry-form" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral" aria-labelledby="inquiry-heading">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Contact Form */}
               <AnimatedSection animation="fadeInUp" delay={0.2} as="div" className="h-full">
                 <div className="bg-white p-8 md:p-10 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">REQUEST INFORMATION</p>
-                  <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
+                  <h2 id="inquiry-heading" className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
                     Request your Long Island wedding date
                   </h2>
                   <InquiryForm />
@@ -397,7 +398,51 @@ export default function ContactPage() {
               {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'Contact'
+                name: 'Contact',
+                item: 'https://www.rivierawaterfrontmansion.com/contact'
+              }
+            ]
+          })
+        }}
+      />
+      {/* JSON-LD LocalBusiness Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': 'https://www.rivierawaterfrontmansion.com/#organization',
+            name: 'Riviera Waterfront Mansion',
+            url: 'https://www.rivierawaterfrontmansion.com/contact',
+            telephone: '+15165415020',
+            email: 'appointments@rivierawaterfrontmansion.com',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '200 E Shore Dr',
+              addressLocality: 'Massapequa',
+              addressRegion: 'NY',
+              postalCode: '11758',
+              addressCountry: 'US'
+            },
+            openingHoursSpecification: [
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '11:00',
+                closes: '20:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Saturday'],
+                opens: '10:00',
+                closes: '20:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Sunday'],
+                opens: '10:00',
+                closes: '19:00'
               }
             ]
           })
@@ -421,6 +466,7 @@ export default function ContactPage() {
           })
         }}
       />
+      <MobileStickyCTA />
     </>
   );
 }

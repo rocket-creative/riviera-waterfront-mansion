@@ -27,12 +27,28 @@ const config: Config = {
         'sunlight-horizon': 'linear-gradient(to top, #2a1f1a 0%, #3d2c1f 40%, #6b4d38 70%, #947554 85%, #d4a968 100%)',
       },
       screens: {
+        'xs': '375px',   // iPhone SE 3rd gen — mobile floor
         'sm': '393px',   // iPhone 14 Pro
         'md': '810px',   // iPad 10.2"
         'lg': '1024px',  // iPad Pro
         'xl': '1440px',  // 13" laptop
         '2xl': '1920px', // 15" laptop
         '3xl': '3840px', // 4K
+      },
+      height: {
+        'dvh': '100dvh',
+        'svh': '100svh',
+        'lvh': '100lvh',
+      },
+      minHeight: {
+        'dvh': '100dvh',
+        'svh': '100svh',
+      },
+      padding: {
+        'safe-top':    'env(safe-area-inset-top)',
+        'safe-right':  'env(safe-area-inset-right)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left':   'env(safe-area-inset-left)',
       },
       fontFamily: {
         sans: ['var(--font-lato)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],

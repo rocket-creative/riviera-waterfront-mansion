@@ -1,20 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Rates & Availability | Long Island Wedding Venue | Riviera Waterfront Mansion',
-  description: 'Pricing and availability for Riviera Waterfront Mansion, Long Island premier waterfront wedding venue in Massapequa NY. Accommodates 150 to 350 guests. Weddings Thursday through Sunday. Contact us for current rates and personalized proposals.',
-  alternates: {
-    canonical: 'https://www.rivierawaterfrontmansion.com/rates'
-  },
-  openGraph: {
-    title: 'Rates & Availability | Riviera Waterfront Mansion Long Island',
-    description: 'Wedding pricing and availability at our Massapequa waterfront venue. 150-350 guests, Thursday-Sunday.',
-    url: 'https://www.rivierawaterfrontmansion.com/rates',
-  },
-};
+import MobileStickyCTA from '../components/MobileStickyCTA';
 
 const includedItems = [
   'Exclusive use of the mansion and all grounds for the entire event',
@@ -148,9 +135,9 @@ export default function RatesPage() {
         </section>
 
         {/* What's Included */}
-        <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8" aria-labelledby="included-heading">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
+            <h2 id="included-heading" className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
               {"What's included with every Riviera Waterfront Mansion wedding"}
             </h2>
             <p className="text-base font-light text-riviera-text/70 mb-10 max-w-2xl">
@@ -176,9 +163,9 @@ export default function RatesPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-10">
+            <h2 id="faq-heading" className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-10">
               Frequently asked questions about rates and availability
             </h2>
             <div className="divide-y divide-riviera-neutral">
@@ -262,6 +249,25 @@ export default function RatesPage() {
           }),
         }}
       />
+      {/* JSON-LD FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
+      <MobileStickyCTA />
     </>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const tourSections = [
   { title: 'All Spaces', slug: '' },
@@ -25,6 +25,19 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [tourDropdownOpen, setTourDropdownOpen] = useState(false);
   const [mobileTourOpen, setMobileTourOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
@@ -122,12 +135,12 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+            className="lg:hidden flex items-center justify-center min-w-[44px] min-h-[44px] -mr-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold select-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
-            aria-label="Toggle mobile menu"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -139,11 +152,16 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-riviera-neutral">
-            <div className="flex flex-col gap-4">
+          <div
+            className="lg:hidden py-4 border-t border-riviera-neutral"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            <div className="flex flex-col select-none">
               <Link 
                 href="/"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors min-h-[44px] flex items-center border-b border-riviera-neutral/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 HOME
@@ -151,17 +169,17 @@ export default function Header() {
               
               <Link 
                 href="/rates"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors min-h-[44px] flex items-center border-b border-riviera-neutral/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 RATES
               </Link>
               
               {/* Mobile Virtual Tour Dropdown */}
-              <div>
+              <div className="border-b border-riviera-neutral/50">
                 <button
                   onClick={() => setMobileTourOpen(!mobileTourOpen)}
-                  className="w-full text-left text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold flex items-center justify-between"
+                  className="w-full text-left text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors min-h-[44px] flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                   aria-expanded={mobileTourOpen}
                 >
                   VIRTUAL TOUR
@@ -170,17 +188,18 @@ export default function Header() {
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {mobileTourOpen && (
-                  <div className="mt-2 ml-4 flex flex-col gap-2 border-l-2 border-riviera-gold pl-4">
+                  <div className="mb-2 ml-4 flex flex-col gap-1 border-l-2 border-riviera-gold pl-4">
                     {tourSections.map((section) => (
                       <Link
                         key={section.slug}
                         href={section.slug ? `/tour/${section.slug}` : '/tour'}
-                        className="text-sm font-light tracking-wider text-riviera-text/80 hover:text-riviera-gold transition-colors py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                        className="text-sm font-light tracking-wider text-riviera-text/80 hover:text-riviera-gold transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setMobileTourOpen(false);
@@ -195,32 +214,34 @@ export default function Header() {
               
               <Link 
                 href="/menu"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors min-h-[44px] flex items-center border-b border-riviera-neutral/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 MENU
               </Link>
               <Link 
                 href="/vendors"
-                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors min-h-[44px] flex items-center border-b border-riviera-neutral/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 VENDORS
               </Link>
-              <Link 
-                href="/wedding-brochure"
-                className="border border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                WEDDING BROCHURE
-              </Link>
-              <Link 
-                href="/contact"
-                className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                BOOK YOUR TOUR →
-              </Link>
+              <div className="flex flex-col gap-3 pt-4">
+                <Link 
+                  href="/wedding-brochure"
+                  className="border border-riviera-gold text-riviera-gold px-6 min-h-[44px] flex items-center justify-center text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  WEDDING BROCHURE
+                </Link>
+                <Link 
+                  href="/contact"
+                  className="bg-riviera-gold text-white px-6 min-h-[44px] flex items-center justify-center text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  BOOK YOUR TOUR →
+                </Link>
+              </div>
             </div>
           </div>
         )}

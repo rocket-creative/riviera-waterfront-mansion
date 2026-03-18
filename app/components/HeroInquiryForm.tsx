@@ -54,7 +54,10 @@ export default function HeroInquiryForm() {
               id="hero-name"
               name="name"
               required
+              autoComplete="name"
+              inputMode="text"
               className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
+              style={{ fontSize: '16px' }}
               aria-required="true"
             />
             {result?.error?.name && (
@@ -71,7 +74,10 @@ export default function HeroInquiryForm() {
               id="hero-email"
               name="email"
               required
+              autoComplete="email"
+              inputMode="email"
               className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
+              style={{ fontSize: '16px' }}
               aria-required="true"
             />
             {result?.error?.email && (
@@ -88,7 +94,9 @@ export default function HeroInquiryForm() {
               id="hero-weddingDate"
               name="weddingDate"
               required
+              autoComplete="off"
               className="w-full px-3 py-3 border border-riviera-neutral focus:border-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold/20 transition-colors text-sm"
+              style={{ fontSize: '16px' }}
               aria-required="true"
             />
             {result?.error?.weddingDate && (

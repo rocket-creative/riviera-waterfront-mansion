@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-stone-100">
-      <div className="max-w-4xl mx-auto bg-white min-h-screen shadow-sm">
+    <div className="min-h-dvh bg-stone-100">
+      <div className="max-w-4xl mx-auto bg-white min-h-dvh shadow-sm">
         {/* Header */}
         <div className="border-b border-stone-200 px-6 py-12 sm:px-12 sm:py-16">
           <Link 
