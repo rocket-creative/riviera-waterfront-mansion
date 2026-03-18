@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const tourSections = [
@@ -43,25 +42,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
       <nav className="mx-auto px-6 sm:px-8 lg:px-12" aria-label="Main navigation">
-        <div className="flex h-24 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
-              aria-label="Riviera Waterfront Mansion — home"
+              className="font-cormorant text-xl font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:text-riviera-gold"
             >
-              <Image
-                src="/rw-mansion-logo-circular.svg"
-                alt=""
-                width={64}
-                height={64}
-                className="flex-shrink-0"
-                aria-hidden="true"
-              />
-              <span className="font-cormorant text-xl font-light tracking-widest text-riviera-text">
-                RIVIERA WATERFRONT MANSION
-              </span>
+              RIVIERA WATERFRONT MANSION
             </Link>
           </div>
 

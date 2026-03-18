@@ -72,6 +72,15 @@ export default function Home() {
             {/* Text Column - 35% (roughly 5/12) */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
               <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
+                <div className="mb-6">
+                  <Image
+                    src="/rw-mansion-logo-circular.svg"
+                    alt="Riviera Waterfront Mansion"
+                    width={200}
+                    height={200}
+                    className="object-contain"
+                  />
+                </div>
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   LONG ISLAND'S PREMIERE WATERFRONT WEDDING VENUE
                 </p>
