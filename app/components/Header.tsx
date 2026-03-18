@@ -43,7 +43,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
       <nav className="mx-auto px-6 sm:px-8 lg:px-12" aria-label="Main navigation">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-24 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link 
@@ -54,8 +54,8 @@ export default function Header() {
               <Image
                 src="/rw-mansion-logo-circular.svg"
                 alt=""
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 className="flex-shrink-0"
                 aria-hidden="true"
               />
