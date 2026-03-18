@@ -225,7 +225,7 @@ export default function Home() {
               <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <p className="text-riviera-gold text-sm tracking-widest mb-4">75+ YEARS OF WEDDING EXCELLENCE IN MASSAPEQUA NY</p>
                 <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-8 leading-tight">
-                  <span className="bg-yellow-100 dark:bg-yellow-900/40">Why is Riviera Waterfront Mansion the most trusted Long Island wedding venue?</span>
+                  Why is Riviera Waterfront Mansion the most trusted Long Island wedding venue?
                 </h2>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
                   We set the standards for all Long Island wedding venues to follow. As a third generation family owned and operated waterfront wedding venue since 1947, we bring unmatched experience and dedication to every celebration in Massapequa, NY.
@@ -319,8 +319,8 @@ export default function Home() {
             <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">EVERYTHING YOU NEED FOR YOUR LONG ISLAND WEDDING</p>
               <h2 id="features-heading" className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                  <span className="bg-yellow-100 dark:bg-yellow-900/40">What does Riviera Waterfront Mansion offer for your Long Island wedding?</span>
-                </h2>
+                What does Riviera Waterfront Mansion offer for your Long Island wedding?
+              </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
                 From ceremony to reception, our complete Long Island waterfront estate offers every amenity for your perfect wedding day with indoor and outdoor options
               </p>
