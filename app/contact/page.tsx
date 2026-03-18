@@ -225,32 +225,8 @@ export default function ContactPage() {
                     </h3>
                     <div className="text-sm font-light leading-relaxed opacity-90 space-y-2">
                       <div className="flex justify-between">
-                        <span>Monday</span>
-                        <span>Appointment Only</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Tuesday</span>
-                        <span>11:00 am – 8:00 pm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Wednesday</span>
-                        <span>11:00 am – 8:00 pm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Thursday</span>
-                        <span>11:00 am – 8:00 pm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Friday</span>
-                        <span>11:00 am – 8:00 pm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Saturday</span>
-                        <span>10:00 am – 8:00 pm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Sunday</span>
-                        <span>10:00 am – 7:00 pm</span>
+                        <span>Tuesday – Sunday</span>
+                        <span>11:00 AM – 7:00 PM</span>
                       </div>
                     </div>
                     <div className="mt-6 pt-6 border-t border-white/20">
@@ -428,20 +404,8 @@ export default function ContactPage() {
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                 opens: '11:00',
-                closes: '20:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Saturday'],
-                opens: '10:00',
-                closes: '20:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Sunday'],
-                opens: '10:00',
                 closes: '19:00'
               }
             ]

@@ -56,7 +56,7 @@ const tourSections = [
   { title: 'Indoor Cocktail Hour', slug: 'indoor-cocktail', description: 'Sophisticated indoor cocktail space with waterfront views' },
   { title: 'Outdoor Cocktail Hour', slug: 'outdoor-cocktail', description: 'Waterfront cocktail area overlooking the water' },
   { title: 'Grand Ballroom', slug: 'main-ballroom', description: 'Grand reception ballroom with waterfront views' },
-  { title: 'Bride & Groom Table', slug: 'sweetheart-table', description: 'Elegant head table setting for the couple' },
+  { title: 'Sweetheart Table', slug: 'sweetheart-table', description: 'Elegant head table setting for the couple' },
   { title: 'Guest Reception Seating', slug: 'guest-seating', description: 'Beautiful Long Island wedding reception seating' },
   { title: 'Spacious Dancefloor', slug: 'dancefloor', description: 'Spacious dance floor for your celebration' },
   { title: 'Entertainment Setup Area', slug: 'entertainment', description: 'Professional DJ and live band entertainment space' },

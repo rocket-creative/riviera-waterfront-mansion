@@ -29,9 +29,6 @@ export default function MenuPage() {
             <p className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-2">
               Limited Long Island wedding dates available!
             </p>
-            <p className="text-sm tracking-wider mb-3">
-              Please note: We only host weddings at our Massapequa waterfront venue
-            </p>
             <p className="text-lg font-light mb-4">
               Call us today to check wedding date availability at our Long Island venue
             </p>
@@ -107,11 +104,50 @@ export default function MenuPage() {
                     Grape Leaves, Kalamata Olives, Marinated Mushrooms, Pepperoncini, Feta Cheese, Giardiniera (cauliflower, carrots, celery, sliced green olives, serrano peppers)
                   </p>
                 </div>
-                <div>
+                <div className="md:col-span-2">
                   <h4 className="text-sm tracking-widest text-riviera-gold mb-3">PASSED HOT & COLD HORS D'OEUVRES</h4>
-                  <p className="text-sm font-light text-riviera-text/70">
-                    Various Types of Hot and Cold Hors D'Oeuvres
-                  </p>
+                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Spanakopita</p>
+                      <p className="text-xs font-light text-riviera-text/60">Flaky phyllo dough filled with spinach and feta cheese</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Kobe Slider</p>
+                      <p className="text-xs font-light text-riviera-text/60">Grilled Kobe beef with cheese on a fresh golden bun</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Mini Tacos</p>
+                      <p className="text-xs font-light text-riviera-text/60">Meat filling, topped with fresh pico de gallo and a dollop of sour cream</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Date Night</p>
+                      <p className="text-xs font-light text-riviera-text/60">Dates stuffed with goat cheese, wrapped in prosciutto</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Spring Rolls</p>
+                      <p className="text-xs font-light text-riviera-text/60">Flaky wrapped Asian inspired vegetables</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Miniature Empanadas</p>
+                      <p className="text-xs font-light text-riviera-text/60">Meat filled, crescent shaped pastry</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Zucchini Sticks</p>
+                      <p className="text-xs font-light text-riviera-text/60">Lightly breaded and fried</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Bourbon Chicken Bites</p>
+                      <p className="text-xs font-light text-riviera-text/60">Juicy white meat chicken wrapped in smoked bacon and smothered in a bourbon glaze</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Fried Coconut Shrimp</p>
+                      <p className="text-xs font-light text-riviera-text/60">Succulent jumbo shrimp battered with toasted coconut flakes and fried to perfection</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light text-riviera-text mb-0.5">Lemon Blueberry Crostini</p>
+                      <p className="text-xs font-light text-riviera-text/60">Toasted semolina bread topped with fresh ricotta, blueberry jam, and lemon zest</p>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <h4 className="text-sm tracking-widest text-riviera-gold mb-3">HOMEMADE ANTIPASTO SALAD</h4>
@@ -436,51 +472,253 @@ export default function MenuPage() {
           </div>
         </section>
 
-        {/* Cocktail Hour Station Additions */}
+        {/* Enhancements */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-stone-50">
           <div className="max-w-5xl mx-auto">
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4 text-center">
-              Premium cocktail hour station additions for your Long Island wedding
+              Wedding enhancements and premium add-ons
             </h2>
-            <p className="text-sm text-riviera-text/70 mb-12 text-center">
-              Elevate your Massapequa waterfront wedding with premium station additions. Call (516) 541 5020 for pricing and seasonal availability!
+            <p className="text-sm text-riviera-text/70 mb-2 text-center">
+              Elevate your Massapequa waterfront wedding with premium station additions, Viennese dessert displays, and more.
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">SUSHI BAR</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Fresh assorted handcrafted gourmet sushi served with soy sauce and wasabi
-                </p>
+            <p className="text-xs text-riviera-text/50 mb-14 text-center tracking-wider">
+              CALL (516) 541 5020 FOR CURRENT PRICING AND SEASONAL AVAILABILITY
+            </p>
+
+            {/* Welcome Stations */}
+            <div className="mb-16">
+              <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
+                Welcome stations
+              </h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">WELCOME SNACK STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Platters of fruits, biscotti, and assorted Italian cookies for your guests as they arrive
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">BRIDAL SUITE WRAP PLATTER</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Assorted wrap platter for bridal suite arrival featuring ham, turkey, roast beef, and veggie options
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">EARLY ARRIVAL FOR PHOTOGRAPHY</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Additional time on the grounds before your event begins for photography
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">TACO BAR</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Create your fiesta with our build your own taco station
-                </p>
+            </div>
+
+            {/* Cold Cocktail Hour Additions */}
+            <div className="mb-16">
+              <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
+                Cold cocktail hour additions
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ROLLING BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Indoor or outdoor beer and wine rolling bar
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FULL ROLLING BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Indoor or outdoor rolling bar with a full selection of top shelf alcohol
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRESH MOZZARELLA STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Fresh mozzarella perfectly paired with paper thin sliced imported prosciutto; assortment of cured meats, tomatoes, roasted peppers, and artisan breads
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">JUMBO SHRIMP COCKTAIL</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Display of jumbo shrimp cocktail served on crushed ice, presented with cocktail sauce and fresh lemon wedges
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRESH CLAM & OYSTER BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Fresh clams and oysters shucked to order, presented with Tabasco sauce, fresh lemon wedges, and horseradish sauce
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRESH SUSHI BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Traditional sushi boats with a large variety of handmade rolls with vegetarian options, presented with soy sauce, sliced ginger, and wasabi
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">WHOLE LOBSTER STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Chilled whole lobsters served on a crushed ice display (market price)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">LOBSTER TAIL STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Chilled lobster tails served on a crushed ice display (market price)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ALASKAN CRAB LEGS</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Chilled Alaskan crab legs served on a crushed ice display (market price)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ICE SCULPTURE</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choose from a large selection of sculptures through Apple Ice Inc.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">OYSTER BAR</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Fresh clams and oysters served on the half shell with cocktail sauce, lemon, and various other sides
-                </p>
+            </div>
+
+            {/* Hot Cocktail Hour Additions */}
+            <div className="mb-16">
+              <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
+                Hot cocktail hour additions
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ADDITIONAL CHAFING DISH</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choose from our variety of chafing dishes featured in our brochure
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ADDITIONAL CARVING MEAT</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choose from our variety of carving board meats featured in our brochure
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">BABY LAMB CHOPS</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Baby lamb chops served as an extra carving board meat or as passed hors d'oeuvres
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ROAST SUCKLING PIG</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Whole roasted suckling pig as an extra carving station
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">MASHED POTATO BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choice of two: sweet mashed potatoes, garlic, or plain mashed red bliss potatoes. Served with a variety of toppings including maple syrup, brown sugar, marshmallows, sour cream, cheddar cheese, chives, bacon bits, and broccoli florets
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">MACARONI & CHEESE STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choice of two: smoked Gouda and prosciutto, bacon and sharp cheddar, traditional mac and cheese with seasoned breadcrumbs, mushroom, ham and cheddar, or chicken, bacon, and sun-dried tomato
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">GOURMET PASTA STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choose three pastas and three sauces. Pasta: penne, linguini, spaghetti, rigatoni, bowtie, fettuccini, or tortellini. Sauce: ala vodka, marinara, carbonara, alfredo, bolognese, red or blanco clam sauce
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">BACON STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Bacon displayed every way! Choice of four: bacon wrapped asparagus, bacon stuffed mushrooms, BLT skewers, bacon wrapped scallops, bacon wrapped pineapple, bacon wrapped melon, bacon-ricotta crostini bites, or bacon meatballs
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">TACO BAR STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Hard and soft shell tacos with chopped meat, shredded chicken, shredded cheeses, sour cream, diced onions, diced tomatoes, shredded lettuce, and salsa
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRIED CHICKEN & GLAZED DONUT STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Golden fried chicken meets pillowy glazed donuts in a crave-happy mashup
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRENCH FRY STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choice of waffle fries, curly fries, classic french fries, and sweet potato fries, with dips and toppings available upon request
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">PIEROGI STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choice of pierogies served with a variety of toppings: sauteed onions, sour cream, chives, bacon bits, and cheddar cheese
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">BACON STATION</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Bacon, bacon, bacon! One of our most popular cocktail hour stations
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">LOBSTER BAR</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Premium Maine lobster, chilled, pre cut, and cracked
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">MAC & CHEESE</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Homestyle baked mac and cheese with toppings galore
-                </p>
+            </div>
+
+            {/* Viennese */}
+            <div>
+              <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-3">
+                Viennese dessert display
+              </h3>
+              <p className="text-sm font-light text-riviera-text/70 mb-8 max-w-3xl">
+                Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests to enjoy as part of your five-hour reception.
+              </p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FULL VIENNESE</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Full display of assorted cakes, pies, cannolis, rainbow cookies, assortment of Italian cookies and pastries, cake shooters, cake pops, and an ice cream sundae bar with lots of different toppings
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">DONUT WALL</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Assorted donuts displayed on a white wall for your guests to enjoy (also available as an exit station)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">S'MORES STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Assorted cookies, chocolates, and crackers displayed with open flames to create your own custom s'mores
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ROAMING CANNOLI</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Roaming service with freshly filled cannolis
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">RAINBOW EXPLOSION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Rainbow cookies in every way: crumb cake, black and white cookies, rainbow cookies, cannoli dipped in rainbow cookies, cupcakes, and rainbow cookie stuffed brownies
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ICE CREAM SUNDAE BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Two ice cream flavors with a full selection of toppings for your guests to customize their own sundaes
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ESPRESSO & CORDIAL STATION</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Display of after dinner cordials accompanied by our famous espresso and cappuccino
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">GELATO BAR</h4>
+                  <p className="text-sm font-light text-riviera-text/70">
+                    Choose four amazing flavors of gelato
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -768,50 +1006,80 @@ export default function MenuPage() {
         {/* Exit Stations */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-12 text-center">
+            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4 text-center">
               Add a late night exit station to your Long Island wedding
             </h2>
+            <p className="text-sm text-riviera-text/70 mb-12 text-center">
+              Send your guests home with a memorable parting treat. New options are added regularly — call (516) 541 5020 for the latest selections.
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">WHITE CASTLE</h3>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">ALL AMERICAN BURGER STATION</h3>
                 <p className="text-sm font-light text-riviera-text/70">
-                  Did someone say white castle? We've got you covered.
+                  Assortment of hamburgers, cheeseburgers, and french fries
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">HOT PRETZEL STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Hot pretzels with dipping sauces including mustard and cheese sauce
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">CHIPS & GATORADE DISPLAY</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Assortment of individually packaged chips, pretzels, Doritos, Cheese Doodles, Fritos, and assorted bottles of Gatorade
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">STUFFED BOMBOLONI BAR</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Stuffed bomboloni with your choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">STUFFED GARLIC KNOT STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Warm, buttery garlic knots stuffed with savory ham, salami, or melty provolone
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">RAMEN EXIT STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Individual instant cups of ramen
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">POPCORN STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Individual bags of popcorn with an assortment of flavors
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">MORNING GLORY STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Bacon egg and cheese, sausage egg and cheese, and ham egg and cheese sandwiches on Kaiser rolls
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">EMPANADA STATION</h3>
+                <p className="text-sm font-light text-riviera-text/70">
+                  Corn flour beef and chicken empanadas with your choice of one additional flour empanada filling
                 </p>
               </div>
               <div>
                 <h3 className="text-sm tracking-widest text-riviera-gold mb-3">DONUT WALL</h3>
                 <p className="text-sm font-light text-riviera-text/70">
-                  Your guests can indulge in an assortment of sweet treats baked with love.
+                  Assorted donuts displayed on a white wall for your guests to enjoy as they head home
                 </p>
               </div>
               <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">HOT PRETZELS</h3>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">CUSTOM STATION</h3>
                 <p className="text-sm font-light text-riviera-text/70">
-                  Hot and fresh gourmet pretzels. Your guests can enjoy a delicious salty pretzel or sweet cinnamon sugar pretzel served with cheese, mustard, or icing as a parting favor.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">DRINKS & CHIPS</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Choose from an assortment of your favorite snack chips and a variety of your favorite sports beverage that your guests will thank you for the next day.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">TACO BELL</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Grab everybody's late night favorite snack on your way home without the drive thru.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">ALL AMERICAN</h3>
-                <p className="text-sm font-light text-riviera-text/70">
-                  Long Island's favorite classic burger drive in. Your guests can enjoy All American's delicious cheeseburgers, hamburgers, and french fries as a unique parting favor at the end of your reception.
+                  Have a custom exit station unlike any other — give us your idea and we will make it happen
                 </p>
               </div>
             </div>
-            <p className="text-sm font-light text-riviera-text/60 mt-8 text-center">
-              New exit station selections are added regularly. Contact us at (516) 541 5020 for our most current options.
-            </p>
           </div>
         </section>
 

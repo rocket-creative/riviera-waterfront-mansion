@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
+import FAQSection from '../components/FAQSection';
 
 const includedItems = [
   'Exclusive use of the mansion and all grounds for the entire event',
@@ -163,37 +164,12 @@ export default function RatesPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
-          <div className="max-w-3xl mx-auto">
-            <h2 id="faq-heading" className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-10">
-              Frequently asked questions about rates and availability
-            </h2>
-            <div className="divide-y divide-riviera-neutral">
-              {faqs.map((faq) => (
-                <details key={faq.question} className="group py-6">
-                  <summary className="flex items-center justify-between cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 rounded-sm">
-                    <span className="font-cormorant text-xl font-light text-riviera-text pr-8">
-                      {faq.question}
-                    </span>
-                    <span className="flex-shrink-0 text-riviera-gold" aria-hidden="true">
-                      <svg
-                        className="w-5 h-5 transition-transform duration-200 group-open:rotate-45"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
-                      </svg>
-                    </span>
-                  </summary>
-                  <p className="mt-4 text-base font-light text-riviera-text/70 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FAQSection
+          faqs={faqs}
+          title="Frequently asked questions about rates and availability"
+          eyebrow="RATES & AVAILABILITY"
+          background="white"
+        />
 
         {/* Final CTA */}
         <section className="bg-riviera-text py-16 md:py-24 px-4 sm:px-6 lg:px-8">

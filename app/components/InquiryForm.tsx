@@ -199,7 +199,6 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               aria-required="true"
             >
               <option value="">Select day</option>
-              <option value="Wednesday">Wednesday</option>
               <option value="Thursday">Thursday</option>
               <option value="Friday">Friday</option>
               <option value="Saturday">Saturday</option>
@@ -224,7 +223,6 @@ export default function InquiryForm({ variant = 'default', className = '' }: Inq
               style={{ fontSize: '16px' }}
             >
               <option value="">Select day</option>
-              <option value="Wednesday">Wednesday</option>
               <option value="Thursday">Thursday</option>
               <option value="Friday">Friday</option>
               <option value="Saturday">Saturday</option>

@@ -113,10 +113,10 @@ export default function InteractiveWeddingForm() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: 'Spring', emoji: '🌸', label: 'Spring', dates: 'Mar - May' },
-              { value: 'Summer', emoji: '☀️', label: 'Summer', dates: 'Jun - Aug' },
-              { value: 'Fall', emoji: '🍂', label: 'Fall', dates: 'Sep - Nov' },
-              { value: 'Winter', emoji: '❄️', label: 'Winter', dates: 'Dec - Feb' },
+              { value: 'Spring', label: 'Spring', dates: 'Mar - May' },
+              { value: 'Summer', label: 'Summer', dates: 'Jun - Aug' },
+              { value: 'Fall', label: 'Fall', dates: 'Sep - Nov' },
+              { value: 'Winter', label: 'Winter', dates: 'Dec - Feb' },
             ].map((season) => (
               <button
                 key={season.value}
@@ -128,7 +128,6 @@ export default function InteractiveWeddingForm() {
                   formData.season === season.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
                 }`}
               >
-                <div className="text-4xl mb-3">{season.emoji}</div>
                 <div className="font-light text-lg text-riviera-text mb-1">{season.label}</div>
                 <div className="text-xs text-riviera-text/50">{season.dates}</div>
               </button>
@@ -146,29 +145,20 @@ export default function InteractiveWeddingForm() {
           <p className="text-sm text-riviera-text/60 text-center mb-8 font-light">
             Minimum 150 guests required
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { 
-                value: '100-150', 
-                emoji: '👫', 
-                label: 'Intimate (100-150)', 
-                subtitle: 'A cozy celebration with your closest loved ones' 
-              },
-              { 
                 value: '150-225', 
-                emoji: '👨‍👩‍👧‍👦', 
                 label: 'Medium (150-225)', 
                 subtitle: 'Room for family, friends, and colleagues' 
               },
               { 
                 value: '225-300', 
-                emoji: '🎉', 
                 label: 'Large (225-300)', 
                 subtitle: 'A grand celebration with everyone you love' 
               },
               { 
                 value: '300-350', 
-                emoji: '👑', 
                 label: 'Grand (300-350)', 
                 subtitle: 'Our full venue for your spectacular day' 
               },
@@ -183,13 +173,8 @@ export default function InteractiveWeddingForm() {
                   formData.guestCount === option.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
                 }`}
               >
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl flex-shrink-0">{option.emoji}</div>
-                  <div>
-                    <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
-                    <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
-                  </div>
-                </div>
+                <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
+                <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
               </button>
             ))}
           </div>
@@ -206,19 +191,16 @@ export default function InteractiveWeddingForm() {
             {[
               { 
                 value: 'Outdoor Waterfront', 
-                emoji: '🌊', 
                 label: 'Outdoor Waterfront', 
                 subtitle: 'Exchange vows at our stunning gazebo overlooking the water' 
               },
               { 
                 value: 'Indoor Elegance', 
-                emoji: '✨', 
                 label: 'Indoor Elegance', 
                 subtitle: 'Say "I do" in our elegant indoor space with water views' 
               },
               { 
                 value: 'Still Deciding', 
-                emoji: '🤔', 
                 label: 'Still Deciding', 
                 subtitle: 'I\'d love to see both options during my tour' 
               },
@@ -233,13 +215,8 @@ export default function InteractiveWeddingForm() {
                   formData.ceremonyVision === option.value ? 'border-riviera-gold bg-riviera-gold/5' : 'border-riviera-neutral/30'
                 }`}
               >
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl flex-shrink-0">{option.emoji}</div>
-                  <div>
-                    <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
-                    <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
-                  </div>
-                </div>
+                <div className="font-light text-lg text-riviera-text mb-2">{option.label}</div>
+                <div className="text-sm text-riviera-text/60 leading-relaxed">{option.subtitle}</div>
               </button>
             ))}
           </div>
@@ -250,7 +227,6 @@ export default function InteractiveWeddingForm() {
       {step === 4 && (
         <div className="animate-fadeIn">
           <div className="text-center mb-8">
-            <div className="text-5xl mb-4">💍</div>
             <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-4">
               Your Perfect Day Awaits!
             </h3>

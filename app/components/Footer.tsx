@@ -6,7 +6,14 @@ export default function Footer() {
   return (
     <footer className="relative text-white bg-riviera-text pb-[56px] md:pb-0">
       <div className="mx-auto px-6 sm:px-8 lg:px-12 py-12">
-        <div className="flex justify-center mb-10">
+        <div className="flex flex-col items-center gap-4 mb-10">
+          <Image
+            src="/rw-mansion-logo-circular.svg"
+            alt="Riviera Waterfront Mansion circular logo"
+            width={80}
+            height={80}
+            className="object-contain brightness-0 invert"
+          />
           <Image
             src="/riviera-logo.png"
             alt="Riviera Waterfront Mansion"
@@ -41,13 +48,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-light tracking-widest mb-4">OFFICE HOURS</h3>
             <div className="text-sm font-light leading-relaxed opacity-90">
-              <p>Monday: Appointment Only</p>
-              <p>Tuesday: 11:00 am – 8:00 pm</p>
-              <p>Wednesday: 11:00 am – 8:00 pm</p>
-              <p>Thursday: 11:00 am – 8:00 pm</p>
-              <p>Friday: 11:00 am – 8:00 pm</p>
-              <p>Saturday: 10:00 am – 8:00 pm</p>
-              <p>Sunday: 10:00 am – 7:00 pm</p>
+              <p>Tuesday – Sunday: 11:00 AM – 7:00 PM</p>
             </div>
           </div>
 

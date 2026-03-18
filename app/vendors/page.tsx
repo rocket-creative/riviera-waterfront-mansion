@@ -95,7 +95,7 @@ const vendorCategories = [
     title: 'Lighting',
     icon: '✨',
     vendors: [
-      { name: "Gal's Lights (Riviera Only)", description: 'Edison & Tulle Lighting', phone: '(516) 804 2363' },
+      { name: "Gail's Lights (Riviera Only)", description: 'Edison & Tulle Lighting', phone: '(516) 804 2363' },
     ]
   },
   {

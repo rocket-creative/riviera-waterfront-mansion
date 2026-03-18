@@ -25,7 +25,7 @@ const homepageFAQs = [
   },
   {
     question: 'Do you host multiple weddings on the same day?',
-    answer: 'No. Riviera Waterfront Mansion hosts only one wedding at a time, ensuring your day is completely exclusive. You and your guests have full private access to our entire Massapequa waterfront facility, grounds, and all amenities.'
+    answer: 'Riviera Waterfront Mansion hosts only one wedding at a time, ensuring your day is completely exclusive. You and your guests have full private access to our entire Massapequa waterfront facility, grounds, and all amenities.'
   },
   {
     question: 'What is included in your Long Island wedding packages?',
