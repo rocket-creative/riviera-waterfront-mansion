@@ -15,8 +15,8 @@ function Item({ slot, alt, name, desc }: { slot?: string; alt: string; name: str
       <div className="aspect-square relative overflow-hidden mb-2 bg-stone-100">
         <MenuImage images={slot ? m[slot] || [] : []} alt={alt} />
       </div>
-      <p className="text-[10px] tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
-      <p className="text-[10px] font-light text-riviera-text/60 leading-relaxed">{desc}</p>
+      <p className="text-xs tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
+      <p className="text-[11px] font-light text-riviera-text/60 leading-relaxed">{desc}</p>
     </div>
   );
 }
