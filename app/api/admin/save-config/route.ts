@@ -9,9 +9,27 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { hero, homepage, tour, tourPreviews, sections, menuImages } = body;
+    const {
+      hero,
+      pageHeroes,
+      homepage,
+      tour,
+      tourPreviews,
+      sections,
+      menuImages,
+      menuSectionHeroes,
+    } = body;
 
-    const content = generateImageConfigTs({ hero, homepage, tour, tourPreviews, sections, menuImages });
+    const content = generateImageConfigTs({
+      hero,
+      pageHeroes,
+      homepage,
+      tour,
+      tourPreviews,
+      sections,
+      menuImages,
+      menuSectionHeroes,
+    });
     const filePath = join(process.cwd(), 'app/lib/imageConfig.ts');
     writeFileSync(filePath, content, 'utf-8');
 
@@ -26,25 +44,45 @@ function indent(strs: string[], spaces = 4) {
   return strs.map(s => ' '.repeat(spaces) + s).join('\n');
 }
 
+/** Serialize a Record<string, string[]> into TS object literal lines */
+function arrayMapLines(record: Record<string, string[]>, keyPad = 0): string {
+  return Object.entries(record).map(([k, imgs]) => {
+    const padded = `'${k}':`.padEnd(keyPad);
+    if (!imgs || imgs.length === 0) return `    ${padded} [],`;
+    if (imgs.length === 1) return `    ${padded} ['${imgs[0]}'],`;
+    const inner = imgs.map(p => `      '${p}',`).join('\n');
+    return `    ${padded} [\n${inner}\n    ],`;
+  }).join('\n');
+}
+
 function generateImageConfigTs(config: {
   hero: string[];
-  homepage: Record<string, string>;
+  pageHeroes: Record<string, string[]>;
+  homepage: Record<string, string[]>;
   tour: Record<string, string[]>;
-  tourPreviews: Record<string, string>;
-  sections: Record<string, string>;
-  menuImages: Record<string, string>;
+  tourPreviews: Record<string, string[]>;
+  sections: Record<string, string[]>;
+  menuImages: Record<string, string[]>;
+  menuSectionHeroes: Record<string, string[]>;
 }): string {
   const heroLines = config.hero.map(p => `'${p}',`);
+
   const tourLines = Object.entries(config.tour).map(([k, imgs]) => {
-    const imgLines = imgs.map(p => `      '${p}',`).join('\n');
-    return `    '${k}': [\n${imgLines}\n    ],`;
+    const inner = imgs.map(p => `      '${p}',`).join('\n');
+    return `    '${k}': [\n${inner}\n    ],`;
   });
-  const tourPreviewLines = Object.entries(config.tourPreviews).map(
-    ([k, v]) => `    '${k}': '${v}',`
-  );
-  const menuImageLines = Object.entries(config.menuImages).map(
-    ([k, v]) => `    '${k}': '${v}',`
-  );
+
+  const menuImageLines = Object.entries(config.menuImages).map(([k, imgs]) => {
+    if (!imgs || imgs.length === 0) return `    '${k}': [],`;
+    if (imgs.length === 1) return `    '${k}': ['${imgs[0]}'],`;
+    const inner = imgs.map(p => `      '${p}',`).join('\n');
+    return `    '${k}': [\n${inner}\n    ],`;
+  });
+
+  const menuSectionHeroLines = Object.entries(config.menuSectionHeroes).map(([k, imgs]) => {
+    const inner = imgs.map(p => `      '${p}',`).join('\n');
+    return `    '${k}': [\n${inner}\n    ],`;
+  });
 
   return `/**
  * Image Configuration for Riviera Waterfront Mansion
@@ -61,10 +99,14 @@ export const imageConfig = {
 ${indent(heroLines)}
   ],
 
-  // Homepage Sections
+  // Per-page hero images — slideshow capable, edit via /admin/image-manager
+  pageHeroes: {
+${arrayMapLines(config.pageHeroes, 10)}
+  },
+
+  // Homepage section images — slideshow capable
   homepage: {
-    whyChooseUs: '${config.homepage.whyChooseUs}',
-    venue: '${config.homepage.venue}',
+${arrayMapLines(config.homepage, 14)}
   },
 
   // Tour Section Galleries
@@ -72,20 +114,22 @@ ${indent(heroLines)}
 ${tourLines.join('\n')}
   },
 
-  // Tour Grid Preview Images (one per section)
+  // Tour grid preview images — slideshow capable, edit via /admin/image-manager
   tourPreviews: {
-${tourPreviewLines.join('\n')}
+${arrayMapLines(config.tourPreviews, 22)}
   },
 
-  // Additional section images used across other pages
+  // Section CTA images — slideshow capable, edit via /admin/image-manager
   sections: {
-    vendors: '${config.sections.vendors}',
-    contact: '${config.sections.contact}',
-    menu:    '${config.sections.menu}',
-    rates:   '${config.sections.rates}',
+${arrayMapLines(config.sections, 10)}
   },
 
-  // Menu page image assignments — edit via /admin/image-manager
+  // Menu Section Hero Carousels — edit via /admin/image-manager
+  menuSectionHeroes: {
+${menuSectionHeroLines.join('\n')}
+  },
+
+  // Menu item image slideshows — each slot holds an array; edit via /admin/image-manager
   menuImages: {
 ${menuImageLines.join('\n')}
   },
@@ -99,10 +143,17 @@ export function getTourImages(slug: string): string[] {
 }
 
 /**
- * Get preview image for tour section
+ * Get preview images for tour section (slideshow array)
+ */
+export function getTourPreviews(slug: string): string[] {
+  return (imageConfig.tourPreviews[slug as keyof typeof imageConfig.tourPreviews] as string[] | undefined) ?? [];
+}
+
+/**
+ * Get first preview image for tour section (backwards compat)
  */
 export function getTourPreview(slug: string): string {
-  return imageConfig.tourPreviews[slug as keyof typeof imageConfig.tourPreviews] || '';
+  return getTourPreviews(slug)[0] ?? '';
 }
 
 /**

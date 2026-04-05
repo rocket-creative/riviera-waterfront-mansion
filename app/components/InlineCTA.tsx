@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import SlideshowImage from './SlideshowImage';
 import { HoverScale } from './HoverScale';
 import { AnimatedSection } from './AnimatedSection';
 
@@ -11,7 +12,8 @@ interface InlineCTAProps {
   description: string;
   buttonText: string;
   buttonHref: string;
-  imageSrc: string;
+  /** Single path string OR array for auto-slideshow */
+  imageSrc: string | string[];
   imageAlt: string;
   imagePosition?: 'left' | 'right';
   background?: 'white' | 'neutral' | 'light';
@@ -29,6 +31,7 @@ export default function InlineCTA({
   background = 'neutral',
 }: InlineCTAProps) {
   const bgClass = background === 'white' ? 'bg-white' : background === 'light' ? 'bg-riviera-neutral-light' : 'bg-riviera-neutral';
+  const images = Array.isArray(imageSrc) ? imageSrc : [imageSrc];
 
   return (
     <section className={`relative min-h-[70vh] overflow-hidden ${bgClass}`}>
@@ -54,16 +57,27 @@ export default function InlineCTA({
           </AnimatedSection>
         </div>
 
-        {/* Image Column - Full Height */}
+        {/* Image Column */}
         <div className={`relative lg:col-span-7 h-[50svh] lg:h-auto ${imagePosition === 'right' ? 'order-2 lg:order-1' : 'order-1 lg:order-2'} overflow-hidden`}>
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover transition-transform duration-700 hover:scale-105"
-            sizes="(max-width: 1024px) 100vw, 58vw"
-            quality={85}
-          />
+          {images.length > 1 ? (
+            <SlideshowImage
+              images={images}
+              alt={imageAlt}
+              interval={6000}
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              quality={85}
+              showPlaceholder
+            />
+          ) : (
+            <Image
+              src={images[0] ?? ''}
+              alt={imageAlt}
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              quality={85}
+            />
+          )}
         </div>
       </div>
     </section>

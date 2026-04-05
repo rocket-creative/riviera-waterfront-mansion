@@ -8,7 +8,8 @@ import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
 import Image from 'next/image';
-import { getTourPreview, imageConfig } from '../lib/imageConfig';
+import SlideshowImage from '../components/SlideshowImage';
+import { getTourPreviews, imageConfig } from '../lib/imageConfig';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
@@ -80,14 +81,13 @@ export default function TourPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Image Column - Full Height */}
             <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-1 overflow-hidden">
-              <Image 
-                src="/images/large/_DSC8864sa-p.jpg"
+              <SlideshowImage
+                images={imageConfig.pageHeroes.tour as string[]}
                 alt="Stunning virtual tour of Riviera Waterfront Mansion Long Island wedding venue in Massapequa NY"
-                fill
                 priority
-                className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 quality={90}
+                showPlaceholder
               />
             </div>
 
@@ -165,13 +165,14 @@ export default function TourPage() {
                 >
                   {/* Photo does the heavy lifting */}
                   <div className="relative w-full h-full overflow-hidden">
-                    <Image 
-                      src={getTourPreview(section.slug)}
+                    <SlideshowImage
+                      images={getTourPreviews(section.slug)}
                       alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      objectClass="object-cover transition-transform duration-700 group-hover:scale-110"
                       quality={80}
+                      interval={4000}
+                      showPlaceholder
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity group-hover:opacity-90" />
@@ -211,7 +212,7 @@ export default function TourPage() {
           description="While our virtual tour offers a glimpse of our stunning Massapequa waterfront spaces, we invite you to experience the magic of Riviera Waterfront Mansion firsthand. Schedule a private tour, meet our team, and envision your perfect wedding day."
           buttonText="BOOK A TOUR →"
           buttonHref="/contact"
-          imageSrc={imageConfig.hero[0]}
+          imageSrc={imageConfig.hero}
           imageAlt="Stunning waterfront wedding ceremony at Riviera Waterfront Mansion in Massapequa, Long Island"
           imagePosition="left"
           background="neutral"

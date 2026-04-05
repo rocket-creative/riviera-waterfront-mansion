@@ -12,7 +12,8 @@ import { imageConfig } from '../../lib/imageConfig';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Tab = 'tour' | 'menu';
+type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images';
+type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
 type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates';
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
 
@@ -23,9 +24,6 @@ const MENU_SLOTS: Array<{
   category: MenuCategory;
 }> = [
   // Cocktail Hour
-  { key: 'cocktail-hero-cold-displays',    label: 'Hero: Cold Displays',         category: 'cocktail-hour' },
-  { key: 'cocktail-hero-carving-station',  label: 'Hero: Carving Station',        category: 'cocktail-hour' },
-  { key: 'cocktail-hero-hot-gourmet',      label: 'Hero: Hot Gourmet',            category: 'cocktail-hour' },
   { key: 'cocktail-cold-meats-board',      label: 'Cold Meats Board',             category: 'cocktail-hour' },
   { key: 'cocktail-cheeseboard',           label: 'Assorted Cheeseboard',         category: 'cocktail-hour' },
   { key: 'cocktail-mediterranean-board',   label: 'Mediterranean Board',          category: 'cocktail-hour' },
@@ -122,6 +120,64 @@ const MENU_CATEGORY_LABELS: Record<MenuCategory, string> = {
   'dinner-plates':  'Dinner Plates',
 };
 
+const MENU_HERO_SECTIONS: Array<{
+  key: string;
+  label: string;
+  description: string;
+  pool: MenuCategory | 'large' | 'medium';
+}> = [
+  { key: 'page-hero',     label: 'Page Hero',          description: 'Full-width carousel at the top of the menu page', pool: 'large' },
+  { key: 'cocktail-hour', label: 'Cocktail Hour',       description: 'Hero slider at the top of the cocktail hour section', pool: 'cocktail-hour' },
+  { key: 'hot-gourmet',   label: 'Hot Gourmet Dishes',  description: 'Hero slider above the hot gourmet dishes section', pool: 'cocktail-hour' },
+  { key: 'enhancements',  label: 'Enhancements',        description: 'Hero slider at the top of the enhancements section', pool: 'enhancements' },
+  { key: 'ballroom',      label: 'Grand Ballroom',      description: 'Hero slider at the top of the ballroom reception section', pool: 'medium' },
+  { key: 'exit-stations', label: 'Exit Stations',       description: 'Hero slider at the top of the exit stations section', pool: 'enhancements' },
+];
+
+const SITE_GROUP_LABELS: Record<SiteGroup, string> = {
+  'page-heroes':    'Page Heroes',
+  'homepage':       'Homepage Sections',
+  'tour-previews':  'Tour Previews',
+  'sections':       'Section CTAs',
+};
+
+/** All site-image slots (page heroes, homepage, tour previews, section CTAs) */
+const SITE_IMAGE_SLOTS: Array<{
+  key: string;
+  label: string;
+  group: SiteGroup;
+  pool: string; // which image folder to pull from
+}> = [
+  // Page Heroes
+  { key: 'hero-contact',  label: 'Contact Page Hero',  group: 'page-heroes',   pool: 'large' },
+  { key: 'hero-tour',     label: 'Tour Page Hero',      group: 'page-heroes',   pool: 'large' },
+  { key: 'hero-vendors',  label: 'Vendors Page Hero',   group: 'page-heroes',   pool: 'large' },
+  { key: 'hero-rates',    label: 'Rates Page Hero',     group: 'page-heroes',   pool: 'medium' },
+  // Homepage Sections
+  { key: 'homepage-whyChooseUs', label: 'Why Choose Us Image', group: 'homepage', pool: 'large' },
+  { key: 'homepage-venue',       label: 'Venue CTA Image',     group: 'homepage', pool: 'medium' },
+  // Tour Previews
+  { key: 'tourpreview-entrance-lobby',   label: 'Entrance & Lobby',         group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-bridal-suite',     label: 'Bridal Suite',             group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-indoor-ceremony',  label: 'Indoor Ceremony',          group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-outdoor-ceremony', label: 'Outdoor Ceremony',         group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-indoor-cocktail',  label: 'Indoor Cocktail Hour',     group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-outdoor-cocktail', label: 'Outdoor Cocktail Hour',    group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-main-ballroom',    label: 'Grand Ballroom',           group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-sweetheart-table', label: 'Sweetheart Table',         group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-guest-seating',    label: 'Guest Seating',            group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-dancefloor',       label: 'Dance Floor',              group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-entertainment',    label: 'Entertainment',            group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-main-bar',         label: 'Main Bar',                 group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-balconies',        label: 'Balconies',                group: 'tour-previews', pool: 'medium' },
+  { key: 'tourpreview-photo-locations',  label: 'Photo Locations',          group: 'tour-previews', pool: 'medium' },
+  // Section CTAs
+  { key: 'section-vendors', label: 'Vendors Section CTA', group: 'sections', pool: 'medium' },
+  { key: 'section-contact', label: 'Contact Section CTA', group: 'sections', pool: 'medium' },
+  { key: 'section-menu',    label: 'Menu Section CTA',    group: 'sections', pool: 'medium' },
+  { key: 'section-rates',   label: 'Rates Section CTA',   group: 'sections', pool: 'medium' },
+];
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function ImageManagerPage() {
@@ -132,17 +188,55 @@ export default function ImageManagerPage() {
   const [tourSections, setTourSections] = useState<Record<string, string[]>>(
     () => JSON.parse(JSON.stringify(imageConfig.tour))
   );
+  // tourPreviews — tracks the single "star" preview per section (first image in the array)
   const [tourPreviews, setTourPreviews] = useState<Record<string, string>>(
-    () => ({ ...imageConfig.tourPreviews })
+    () => Object.fromEntries(
+      Object.entries(imageConfig.tourPreviews).map(([k, v]) => [
+        k,
+        Array.isArray(v) ? (v[0] ?? '') : (v as unknown as string),
+      ])
+    )
   );
   const [selectedSection, setSelectedSection] = useState<string>('bridal-suite');
 
   // Menu state
-  const [menuImages, setMenuImages] = useState<Record<string, string>>(
-    () => ({ ...imageConfig.menuImages })
+  const [menuImages, setMenuImages] = useState<Record<string, string[]>>(
+    () => JSON.parse(JSON.stringify(imageConfig.menuImages))
   );
   const [menuCategory, setMenuCategory] = useState<MenuCategory>('cocktail-hour');
   const [pickerOpen, setPickerOpen] = useState<string | null>(null); // slot key
+
+  // Menu section heroes state
+  const [menuSectionHeroes, setMenuSectionHeroes] = useState<Record<string, string[]>>(
+    () => JSON.parse(JSON.stringify(imageConfig.menuSectionHeroes))
+  );
+  const [selectedHeroSection, setSelectedHeroSection] = useState<string>('page-hero');
+  const [heroPickerOpen, setHeroPickerOpen] = useState(false);
+
+  // Site Images state (page heroes, homepage sections, tour previews, section CTAs)
+  const [siteImages, setSiteImages] = useState<Record<string, string[]>>(() => {
+    const ph = imageConfig.pageHeroes as Record<string, string[]>;
+    const hp = imageConfig.homepage as Record<string, string[]>;
+    const tp = imageConfig.tourPreviews as Record<string, string[]>;
+    const sc = imageConfig.sections as Record<string, string[]>;
+    return {
+      'hero-contact':  [...(ph.contact  ?? [])],
+      'hero-tour':     [...(ph.tour     ?? [])],
+      'hero-vendors':  [...(ph.vendors  ?? [])],
+      'hero-rates':    [...(ph.rates    ?? [])],
+      'homepage-whyChooseUs': [...(hp.whyChooseUs ?? [])],
+      'homepage-venue':       [...(hp.venue       ?? [])],
+      ...Object.fromEntries(
+        Object.keys(tp).map(k => [`tourpreview-${k}`, [...(tp[k] ?? [])]])
+      ),
+      'section-vendors': [...(sc.vendors ?? [])],
+      'section-contact': [...(sc.contact ?? [])],
+      'section-menu':    [...(sc.menu    ?? [])],
+      'section-rates':   [...(sc.rates   ?? [])],
+    };
+  });
+  const [siteGroup, setSiteGroup] = useState<SiteGroup>('page-heroes');
+  const [sitePickerOpen, setSitePickerOpen] = useState<string | null>(null);
 
   // Available images pool from API
   const [availableImages, setAvailableImages] = useState<Record<string, string[]>>({});
@@ -163,7 +257,7 @@ export default function ImageManagerPage() {
   // Mark dirty whenever state changes after mount
   useEffect(() => {
     if (mounted) setHasChanges(true);
-  }, [tourSections, tourPreviews, menuImages]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tourSections, tourPreviews, menuImages, menuSectionHeroes, siteImages]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Tour DnD ────────────────────────────────────────────────────────────────
 
@@ -216,6 +310,13 @@ export default function ImageManagerPage() {
 
   const setPreview = (sectionKey: string, path: string) => {
     setTourPreviews(prev => ({ ...prev, [sectionKey]: path }));
+    // Also promote this image to position 0 in the tour-preview slideshow slot
+    setSiteImages(prev => {
+      const key = `tourpreview-${sectionKey}`;
+      const existing = prev[key] ?? [];
+      const reordered = [path, ...existing.filter(p => p !== path)];
+      return { ...prev, [key]: reordered };
+    });
   };
 
   // ── Save ─────────────────────────────────────────────────────────────────────
@@ -223,16 +324,35 @@ export default function ImageManagerPage() {
   const handleSave = async () => {
     setSaveStatus('saving');
     try {
+      // Reconstruct structured config from flat siteImages state
+      const builtTourPreviews = Object.fromEntries(
+        Object.keys(imageConfig.tourPreviews).map(k => [k, siteImages[`tourpreview-${k}`] ?? []])
+      );
       const res = await fetch('/api/admin/save-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           hero: imageConfig.hero,
-          homepage: imageConfig.homepage,
+          pageHeroes: {
+            contact:  siteImages['hero-contact']  ?? [],
+            tour:     siteImages['hero-tour']     ?? [],
+            vendors:  siteImages['hero-vendors']  ?? [],
+            rates:    siteImages['hero-rates']    ?? [],
+          },
+          homepage: {
+            whyChooseUs: siteImages['homepage-whyChooseUs'] ?? [],
+            venue:       siteImages['homepage-venue']       ?? [],
+          },
           tour: tourSections,
-          tourPreviews,
-          sections: imageConfig.sections,
+          tourPreviews: builtTourPreviews,
+          sections: {
+            vendors: siteImages['section-vendors'] ?? [],
+            contact: siteImages['section-contact'] ?? [],
+            menu:    siteImages['section-menu']    ?? [],
+            rates:   siteImages['section-rates']   ?? [],
+          },
           menuImages,
+          menuSectionHeroes,
         }),
       });
       const data = await res.json();
@@ -254,11 +374,15 @@ export default function ImageManagerPage() {
     poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
   );
 
-  const menuPool = (availableImages[menuCategory] ?? []).filter(p =>
-    poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
-  );
-
   const menuSlotsForCategory = MENU_SLOTS.filter(s => s.category === menuCategory);
+
+  const activeSectionMeta = MENU_HERO_SECTIONS.find(s => s.key === selectedHeroSection);
+  const heroPool = (() => {
+    const poolKey = activeSectionMeta?.pool ?? 'medium';
+    return (availableImages[poolKey] ?? []).filter(p =>
+      poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
+    );
+  })();
 
   if (!mounted) {
     return (
@@ -298,7 +422,7 @@ export default function ImageManagerPage() {
 
       {/* Tabs */}
       <div className="bg-stone-800 px-6 flex gap-0 border-b border-stone-700">
-        {(['tour', 'menu'] as Tab[]).map(tab => (
+        {(['tour', 'menu', 'menu-heroes', 'site-images'] as Tab[]).map(tab => (
           <button
             key={tab}
             onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
@@ -308,7 +432,7 @@ export default function ImageManagerPage() {
                 : 'text-stone-400 hover:text-stone-200'
             }`}
           >
-            {tab === 'tour' ? 'Virtual Tour Gallery' : 'Menu Items'}
+            {tab === 'tour' ? 'Tour Gallery' : tab === 'menu' ? 'Menu Items' : tab === 'menu-heroes' ? 'Menu Heroes' : 'Site Images'}
           </button>
         ))}
       </div>
@@ -483,12 +607,10 @@ export default function ImageManagerPage() {
 
       {/* ── MENU TAB ─────────────────────────────────────────────────────────── */}
       {activeTab === 'menu' && (
-        <div className="flex h-[calc(100vh-7rem)]">
-
-          {/* Left: Category tabs + menu items */}
-          <main className="flex-1 overflow-y-auto bg-stone-50 p-6">
+        <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
+          <div className="p-6">
             {/* Category tabs */}
-            <div className="flex gap-2 mb-6">
+            <div className="flex gap-2 mb-4">
               {(Object.keys(MENU_CATEGORY_LABELS) as MenuCategory[]).map(cat => (
                 <button
                   key={cat}
@@ -504,58 +626,194 @@ export default function ImageManagerPage() {
               ))}
             </div>
 
-            <p className="text-xs text-stone-400 mb-4 tracking-wider">
-              Click any photo to replace it with an image from the pool on the right. The star sets the pool filter.
+            <p className="text-xs text-stone-400 mb-5 tracking-wider">
+              Click any card to manage its photos. Each slot supports multiple images — they auto-cycle as a slideshow on the menu page.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {menuSlotsForCategory.map(slot => {
-                const currentSrc = menuImages[slot.key];
+                const slotImages = menuImages[slot.key] ?? [];
+                const firstImage = slotImages[0] ?? '';
                 return (
-                  <div key={slot.key} className="group relative bg-white rounded shadow-sm overflow-hidden">
+                  <div key={slot.key} className="group relative bg-white shadow-sm overflow-hidden">
                     <button
                       onClick={() => { setPickerOpen(slot.key); setPoolSearch(''); }}
                       className="w-full text-left"
-                      title="Click to change photo"
+                      title="Click to manage photos"
                     >
                       <div className="relative aspect-square bg-stone-100 overflow-hidden">
-                        {currentSrc ? (
+                        {firstImage ? (
                           <Image
-                            src={currentSrc}
+                            src={firstImage}
                             alt={slot.label}
                             fill
                             className="object-cover group-hover:opacity-75 transition-opacity"
                             sizes="200px"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center text-stone-300 text-xs">
-                            No image
+                          <div className="w-full h-full flex flex-col items-center justify-center text-stone-300 gap-1">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+                            </svg>
+                            <span className="text-[8px] tracking-widest uppercase">No photo</span>
                           </div>
                         )}
+                        {/* Slideshow count badge */}
+                        {slotImages.length > 1 && (
+                          <span className="absolute top-1.5 right-1.5 bg-amber-600 text-white text-[9px] font-medium px-1.5 py-0.5 leading-none">
+                            {slotImages.length}
+                          </span>
+                        )}
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="bg-black/60 text-white text-[10px] px-2 py-1 rounded tracking-wider">
-                            CHANGE
+                          <span className="bg-black/60 text-white text-[10px] px-3 py-1.5 tracking-widest uppercase">
+                            Manage
                           </span>
                         </div>
                       </div>
                     </button>
                     <div className="p-2">
                       <p className="text-[10px] font-medium text-stone-700 leading-tight">{slot.label}</p>
-                      <p className="text-[8px] text-stone-400 mt-0.5 truncate">
-                        {currentSrc ? currentSrc.split('/').pop() : 'unset'}
+                      <p className="text-[8px] text-stone-400 mt-0.5">
+                        {slotImages.length === 0
+                          ? 'no photos'
+                          : `${slotImages.length} photo${slotImages.length > 1 ? 's — slideshow' : ''}`}
                       </p>
                     </div>
                   </div>
                 );
               })}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── MENU HEROES TAB ──────────────────────────────────────────────────── */}
+      {activeTab === 'menu-heroes' && (
+        <div className="flex h-[calc(100vh-7rem)]">
+
+          {/* Left: Section Selector */}
+          <aside className="w-56 bg-stone-800 overflow-y-auto flex-shrink-0">
+            {MENU_HERO_SECTIONS.map(sec => (
+              <button
+                key={sec.key}
+                onClick={() => { setSelectedHeroSection(sec.key); setPoolSearch(''); }}
+                className={`w-full text-left px-4 py-3 text-xs tracking-wider border-b border-stone-700 transition-colors ${
+                  selectedHeroSection === sec.key
+                    ? 'bg-amber-600 text-white'
+                    : 'text-stone-300 hover:bg-stone-700'
+                }`}
+              >
+                <span className="block">{sec.label}</span>
+                <span className={`text-[10px] ${selectedHeroSection === sec.key ? 'text-amber-200' : 'text-stone-500'}`}>
+                  {menuSectionHeroes[sec.key]?.length ?? 0} slides
+                </span>
+              </button>
+            ))}
+          </aside>
+
+          {/* Center: Current Section Slides */}
+          <main className="flex-1 overflow-y-auto bg-stone-50 p-6">
+            {activeSectionMeta && (
+              <>
+                <div className="mb-4">
+                  <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700">
+                    {activeSectionMeta.label}
+                  </h2>
+                  <p className="text-xs text-stone-400 mt-1">{activeSectionMeta.description}</p>
+                  <p className="text-xs text-stone-400 mt-0.5">
+                    {menuSectionHeroes[selectedHeroSection]?.length ?? 0} slides. Click + to add from the pool. Click × to remove. Drag to reorder.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3 min-h-40 p-4 bg-white border-2 border-dashed border-stone-300 rounded mb-4">
+                  {(menuSectionHeroes[selectedHeroSection] ?? []).map((imgPath, idx) => (
+                    <div key={`${imgPath}-${idx}`} className="relative group flex-shrink-0">
+                      <div className="relative w-36 h-36 overflow-hidden rounded bg-stone-200">
+                        <Image
+                          src={imgPath}
+                          alt=""
+                          fill
+                          className="object-cover"
+                          sizes="144px"
+                        />
+                      </div>
+                      {/* Slide order badge */}
+                      <span className="absolute top-1 left-1 bg-black/60 text-white text-[9px] px-1.5 py-0.5 rounded">
+                        {idx + 1}
+                      </span>
+                      {/* Move left */}
+                      {idx > 0 && (
+                        <button
+                          onClick={() => {
+                            setMenuSectionHeroes(prev => {
+                              const arr = [...(prev[selectedHeroSection] ?? [])];
+                              [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]];
+                              return { ...prev, [selectedHeroSection]: arr };
+                            });
+                          }}
+                          title="Move left"
+                          className="absolute bottom-1 left-1 w-5 h-5 rounded-full bg-stone-700 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow"
+                        >
+                          ‹
+                        </button>
+                      )}
+                      {/* Move right */}
+                      {idx < (menuSectionHeroes[selectedHeroSection]?.length ?? 0) - 1 && (
+                        <button
+                          onClick={() => {
+                            setMenuSectionHeroes(prev => {
+                              const arr = [...(prev[selectedHeroSection] ?? [])];
+                              [arr[idx], arr[idx + 1]] = [arr[idx + 1], arr[idx]];
+                              return { ...prev, [selectedHeroSection]: arr };
+                            });
+                          }}
+                          title="Move right"
+                          className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-stone-700 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow"
+                        >
+                          ›
+                        </button>
+                      )}
+                      {/* Remove */}
+                      <button
+                        onClick={() => {
+                          setMenuSectionHeroes(prev => ({
+                            ...prev,
+                            [selectedHeroSection]: (prev[selectedHeroSection] ?? []).filter((_, i) => i !== idx),
+                          }));
+                        }}
+                        title="Remove slide"
+                        className="absolute top-1 right-1 w-6 h-6 rounded-full bg-red-600 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow"
+                      >
+                        ×
+                      </button>
+                      <p className="text-[9px] text-stone-400 mt-1 truncate w-36 text-center">
+                        {imgPath.split('/').pop()}
+                      </p>
+                    </div>
+                  ))}
+
+                  {(menuSectionHeroes[selectedHeroSection]?.length ?? 0) === 0 && (
+                    <div className="flex items-center justify-center w-full text-stone-300 text-xs tracking-wider">
+                      No slides assigned — click photos in the pool to add →
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => setHeroPickerOpen(true)}
+                  className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white text-xs tracking-widest uppercase px-4 py-2 transition-colors"
+                >
+                  + Add Slide from Pool
+                </button>
+              </>
+            )}
           </main>
 
-          {/* Right: Image Pool for menu */}
+          {/* Right: Pool preview */}
           <aside className="w-72 bg-white border-l border-stone-200 flex flex-col flex-shrink-0">
             <div className="p-3 border-b border-stone-200">
-              <p className="text-xs tracking-widest text-stone-500 uppercase mb-2">
-                {MENU_CATEGORY_LABELS[menuCategory]} Pool
+              <p className="text-xs tracking-widest text-stone-500 uppercase mb-1">
+                Pool: {activeSectionMeta?.pool}
               </p>
               <input
                 type="text"
@@ -564,27 +822,22 @@ export default function ImageManagerPage() {
                 onChange={e => setPoolSearch(e.target.value)}
                 className="w-full text-xs border border-stone-200 px-3 py-2 text-stone-700 focus:outline-none focus:border-amber-400"
               />
-              <p className="text-[10px] text-stone-400 mt-1">{menuPool.length} photos</p>
-              {pickerOpen && (
-                <p className="text-[10px] text-amber-600 mt-1 tracking-wider">
-                  Click a photo to assign it to: {MENU_SLOTS.find(s => s.key === pickerOpen)?.label}
-                </p>
-              )}
+              <p className="text-[10px] text-stone-400 mt-1">{heroPool.length} photos — click to add to slider</p>
             </div>
-
             <div className="flex-1 overflow-y-auto p-3 grid grid-cols-2 gap-2 content-start">
-              {menuPool.map(imgPath => (
+              {heroPool.map(imgPath => (
                 <button
                   key={imgPath}
                   onClick={() => {
-                    if (pickerOpen) {
-                      setMenuImages(prev => ({ ...prev, [pickerOpen]: imgPath }));
-                      setPickerOpen(null);
-                    }
+                    setMenuSectionHeroes(prev => ({
+                      ...prev,
+                      [selectedHeroSection]: [...(prev[selectedHeroSection] ?? []), imgPath],
+                    }));
                   }}
-                  className={`text-left ${pickerOpen ? 'cursor-pointer ring-2 ring-transparent hover:ring-amber-400 rounded' : 'cursor-default'}`}
+                  className="group text-left"
+                  title="Add to slider"
                 >
-                  <div className="relative w-full aspect-square overflow-hidden rounded bg-stone-100">
+                  <div className="relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
                     <Image
                       src={imgPath}
                       alt=""
@@ -592,6 +845,9 @@ export default function ImageManagerPage() {
                       className="object-cover"
                       sizes="128px"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
+                      <span className="text-white text-xs tracking-widest">+ ADD</span>
+                    </div>
                   </div>
                   <p className="text-[8px] text-stone-400 mt-0.5 truncate text-center">
                     {imgPath.split('/').pop()}
@@ -603,59 +859,415 @@ export default function ImageManagerPage() {
         </div>
       )}
 
-      {/* ── Picker Overlay (Menu) ─────────────────────────────────────────────── */}
-      {pickerOpen && (
+      {/* ── Hero Picker Modal ─────────────────────────────────────────────────── */}
+      {heroPickerOpen && activeSectionMeta && (
         <div
           className="fixed inset-0 bg-black/50 z-40 flex items-end sm:items-center justify-center p-4"
-          onClick={() => setPickerOpen(null)}
+          onClick={() => setHeroPickerOpen(false)}
         >
           <div
-            className="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded shadow-2xl"
+            className="bg-white w-full max-w-3xl max-h-[80vh] overflow-y-auto rounded shadow-2xl"
             onClick={e => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-white border-b border-stone-200 px-4 py-3 flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-stone-700">
-                  Choose photo for: {MENU_SLOTS.find(s => s.key === pickerOpen)?.label}
+                  Add slide to: {activeSectionMeta.label}
                 </p>
                 <p className="text-xs text-stone-400 mt-0.5">
-                  Click any photo to assign it
+                  Click any photo to add it to the slider
                 </p>
               </div>
-              <button
-                onClick={() => setPickerOpen(null)}
-                className="text-stone-400 hover:text-stone-700 text-2xl leading-none"
-              >
+              <button onClick={() => setHeroPickerOpen(false)} className="text-stone-400 hover:text-stone-700 text-2xl leading-none">
                 ×
               </button>
             </div>
             <div className="p-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
-              {(availableImages[menuCategory] ?? []).map(imgPath => (
+              {(availableImages[activeSectionMeta.pool] ?? []).map(imgPath => (
                 <button
                   key={imgPath}
                   onClick={() => {
-                    setMenuImages(prev => ({ ...prev, [pickerOpen!]: imgPath }));
-                    setPickerOpen(null);
+                    setMenuSectionHeroes(prev => ({
+                      ...prev,
+                      [selectedHeroSection]: [...(prev[selectedHeroSection] ?? []), imgPath],
+                    }));
+                    setHeroPickerOpen(false);
                   }}
                   className="group text-left"
                 >
                   <div className="relative aspect-square overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
-                    <Image
-                      src={imgPath}
-                      alt=""
-                      fill
-                      className="object-cover"
-                      sizes="160px"
-                    />
+                    <Image src={imgPath} alt="" fill className="object-cover" sizes="160px" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
-                      <span className="text-white text-xs tracking-widest">SELECT</span>
+                      <span className="text-white text-xs tracking-widest">+ ADD</span>
                     </div>
                   </div>
-                  <p className="text-[8px] text-stone-400 mt-1 truncate text-center">
-                    {imgPath.split('/').pop()}
-                  </p>
+                  <p className="text-[8px] text-stone-400 mt-1 truncate text-center">{imgPath.split('/').pop()}</p>
                 </button>
               ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── SITE IMAGES TAB ──────────────────────────────────────────────────── */}
+      {activeTab === 'site-images' && (
+        <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
+          <div className="p-6">
+            {/* Group tabs */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {(Object.keys(SITE_GROUP_LABELS) as SiteGroup[]).map(g => (
+                <button
+                  key={g}
+                  onClick={() => { setSiteGroup(g); setPoolSearch(''); }}
+                  className={`px-4 py-2 text-xs tracking-widest uppercase transition-colors ${
+                    siteGroup === g
+                      ? 'bg-amber-600 text-white'
+                      : 'bg-white text-stone-600 hover:bg-stone-200 border border-stone-200'
+                  }`}
+                >
+                  {SITE_GROUP_LABELS[g]}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-xs text-stone-400 mb-5 tracking-wider">
+              Every image slot on the site. Click any card to manage its photos. Multiple photos auto-cycle as a slideshow.
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              {SITE_IMAGE_SLOTS.filter(s => s.group === siteGroup).map(slot => {
+                const slotImages = siteImages[slot.key] ?? [];
+                const firstImage = slotImages[0] ?? '';
+                return (
+                  <div key={slot.key} className="group relative bg-white shadow-sm overflow-hidden">
+                    <button
+                      onClick={() => { setSitePickerOpen(slot.key); setPoolSearch(''); }}
+                      className="w-full text-left"
+                      title="Click to manage photos"
+                    >
+                      <div className="relative aspect-square bg-stone-100 overflow-hidden">
+                        {firstImage ? (
+                          <Image
+                            src={firstImage}
+                            alt={slot.label}
+                            fill
+                            className="object-cover group-hover:opacity-75 transition-opacity"
+                            sizes="200px"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center text-stone-300 gap-1">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+                            </svg>
+                            <span className="text-[8px] tracking-widest uppercase">No photo</span>
+                          </div>
+                        )}
+                        {slotImages.length > 1 && (
+                          <span className="absolute top-1.5 right-1.5 bg-amber-600 text-white text-[9px] font-medium px-1.5 py-0.5 leading-none">
+                            {slotImages.length}
+                          </span>
+                        )}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="bg-black/60 text-white text-[10px] px-3 py-1.5 tracking-widest uppercase">
+                            Manage
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                    <div className="p-2">
+                      <p className="text-[10px] font-medium text-stone-700 leading-tight">{slot.label}</p>
+                      <p className="text-[8px] text-stone-400 mt-0.5">
+                        {slotImages.length === 0
+                          ? 'no photos'
+                          : `${slotImages.length} photo${slotImages.length > 1 ? 's — slideshow' : ''}`}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Site Image Photo Manager Modal ───────────────────────────────────── */}
+      {sitePickerOpen && (() => {
+        const slotMeta = SITE_IMAGE_SLOTS.find(s => s.key === sitePickerOpen)!;
+        const poolImages = (availableImages[slotMeta.pool] ?? []).filter(
+          p => poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
+        );
+        return (
+          <div
+            className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
+            onClick={() => setSitePickerOpen(null)}
+          >
+            <div
+              className="bg-white w-full max-w-3xl max-h-[90vh] flex flex-col rounded shadow-2xl overflow-hidden"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="bg-stone-900 text-white px-5 py-4 flex items-center justify-between flex-shrink-0">
+                <div>
+                  <p className="text-sm font-light tracking-widest uppercase">{slotMeta.label}</p>
+                  <p className="text-xs text-stone-400 mt-0.5">Photos auto-cycle as a slideshow on the live site</p>
+                </div>
+                <button onClick={() => setSitePickerOpen(null)} className="text-stone-400 hover:text-white text-2xl leading-none ml-4">×</button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto">
+                {/* Current photos */}
+                <div className="px-5 pt-5 pb-4 border-b border-stone-100">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-xs tracking-widest text-stone-500 uppercase">
+                      Assigned ({(siteImages[sitePickerOpen] ?? []).length})
+                    </p>
+                    {(siteImages[sitePickerOpen] ?? []).length > 0 && (
+                      <button
+                        onClick={() => setSiteImages(prev => ({ ...prev, [sitePickerOpen!]: [] }))}
+                        className="text-[10px] text-red-400 hover:text-red-600 tracking-wider"
+                      >
+                        Clear all
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2 min-h-16 p-3 bg-stone-50 border border-stone-200 rounded">
+                    {(siteImages[sitePickerOpen] ?? []).length === 0 ? (
+                      <p className="text-xs text-stone-300 tracking-wider m-auto">No photos yet — click below to add</p>
+                    ) : (
+                      (siteImages[sitePickerOpen] ?? []).map((src, idx) => (
+                        <div key={`${src}-${idx}`} className="relative group flex-shrink-0">
+                          <div className="relative w-20 h-20 overflow-hidden rounded bg-stone-200">
+                            <Image src={src} alt="" fill className="object-cover" sizes="80px" />
+                          </div>
+                          <span className="absolute top-0.5 left-0.5 bg-black/50 text-white text-[8px] px-1 rounded leading-none py-0.5">
+                            {idx + 1}
+                          </span>
+                          <button
+                            onClick={() => setSiteImages(prev => ({
+                              ...prev,
+                              [sitePickerOpen!]: prev[sitePickerOpen!].filter((_, i) => i !== idx),
+                            }))}
+                            className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-600 text-white text-xs flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity"
+                          >×</button>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+
+                {/* Pool */}
+                <div className="px-5 py-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-xs tracking-widest text-stone-500 uppercase">
+                      Add from Pool ({slotMeta.pool})
+                    </p>
+                    <input
+                      type="text"
+                      placeholder="Search filenames..."
+                      value={poolSearch}
+                      onChange={e => setPoolSearch(e.target.value)}
+                      className="text-xs border border-stone-200 px-2 py-1 text-stone-700 focus:outline-none focus:border-amber-400 w-44"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
+                    {poolImages.map(imgPath => {
+                      const added = (siteImages[sitePickerOpen] ?? []).includes(imgPath);
+                      return (
+                        <button
+                          key={imgPath}
+                          onClick={() => {
+                            if (!added) {
+                              setSiteImages(prev => ({
+                                ...prev,
+                                [sitePickerOpen!]: [...(prev[sitePickerOpen!] ?? []), imgPath],
+                              }));
+                            }
+                          }}
+                          disabled={added}
+                          className={`group text-left ${added ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                        >
+                          <div className={`relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
+                            added ? 'ring-amber-400' : 'ring-transparent group-hover:ring-amber-400'
+                          }`}>
+                            <Image src={imgPath} alt="" fill className="object-cover" sizes="120px" />
+                            {added ? (
+                              <div className="absolute inset-0 flex items-center justify-center bg-amber-400/20">
+                                <span className="text-amber-700 text-sm">✓</span>
+                              </div>
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
+                                <span className="text-white text-xs tracking-widest">+ ADD</span>
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-[8px] text-stone-400 mt-0.5 truncate text-center">{imgPath.split('/').pop()}</p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-stone-200 px-5 py-3 flex items-center justify-between bg-stone-50 flex-shrink-0">
+                <p className="text-xs text-stone-400">
+                  {(siteImages[sitePickerOpen] ?? []).length} photo{(siteImages[sitePickerOpen] ?? []).length !== 1 ? 's' : ''} assigned
+                </p>
+                <button
+                  onClick={() => setSitePickerOpen(null)}
+                  className="bg-stone-900 hover:bg-stone-700 text-white text-xs tracking-widest uppercase px-5 py-2 transition-colors"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* ── Menu Item Photo Manager Modal ────────────────────────────────────── */}
+      {pickerOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
+          onClick={() => setPickerOpen(null)}
+        >
+          <div
+            className="bg-white w-full max-w-3xl max-h-[90vh] flex flex-col rounded shadow-2xl overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Modal header */}
+            <div className="bg-stone-900 text-white px-5 py-4 flex items-center justify-between flex-shrink-0">
+              <div>
+                <p className="text-sm font-light tracking-widest uppercase">
+                  {MENU_SLOTS.find(s => s.key === pickerOpen)?.label}
+                </p>
+                <p className="text-xs text-stone-400 mt-0.5">
+                  Photos auto-cycle as a slideshow — add as many as you like
+                </p>
+              </div>
+              <button
+                onClick={() => setPickerOpen(null)}
+                className="text-stone-400 hover:text-white text-2xl leading-none ml-4"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto">
+              {/* Current assigned photos */}
+              <div className="px-5 pt-5 pb-4 border-b border-stone-100">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs tracking-widest text-stone-500 uppercase">
+                    Assigned ({(menuImages[pickerOpen] ?? []).length})
+                  </p>
+                  {(menuImages[pickerOpen] ?? []).length > 0 && (
+                    <button
+                      onClick={() => setMenuImages(prev => ({ ...prev, [pickerOpen!]: [] }))}
+                      className="text-[10px] text-red-400 hover:text-red-600 tracking-wider"
+                    >
+                      Clear all
+                    </button>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2 min-h-16 p-3 bg-stone-50 border border-stone-200 rounded">
+                  {(menuImages[pickerOpen] ?? []).length === 0 ? (
+                    <p className="text-xs text-stone-300 tracking-wider m-auto">
+                      No photos yet — click photos below to add
+                    </p>
+                  ) : (
+                    (menuImages[pickerOpen] ?? []).map((src, idx) => (
+                      <div key={`${src}-${idx}`} className="relative group flex-shrink-0">
+                        <div className="relative w-20 h-20 overflow-hidden rounded bg-stone-200">
+                          <Image src={src} alt="" fill className="object-cover" sizes="80px" />
+                        </div>
+                        <span className="absolute top-0.5 left-0.5 bg-black/50 text-white text-[8px] px-1 rounded leading-none py-0.5">
+                          {idx + 1}
+                        </span>
+                        <button
+                          onClick={() => {
+                            setMenuImages(prev => ({
+                              ...prev,
+                              [pickerOpen!]: prev[pickerOpen!].filter((_, i) => i !== idx),
+                            }));
+                          }}
+                          title="Remove"
+                          className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-600 text-white text-xs flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              {/* Pool to add from */}
+              <div className="px-5 py-4">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs tracking-widest text-stone-500 uppercase">
+                    Add from Pool
+                  </p>
+                  <input
+                    type="text"
+                    placeholder="Search filenames..."
+                    value={poolSearch}
+                    onChange={e => setPoolSearch(e.target.value)}
+                    className="text-xs border border-stone-200 px-2 py-1 text-stone-700 focus:outline-none focus:border-amber-400 w-44"
+                  />
+                </div>
+                <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
+                  {(availableImages[menuCategory] ?? [])
+                    .filter(p => poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase()))
+                    .map(imgPath => {
+                      const added = (menuImages[pickerOpen] ?? []).includes(imgPath);
+                      return (
+                        <button
+                          key={imgPath}
+                          onClick={() => {
+                            if (!added) {
+                              setMenuImages(prev => ({
+                                ...prev,
+                                [pickerOpen!]: [...(prev[pickerOpen!] ?? []), imgPath],
+                              }));
+                            }
+                          }}
+                          disabled={added}
+                          className={`group text-left ${added ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                          title={added ? 'Already added' : 'Click to add'}
+                        >
+                          <div className={`relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
+                            added ? 'ring-amber-400' : 'ring-transparent group-hover:ring-amber-400'
+                          }`}>
+                            <Image src={imgPath} alt="" fill className="object-cover" sizes="120px" />
+                            {added ? (
+                              <div className="absolute inset-0 flex items-center justify-center bg-amber-400/20">
+                                <span className="text-amber-700 text-sm">✓</span>
+                              </div>
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
+                                <span className="text-white text-xs tracking-widest">+ ADD</span>
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-[8px] text-stone-400 mt-0.5 truncate text-center">
+                            {imgPath.split('/').pop()}
+                          </p>
+                        </button>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-t border-stone-200 px-5 py-3 flex items-center justify-between bg-stone-50 flex-shrink-0">
+              <p className="text-xs text-stone-400">
+                {(menuImages[pickerOpen] ?? []).length} photo{(menuImages[pickerOpen] ?? []).length !== 1 ? 's' : ''} assigned
+              </p>
+              <button
+                onClick={() => setPickerOpen(null)}
+                className="bg-stone-900 hover:bg-stone-700 text-white text-xs tracking-widest uppercase px-5 py-2 transition-colors"
+              >
+                Done
+              </button>
             </div>
           </div>
         </div>

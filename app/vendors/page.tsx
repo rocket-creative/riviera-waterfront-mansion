@@ -8,6 +8,7 @@ import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
 import Image from 'next/image';
+import SlideshowImage from '../components/SlideshowImage';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
@@ -201,14 +202,13 @@ export default function VendorsPage() {
 
             {/* Image Column - Full Height */}
             <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-2 overflow-hidden">
-              <Image 
-                src="/images/large/_0359671-by-p.jpg"
+              <SlideshowImage
+                images={imageConfig.pageHeroes.vendors as string[]}
                 alt="Preferred wedding vendors at Riviera Waterfront Mansion Long Island wedding venue"
-                fill
                 priority
-                className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 quality={90}
+                showPlaceholder
               />
             </div>
           </div>
