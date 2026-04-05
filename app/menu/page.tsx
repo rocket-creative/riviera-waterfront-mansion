@@ -1,6 +1,10 @@
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import { imageConfig } from '../lib/imageConfig';
+
+const m = imageConfig.menuImages as Record<string, string>;
 
 export default function MenuPage() {
   return (
@@ -68,6 +72,17 @@ export default function MenuPage() {
               Lavish cocktail hour for your Massapequa waterfront wedding
             </h2>
 
+            {/* Cold Displays Hero */}
+            <div className="overflow-hidden mb-10">
+              <Image
+                src={m['cocktail-hero-cold-displays']}
+                alt="Full outdoor cocktail hour spread at Riviera Waterfront Mansion with cold displays, charcuterie boards, and fruit skewers"
+                width={1200}
+                height={600}
+                className="w-full h-64 md:h-96 object-cover"
+              />
+            </div>
+
             {/* Cold Displays */}
             <div className="mb-16">
               <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
@@ -81,7 +96,16 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">COLD MEATS BOARD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-cold-meats-board']}
+                      alt="Italian cured meats board with salami, prosciutto, mortadella, pepperoni, and ham"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">COLD MEATS BOARD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Italian Cured Meats: Salami, Prosciutto, Mortadella, Pepperoni, Ham
                   </p>
@@ -93,73 +117,178 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ASSORTED CHEESEBOARD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-cheeseboard']}
+                      alt="Assorted cheeseboard with smoked gouda, sharp cheddar, colby jack, provolone, and artisan crackers"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">ASSORTED CHEESEBOARD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Smoked Gouda, Extra Sharp Cheddar, Colby Jack, Provolone, Swiss with Artisan Crackers: Whole Wheat, Cracked Pepper, Plain, Pita Chip Style Crackers Garlic, Sour Cream and Parmesan
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">MEDITERRANEAN BOARD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-mediterranean-board']}
+                      alt="Mediterranean board with grape leaves, kalamata olives, feta cheese, pepperoncini and giardiniera"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">MEDITERRANEAN BOARD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Grape Leaves, Kalamata Olives, Marinated Mushrooms, Pepperoncini, Feta Cheese, Giardiniera (cauliflower, carrots, celery, sliced green olives, serrano peppers)
                   </p>
                 </div>
-                <div className="md:col-span-2">
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">PASSED HOT & COLD HORS D'OEUVRES</h4>
-                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Spanakopita</p>
-                      <p className="text-xs font-light text-riviera-text/60">Flaky phyllo dough filled with spinach and feta cheese</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Kobe Slider</p>
-                      <p className="text-xs font-light text-riviera-text/60">Grilled Kobe beef with cheese on a fresh golden bun</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Mini Tacos</p>
-                      <p className="text-xs font-light text-riviera-text/60">Meat filling, topped with fresh pico de gallo and a dollop of sour cream</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Date Night</p>
-                      <p className="text-xs font-light text-riviera-text/60">Dates stuffed with goat cheese, wrapped in prosciutto</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Spring Rolls</p>
-                      <p className="text-xs font-light text-riviera-text/60">Flaky wrapped Asian inspired vegetables</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Miniature Empanadas</p>
-                      <p className="text-xs font-light text-riviera-text/60">Meat filled, crescent shaped pastry</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Zucchini Sticks</p>
-                      <p className="text-xs font-light text-riviera-text/60">Lightly breaded and fried</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Bourbon Chicken Bites</p>
-                      <p className="text-xs font-light text-riviera-text/60">Juicy white meat chicken wrapped in smoked bacon and smothered in a bourbon glaze</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Fried Coconut Shrimp</p>
-                      <p className="text-xs font-light text-riviera-text/60">Succulent jumbo shrimp battered with toasted coconut flakes and fried to perfection</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-riviera-text mb-0.5">Lemon Blueberry Crostini</p>
-                      <p className="text-xs font-light text-riviera-text/60">Toasted semolina bread topped with fresh ricotta, blueberry jam, and lemon zest</p>
-                    </div>
-                  </div>
-                </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">HOMEMADE ANTIPASTO SALAD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-antipasto-salad']}
+                      alt="Homemade antipasto salad with marinated artichoke hearts, black olives, sun dried tomatoes, provolone, prosciutto and salami"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">HOMEMADE ANTIPASTO SALAD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     All Italian Favorites: Marinated Artichoke Hearts, Large Black Olives, Sun Dried Tomatoes, Provolone, Prosciutto, Salami, Ham, Pepperoni, Marinated Mushrooms, Pepperoncini in a Homemade Italian Dressing
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FARM FRESH VEGETABLE CRUDITÉ</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-vegetable-crudite']}
+                      alt="Farm fresh vegetable crudité served in individual wooden cones with julienne carrots, peppers, celery and cherry tomatoes"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">FARM FRESH VEGETABLE CRUDITÉ</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Individual Cones Filled With Fresh Crispy Julienne Carrots, Tri Color Peppers, Asparagus, Celery And Cherry Tomatoes Displayed on A Wooden Stand
                   </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Passed Hors D&apos;oeuvres */}
+            <div className="mb-16">
+              <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
+                Passed hot &amp; cold hors d&apos;oeuvres
+              </h3>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-spanakopita']}
+                      alt="Spanakopita flaky phyllo dough filled with spinach and feta cheese"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">SPANAKOPITA</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Flaky phyllo dough filled with spinach and feta cheese</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-kobe-slider']}
+                      alt="Kobe slider with grilled Kobe beef and cheese on a fresh golden bun"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">KOBE SLIDER</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Grilled Kobe beef with cheese on a fresh golden bun</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-spring-rolls']}
+                      alt="Spring rolls with flaky wrapped Asian inspired vegetables"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">SPRING ROLLS</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Flaky wrapped Asian inspired vegetables</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-miniature-empanadas']}
+                      alt="Miniature empanadas meat filled crescent shaped pastry with dipping sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">MINIATURE EMPANADAS</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Meat filled, crescent shaped pastry</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-zucchini-sticks']}
+                      alt="Zucchini sticks lightly breaded and fried"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">ZUCCHINI STICKS</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Lightly breaded and fried</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-bourbon-chicken-bites']}
+                      alt="Bourbon chicken bites juicy white meat chicken wrapped in smoked bacon and smothered in a bourbon glaze"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">BOURBON CHICKEN BITES</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Juicy white meat chicken wrapped in smoked bacon and smothered in a bourbon glaze</p>
+                </div>
+                <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-fried-coconut-shrimp']}
+                      alt="Fried coconut shrimp succulent jumbo shrimp battered with toasted coconut flakes"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">FRIED COCONUT SHRIMP</h4>
+                  <p className="text-sm font-light text-riviera-text/70">Succulent jumbo shrimp battered with toasted coconut flakes and fried to perfection</p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-6 border-t border-stone-200">
+                <div>
+                  <p className="text-sm font-light text-riviera-text mb-0.5">Mini Tacos</p>
+                  <p className="text-xs font-light text-riviera-text/60">Meat filling, topped with fresh pico de gallo and a dollop of sour cream</p>
+                </div>
+                <div>
+                  <p className="text-sm font-light text-riviera-text mb-0.5">Date Night</p>
+                  <p className="text-xs font-light text-riviera-text/60">Dates stuffed with goat cheese, wrapped in prosciutto</p>
+                </div>
+                <div>
+                  <p className="text-sm font-light text-riviera-text mb-0.5">Lemon Blueberry Crostini</p>
+                  <p className="text-xs font-light text-riviera-text/60">Toasted semolina bread topped with fresh ricotta, blueberry jam, and lemon zest</p>
                 </div>
               </div>
             </div>
@@ -171,13 +300,31 @@ export default function MenuPage() {
               </h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">RIVIERA'S SEAFOOD SALAD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-seafood-salad']}
+                      alt="Riviera's seafood salad with large shrimp, New Zealand green shell mussels, and crabmeat in homemade dressing"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">RIVIERA&apos;S SEAFOOD SALAD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Large Shrimp, Medium Shrimp, New Zealand Green Shell Mussels, and Crabmeat in a Home Made (Secret Recipe) Dressing
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">GREEK COUSCOUS SALAD</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-greek-couscous-salad']}
+                      alt="Greek couscous salad with Mediterranean seasoned couscous, walnuts, dried cranberries, red seedless grapes, and feta cheese"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">GREEK COUSCOUS SALAD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Mediterranean Seasoned Couscous Cooked to Fluffy Perfection with Walnuts, Dried Cranberries, Red Seedless Grapes, and Feta Cheese
                   </p>
@@ -187,11 +334,20 @@ export default function MenuPage() {
 
             {/* Carving Station */}
             <div className="mb-16">
+              <div className="overflow-hidden mb-8">
+                <Image
+                  src={m['cocktail-hero-carving-station']}
+                  alt="Chef carving London Broil and roast turkey at the butcher block carving station at Riviera Waterfront Mansion"
+                  width={1200}
+                  height={600}
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+              </div>
               <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
                 Butcher block carving station for your Long Island wedding
               </h3>
               <p className="text-sm tracking-wider text-riviera-gold mb-8">SELECT TWO CARVED MEATS FOR YOUR WEDDING COCKTAIL HOUR</p>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h4 className="text-sm tracking-widest text-riviera-text mb-2">BRISKET OF BEEF</h4>
                   <p className="text-sm font-light text-riviera-text/70">
@@ -205,18 +361,45 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-london-broil']}
+                      alt="Marinated London Broil being sliced at the carving station with dramatic lighting"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-text mb-2">MARINATED LONDON BROIL</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     with Garlic Bread, Horseradish Sauce, and Beef Gravy
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-roast-pork-tenderloin']}
+                      alt="Roast pork tenderloin in garlic herb crust sliced at the carving station"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-text mb-2">ROAST PORK TENDERLOIN</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     In A Garlic Herb Crust
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-corned-beef']}
+                      alt="Corned beef carving station with spicy brown mustard, sauerkraut, and sliced rye bread"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-text mb-2">CORNED BEEF</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     with Spicy Brown Mustard, Sauerkraut, and Sliced Rye Bread
@@ -229,6 +412,15 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-glazed-virginia-ham']}
+                      alt="Glazed Virginia ham with roasted pineapples and Dijon mustard at the carving station"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-text mb-2">GLAZED VIRGINIA HAM</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     with Roasted Pineapples and Dijon Mustard
@@ -236,14 +428,22 @@ export default function MenuPage() {
                 </div>
               </div>
             </div>
-
-            {/* Hot Gourmet Dishes - Part 1 continues in next message due to length */}
           </div>
         </section>
 
         {/* Hot Gourmet Dishes */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
+            {/* Hot Gourmet Hero */}
+            <div className="overflow-hidden mb-10">
+              <Image
+                src={m['cocktail-hero-hot-gourmet']}
+                alt="Guests serving themselves from gourmet chafing dishes at the outdoor cocktail hour at Riviera Waterfront Mansion"
+                width={1200}
+                height={600}
+                className="w-full h-64 md:h-80 object-cover"
+              />
+            </div>
             <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4 text-center">
               Hot gourmet dishes for your Long Island wedding cocktail hour
             </h3>
@@ -252,8 +452,17 @@ export default function MenuPage() {
             {/* Poultry */}
             <div className="mb-12">
               <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Poultry</h4>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-chicken-pina-colada']}
+                      alt="Chicken pina colada sauteed chicken with diced fresh pineapples in cream of coconut sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN PINA COLADA</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Sauteed Chicken with Diced Fresh Pineapples in a Cream of Coconut Sauce Topped with Fresh Toasted Coconut
@@ -266,24 +475,60 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-chicken-scarpariello']}
+                      alt="Chicken scarpariello roasted chicken with Italian sausage, potatoes, onions and peppers in lemon garlic sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN SCARPARIELLO</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Roasted Chicken, Italian Sausage, Potatoes, Onions, Peppers in a Lemon Garlic Sauce
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-chicken-francese']}
+                      alt="Chicken francese sauteed chicken in lemon butter white wine sauce with parsley"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN FRANCESE</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Sauteed Chicken in A Lemon Butter White Wine Sauce
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-arroz-con-pollo']}
+                      alt="Arroz con pollo chicken and rice with vegetables seasoned with Spanish spices and saffron"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">ARROZ CON POLLO</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Chicken and Rice with Veggies seasoned with Spanish Spices and Saffron
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-sesame-chicken']}
+                      alt="Sesame chicken cubed chicken breast in sweet honey sauce with sesame seeds and broccoli"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SESAME CHICKEN</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Chicken Breast Cubed dressed in A Sweet Sauce made from honey, rice wine vinegar, brown sugar topped with Sesame Seeds and accompanied with Broccoli
@@ -301,7 +546,7 @@ export default function MenuPage() {
             {/* Pasta */}
             <div className="mb-12">
               <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Pasta</h4>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">TORTELLINI/FETTUCCINE ALFREDO</h5>
                   <p className="text-sm font-light text-riviera-text/70">
@@ -309,6 +554,15 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-rigatoni-prosciutto']}
+                      alt="Rigatoni with prosciutto in white cream sauce with parmesan cheese and peas"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">RIGATONI WITH PROSCIUTTO</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     White Cream Sauce with Parmesan Cheese Prosciutto and Peas
@@ -333,13 +587,31 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-tortellini-carbonara']}
+                      alt="Tortellini carbonara in parmesan cream sauce with bacon and peas"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">TORTELLINI CARBONARA</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Parmesan Cream Sauce with Bacon And Peas
                   </p>
                 </div>
                 <div>
-                  <h5 className="text-sm tracking-widest text-riviera-text mb-2">RIVIERA'S PASTA</h5>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-riviera-pasta']}
+                      alt="Riviera's pasta bowtie pasta with sun dried tomatoes, artichoke hearts, black olives and mushrooms in garlic and oil sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h5 className="text-sm tracking-widest text-riviera-text mb-2">RIVIERA&apos;S PASTA</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Bow tie pasta with Sun dried Tomatoes, Artichoke Hearts and Mushrooms in a Garlic and Oil Sauce
                   </p>
@@ -349,9 +621,18 @@ export default function MenuPage() {
 
             {/* Vegan & Vegetarian */}
             <div className="mb-12">
-              <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Vegan & Vegetarian</h4>
-              <div className="space-y-6">
+              <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Vegan &amp; Vegetarian</h4>
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-eggplant-rollatini']}
+                      alt="Eggplant rollatini breaded pan fried eggplant stuffed with ricotta and mozzarella baked in homemade marinara sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">EGGPLANT ROLLATINI</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Slices Of Breaded Pan Fried Eggplant Stuffed with Ricotta, Mozzarella, Parmesan Cheese, Baked and Placed on Top Of Our Homemade Marinara sauce
@@ -369,26 +650,62 @@ export default function MenuPage() {
             {/* Seafood */}
             <div className="mb-12">
               <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Seafood</h4>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-fried-calamari']}
+                      alt="Fried calamari rings with marinara dipping sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">FRIED CALAMARI</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Succulent crispy calamari
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-seafood-paella']}
+                      alt="Seafood paella with clams, mussels, and shrimp in saffron seasoned rice"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SEAFOOD PAELLA</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Clams, Mussels, Shrimp in a Saffron Seasoned Rice
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-seafood-newburg']}
+                      alt="Seafood Newburg with scallops, shrimp and crabmeat in sherry white cream sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SEAFOOD NEWBURG</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Scallops, Shrimp Crabmeat in a sherry white cream sauce
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-seafood-fra-diablo']}
+                      alt="Seafood fra diablo mussels and clams in a spicy tomato sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SEAFOOD FRA DIABLO</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Mussels, Shrimp, Scallop, Clams in A Spicy Tomato Sauce
@@ -401,6 +718,15 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-shrimp-scampi']}
+                      alt="Shrimp scampi with broccoli over rice"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SHRIMP SCAMPI</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     with Broccoli Over Rice or Pasta
@@ -424,14 +750,32 @@ export default function MenuPage() {
             {/* Beef */}
             <div className="mb-12">
               <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Beef</h4>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-swedish-meatballs']}
+                      alt="Swedish meatballs made with ground beef and pork served in cream gravy sauce over egg noodles"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SWEDISH MEATBALLS</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Made with a Combination of Ground Beef and Pork Baked and Served in a Cream Gravy Sauce
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-beef-teriyaki']}
+                      alt="Beef teriyaki slices of beef in teriyaki sauce with Chinese vegetables"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">BEEF TERIYAKI</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Slices of Beef in Teriyaki Sauce with Chinese Vegetables over Lo Mein Noodles
@@ -444,6 +788,15 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-sausage-and-peppers']}
+                      alt="Sausage and peppers Italian sausage rounds with green peppers and onions in light tomato sauce"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">SAUSAGE AND PEPPERS</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Italian Sausage with Peppers and Onions in a Light Tomato Sauce
@@ -462,6 +815,15 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['cocktail-kielbasa-sauerkraut']}
+                      alt="Kielbasa and sauerkraut savory beef kielbasa with tangy sauerkraut"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h5 className="text-sm tracking-widest text-riviera-text mb-2">KIELBASA AND SAUERKRAUT</h5>
                   <p className="text-sm font-light text-riviera-text/70">
                     Savory Beef Kielbasa with Tangy Sauerkraut
@@ -537,7 +899,16 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">JUMBO SHRIMP COCKTAIL</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-jumbo-shrimp-cocktail']}
+                      alt="Jumbo shrimp cocktail displayed in a white vintage boat on crushed ice with cocktail sauce and lemon wedges"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">JUMBO SHRIMP COCKTAIL</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Display of jumbo shrimp cocktail served on crushed ice, presented with cocktail sauce and fresh lemon wedges
                   </p>
@@ -549,7 +920,16 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRESH SUSHI BAR</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-sushi-bar-waterfront']}
+                      alt="Fresh sushi bar on the outdoor waterfront deck at dusk with sushi boats displayed on a white table overlooking the water"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">FRESH SUSHI BAR</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Traditional sushi boats with a large variety of handmade rolls with vegetarian options, presented with soy sauce, sliced ginger, and wasabi
                   </p>
@@ -630,7 +1010,16 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">BACON STATION</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-bacon-station-hero']}
+                      alt="Full Bacon Station display in the ballroom with string lights overhead, BACON STATION sign, and rows of bacon-wrapped appetizers and stuffed mushrooms on tiered risers"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">BACON STATION</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Bacon displayed every way! Choice of four: bacon wrapped asparagus, bacon stuffed mushrooms, BLT skewers, bacon wrapped scallops, bacon wrapped pineapple, bacon wrapped melon, bacon-ricotta crostini bites, or bacon meatballs
                   </p>
@@ -648,7 +1037,16 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">FRENCH FRY STATION</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-french-fry-station']}
+                      alt="French fry late night station with baskets of fries and All American Drive-In themed packaging"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">FRENCH FRY STATION</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Choice of waffle fries, curly fries, classic french fries, and sweet potato fries, with dips and toppings available upon request
                   </p>
@@ -678,15 +1076,33 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">DONUT WALL</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-donut-wall-hero']}
+                      alt="Donut wall with assorted glazed and frosted donuts displayed on a white pegboard wall at the Riviera Waterfront Mansion wedding reception"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">DONUT WALL</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Assorted donuts displayed on a white wall for your guests to enjoy (also available as an exit station)
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">S'MORES STATION</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-smores-station']}
+                      alt="Outdoor s&apos;mores station with open flames, assorted cookies, chocolates, crackers and toppings for custom s&apos;mores at an outdoor waterfront wedding"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">S&apos;MORES STATION</h4>
                   <p className="text-sm font-light text-riviera-text/70">
-                    Assorted cookies, chocolates, and crackers displayed with open flames to create your own custom s'mores
+                    Assorted cookies, chocolates, and crackers displayed with open flames to create your own custom s&apos;mores
                   </p>
                 </div>
                 <div>
@@ -708,13 +1124,31 @@ export default function MenuPage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">ESPRESSO & CORDIAL STATION</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-espresso-cordial-station']}
+                      alt="Espresso and cordial station with gelato bar display, espresso machine, and after dinner drinks at Riviera Waterfront Mansion"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">ESPRESSO & CORDIAL STATION</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Display of after dinner cordials accompanied by our famous espresso and cappuccino
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest text-riviera-gold mb-3">GELATO BAR</h4>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['enhance-gelato-espresso-hero']}
+                      alt="So Sveglio gelato bar and espresso bar station with staff serving guests at the Riviera Waterfront Mansion wedding reception"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-sm tracking-widest text-riviera-gold mb-2">GELATO BAR</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Choose four amazing flavors of gelato
                   </p>
@@ -747,20 +1181,47 @@ export default function MenuPage() {
               <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-8">
                 Duet plates: elegant salads and starters for your Long Island wedding reception
               </h3>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['dinner-tomato-mozzarella']}
+                      alt="Fresh tomato and mozzarella on mesclun greens with balsamic vinaigrette"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-gold mb-2">FRESH TOMATO AND MOZZARELLA</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     served on a bed of Mesclun Greens topped with an Aged Balsamic Vinaigrette
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['dinner-bruschetta']}
+                      alt="Bruschetta on toasted parmesan crusted semolina bread with tomatoes and olives"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-gold mb-2">BRUSCHETTA ON TOASTED PARMESAN CRUSTED SEMOLINA BREAD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Vine Ripe Tomatoes, Black Olives, Red Onions, Celery, Provolone Cheese, Garlic with a Red Wine Vinaigrette Dressing On Mesclun Greens
                   </p>
                 </div>
                 <div>
+                  <div className="aspect-square overflow-hidden mb-4">
+                    <Image
+                      src={m['dinner-warm-mozzarella-salad']}
+                      alt="Warm mozzarella salad with fresh strawberries and candied walnuts"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h4 className="text-sm tracking-widest text-riviera-gold mb-2">WARM MOZZARELLA SALAD</h4>
                   <p className="text-sm font-light text-riviera-text/70">
                     Mesclun Greens With Fresh Strawberries, Candied Walnuts, Bread Fried Mozzarella Served with a Raspberry Vinaigrette
@@ -777,137 +1238,263 @@ export default function MenuPage() {
               <p className="text-sm tracking-wider text-riviera-gold mb-12">SELECT FOUR ENTREES FOR YOUR LONG ISLAND WEDDING GUESTS</p>
 
               {/* Beef */}
-              <div className="mb-12">
+              <div className="mb-14">
                 <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Beef</h4>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">PRIME RIB</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Roasted Prime Rib served with an Au Jus Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-prime-rib']}
+                        alt="Prime rib roasted and served with au jus sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">PRIME RIB</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Roasted Prime Rib served with an Au Jus Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">FILET MIGNON *Additional Cost</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Grilled to Perfection. Served with a Bearnaise Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-filet-mignon']}
+                        alt="Filet mignon grilled to perfection with Bearnaise sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">FILET MIGNON *Additional Cost</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Grilled to Perfection. Served with a Bearnaise Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">NEW YORK SHELL STEAK</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Grilled and served with caramelized onions and mushrooms
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-ny-shell-steak']}
+                        alt="New York shell steak grilled with caramelized onions and mushrooms"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">NEW YORK SHELL STEAK</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Grilled and served with caramelized onions and mushrooms</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHATEAUBRIAND</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Sliced Filet Mignon served with a Creamy Sherry Mushroom Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-chateaubriand']}
+                        alt="Chateaubriand sliced filet mignon with creamy sherry mushroom sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">CHATEAUBRIAND</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Sliced Filet Mignon served with a Creamy Sherry Mushroom Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">SURF & TURF *Additional Cost</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Lobster Tail 4 oz. & Filet Mignon 8oz. Served Together
-                    </p>
+                    <div className="aspect-[4/3] relative overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-surf-and-turf']}
+                        alt="Surf and Turf - Lobster Tail and Filet Mignon"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">SURF &amp; TURF *Additional Cost</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Lobster Tail 4 oz. &amp; Filet Mignon 8oz. Served Together</p>
                   </div>
                 </div>
               </div>
 
               {/* Poultry */}
-              <div className="mb-12">
+              <div className="mb-14">
                 <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Poultry</h4>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN PRINCESS</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Grilled Chicken Breast Stuffed with Asparagus, Red Roasted Peppers Topped with Mozzarella Cheese served with a Light Lemon Herb Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-chicken-princess']}
+                        alt="Chicken princess stuffed with asparagus and roasted red peppers, topped with mozzarella"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">CHICKEN PRINCESS</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Grilled Chicken Breast Stuffed with Asparagus, Red Roasted Peppers Topped with Mozzarella Cheese served with a Light Lemon Herb Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">ROAST DUCK A L'ORANGE</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Roasted Succulent Duck Served in a Citrus Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-roast-duck']}
+                        alt="Roast duck a l&apos;orange with citrus sauce and colorful vegetables"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">ROAST DUCK A L&apos;ORANGE</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Roasted Succulent Duck Served in a Citrus Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN ROMANO</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Sauteed Chicken Breast with Artichoke Hearts and Mushrooms Served in a Cognac Cream Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-chicken-romano']}
+                        alt="Chicken romano with artichoke hearts and mushrooms in cognac cream sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">CHICKEN ROMANO</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Sauteed Chicken Breast with Artichoke Hearts and Mushrooms Served in a Cognac Cream Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN PICCATA</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Sauteed Chicken Breast Served with a Lemon Caper Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-chicken-piccata']}
+                        alt="Chicken piccata with lemon caper sauce and rice pilaf"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">CHICKEN PICCATA</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Sauteed Chicken Breast Served with a Lemon Caper Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">CHICKEN CORDON BLEU</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Breaded Chicken Breast Stuffed with Prosciutto and Swiss Cheese Served with a Mushroom Sauce
-                    </p>
+                    <div className="aspect-[4/3] relative overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-chicken-cordon-bleu']}
+                        alt="Chicken Cordon Bleu - Breaded Chicken Breast Stuffed with Prosciutto and Swiss Cheese"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">CHICKEN CORDON BLEU</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Breaded Chicken Breast Stuffed with Prosciutto and Swiss Cheese Served with a Mushroom Sauce</p>
                   </div>
                 </div>
               </div>
 
               {/* Seafood */}
-              <div className="mb-12">
+              <div className="mb-14">
                 <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Seafood</h4>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">SALMON</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Choose From: Lemon Dill Sauce OR Oreganata: Blended Herbs, Garlic, Basil, Sun Dried Tomatoes Bread Crumbs Encrusted on Broiled Salmon with a Garlic Scampi Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-salmon']}
+                        alt="Salmon with herb oreganata crust and seasonal vegetables"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">SALMON</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Choose From: Lemon Dill Sauce OR Oreganata: Blended Herbs, Garlic, Basil, Sun Dried Tomatoes Bread Crumbs Encrusted on Broiled Salmon with a Garlic Scampi Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">STRIPED BASS (Available May through November)</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Served with a Dijon Cream Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-striped-bass']}
+                        alt="Striped bass with Dijon cream sauce and fresh vegetables"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">STRIPED BASS (Available May through November)</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Served with a Dijon Cream Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">STUFFED FLOUNDER</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Filet Of Flounder Stuffed with Shrimp, Scallops, Crabmeat and Bread Crumbs
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-stuffed-flounder']}
+                        alt="Stuffed flounder filled with shrimp, scallops, and crabmeat"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">STUFFED FLOUNDER</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Filet Of Flounder Stuffed with Shrimp, Scallops, Crabmeat and Bread Crumbs</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">GRILLED SWORDFISH</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Served with a Lemon Caper Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-grilled-swordfish']}
+                        alt="Grilled swordfish with lemon caper sauce and rice pilaf"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">GRILLED SWORDFISH</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Served with a Lemon Caper Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">STUFFED SHRIMP</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Scallop and Crabmeat Stuffed Jumbo Shrimp with Lemon Butter Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-stuffed-shrimp']}
+                        alt="Stuffed shrimp filled with scallop and crabmeat in lemon butter sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">STUFFED SHRIMP</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Scallop and Crabmeat Stuffed Jumbo Shrimp with Lemon Butter Sauce</p>
                   </div>
                 </div>
               </div>
 
               {/* Vegan / Vegetarian */}
-              <div className="mb-12">
+              <div className="mb-14">
                 <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Vegan / Vegetarian</h4>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">PORTABELLA MUSHROOM TOWER</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Grilled Eggplant, Red Pepper, Yellow and Green Squash Stacked on Top of a Grilled Portabella Mushroom with a Balsamic Glaze
-                    </p>
+                    <div className="aspect-square overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-portabella-mushroom-tower']}
+                        alt="Portabella mushroom tower with grilled eggplant and vegetables with balsamic glaze"
+                        width={600}
+                        height={600}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">PORTABELLA MUSHROOM TOWER</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Grilled Eggplant, Red Pepper, Yellow and Green Squash Stacked on Top of a Grilled Portabella Mushroom with a Balsamic Glaze</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">WILD MUSHROOM RISOTTO</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      With Aged Parmesan Cheese and Olive Oil
-                    </p>
+                    <div className="aspect-square overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-wild-mushroom-risotto']}
+                        alt="Wild mushroom risotto with aged parmesan and olive oil"
+                        width={600}
+                        height={600}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">WILD MUSHROOM RISOTTO</h5>
+                    <p className="text-sm font-light text-riviera-text/70">With Aged Parmesan Cheese and Olive Oil</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">STUFFED EGGPLANT</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Eggplant Stuffed with Carrots, Mushrooms, Celery, Onions, Bell Peppers, Asparagus and Seasoned Bread Crumbs
-                    </p>
+                    <div className="aspect-square overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-stuffed-eggplant']}
+                        alt="Stuffed eggplant with seasonal vegetables and seasoned bread crumbs"
+                        width={600}
+                        height={600}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">STUFFED EGGPLANT</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Eggplant Stuffed with Carrots, Mushrooms, Celery, Onions, Bell Peppers, Asparagus and Seasoned Bread Crumbs</p>
                   </div>
                 </div>
               </div>
@@ -915,18 +1502,32 @@ export default function MenuPage() {
               {/* Pork / Veal */}
               <div className="mb-12">
                 <h4 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-6">Pork / Veal</h4>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">GRILLED BONE IN PORK CHOP</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      An Inch and Half Pork Chop Grilled to Perfection. Topped with your choice of Apple, Onion, Brown Sugar and Cinnamon Chutney OR Pineapple, Mango Cajun Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-pork-chop']}
+                        alt="Grilled bone in pork chop with apple chutney or mango cajun sauce"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">GRILLED BONE IN PORK CHOP</h5>
+                    <p className="text-sm font-light text-riviera-text/70">An Inch and Half Pork Chop Grilled to Perfection. Topped with your choice of Apple, Onion, Brown Sugar and Cinnamon Chutney OR Pineapple, Mango Cajun Sauce</p>
                   </div>
                   <div>
-                    <h5 className="text-sm tracking-widest text-riviera-text mb-2">VEAL MARSALA</h5>
-                    <p className="text-sm font-light text-riviera-text/70">
-                      Veal Cutlets Sauteed and Cooked in a Marsala Wine, Mushroom, Butter Sauce
-                    </p>
+                    <div className="aspect-[4/3] overflow-hidden mb-3">
+                      <Image
+                        src={m['dinner-veal-marsala']}
+                        alt="Veal marsala with mushroom butter sauce and mashed potatoes"
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="text-sm tracking-widest text-riviera-text mb-1">VEAL MARSALA</h5>
+                    <p className="text-sm font-light text-riviera-text/70">Veal Cutlets Sauteed and Cooked in a Marsala Wine, Mushroom, Butter Sauce</p>
                   </div>
                 </div>
               </div>
@@ -943,7 +1544,6 @@ export default function MenuPage() {
             </div>
           </div>
         </section>
-
         {/* Wedding Day Features */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-riviera-neutral">
           <div className="max-w-5xl mx-auto">
@@ -1014,7 +1614,16 @@ export default function MenuPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">ALL AMERICAN BURGER STATION</h3>
+                <div className="aspect-square overflow-hidden mb-4">
+                  <Image
+                    src={m['enhance-burger-station']}
+                    alt="All American Drive-In late night exit station with crates of paper-wrapped cheeseburgers and french fries at a wedding reception"
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-2">ALL AMERICAN BURGER STATION</h3>
                 <p className="text-sm font-light text-riviera-text/70">
                   Assortment of hamburgers, cheeseburgers, and french fries
                 </p>
@@ -1068,7 +1677,16 @@ export default function MenuPage() {
                 </p>
               </div>
               <div>
-                <h3 className="text-sm tracking-widest text-riviera-gold mb-3">DONUT WALL</h3>
+                <div className="aspect-square overflow-hidden mb-4">
+                  <Image
+                    src={m['enhance-donut-wall-close']}
+                    alt="Close-up of assorted donuts on the white pegboard donut wall exit station at Riviera Waterfront Mansion"
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-sm tracking-widest text-riviera-gold mb-2">DONUT WALL</h3>
                 <p className="text-sm font-light text-riviera-text/70">
                   Assorted donuts displayed on a white wall for your guests to enjoy as they head home
                 </p>
