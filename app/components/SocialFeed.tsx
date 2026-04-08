@@ -40,7 +40,7 @@ export default function SocialFeed() {
     return (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="aspect-square bg-riviera-neutral/50 animate-pulse" />
+          <div key={i} className="h-48 bg-riviera-neutral/50 animate-pulse" />
         ))}
       </div>
     );
@@ -69,13 +69,13 @@ export default function SocialFeed() {
           href={post.permalink}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative aspect-square overflow-hidden bg-riviera-neutral"
+          className="group relative h-48 overflow-hidden bg-riviera-neutral"
         >
           <Image
             src={post.media_url}
             alt={post.caption?.slice(0, 100) || 'Instagram post'}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">

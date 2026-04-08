@@ -12,7 +12,9 @@ import { imageConfig } from '../../lib/imageConfig';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images';
+type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload';
+type UploadFolder = 'large' | 'medium' | 'thumb' | 'cocktail-hour' | 'enhancements' | 'dinner-plates';
+type UploadStatus = 'idle' | 'uploading' | 'done' | 'error';
 type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
 type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates';
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
@@ -246,6 +248,12 @@ export default function ImageManagerPage() {
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
   const [hasChanges, setHasChanges] = useState(false);
 
+  // Upload state
+  const [uploadFolder, setUploadFolder] = useState<UploadFolder>('large');
+  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
+  const [uploadStatus, setUploadStatus] = useState<UploadStatus>('idle');
+  const [uploadResults, setUploadResults] = useState<{ saved: string[]; errors: string[] } | null>(null);
+
   useEffect(() => {
     setMounted(true);
     fetch('/api/admin/list-images')
@@ -368,6 +376,37 @@ export default function ImageManagerPage() {
     }
   };
 
+  // ── Upload ───────────────────────────────────────────────────────────────────
+
+  const handleUpload = async () => {
+    if (uploadFiles.length === 0) return;
+    setUploadStatus('uploading');
+    setUploadResults(null);
+    try {
+      const formData = new FormData();
+      formData.append('folder', uploadFolder);
+      uploadFiles.forEach(f => formData.append('files', f));
+      const res = await fetch('/api/admin/upload', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        setUploadStatus('done');
+        setUploadResults({ saved: data.saved, errors: data.errors ?? [] });
+        setUploadFiles([]);
+        // Refresh available images pool
+        fetch('/api/admin/list-images')
+          .then(r => r.json())
+          .then(setAvailableImages)
+          .catch(console.error);
+      } else {
+        setUploadStatus('error');
+        setUploadResults({ saved: [], errors: [data.error ?? 'Unknown error'] });
+      }
+    } catch (err) {
+      setUploadStatus('error');
+      setUploadResults({ saved: [], errors: [String(err)] });
+    }
+  };
+
   // ── Filtered pool ─────────────────────────────────────────────────────────────
 
   const mediumPool = (availableImages['medium'] ?? []).filter(p =>
@@ -422,7 +461,7 @@ export default function ImageManagerPage() {
 
       {/* Tabs */}
       <div className="bg-stone-800 px-6 flex gap-0 border-b border-stone-700">
-        {(['tour', 'menu', 'menu-heroes', 'site-images'] as Tab[]).map(tab => (
+        {(['tour', 'menu', 'menu-heroes', 'site-images', 'upload'] as Tab[]).map(tab => (
           <button
             key={tab}
             onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
@@ -432,7 +471,11 @@ export default function ImageManagerPage() {
                 : 'text-stone-400 hover:text-stone-200'
             }`}
           >
-            {tab === 'tour' ? 'Tour Gallery' : tab === 'menu' ? 'Menu Items' : tab === 'menu-heroes' ? 'Menu Heroes' : 'Site Images'}
+            {tab === 'tour' ? 'Tour Gallery'
+              : tab === 'menu' ? 'Menu Items'
+              : tab === 'menu-heroes' ? 'Menu Heroes'
+              : tab === 'site-images' ? 'Site Images'
+              : 'Upload Images'}
           </button>
         ))}
       </div>
@@ -504,7 +547,7 @@ export default function ImageManagerPage() {
                                 src={imgPath}
                                 alt=""
                                 fill
-                                className="object-cover"
+                                className="object-cover object-center"
                                 sizes="144px"
                               />
                             </div>
@@ -580,12 +623,12 @@ export default function ImageManagerPage() {
                             {...prov.dragHandleProps}
                             className={`cursor-grab active:cursor-grabbing ${snap.isDragging ? 'opacity-75 shadow-lg' : ''}`}
                           >
-                            <div className="relative w-full aspect-square overflow-hidden rounded bg-stone-100">
+                            <div className="relative w-full h-28 overflow-hidden rounded bg-stone-100">
                               <Image
                                 src={imgPath}
                                 alt=""
                                 fill
-                                className="object-cover"
+                                className="object-cover object-center"
                                 sizes="128px"
                               />
                             </div>
@@ -641,13 +684,13 @@ export default function ImageManagerPage() {
                       className="w-full text-left"
                       title="Click to manage photos"
                     >
-                      <div className="relative aspect-square bg-stone-100 overflow-hidden">
+                      <div className="relative h-36 bg-stone-100 overflow-hidden">
                         {firstImage ? (
                           <Image
                             src={firstImage}
                             alt={slot.label}
                             fill
-                            className="object-cover group-hover:opacity-75 transition-opacity"
+                            className="object-cover object-center group-hover:opacity-75 transition-opacity"
                             sizes="200px"
                           />
                         ) : (
@@ -837,12 +880,12 @@ export default function ImageManagerPage() {
                   className="group text-left"
                   title="Add to slider"
                 >
-                  <div className="relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
+                  <div className="relative w-full h-28 overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
                     <Image
                       src={imgPath}
                       alt=""
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
                       sizes="128px"
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
@@ -895,8 +938,8 @@ export default function ImageManagerPage() {
                   }}
                   className="group text-left"
                 >
-                  <div className="relative aspect-square overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
-                    <Image src={imgPath} alt="" fill className="object-cover" sizes="160px" />
+                  <div className="relative h-28 overflow-hidden rounded bg-stone-100 ring-2 ring-transparent group-hover:ring-amber-400 transition-all">
+                    <Image src={imgPath} alt="" fill className="object-cover object-center" sizes="160px" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
                       <span className="text-white text-xs tracking-widest">+ ADD</span>
                     </div>
@@ -945,13 +988,13 @@ export default function ImageManagerPage() {
                       className="w-full text-left"
                       title="Click to manage photos"
                     >
-                      <div className="relative aspect-square bg-stone-100 overflow-hidden">
+                      <div className="relative h-36 bg-stone-100 overflow-hidden">
                         {firstImage ? (
                           <Image
                             src={firstImage}
                             alt={slot.label}
                             fill
-                            className="object-cover group-hover:opacity-75 transition-opacity"
+                            className="object-cover object-center group-hover:opacity-75 transition-opacity"
                             sizes="200px"
                           />
                         ) : (
@@ -1085,10 +1128,10 @@ export default function ImageManagerPage() {
                           disabled={added}
                           className={`group text-left ${added ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                         >
-                          <div className={`relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
+                          <div className={`relative w-full h-24 overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
                             added ? 'ring-amber-400' : 'ring-transparent group-hover:ring-amber-400'
                           }`}>
-                            <Image src={imgPath} alt="" fill className="object-cover" sizes="120px" />
+                            <Image src={imgPath} alt="" fill className="object-cover object-center" sizes="120px" />
                             {added ? (
                               <div className="absolute inset-0 flex items-center justify-center bg-amber-400/20">
                                 <span className="text-amber-700 text-sm">✓</span>
@@ -1122,6 +1165,146 @@ export default function ImageManagerPage() {
           </div>
         );
       })()}
+
+      {/* ── UPLOAD TAB ───────────────────────────────────────────────────────── */}
+      {activeTab === 'upload' && (
+        <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
+          <div className="p-6 max-w-2xl mx-auto">
+            <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700 mb-1">Upload New Images</h2>
+            <p className="text-xs text-stone-400 mb-6 tracking-wider">
+              Upload photos directly into a pool folder. They become available immediately in the image picker panels.
+            </p>
+
+            {/* Folder picker */}
+            <div className="mb-6">
+              <label className="block text-xs tracking-widest uppercase text-stone-500 mb-2">
+                Destination Folder
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {([
+                  { key: 'large',        label: 'Large',         desc: 'Hero / full-bleed' },
+                  { key: 'medium',       label: 'Medium',        desc: 'Galleries / sections' },
+                  { key: 'thumb',        label: 'Thumb',         desc: 'Thumbnails' },
+                  { key: 'cocktail-hour',label: 'Cocktail Hour', desc: 'Menu cocktail items' },
+                  { key: 'enhancements', label: 'Enhancements',  desc: 'Menu enhancements' },
+                  { key: 'dinner-plates',label: 'Dinner Plates', desc: 'Dinner plate items' },
+                ] as { key: UploadFolder; label: string; desc: string }[]).map(f => (
+                  <button
+                    key={f.key}
+                    onClick={() => setUploadFolder(f.key)}
+                    className={`text-left px-4 py-3 border-2 transition-colors ${
+                      uploadFolder === f.key
+                        ? 'border-amber-500 bg-amber-50'
+                        : 'border-stone-200 bg-white hover:border-stone-300'
+                    }`}
+                  >
+                    <p className={`text-xs font-medium tracking-wider ${uploadFolder === f.key ? 'text-amber-700' : 'text-stone-700'}`}>
+                      {f.label}
+                    </p>
+                    <p className="text-[10px] text-stone-400 mt-0.5">{f.desc}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* File drop zone */}
+            <div className="mb-6">
+              <label className="block text-xs tracking-widest uppercase text-stone-500 mb-2">
+                Select Files
+              </label>
+              <label className="block w-full border-2 border-dashed border-stone-300 bg-white hover:border-amber-400 hover:bg-amber-50 transition-colors cursor-pointer p-8 text-center">
+                <input
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.webp"
+                  multiple
+                  className="sr-only"
+                  onChange={e => {
+                    const selected = Array.from(e.target.files ?? []);
+                    setUploadFiles(selected);
+                    setUploadStatus('idle');
+                    setUploadResults(null);
+                  }}
+                />
+                {uploadFiles.length === 0 ? (
+                  <div className="text-stone-400">
+                    <svg className="w-8 h-8 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                    </svg>
+                    <p className="text-xs tracking-widest uppercase">Click to select images</p>
+                    <p className="text-[10px] text-stone-300 mt-1">JPG, PNG, WebP — multiple files OK</p>
+                  </div>
+                ) : (
+                  <div className="text-stone-600">
+                    <p className="text-sm font-medium">{uploadFiles.length} file{uploadFiles.length !== 1 ? 's' : ''} selected</p>
+                    <p className="text-xs text-stone-400 mt-1">→ {uploadFolder} folder</p>
+                    <p className="text-[10px] text-stone-300 mt-2">Click again to change selection</p>
+                  </div>
+                )}
+              </label>
+            </div>
+
+            {/* File list preview */}
+            {uploadFiles.length > 0 && (
+              <div className="mb-6 bg-white border border-stone-200 divide-y divide-stone-100">
+                {uploadFiles.map(f => (
+                  <div key={f.name} className="flex items-center justify-between px-4 py-2">
+                    <span className="text-xs text-stone-600 truncate flex-1">{f.name}</span>
+                    <span className="text-[10px] text-stone-400 ml-4 flex-shrink-0">
+                      {(f.size / 1024 / 1024).toFixed(1)} MB
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Upload button */}
+            <button
+              onClick={handleUpload}
+              disabled={uploadFiles.length === 0 || uploadStatus === 'uploading'}
+              className="w-full bg-amber-600 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs tracking-widest uppercase py-3 transition-colors"
+            >
+              {uploadStatus === 'uploading'
+                ? `Uploading ${uploadFiles.length} file${uploadFiles.length !== 1 ? 's' : ''}...`
+                : `Upload to ${uploadFolder}`}
+            </button>
+
+            {/* Results */}
+            {uploadResults && (
+              <div className="mt-6 space-y-3">
+                {uploadResults.saved.length > 0 && (
+                  <div className="bg-emerald-50 border border-emerald-200 p-4">
+                    <p className="text-xs font-medium text-emerald-800 tracking-wider mb-2">
+                      {uploadResults.saved.length} file{uploadResults.saved.length !== 1 ? 's' : ''} uploaded
+                    </p>
+                    <div className="space-y-1">
+                      {uploadResults.saved.map(p => (
+                        <p key={p} className="text-[10px] text-emerald-700 font-mono">{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {uploadResults.errors.length > 0 && (
+                  <div className="bg-red-50 border border-red-200 p-4">
+                    <p className="text-xs font-medium text-red-800 tracking-wider mb-2">
+                      {uploadResults.errors.length} error{uploadResults.errors.length !== 1 ? 's' : ''}
+                    </p>
+                    <div className="space-y-1">
+                      {uploadResults.errors.map((e, i) => (
+                        <p key={i} className="text-[10px] text-red-700">{e}</p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {uploadResults.saved.length > 0 && (
+                  <p className="text-xs text-stone-400 tracking-wider">
+                    Images are now available in the pool. Switch to Tour Gallery, Menu Items, or Site Images tabs to assign them.
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ── Menu Item Photo Manager Modal ────────────────────────────────────── */}
       {pickerOpen && (
@@ -1233,10 +1416,10 @@ export default function ImageManagerPage() {
                           className={`group text-left ${added ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                           title={added ? 'Already added' : 'Click to add'}
                         >
-                          <div className={`relative w-full aspect-square overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
+                          <div className={`relative w-full h-24 overflow-hidden rounded bg-stone-100 ring-2 transition-all ${
                             added ? 'ring-amber-400' : 'ring-transparent group-hover:ring-amber-400'
                           }`}>
-                            <Image src={imgPath} alt="" fill className="object-cover" sizes="120px" />
+                            <Image src={imgPath} alt="" fill className="object-cover object-center" sizes="120px" />
                             {added ? (
                               <div className="absolute inset-0 flex items-center justify-center bg-amber-400/20">
                                 <span className="text-amber-700 text-sm">✓</span>

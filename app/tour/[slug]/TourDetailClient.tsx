@@ -19,13 +19,13 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
         {images.map((imagePath, index) => (
           <div 
             key={imagePath}
-            className="gallery-image relative overflow-hidden group cursor-pointer aspect-[4/3]"
+            className="gallery-image relative overflow-hidden group cursor-pointer h-52"
           >
             <Image 
               src={imagePath}
               alt={`${sectionTitle} photo ${index + 1} at Riviera Waterfront Mansion wedding venue in Massapequa, Long Island`}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               quality={85}
             />

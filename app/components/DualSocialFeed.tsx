@@ -101,12 +101,12 @@ export default function DualSocialFeed() {
                   rel="noopener noreferrer"
                   className="group flex-none w-72 sm:w-80 relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
                 >
-                  <div className="aspect-square relative overflow-hidden">
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={post.media_url}
                       alt={post.caption?.slice(0, 100) || 'Instagram post'}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
                       sizes="320px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -163,12 +163,12 @@ export default function DualSocialFeed() {
                   rel="noopener noreferrer"
                   className="group flex-none w-72 sm:w-80 relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
                 >
-                  <div className="aspect-square relative overflow-hidden">
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={video.thumbnail_url}
                       alt={video.caption?.slice(0, 100) || 'TikTok video'}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
                       sizes="320px"
                     />
                     {/* Play button overlay */}

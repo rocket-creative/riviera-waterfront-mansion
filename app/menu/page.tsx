@@ -12,7 +12,7 @@ const h = imageConfig.menuSectionHeroes;
 function Item({ slot, alt, name, desc }: { slot?: string; alt: string; name: string; desc: string }) {
   return (
     <div>
-      <div className="aspect-square relative overflow-hidden mb-2 bg-stone-100">
+      <div className="h-44 relative overflow-hidden mb-2 bg-stone-100">
         <MenuImage images={slot ? m[slot] || [] : []} alt={alt} />
       </div>
       <p className="text-xs tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>

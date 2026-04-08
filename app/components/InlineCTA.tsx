@@ -73,7 +73,7 @@ export default function InlineCTA({
               src={images[0] ?? ''}
               alt={imageAlt}
               fill
-              className="object-cover transition-transform duration-700 hover:scale-105"
+              className="object-cover object-center transition-transform duration-700 hover:scale-105"
               sizes="(max-width: 1024px) 100vw, 58vw"
               quality={85}
             />
