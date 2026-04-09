@@ -12,7 +12,7 @@ import { imageConfig } from '../../lib/imageConfig';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload' | 'needs-photos';
+type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload';
 type UploadStatus = 'idle' | 'uploading' | 'done' | 'error';
 type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
 type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates' | 'exit-stations';
@@ -506,42 +506,23 @@ export default function ImageManagerPage() {
 
       {/* Tabs */}
       <div className="bg-stone-800 px-6 flex gap-0 border-b border-stone-700">
-        {(['tour', 'menu', 'menu-heroes', 'site-images', 'upload', 'needs-photos'] as Tab[]).map(tab => {
-          const needsCount = (() => {
-            if (tab !== 'needs-photos') return 0;
-            let n = 0;
-            MENU_SLOTS.forEach(s => { if ((menuImages[s.key] ?? []).length < 1) n++; });
-            MENU_HERO_SECTIONS.forEach(s => { if ((menuSectionHeroes[s.key] ?? []).length < 1) n++; });
-            SITE_IMAGE_SLOTS.forEach(s => { if ((siteImages[s.key] ?? []).length < 1) n++; });
-            Object.keys(TOUR_SECTION_LABELS).forEach(k => { if ((tourSections[k] ?? []).length < 1) n++; });
-            return n;
-          })();
-          return (
-            <button
-              key={tab}
-              onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
-              className={`relative px-6 py-3 text-xs tracking-widest uppercase transition-colors ${
-                activeTab === tab
-                  ? 'text-amber-400 border-b-2 border-amber-400'
-                  : tab === 'needs-photos'
-                    ? 'text-rose-400 hover:text-rose-200'
-                    : 'text-stone-400 hover:text-stone-200'
-              }`}
-            >
-              {tab === 'tour' ? 'Tour Gallery'
-                : tab === 'menu' ? 'Menu Items'
-                : tab === 'menu-heroes' ? 'Menu Heroes'
-                : tab === 'site-images' ? 'Site Images'
-                : tab === 'upload' ? 'Upload Images'
-                : 'Needs Photos'}
-              {tab === 'needs-photos' && needsCount > 0 && (
-                <span className="ml-1.5 bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded-full leading-none">
-                  {needsCount}
-                </span>
-              )}
-            </button>
-          );
-        })}
+        {(['tour', 'menu', 'menu-heroes', 'site-images', 'upload'] as Tab[]).map(tab => (
+          <button
+            key={tab}
+            onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
+            className={`px-6 py-3 text-xs tracking-widest uppercase transition-colors ${
+              activeTab === tab
+                ? 'text-amber-400 border-b-2 border-amber-400'
+                : 'text-stone-400 hover:text-stone-200'
+            }`}
+          >
+            {tab === 'tour' ? 'Tour Gallery'
+              : tab === 'menu' ? 'Menu Items'
+              : tab === 'menu-heroes' ? 'Menu Heroes'
+              : tab === 'site-images' ? 'Site Images'
+              : 'Upload Images'}
+          </button>
+        ))}
       </div>
 
       {/* ── TOUR TAB ─────────────────────────────────────────────────────────── */}
@@ -742,13 +723,20 @@ export default function ImageManagerPage() {
                 const slotImages = menuImages[slot.key] ?? [];
                 const firstImage = slotImages[0] ?? '';
                 return (
-                  <div key={slot.key} className="group relative bg-white shadow-sm overflow-hidden">
+                  <div
+                    key={slot.key}
+                    className={`group relative shadow-sm overflow-hidden ${
+                      slotImages.length === 0
+                        ? 'bg-rose-50 ring-2 ring-rose-300'
+                        : 'bg-white'
+                    }`}
+                  >
                     <button
                       onClick={() => { setPickerOpen(slot.key); setPoolSearch(''); }}
                       className="w-full text-left"
                       title="Click to manage photos"
                     >
-                      <div className="relative h-36 bg-stone-100 overflow-hidden">
+                      <div className={`relative h-36 overflow-hidden ${slotImages.length === 0 ? 'bg-rose-100' : 'bg-stone-100'}`}>
                         {firstImage ? (
                           <Image
                             src={firstImage}
@@ -758,12 +746,18 @@ export default function ImageManagerPage() {
                             sizes="200px"
                           />
                         ) : (
-                          <div className="w-full h-full flex flex-col items-center justify-center text-stone-300 gap-1">
-                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+                          <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+                            <svg className="w-7 h-7 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
-                            <span className="text-[8px] tracking-widest uppercase">No photo</span>
+                            <span className="text-[9px] font-semibold tracking-widest uppercase text-rose-400">Add Photo</span>
                           </div>
+                        )}
+                        {/* MISSING badge */}
+                        {slotImages.length === 0 && (
+                          <span className="absolute top-1.5 left-1.5 bg-rose-500 text-white text-[8px] font-bold px-1.5 py-0.5 leading-none tracking-widest uppercase">
+                            Missing
+                          </span>
                         )}
                         {/* Slideshow count badge */}
                         {slotImages.length > 1 && (
@@ -773,16 +767,18 @@ export default function ImageManagerPage() {
                         )}
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <span className="bg-black/60 text-white text-[10px] px-3 py-1.5 tracking-widest uppercase">
-                            Manage
+                            {slotImages.length === 0 ? 'Add Photo' : 'Manage'}
                           </span>
                         </div>
                       </div>
                     </button>
                     <div className="p-2">
-                      <p className="text-[10px] font-medium text-stone-700 leading-tight">{slot.label}</p>
-                      <p className="text-[8px] text-stone-400 mt-0.5">
+                      <p className={`text-[10px] font-medium leading-tight ${slotImages.length === 0 ? 'text-rose-700' : 'text-stone-700'}`}>
+                        {slot.label}
+                      </p>
+                      <p className={`text-[8px] mt-0.5 ${slotImages.length === 0 ? 'text-rose-400' : 'text-stone-400'}`}>
                         {slotImages.length === 0
-                          ? 'no photos'
+                          ? 'no photos — click to add'
                           : `${slotImages.length} photo${slotImages.length > 1 ? 's — slideshow' : ''}`}
                       </p>
                     </div>
@@ -1523,125 +1519,6 @@ export default function ImageManagerPage() {
         </div>
       )}
 
-      {/* ── NEEDS PHOTOS TAB ─────────────────────────────────────────────────── */}
-      {activeTab === 'needs-photos' && (() => {
-        // Collect every slot with 0 images across all categories
-        const missing: { label: string; category: string; onClick: () => void }[] = [];
-
-        MENU_SLOTS.forEach(slot => {
-          if ((menuImages[slot.key] ?? []).length === 0) {
-            missing.push({
-              label: slot.label,
-              category: MENU_CATEGORY_LABELS[slot.category],
-              onClick: () => {
-                setMenuCategory(slot.category);
-                setPickerOpen(slot.key);
-                setActiveTab('menu');
-              },
-            });
-          }
-        });
-
-        MENU_HERO_SECTIONS.forEach(sec => {
-          if ((menuSectionHeroes[sec.key] ?? []).length === 0) {
-            missing.push({
-              label: sec.label,
-              category: 'Menu Heroes',
-              onClick: () => {
-                setSelectedHeroSection(sec.key);
-                setActiveTab('menu-heroes');
-              },
-            });
-          }
-        });
-
-        SITE_IMAGE_SLOTS.forEach(slot => {
-          if ((siteImages[slot.key] ?? []).length === 0) {
-            missing.push({
-              label: slot.label,
-              category: SITE_GROUP_LABELS[slot.group],
-              onClick: () => {
-                setSiteGroup(slot.group);
-                setSitePickerOpen(slot.key);
-                setActiveTab('site-images');
-              },
-            });
-          }
-        });
-
-        Object.keys(TOUR_SECTION_LABELS).forEach(key => {
-          if ((tourSections[key] ?? []).length === 0) {
-            missing.push({
-              label: TOUR_SECTION_LABELS[key],
-              category: 'Tour Gallery',
-              onClick: () => {
-                setSelectedSection(key);
-                setActiveTab('tour');
-              },
-            });
-          }
-        });
-
-        // Group by category
-        const grouped: Record<string, typeof missing> = {};
-        for (const item of missing) {
-          if (!grouped[item.category]) grouped[item.category] = [];
-          grouped[item.category].push(item);
-        }
-
-        return (
-          <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
-            <div className="p-6 max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-6">
-                <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700">Needs Photos</h2>
-                <span className="bg-rose-500 text-white text-[10px] px-2 py-0.5 rounded-full tracking-wider">
-                  {missing.length} items
-                </span>
-              </div>
-
-              {missing.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-20 text-center">
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-medium text-stone-700 tracking-wider">All slots have images</p>
-                  <p className="text-xs text-stone-400 mt-1">Every menu item, section, and page hero has at least one photo assigned.</p>
-                </div>
-              ) : (
-                <div className="space-y-8">
-                  {Object.entries(grouped).map(([category, items]) => (
-                    <div key={category}>
-                      <div className="flex items-center gap-2 mb-3">
-                        <p className="text-xs tracking-widest uppercase text-stone-500">{category}</p>
-                        <span className="text-[10px] bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded-full">{items.length}</span>
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                        {items.map(item => (
-                          <button
-                            key={item.label}
-                            onClick={item.onClick}
-                            className="group bg-white border-2 border-dashed border-stone-300 hover:border-amber-400 hover:bg-amber-50 transition-colors text-left p-3"
-                          >
-                            <div className="w-full h-20 bg-stone-100 group-hover:bg-amber-100 transition-colors flex items-center justify-center mb-2 rounded">
-                              <svg className="w-6 h-6 text-stone-300 group-hover:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
-                              </svg>
-                            </div>
-                            <p className="text-[11px] font-medium text-stone-700 leading-tight group-hover:text-amber-800">{item.label}</p>
-                            <p className="text-[9px] text-stone-400 mt-0.5 tracking-wider uppercase group-hover:text-amber-600">Click to add →</p>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        );
-      })()}
     </div>
   );
 }
