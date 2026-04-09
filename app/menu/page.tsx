@@ -113,9 +113,9 @@ export default function MenuPage() {
                   Gourmet cold displays &amp; artisan boards
                 </h3>
                 <div className={grid4}>
-                  <Item alt="Fresh seasonal fruit display" name="Seasonal Fruit Display" desc="Bountiful seasonal fruits beautifully arranged" />
+                  <Item slot="cocktail-seasonal-fruit-display" alt="Fresh seasonal fruit display" name="Seasonal Fruit Display" desc="Bountiful seasonal fruits beautifully arranged" />
                   <Item slot="cocktail-cold-meats-board" alt="Italian cured meats board" name="Cold Meats Board" desc="Salami, Prosciutto, Mortadella, Pepperoni, Ham" />
-                  <Item alt="Fresh seasonal fruit on skewers" name="Fruit on Skewers" desc="Colorful skewered fruit medley with seasonal flavors" />
+                  <Item slot="cocktail-fruit-on-skewers" alt="Fresh seasonal fruit on skewers" name="Fruit on Skewers" desc="Colorful skewered fruit medley with seasonal flavors" />
                   <Item slot="cocktail-cheeseboard" alt="Assorted cheeseboard with smoked gouda and cheddar" name="Assorted Cheeseboard" desc="Smoked Gouda, Cheddar, Colby Jack, Provolone, Swiss with Artisan Crackers" />
                   <Item slot="cocktail-mediterranean-board" alt="Mediterranean board with olives and feta" name="Mediterranean Board" desc="Grape Leaves, Kalamata Olives, Mushrooms, Feta, Giardiniera" />
                   <Item slot="cocktail-antipasto-salad" alt="Homemade antipasto salad" name="Homemade Antipasto Salad" desc="Artichoke Hearts, Olives, Sun Dried Tomatoes, Provolone, Prosciutto in Italian Dressing" />
@@ -136,9 +136,9 @@ export default function MenuPage() {
                   <Item slot="cocktail-zucchini-sticks" alt="Zucchini sticks lightly breaded" name="Zucchini Sticks" desc="Lightly breaded and fried" />
                   <Item slot="cocktail-bourbon-chicken-bites" alt="Bourbon chicken bites wrapped in smoked bacon" name="Bourbon Chicken Bites" desc="White meat chicken wrapped in smoked bacon with a bourbon glaze" />
                   <Item slot="cocktail-fried-coconut-shrimp" alt="Fried coconut shrimp with toasted coconut" name="Fried Coconut Shrimp" desc="Jumbo shrimp battered with toasted coconut flakes" />
-                  <Item alt="Mini tacos with pico de gallo" name="Mini Tacos" desc="Meat filling, fresh pico de gallo, sour cream" />
-                  <Item alt="Date night stuffed with goat cheese and prosciutto" name="Date Night" desc="Dates stuffed with goat cheese, wrapped in prosciutto" />
-                  <Item alt="Lemon blueberry crostini with ricotta" name="Lemon Blueberry Crostini" desc="Toasted semolina bread with ricotta, blueberry jam, lemon zest" />
+                  <Item slot="cocktail-mini-tacos" alt="Mini tacos with pico de gallo" name="Mini Tacos" desc="Meat filling, fresh pico de gallo, sour cream" />
+                  <Item slot="cocktail-date-night" alt="Date night stuffed with goat cheese and prosciutto" name="Date Night" desc="Dates stuffed with goat cheese, wrapped in prosciutto" />
+                  <Item slot="cocktail-lemon-blueberry-crostini" alt="Lemon blueberry crostini with ricotta" name="Lemon Blueberry Crostini" desc="Toasted semolina bread with ricotta, blueberry jam, lemon zest" />
                 </div>
               </div>
 
@@ -160,12 +160,12 @@ export default function MenuPage() {
                 </h3>
                 <p className="text-[11px] tracking-widest text-riviera-gold mb-6 uppercase">Select two carved meats</p>
                 <div className={grid4}>
-                  <Item alt="Brisket of beef with mushroom gravy" name="Brisket of Beef" desc="Cooked to Perfection with Mushroom Gravy" />
-                  <Item alt="Pastrami with spicy brown mustard and rye bread" name="Pastrami" desc="Spicy Brown Mustard, Russian Dressing, Sliced Rye Bread" />
+                  <Item slot="cocktail-brisket-of-beef" alt="Brisket of beef with mushroom gravy" name="Brisket of Beef" desc="Cooked to Perfection with Mushroom Gravy" />
+                  <Item slot="cocktail-pastrami" alt="Pastrami with spicy brown mustard and rye bread" name="Pastrami" desc="Spicy Brown Mustard, Russian Dressing, Sliced Rye Bread" />
                   <Item slot="cocktail-london-broil" alt="Marinated London Broil at carving station" name="Marinated London Broil" desc="Garlic Bread, Horseradish Sauce, Beef Gravy" />
                   <Item slot="cocktail-roast-pork-tenderloin" alt="Roast pork tenderloin in garlic herb crust" name="Roast Pork Tenderloin" desc="In a Garlic Herb Crust" />
                   <Item slot="cocktail-corned-beef" alt="Corned beef with mustard and rye" name="Corned Beef" desc="Spicy Brown Mustard, Sauerkraut, Sliced Rye Bread" />
-                  <Item alt="Roasted whole turkey with cranberry chutney" name="Roasted Whole Turkey" desc="With Cranberry Chutney" />
+                  <Item slot="cocktail-roasted-whole-turkey" alt="Roasted whole turkey with cranberry chutney" name="Roasted Whole Turkey" desc="With Cranberry Chutney" />
                   <Item slot="cocktail-glazed-virginia-ham" alt="Glazed Virginia ham with roasted pineapples" name="Glazed Virginia Ham" desc="Roasted Pineapples and Dijon Mustard" />
                 </div>
               </div>
@@ -190,21 +190,21 @@ export default function MenuPage() {
               <SubHead>Poultry</SubHead>
               <div className={grid4}>
                 <Item slot="cocktail-chicken-pina-colada" alt="Chicken pina colada in cream of coconut sauce" name="Chicken Pina Colada" desc="Sauteed Chicken with Pineapples in Cream of Coconut Sauce" />
-                <Item alt="Chicken marsala in sweet marsala wine sauce" name="Chicken Marsala" desc="Sauteed Chicken in Sweet Marsala Wine and Mushroom Sauce" />
+                <Item slot="cocktail-chicken-marsala" alt="Chicken marsala in sweet marsala wine sauce" name="Chicken Marsala" desc="Sauteed Chicken in Sweet Marsala Wine and Mushroom Sauce" />
                 <Item slot="cocktail-chicken-scarpariello" alt="Chicken scarpariello with sausage and peppers" name="Chicken Scarpariello" desc="Roasted Chicken, Sausage, Potatoes, Peppers in Lemon Garlic Sauce" />
                 <Item slot="cocktail-chicken-francese" alt="Chicken francese in lemon butter wine sauce" name="Chicken Francese" desc="Sauteed Chicken in Lemon Butter White Wine Sauce" />
                 <Item slot="cocktail-arroz-con-pollo" alt="Arroz con pollo chicken and rice with saffron" name="Arroz Con Pollo" desc="Chicken and Rice with Spanish Spices and Saffron" />
                 <Item slot="cocktail-sesame-chicken" alt="Sesame chicken in sweet honey sauce" name="Sesame Chicken" desc="Chicken Breast in Sweet Honey Sauce with Sesame Seeds and Broccoli" />
-                <Item alt="Sweet and sour chicken" name="Sweet &amp; Sour Chicken" desc="Fried Chicken Cubes with a Sweet and Sour Sauce" />
+                <Item slot="cocktail-sweet-sour-chicken" alt="Sweet and sour chicken" name="Sweet &amp; Sour Chicken" desc="Fried Chicken Cubes with a Sweet and Sour Sauce" />
               </div>
 
               <SubHead>Pasta</SubHead>
               <div className={grid4}>
-                <Item alt="Tortellini fettuccine alfredo" name="Tortellini / Fettuccine Alfredo" desc="Smothered in our incredible Alfredo sauce" />
+                <Item slot="cocktail-fettuccine-alfredo" alt="Tortellini fettuccine alfredo" name="Tortellini / Fettuccine Alfredo" desc="Smothered in our incredible Alfredo sauce" />
                 <Item slot="cocktail-rigatoni-prosciutto" alt="Rigatoni with prosciutto in cream sauce" name="Rigatoni with Prosciutto" desc="White Cream Sauce, Parmesan, Prosciutto, Peas" />
-                <Item alt="Penne ala vodka fan favorite" name="Penne Ala Vodka" desc="A fan favorite!" />
-                <Item alt="Pasta primavera with fresh vegetables" name="Pasta Primavera" desc="Bowtie Pasta with Fresh Vegetables in Garlic and Oil" />
-                <Item alt="Penne bolognese with ground beef and pork" name="Penne Bolognese" desc="Ground Beef and Pork in a Lite Cream Burgundy Sauce" />
+                <Item slot="cocktail-penne-ala-vodka" alt="Penne ala vodka fan favorite" name="Penne Ala Vodka" desc="A fan favorite!" />
+                <Item slot="cocktail-pasta-primavera" alt="Pasta primavera with fresh vegetables" name="Pasta Primavera" desc="Bowtie Pasta with Fresh Vegetables in Garlic and Oil" />
+                <Item slot="cocktail-penne-bolognese" alt="Penne bolognese with ground beef and pork" name="Penne Bolognese" desc="Ground Beef and Pork in a Lite Cream Burgundy Sauce" />
                 <Item slot="cocktail-tortellini-carbonara" alt="Tortellini carbonara with bacon and peas" name="Tortellini Carbonara" desc="Parmesan Cream Sauce with Bacon and Peas" />
                 <Item slot="cocktail-riviera-pasta" alt="Riviera's pasta with sun dried tomatoes and artichoke" name="Riviera's Pasta" desc="Bowtie Pasta with Sun Dried Tomatoes, Artichoke Hearts, Mushrooms in Garlic and Oil" />
               </div>
@@ -212,7 +212,7 @@ export default function MenuPage() {
               <SubHead>Vegan &amp; Vegetarian</SubHead>
               <div className={grid4}>
                 <Item slot="cocktail-eggplant-rollatini" alt="Eggplant rollatini with ricotta and marinara" name="Eggplant Rollatini" desc="Pan Fried Eggplant Stuffed with Ricotta, Mozzarella, Parmesan in Marinara" />
-                <Item alt="Vegetable stir fry with garlic oil or teriyaki" name="Vegetable Stir Fry" desc="Fresh Vegetables Sauteed with choice of Garlic Oil, Marinara, or Teriyaki" />
+                <Item slot="cocktail-vegetable-stir-fry" alt="Vegetable stir fry with garlic oil or teriyaki" name="Vegetable Stir Fry" desc="Fresh Vegetables Sauteed with choice of Garlic Oil, Marinara, or Teriyaki" />
               </div>
 
               <SubHead>Seafood</SubHead>
@@ -221,20 +221,20 @@ export default function MenuPage() {
                 <Item slot="cocktail-seafood-paella" alt="Seafood paella with clams, mussels and shrimp" name="Seafood Paella" desc="Clams, Mussels, Shrimp in Saffron Seasoned Rice" />
                 <Item slot="cocktail-seafood-newburg" alt="Seafood Newburg with scallops and crabmeat" name="Seafood Newburg" desc="Scallops, Shrimp, Crabmeat in a Sherry White Cream Sauce" />
                 <Item slot="cocktail-seafood-fra-diablo" alt="Seafood fra diablo in spicy tomato sauce" name="Seafood Fra Diablo" desc="Mussels, Shrimp, Scallop, Clams in a Spicy Tomato Sauce" />
-                <Item alt="Jambalaya with shrimp chicken and andouille sausage" name="Jambalaya" desc="Shrimp, Chicken, Andouille Sausage in Seasoned Rice" />
+                <Item slot="cocktail-jambalaya" alt="Jambalaya with shrimp chicken and andouille sausage" name="Jambalaya" desc="Shrimp, Chicken, Andouille Sausage in Seasoned Rice" />
                 <Item slot="cocktail-shrimp-scampi" alt="Shrimp scampi with broccoli over rice" name="Shrimp Scampi" desc="With Broccoli Over Rice or Pasta" />
-                <Item alt="White or red clam sauce with linguine" name="White or Red Clam Sauce" desc="Fresh Clams and Seasoning Tossed with Linguine" />
-                <Item alt="Baked clams with breadcrumbs in natural shell" name="Baked Clams" desc="Succulent Clams and Breadcrumbs Encased in a Natural Shell" />
+                <Item slot="cocktail-clam-sauce" alt="White or red clam sauce with linguine" name="White or Red Clam Sauce" desc="Fresh Clams and Seasoning Tossed with Linguine" />
+                <Item slot="cocktail-baked-clams" alt="Baked clams with breadcrumbs in natural shell" name="Baked Clams" desc="Succulent Clams and Breadcrumbs Encased in a Natural Shell" />
               </div>
 
               <SubHead>Beef</SubHead>
               <div className={grid4}>
                 <Item slot="cocktail-swedish-meatballs" alt="Swedish meatballs in cream gravy sauce" name="Swedish Meatballs" desc="Ground Beef and Pork Baked in a Cream Gravy Sauce" />
                 <Item slot="cocktail-beef-teriyaki" alt="Beef teriyaki with Chinese vegetables over lo mein" name="Beef Teriyaki" desc="Sliced Beef in Teriyaki Sauce with Chinese Vegetables over Lo Mein" />
-                <Item alt="Italian meatballs in homemade tomato sauce" name="Italian Meatballs" desc="Ground Beef and Pork in Our Homemade Tomato Sauce" />
+                <Item slot="cocktail-italian-meatballs" alt="Italian meatballs in homemade tomato sauce" name="Italian Meatballs" desc="Ground Beef and Pork in Our Homemade Tomato Sauce" />
                 <Item slot="cocktail-sausage-and-peppers" alt="Sausage and peppers in light tomato sauce" name="Sausage &amp; Peppers" desc="Italian Sausage with Peppers and Onions in a Light Tomato Sauce" />
-                <Item alt="Beef bourguignon braised in red wine" name="Beef Bourguignon" desc="Beef Stew Braised in Red Wine with Mushrooms, Carrots, Onions" />
-                <Item alt="Beef stroganoff with mushrooms over egg noodles" name="Beef Stroganoff" desc="Thin Strips of Beef with Mushrooms in Sour Cream Gravy over Egg Noodle" />
+                <Item slot="cocktail-beef-bourguignon" alt="Beef bourguignon braised in red wine" name="Beef Bourguignon" desc="Beef Stew Braised in Red Wine with Mushrooms, Carrots, Onions" />
+                <Item slot="cocktail-beef-stroganoff" alt="Beef stroganoff with mushrooms over egg noodles" name="Beef Stroganoff" desc="Thin Strips of Beef with Mushrooms in Sour Cream Gravy over Egg Noodle" />
                 <Item slot="cocktail-kielbasa-sauerkraut" alt="Kielbasa and sauerkraut" name="Kielbasa &amp; Sauerkraut" desc="Savory Beef Kielbasa with Tangy Sauerkraut" />
               </div>
 
@@ -263,8 +263,8 @@ export default function MenuPage() {
                   Welcome stations
                 </h3>
                 <div className={grid4}>
-                  <Item alt="Welcome snack station with fruits and biscotti" name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
-                  <Item alt="Bridal suite wrap platter" name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
+                  <Item slot="enhance-welcome-snack-station" alt="Welcome snack station with fruits and biscotti" name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
+                  <Item slot="enhance-bridal-suite-wrap-platter" alt="Bridal suite wrap platter" name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
                   <Item alt="Early arrival for photography at the venue" name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
                 </div>
               </div>
@@ -275,16 +275,16 @@ export default function MenuPage() {
                   Cold cocktail hour additions
                 </h3>
                 <div className={grid4}>
-                  <Item alt="Rolling bar with beer and wine" name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
-                  <Item alt="Full rolling bar with top shelf alcohol" name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
-                  <Item alt="Fresh mozzarella station with prosciutto and artisan breads" name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
+                  <Item slot="enhance-rolling-bar" alt="Rolling bar with beer and wine" name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
+                  <Item slot="enhance-full-rolling-bar" alt="Full rolling bar with top shelf alcohol" name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
+                  <Item slot="enhance-fresh-mozzarella-station" alt="Fresh mozzarella station with prosciutto and artisan breads" name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
                   <Item slot="enhance-jumbo-shrimp-cocktail" alt="Jumbo shrimp cocktail on crushed ice" name="Jumbo Shrimp Cocktail" desc="Displayed on crushed ice with cocktail sauce and fresh lemon wedges" />
-                  <Item alt="Fresh clam and oyster bar shucked to order" name="Fresh Clam &amp; Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, and horseradish sauce" />
+                  <Item slot="enhance-fresh-clam-oyster-bar" alt="Fresh clam and oyster bar shucked to order" name="Fresh Clam &amp; Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, and horseradish sauce" />
                   <Item slot="enhance-sushi-bar-waterfront" alt="Fresh sushi bar on the waterfront deck" name="Fresh Sushi Bar" desc="Traditional sushi boats with a large variety of handmade rolls" />
-                  <Item alt="Whole lobster station on crushed ice" name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
-                  <Item alt="Lobster tail station on crushed ice" name="Lobster Tail Station" desc="Chilled lobster tails on a crushed ice display (market price)" />
-                  <Item alt="Alaskan crab legs on crushed ice" name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display (market price)" />
-                  <Item alt="Ice sculpture custom selection" name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
+                  <Item slot="enhance-whole-lobster-station" alt="Whole lobster station on crushed ice" name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
+                  <Item slot="enhance-lobster-tail-station" alt="Lobster tail station on crushed ice" name="Lobster Tail Station" desc="Chilled lobster tails on a crushed ice display (market price)" />
+                  <Item slot="enhance-alaskan-crab-legs" alt="Alaskan crab legs on crushed ice" name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display (market price)" />
+                  <Item slot="enhance-ice-sculpture" alt="Ice sculpture custom selection" name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
                 </div>
               </div>
 
@@ -296,16 +296,16 @@ export default function MenuPage() {
                 <div className={grid4}>
                   <Item alt="Additional chafing dish from our brochure" name="Additional Chafing Dish" desc="Choose from our variety of chafing dishes" />
                   <Item alt="Additional carving meat from our brochure" name="Additional Carving Meat" desc="Choose from our variety of carving board meats" />
-                  <Item alt="Baby lamb chops as passed hors d'oeuvres" name="Baby Lamb Chops" desc="Served as an extra carving board meat or as passed hors d'oeuvres" />
-                  <Item alt="Roast suckling pig as extra carving station" name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
-                  <Item alt="Mashed potato bar with sweet and garlic options" name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with a full variety of toppings" />
-                  <Item alt="Macaroni and cheese station with multiple varieties" name="Macaroni &amp; Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional, and more" />
-                  <Item alt="Gourmet pasta station with choice of pasta and sauce" name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
+                  <Item slot="enhance-baby-lamb-chops" alt="Baby lamb chops as passed hors d'oeuvres" name="Baby Lamb Chops" desc="Served as an extra carving board meat or as passed hors d'oeuvres" />
+                  <Item slot="enhance-roast-suckling-pig" alt="Roast suckling pig as extra carving station" name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
+                  <Item slot="enhance-mashed-potato-bar" alt="Mashed potato bar with sweet and garlic options" name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with a full variety of toppings" />
+                  <Item slot="enhance-mac-cheese-station" alt="Macaroni and cheese station with multiple varieties" name="Macaroni &amp; Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional, and more" />
+                  <Item slot="enhance-gourmet-pasta-station" alt="Gourmet pasta station with choice of pasta and sauce" name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
                   <Item slot="enhance-bacon-station-hero" alt="Full bacon station display with bacon-wrapped appetizers" name="Bacon Station" desc="Bacon every way! Choice of four: wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" />
-                  <Item alt="Taco bar with hard and soft shells and all toppings" name="Taco Bar Station" desc="Hard and soft shell tacos with chopped meat, shredded chicken, and all toppings" />
-                  <Item alt="Fried chicken and glazed donut station" name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
+                  <Item slot="enhance-taco-bar-station" alt="Taco bar with hard and soft shells and all toppings" name="Taco Bar Station" desc="Hard and soft shell tacos with chopped meat, shredded chicken, and all toppings" />
+                  <Item slot="enhance-fried-chicken-donut" alt="Fried chicken and glazed donut station" name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
                   <Item slot="enhance-french-fry-station" alt="French fry late night station with assorted fries" name="French Fry Station" desc="Choice of waffle, curly, classic, or sweet potato fries with dips" />
-                  <Item alt="Pierogi station with toppings" name="Pierogi Station" desc="Choice of pierogies with sauteed onions, sour cream, chives, and cheddar" />
+                  <Item slot="enhance-pierogi-station" alt="Pierogi station with toppings" name="Pierogi Station" desc="Choice of pierogies with sauteed onions, sour cream, chives, and cheddar" />
                 </div>
               </div>
 
@@ -318,12 +318,12 @@ export default function MenuPage() {
                   Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
                 </p>
                 <div className={grid4}>
-                  <Item alt="Full Viennese display of cakes, pies, cookies and ice cream sundae bar" name="Full Viennese" desc="Assorted cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" />
+                  <Item slot="enhance-full-viennese" alt="Full Viennese display of cakes, pies, cookies and ice cream sundae bar" name="Full Viennese" desc="Assorted cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" />
                   <Item slot="enhance-donut-wall-hero" alt="Donut wall with assorted glazed and frosted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall (also available as an exit station)" />
                   <Item slot="enhance-smores-station" alt="Outdoor s'mores station with open flames" name="S'mores Station" desc="Assorted cookies, chocolates, and crackers with open flames" />
-                  <Item alt="Roaming cannoli service freshly filled" name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" />
-                  <Item alt="Rainbow explosion with assorted rainbow cookies and treats" name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
-                  <Item alt="Ice cream sundae bar with two flavors and full toppings" name="Ice Cream Sundae Bar" desc="Two ice cream flavors with a full selection of toppings" />
+                  <Item slot="enhance-roaming-cannoli" alt="Roaming cannoli service freshly filled" name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" />
+                  <Item slot="enhance-rainbow-explosion" alt="Rainbow explosion with assorted rainbow cookies and treats" name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
+                  <Item slot="enhance-ice-cream-sundae-bar" alt="Ice cream sundae bar with two flavors and full toppings" name="Ice Cream Sundae Bar" desc="Two ice cream flavors with a full selection of toppings" />
                   <Item slot="enhance-espresso-cordial-station" alt="Espresso and cordial station with after dinner drinks" name="Espresso &amp; Cordial Station" desc="After dinner cordials with our famous espresso and cappuccino" />
                   <Item slot="enhance-gelato-espresso-hero" alt="Gelato bar with staff serving guests" name="Gelato Bar" desc="Choose four amazing flavors of gelato" />
                 </div>
@@ -470,14 +470,14 @@ export default function MenuPage() {
 
               <div className={grid4}>
                 <Item slot="enhance-burger-station" alt="All American Drive-In burger station with cheeseburgers and fries" name="All American Burger Station" desc="Assortment of hamburgers, cheeseburgers, and french fries" />
-                <Item alt="Hot pretzel station with dipping sauces" name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
-                <Item alt="Chips and Gatorade display" name="Chips &amp; Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and assorted Gatorade" />
-                <Item alt="Stuffed bomboloni bar with pistachio and Nutella fillings" name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
-                <Item alt="Stuffed garlic knot station with ham and provolone" name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
-                <Item alt="Ramen exit station individual cups" name="Ramen Exit Station" desc="Individual instant cups of ramen" />
-                <Item alt="Popcorn station with assorted flavors" name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
-                <Item alt="Morning glory station with breakfast sandwiches" name="Morning Glory Station" desc="Bacon, sausage, and ham egg and cheese on Kaiser rolls" />
-                <Item alt="Empanada station with beef and chicken" name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
+                <Item slot="exit-hot-pretzel-station" alt="Hot pretzel station with dipping sauces" name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
+                <Item slot="exit-chips-gatorade" alt="Chips and Gatorade display" name="Chips &amp; Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and assorted Gatorade" />
+                <Item slot="exit-stuffed-bomboloni" alt="Stuffed bomboloni bar with pistachio and Nutella fillings" name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
+                <Item slot="exit-stuffed-garlic-knot" alt="Stuffed garlic knot station with ham and provolone" name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
+                <Item slot="exit-ramen-station" alt="Ramen exit station individual cups" name="Ramen Exit Station" desc="Individual instant cups of ramen" />
+                <Item slot="exit-popcorn-station" alt="Popcorn station with assorted flavors" name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
+                <Item slot="exit-morning-glory" alt="Morning glory station with breakfast sandwiches" name="Morning Glory Station" desc="Bacon, sausage, and ham egg and cheese on Kaiser rolls" />
+                <Item slot="exit-empanada-station" alt="Empanada station with beef and chicken" name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
                 <Item slot="enhance-donut-wall-close" alt="Donut wall close-up with assorted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall as guests head home" />
                 <Item alt="Custom exit station designed to your idea" name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" />
               </div>

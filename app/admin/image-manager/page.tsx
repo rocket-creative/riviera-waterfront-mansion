@@ -12,10 +12,10 @@ import { imageConfig } from '../../lib/imageConfig';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload';
+type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload' | 'needs-photos';
 type UploadStatus = 'idle' | 'uploading' | 'done' | 'error';
 type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
-type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates';
+type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates' | 'exit-stations';
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
 
 // Static metadata for menu slots — labels & which folder they pull from
@@ -60,7 +60,28 @@ const MENU_SLOTS: Array<{
   { key: 'cocktail-swedish-meatballs',     label: 'Swedish Meatballs',            category: 'cocktail-hour' },
   { key: 'cocktail-beef-teriyaki',         label: 'Beef Teriyaki',               category: 'cocktail-hour' },
   { key: 'cocktail-sausage-and-peppers',   label: 'Sausage and Peppers',          category: 'cocktail-hour' },
-  { key: 'cocktail-kielbasa-sauerkraut',   label: 'Kielbasa and Sauerkraut',      category: 'cocktail-hour' },
+  { key: 'cocktail-kielbasa-sauerkraut',      label: 'Kielbasa and Sauerkraut',          category: 'cocktail-hour' },
+  { key: 'cocktail-seasonal-fruit-display',   label: 'Seasonal Fruit Display',           category: 'cocktail-hour' },
+  { key: 'cocktail-fruit-on-skewers',         label: 'Fruit on Skewers',                 category: 'cocktail-hour' },
+  { key: 'cocktail-mini-tacos',               label: 'Mini Tacos',                       category: 'cocktail-hour' },
+  { key: 'cocktail-date-night',               label: 'Date Night',                       category: 'cocktail-hour' },
+  { key: 'cocktail-lemon-blueberry-crostini', label: 'Lemon Blueberry Crostini',         category: 'cocktail-hour' },
+  { key: 'cocktail-brisket-of-beef',          label: 'Brisket of Beef',                  category: 'cocktail-hour' },
+  { key: 'cocktail-pastrami',                 label: 'Pastrami',                         category: 'cocktail-hour' },
+  { key: 'cocktail-roasted-whole-turkey',     label: 'Roasted Whole Turkey',             category: 'cocktail-hour' },
+  { key: 'cocktail-chicken-marsala',          label: 'Chicken Marsala',                  category: 'cocktail-hour' },
+  { key: 'cocktail-sweet-sour-chicken',       label: 'Sweet & Sour Chicken',             category: 'cocktail-hour' },
+  { key: 'cocktail-fettuccine-alfredo',       label: 'Tortellini / Fettuccine Alfredo',  category: 'cocktail-hour' },
+  { key: 'cocktail-penne-ala-vodka',          label: 'Penne Ala Vodka',                  category: 'cocktail-hour' },
+  { key: 'cocktail-pasta-primavera',          label: 'Pasta Primavera',                  category: 'cocktail-hour' },
+  { key: 'cocktail-penne-bolognese',          label: 'Penne Bolognese',                  category: 'cocktail-hour' },
+  { key: 'cocktail-vegetable-stir-fry',       label: 'Vegetable Stir Fry',               category: 'cocktail-hour' },
+  { key: 'cocktail-jambalaya',                label: 'Jambalaya',                        category: 'cocktail-hour' },
+  { key: 'cocktail-clam-sauce',               label: 'White or Red Clam Sauce',          category: 'cocktail-hour' },
+  { key: 'cocktail-baked-clams',              label: 'Baked Clams',                      category: 'cocktail-hour' },
+  { key: 'cocktail-italian-meatballs',        label: 'Italian Meatballs',                category: 'cocktail-hour' },
+  { key: 'cocktail-beef-bourguignon',         label: 'Beef Bourguignon',                 category: 'cocktail-hour' },
+  { key: 'cocktail-beef-stroganoff',          label: 'Beef Stroganoff',                  category: 'cocktail-hour' },
   // Enhancements
   { key: 'enhance-jumbo-shrimp-cocktail',    label: 'Jumbo Shrimp Cocktail',        category: 'enhancements' },
   { key: 'enhance-sushi-bar-waterfront',     label: 'Fresh Sushi Bar',              category: 'enhancements' },
@@ -71,7 +92,38 @@ const MENU_SLOTS: Array<{
   { key: 'enhance-espresso-cordial-station', label: 'Espresso & Cordial Station',   category: 'enhancements' },
   { key: 'enhance-gelato-espresso-hero',     label: 'Gelato Bar',                   category: 'enhancements' },
   { key: 'enhance-burger-station',           label: 'All American Burger Station',  category: 'enhancements' },
-  { key: 'enhance-donut-wall-close',         label: 'Donut Wall (Close-up)',         category: 'enhancements' },
+  { key: 'enhance-donut-wall-close',          label: 'Donut Wall (Close-up)',            category: 'enhancements' },
+  { key: 'enhance-welcome-snack-station',     label: 'Welcome Snack Station',            category: 'enhancements' },
+  { key: 'enhance-bridal-suite-wrap-platter', label: 'Bridal Suite Wrap Platter',        category: 'enhancements' },
+  { key: 'enhance-rolling-bar',               label: 'Rolling Bar',                      category: 'enhancements' },
+  { key: 'enhance-full-rolling-bar',          label: 'Full Rolling Bar',                 category: 'enhancements' },
+  { key: 'enhance-fresh-mozzarella-station',  label: 'Fresh Mozzarella Station',         category: 'enhancements' },
+  { key: 'enhance-fresh-clam-oyster-bar',     label: 'Fresh Clam & Oyster Bar',          category: 'enhancements' },
+  { key: 'enhance-whole-lobster-station',     label: 'Whole Lobster Station',            category: 'enhancements' },
+  { key: 'enhance-lobster-tail-station',      label: 'Lobster Tail Station',             category: 'enhancements' },
+  { key: 'enhance-alaskan-crab-legs',         label: 'Alaskan Crab Legs',               category: 'enhancements' },
+  { key: 'enhance-ice-sculpture',             label: 'Ice Sculpture',                    category: 'enhancements' },
+  { key: 'enhance-baby-lamb-chops',           label: 'Baby Lamb Chops',                  category: 'enhancements' },
+  { key: 'enhance-roast-suckling-pig',        label: 'Roast Suckling Pig',               category: 'enhancements' },
+  { key: 'enhance-mashed-potato-bar',         label: 'Mashed Potato Bar',                category: 'enhancements' },
+  { key: 'enhance-mac-cheese-station',        label: 'Macaroni & Cheese Station',        category: 'enhancements' },
+  { key: 'enhance-gourmet-pasta-station',     label: 'Gourmet Pasta Station',            category: 'enhancements' },
+  { key: 'enhance-taco-bar-station',          label: 'Taco Bar Station',                 category: 'enhancements' },
+  { key: 'enhance-fried-chicken-donut',       label: 'Fried Chicken & Glazed Donut',     category: 'enhancements' },
+  { key: 'enhance-pierogi-station',           label: 'Pierogi Station',                  category: 'enhancements' },
+  { key: 'enhance-full-viennese',             label: 'Full Viennese',                    category: 'enhancements' },
+  { key: 'enhance-roaming-cannoli',           label: 'Roaming Cannoli',                  category: 'enhancements' },
+  { key: 'enhance-rainbow-explosion',         label: 'Rainbow Explosion',                category: 'enhancements' },
+  { key: 'enhance-ice-cream-sundae-bar',      label: 'Ice Cream Sundae Bar',             category: 'enhancements' },
+  // Exit Stations
+  { key: 'exit-hot-pretzel-station',          label: 'Hot Pretzel Station',              category: 'exit-stations' },
+  { key: 'exit-chips-gatorade',               label: 'Chips & Gatorade Display',         category: 'exit-stations' },
+  { key: 'exit-stuffed-bomboloni',            label: 'Stuffed Bomboloni Bar',            category: 'exit-stations' },
+  { key: 'exit-stuffed-garlic-knot',          label: 'Stuffed Garlic Knot Station',      category: 'exit-stations' },
+  { key: 'exit-ramen-station',                label: 'Ramen Exit Station',               category: 'exit-stations' },
+  { key: 'exit-popcorn-station',              label: 'Popcorn Station',                  category: 'exit-stations' },
+  { key: 'exit-morning-glory',                label: 'Morning Glory Station',            category: 'exit-stations' },
+  { key: 'exit-empanada-station',             label: 'Empanada Station',                 category: 'exit-stations' },
   // Dinner Plates
   { key: 'dinner-tomato-mozzarella',         label: 'Fresh Tomato & Mozzarella',    category: 'dinner-plates' },
   { key: 'dinner-bruschetta',                label: 'Bruschetta',                   category: 'dinner-plates' },
@@ -119,6 +171,7 @@ const MENU_CATEGORY_LABELS: Record<MenuCategory, string> = {
   'cocktail-hour':  'Cocktail Hour',
   'enhancements':   'Enhancements',
   'dinner-plates':  'Dinner Plates',
+  'exit-stations':  'Exit Stations',
 };
 
 const MENU_HERO_SECTIONS: Array<{
@@ -453,23 +506,42 @@ export default function ImageManagerPage() {
 
       {/* Tabs */}
       <div className="bg-stone-800 px-6 flex gap-0 border-b border-stone-700">
-        {(['tour', 'menu', 'menu-heroes', 'site-images', 'upload'] as Tab[]).map(tab => (
-          <button
-            key={tab}
-            onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
-            className={`px-6 py-3 text-xs tracking-widest uppercase transition-colors ${
-              activeTab === tab
-                ? 'text-amber-400 border-b-2 border-amber-400'
-                : 'text-stone-400 hover:text-stone-200'
-            }`}
-          >
-            {tab === 'tour' ? 'Tour Gallery'
-              : tab === 'menu' ? 'Menu Items'
-              : tab === 'menu-heroes' ? 'Menu Heroes'
-              : tab === 'site-images' ? 'Site Images'
-              : 'Upload Images'}
-          </button>
-        ))}
+        {(['tour', 'menu', 'menu-heroes', 'site-images', 'upload', 'needs-photos'] as Tab[]).map(tab => {
+          const needsCount = (() => {
+            if (tab !== 'needs-photos') return 0;
+            let n = 0;
+            MENU_SLOTS.forEach(s => { if ((menuImages[s.key] ?? []).length < 1) n++; });
+            MENU_HERO_SECTIONS.forEach(s => { if ((menuSectionHeroes[s.key] ?? []).length < 1) n++; });
+            SITE_IMAGE_SLOTS.forEach(s => { if ((siteImages[s.key] ?? []).length < 1) n++; });
+            Object.keys(TOUR_SECTION_LABELS).forEach(k => { if ((tourSections[k] ?? []).length < 1) n++; });
+            return n;
+          })();
+          return (
+            <button
+              key={tab}
+              onClick={() => { setActiveTab(tab); setPoolSearch(''); }}
+              className={`relative px-6 py-3 text-xs tracking-widest uppercase transition-colors ${
+                activeTab === tab
+                  ? 'text-amber-400 border-b-2 border-amber-400'
+                  : tab === 'needs-photos'
+                    ? 'text-rose-400 hover:text-rose-200'
+                    : 'text-stone-400 hover:text-stone-200'
+              }`}
+            >
+              {tab === 'tour' ? 'Tour Gallery'
+                : tab === 'menu' ? 'Menu Items'
+                : tab === 'menu-heroes' ? 'Menu Heroes'
+                : tab === 'site-images' ? 'Site Images'
+                : tab === 'upload' ? 'Upload Images'
+                : 'Needs Photos'}
+              {tab === 'needs-photos' && needsCount > 0 && (
+                <span className="ml-1.5 bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded-full leading-none">
+                  {needsCount}
+                </span>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* ── TOUR TAB ─────────────────────────────────────────────────────────── */}
@@ -1450,6 +1522,126 @@ export default function ImageManagerPage() {
           </div>
         </div>
       )}
+
+      {/* ── NEEDS PHOTOS TAB ─────────────────────────────────────────────────── */}
+      {activeTab === 'needs-photos' && (() => {
+        // Collect every slot with 0 images across all categories
+        const missing: { label: string; category: string; onClick: () => void }[] = [];
+
+        MENU_SLOTS.forEach(slot => {
+          if ((menuImages[slot.key] ?? []).length === 0) {
+            missing.push({
+              label: slot.label,
+              category: MENU_CATEGORY_LABELS[slot.category],
+              onClick: () => {
+                setMenuCategory(slot.category);
+                setPickerOpen(slot.key);
+                setActiveTab('menu');
+              },
+            });
+          }
+        });
+
+        MENU_HERO_SECTIONS.forEach(sec => {
+          if ((menuSectionHeroes[sec.key] ?? []).length === 0) {
+            missing.push({
+              label: sec.label,
+              category: 'Menu Heroes',
+              onClick: () => {
+                setSelectedHeroSection(sec.key);
+                setActiveTab('menu-heroes');
+              },
+            });
+          }
+        });
+
+        SITE_IMAGE_SLOTS.forEach(slot => {
+          if ((siteImages[slot.key] ?? []).length === 0) {
+            missing.push({
+              label: slot.label,
+              category: SITE_GROUP_LABELS[slot.group],
+              onClick: () => {
+                setSiteGroup(slot.group);
+                setSitePickerOpen(slot.key);
+                setActiveTab('site-images');
+              },
+            });
+          }
+        });
+
+        Object.keys(TOUR_SECTION_LABELS).forEach(key => {
+          if ((tourSections[key] ?? []).length === 0) {
+            missing.push({
+              label: TOUR_SECTION_LABELS[key],
+              category: 'Tour Gallery',
+              onClick: () => {
+                setSelectedSection(key);
+                setActiveTab('tour');
+              },
+            });
+          }
+        });
+
+        // Group by category
+        const grouped: Record<string, typeof missing> = {};
+        for (const item of missing) {
+          if (!grouped[item.category]) grouped[item.category] = [];
+          grouped[item.category].push(item);
+        }
+
+        return (
+          <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
+            <div className="p-6 max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-6">
+                <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700">Needs Photos</h2>
+                <span className="bg-rose-500 text-white text-[10px] px-2 py-0.5 rounded-full tracking-wider">
+                  {missing.length} items
+                </span>
+              </div>
+
+              {missing.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-20 text-center">
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-sm font-medium text-stone-700 tracking-wider">All slots have images</p>
+                  <p className="text-xs text-stone-400 mt-1">Every menu item, section, and page hero has at least one photo assigned.</p>
+                </div>
+              ) : (
+                <div className="space-y-8">
+                  {Object.entries(grouped).map(([category, items]) => (
+                    <div key={category}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <p className="text-xs tracking-widest uppercase text-stone-500">{category}</p>
+                        <span className="text-[10px] bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded-full">{items.length}</span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                        {items.map(item => (
+                          <button
+                            key={item.label}
+                            onClick={item.onClick}
+                            className="group bg-white border-2 border-dashed border-stone-300 hover:border-amber-400 hover:bg-amber-50 transition-colors text-left p-3"
+                          >
+                            <div className="w-full h-20 bg-stone-100 group-hover:bg-amber-100 transition-colors flex items-center justify-center mb-2 rounded">
+                              <svg className="w-6 h-6 text-stone-300 group-hover:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+                              </svg>
+                            </div>
+                            <p className="text-[11px] font-medium text-stone-700 leading-tight group-hover:text-amber-800">{item.label}</p>
+                            <p className="text-[9px] text-stone-400 mt-0.5 tracking-wider uppercase group-hover:text-amber-600">Click to add →</p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
