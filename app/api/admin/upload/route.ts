@@ -1,8 +1,11 @@
-import { writeFileSync, mkdirSync, existsSync } from 'fs';
-import { join } from 'path';
+import { mkdirSync, existsSync } from 'fs';
+import { join, parse } from 'path';
 import { NextResponse } from 'next/server';
+import sharp from 'sharp';
 
-const ALLOWED_FOLDERS = ['large', 'medium', 'thumb', 'cocktail-hour', 'enhancements', 'dinner-plates'];
+const POOL_DIR = join(process.cwd(), 'public', 'images', 'pool');
+const MAX_WIDTH = 1920;
+const JPEG_QUALITY = 82;
 
 export async function POST(request: Request) {
   if (process.env.NODE_ENV === 'production') {
@@ -11,20 +14,14 @@ export async function POST(request: Request) {
 
   try {
     const formData = await request.formData();
-    const folder = formData.get('folder') as string;
     const files = formData.getAll('files') as File[];
-
-    if (!folder || !ALLOWED_FOLDERS.includes(folder)) {
-      return NextResponse.json({ success: false, error: 'Invalid folder' }, { status: 400 });
-    }
 
     if (!files || files.length === 0) {
       return NextResponse.json({ success: false, error: 'No files provided' }, { status: 400 });
     }
 
-    const targetDir = join(process.cwd(), 'public', 'images', folder);
-    if (!existsSync(targetDir)) {
-      mkdirSync(targetDir, { recursive: true });
+    if (!existsSync(POOL_DIR)) {
+      mkdirSync(POOL_DIR, { recursive: true });
     }
 
     const saved: string[] = [];
@@ -32,22 +29,38 @@ export async function POST(request: Request) {
 
     for (const file of files) {
       if (!file.name || !/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
-        errors.push(`${file.name}: unsupported format`);
+        errors.push(`${file.name}: unsupported format (use JPG, PNG, or WebP)`);
         continue;
       }
 
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+      try {
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
 
-      // Sanitize filename: lowercase, replace spaces with dashes
-      const safeName = file.name
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9._-]/g, '');
+        // Sanitize filename and force .jpg extension (we output JPEG)
+        const { name: baseName } = parse(file.name);
+        const safeName = baseName
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[^a-z0-9._-]/g, '') + '.jpg';
 
-      const filePath = join(targetDir, safeName);
-      writeFileSync(filePath, buffer);
-      saved.push(`/images/${folder}/${safeName}`);
+        // Optimize: resize to max 1920px wide, compress to quality 82
+        const optimized = await sharp(buffer)
+          .rotate() // auto-rotate based on EXIF
+          .resize({ width: MAX_WIDTH, withoutEnlargement: true })
+          .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true })
+          .toBuffer();
+
+        const filePath = join(POOL_DIR, safeName);
+        const { writeFileSync } = await import('fs');
+        writeFileSync(filePath, optimized);
+
+        const originalMB = (buffer.byteLength / 1024 / 1024).toFixed(1);
+        const optimizedMB = (optimized.byteLength / 1024 / 1024).toFixed(1);
+        saved.push(`/images/pool/${safeName} (${originalMB}MB → ${optimizedMB}MB)`);
+      } catch (fileErr) {
+        errors.push(`${file.name}: ${String(fileErr)}`);
+      }
     }
 
     return NextResponse.json({ success: true, saved, errors });

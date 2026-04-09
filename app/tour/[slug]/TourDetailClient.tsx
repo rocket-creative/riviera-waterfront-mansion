@@ -19,7 +19,7 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
         {images.map((imagePath, index) => (
           <div 
             key={imagePath}
-            className="gallery-image relative overflow-hidden group cursor-pointer h-52"
+            className="gallery-image relative overflow-hidden group cursor-pointer aspect-video"
           >
             <Image 
               src={imagePath}

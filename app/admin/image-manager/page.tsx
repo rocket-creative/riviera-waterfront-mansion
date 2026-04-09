@@ -13,7 +13,6 @@ import { imageConfig } from '../../lib/imageConfig';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload';
-type UploadFolder = 'large' | 'medium' | 'thumb' | 'cocktail-hour' | 'enhancements' | 'dinner-plates';
 type UploadStatus = 'idle' | 'uploading' | 'done' | 'error';
 type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
 type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates';
@@ -249,7 +248,6 @@ export default function ImageManagerPage() {
   const [hasChanges, setHasChanges] = useState(false);
 
   // Upload state
-  const [uploadFolder, setUploadFolder] = useState<UploadFolder>('large');
   const [uploadFiles, setUploadFiles] = useState<File[]>([]);
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>('idle');
   const [uploadResults, setUploadResults] = useState<{ saved: string[]; errors: string[] } | null>(null);
@@ -384,7 +382,6 @@ export default function ImageManagerPage() {
     setUploadResults(null);
     try {
       const formData = new FormData();
-      formData.append('folder', uploadFolder);
       uploadFiles.forEach(f => formData.append('files', f));
       const res = await fetch('/api/admin/upload', { method: 'POST', body: formData });
       const data = await res.json();
@@ -409,19 +406,14 @@ export default function ImageManagerPage() {
 
   // ── Filtered pool ─────────────────────────────────────────────────────────────
 
-  const mediumPool = (availableImages['medium'] ?? []).filter(p =>
+  const masterPool = (availableImages['all'] ?? []).filter(p =>
     poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
   );
 
   const menuSlotsForCategory = MENU_SLOTS.filter(s => s.category === menuCategory);
 
   const activeSectionMeta = MENU_HERO_SECTIONS.find(s => s.key === selectedHeroSection);
-  const heroPool = (() => {
-    const poolKey = activeSectionMeta?.pool ?? 'medium';
-    return (availableImages[poolKey] ?? []).filter(p =>
-      poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
-    );
-  })();
+  const heroPool = masterPool;
 
   if (!mounted) {
     return (
@@ -600,7 +592,7 @@ export default function ImageManagerPage() {
                   onChange={e => setPoolSearch(e.target.value)}
                   className="w-full text-xs border border-stone-200 px-3 py-2 text-stone-700 focus:outline-none focus:border-amber-400"
                 />
-                <p className="text-[10px] text-stone-400 mt-1">{mediumPool.length} photos</p>
+                <p className="text-[10px] text-stone-400 mt-1">{masterPool.length} photos in master pool</p>
               </div>
 
               <Droppable droppableId="pool" direction="vertical">
@@ -610,7 +602,7 @@ export default function ImageManagerPage() {
                     {...provided.droppableProps}
                     className="flex-1 overflow-y-auto p-3 grid grid-cols-2 gap-2 content-start"
                   >
-                    {mediumPool.map((imgPath, idx) => (
+                    {masterPool.map((imgPath, idx) => (
                       <Draggable
                         key={`pool||${imgPath}`}
                         draggableId={`pool||${imgPath}`}
@@ -856,7 +848,7 @@ export default function ImageManagerPage() {
           <aside className="w-72 bg-white border-l border-stone-200 flex flex-col flex-shrink-0">
             <div className="p-3 border-b border-stone-200">
               <p className="text-xs tracking-widest text-stone-500 uppercase mb-1">
-                Pool: {activeSectionMeta?.pool}
+                Master Image Pool
               </p>
               <input
                 type="text"
@@ -866,6 +858,7 @@ export default function ImageManagerPage() {
                 className="w-full text-xs border border-stone-200 px-3 py-2 text-stone-700 focus:outline-none focus:border-amber-400"
               />
               <p className="text-[10px] text-stone-400 mt-1">{heroPool.length} photos — click to add to slider</p>
+
             </div>
             <div className="flex-1 overflow-y-auto p-3 grid grid-cols-2 gap-2 content-start">
               {heroPool.map(imgPath => (
@@ -926,7 +919,7 @@ export default function ImageManagerPage() {
               </button>
             </div>
             <div className="p-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
-              {(availableImages[activeSectionMeta.pool] ?? []).map(imgPath => (
+              {masterPool.map(imgPath => (
                 <button
                   key={imgPath}
                   onClick={() => {
@@ -1036,9 +1029,7 @@ export default function ImageManagerPage() {
       {/* ── Site Image Photo Manager Modal ───────────────────────────────────── */}
       {sitePickerOpen && (() => {
         const slotMeta = SITE_IMAGE_SLOTS.find(s => s.key === sitePickerOpen)!;
-        const poolImages = (availableImages[slotMeta.pool] ?? []).filter(
-          p => poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase())
-        );
+        const poolImages = masterPool;
         return (
           <div
             className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
@@ -1100,9 +1091,9 @@ export default function ImageManagerPage() {
                 {/* Pool */}
                 <div className="px-5 py-4">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-xs tracking-widest text-stone-500 uppercase">
-                      Add from Pool ({slotMeta.pool})
-                    </p>
+                  <p className="text-xs tracking-widest text-stone-500 uppercase">
+                    Add from Master Pool
+                  </p>
                     <input
                       type="text"
                       placeholder="Search filenames..."
@@ -1170,49 +1161,22 @@ export default function ImageManagerPage() {
       {activeTab === 'upload' && (
         <div className="h-[calc(100vh-7rem)] overflow-y-auto bg-stone-50">
           <div className="p-6 max-w-2xl mx-auto">
-            <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700 mb-1">Upload New Images</h2>
-            <p className="text-xs text-stone-400 mb-6 tracking-wider">
-              Upload photos directly into a pool folder. They become available immediately in the image picker panels.
+            <h2 className="text-sm font-medium tracking-widest uppercase text-stone-700 mb-1">Upload to Master Pool</h2>
+            <p className="text-xs text-stone-400 mb-2 tracking-wider">
+              All uploaded images land in one master pool — available across every section of the site.
             </p>
-
-            {/* Folder picker */}
-            <div className="mb-6">
-              <label className="block text-xs tracking-widest uppercase text-stone-500 mb-2">
-                Destination Folder
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {([
-                  { key: 'large',        label: 'Large',         desc: 'Hero / full-bleed' },
-                  { key: 'medium',       label: 'Medium',        desc: 'Galleries / sections' },
-                  { key: 'thumb',        label: 'Thumb',         desc: 'Thumbnails' },
-                  { key: 'cocktail-hour',label: 'Cocktail Hour', desc: 'Menu cocktail items' },
-                  { key: 'enhancements', label: 'Enhancements',  desc: 'Menu enhancements' },
-                  { key: 'dinner-plates',label: 'Dinner Plates', desc: 'Dinner plate items' },
-                ] as { key: UploadFolder; label: string; desc: string }[]).map(f => (
-                  <button
-                    key={f.key}
-                    onClick={() => setUploadFolder(f.key)}
-                    className={`text-left px-4 py-3 border-2 transition-colors ${
-                      uploadFolder === f.key
-                        ? 'border-amber-500 bg-amber-50'
-                        : 'border-stone-200 bg-white hover:border-stone-300'
-                    }`}
-                  >
-                    <p className={`text-xs font-medium tracking-wider ${uploadFolder === f.key ? 'text-amber-700' : 'text-stone-700'}`}>
-                      {f.label}
-                    </p>
-                    <p className="text-[10px] text-stone-400 mt-0.5">{f.desc}</p>
-                  </button>
-                ))}
-              </div>
+            <div className="flex items-center gap-3 mb-6 bg-amber-50 border border-amber-200 px-4 py-3">
+              <svg className="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+              <p className="text-[11px] text-amber-800 tracking-wider">
+                Images are auto-optimized on upload — resized to max 1920px wide, compressed to 82% quality, EXIF auto-rotated.
+              </p>
             </div>
 
             {/* File drop zone */}
             <div className="mb-6">
-              <label className="block text-xs tracking-widest uppercase text-stone-500 mb-2">
-                Select Files
-              </label>
-              <label className="block w-full border-2 border-dashed border-stone-300 bg-white hover:border-amber-400 hover:bg-amber-50 transition-colors cursor-pointer p-8 text-center">
+              <label className="block w-full border-2 border-dashed border-stone-300 bg-white hover:border-amber-400 hover:bg-amber-50 transition-colors cursor-pointer p-10 text-center">
                 <input
                   type="file"
                   accept=".jpg,.jpeg,.png,.webp"
@@ -1227,17 +1191,17 @@ export default function ImageManagerPage() {
                 />
                 {uploadFiles.length === 0 ? (
                   <div className="text-stone-400">
-                    <svg className="w-8 h-8 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <svg className="w-10 h-10 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                     </svg>
                     <p className="text-xs tracking-widest uppercase">Click to select images</p>
-                    <p className="text-[10px] text-stone-300 mt-1">JPG, PNG, WebP — multiple files OK</p>
+                    <p className="text-[10px] text-stone-300 mt-1">JPG, PNG, WebP — drop as many as you like</p>
                   </div>
                 ) : (
                   <div className="text-stone-600">
-                    <p className="text-sm font-medium">{uploadFiles.length} file{uploadFiles.length !== 1 ? 's' : ''} selected</p>
-                    <p className="text-xs text-stone-400 mt-1">→ {uploadFolder} folder</p>
-                    <p className="text-[10px] text-stone-300 mt-2">Click again to change selection</p>
+                    <p className="text-sm font-medium">{uploadFiles.length} file{uploadFiles.length !== 1 ? 's' : ''} ready</p>
+                    <p className="text-xs text-stone-400 mt-1">Will be optimized and added to master pool</p>
+                    <p className="text-[10px] text-stone-300 mt-2">Click to change selection</p>
                   </div>
                 )}
               </label>
@@ -1247,13 +1211,24 @@ export default function ImageManagerPage() {
             {uploadFiles.length > 0 && (
               <div className="mb-6 bg-white border border-stone-200 divide-y divide-stone-100">
                 {uploadFiles.map(f => (
-                  <div key={f.name} className="flex items-center justify-between px-4 py-2">
+                  <div key={f.name} className="flex items-center justify-between px-4 py-2.5">
                     <span className="text-xs text-stone-600 truncate flex-1">{f.name}</span>
                     <span className="text-[10px] text-stone-400 ml-4 flex-shrink-0">
                       {(f.size / 1024 / 1024).toFixed(1)} MB
                     </span>
                   </div>
                 ))}
+                <div className="px-4 py-2 bg-stone-50 flex items-center justify-between">
+                  <span className="text-[10px] text-stone-400">
+                    Total: {(uploadFiles.reduce((s, f) => s + f.size, 0) / 1024 / 1024).toFixed(1)} MB
+                  </span>
+                  <button
+                    onClick={() => { setUploadFiles([]); setUploadStatus('idle'); setUploadResults(null); }}
+                    className="text-[10px] text-red-400 hover:text-red-600 tracking-wider"
+                  >
+                    Clear
+                  </button>
+                </div>
               </div>
             )}
 
@@ -1261,11 +1236,11 @@ export default function ImageManagerPage() {
             <button
               onClick={handleUpload}
               disabled={uploadFiles.length === 0 || uploadStatus === 'uploading'}
-              className="w-full bg-amber-600 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs tracking-widest uppercase py-3 transition-colors"
+              className="w-full bg-amber-600 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs tracking-widest uppercase py-3.5 transition-colors"
             >
               {uploadStatus === 'uploading'
-                ? `Uploading ${uploadFiles.length} file${uploadFiles.length !== 1 ? 's' : ''}...`
-                : `Upload to ${uploadFolder}`}
+                ? `Optimizing & uploading ${uploadFiles.length} image${uploadFiles.length !== 1 ? 's' : ''}...`
+                : `Optimize & upload to master pool`}
             </button>
 
             {/* Results */}
@@ -1274,7 +1249,7 @@ export default function ImageManagerPage() {
                 {uploadResults.saved.length > 0 && (
                   <div className="bg-emerald-50 border border-emerald-200 p-4">
                     <p className="text-xs font-medium text-emerald-800 tracking-wider mb-2">
-                      {uploadResults.saved.length} file{uploadResults.saved.length !== 1 ? 's' : ''} uploaded
+                      {uploadResults.saved.length} image{uploadResults.saved.length !== 1 ? 's' : ''} optimized and uploaded
                     </p>
                     <div className="space-y-1">
                       {uploadResults.saved.map(p => (
@@ -1296,12 +1271,34 @@ export default function ImageManagerPage() {
                   </div>
                 )}
                 {uploadResults.saved.length > 0 && (
-                  <p className="text-xs text-stone-400 tracking-wider">
-                    Images are now available in the pool. Switch to Tour Gallery, Menu Items, or Site Images tabs to assign them.
+                  <p className="text-xs text-stone-500 tracking-wider">
+                    Images are now in the master pool — switch to any tab to assign them to sections.
                   </p>
                 )}
               </div>
             )}
+
+            {/* Current pool count */}
+            <div className="mt-8 pt-6 border-t border-stone-200">
+              <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">Current Master Pool</p>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="bg-white border border-stone-200 p-3">
+                  <p className="text-lg font-light text-stone-800">{(availableImages['pool'] ?? []).length}</p>
+                  <p className="text-[10px] text-stone-400 tracking-wider mt-0.5">New uploads</p>
+                </div>
+                <div className="bg-white border border-stone-200 p-3">
+                  <p className="text-lg font-light text-stone-800">{(availableImages['all'] ?? []).length}</p>
+                  <p className="text-[10px] text-stone-400 tracking-wider mt-0.5">Total images</p>
+                </div>
+                <div className="bg-white border border-stone-200 p-3">
+                  <p className="text-lg font-light text-stone-800">
+                    {(['large','medium','cocktail-hour','enhancements','dinner-plates'] as const)
+                      .reduce((s, k) => s + (availableImages[k]?.length ?? 0), 0)}
+                  </p>
+                  <p className="text-[10px] text-stone-400 tracking-wider mt-0.5">Legacy folders</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -1386,7 +1383,7 @@ export default function ImageManagerPage() {
               <div className="px-5 py-4">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-xs tracking-widest text-stone-500 uppercase">
-                    Add from Pool
+                    Add from Master Pool
                   </p>
                   <input
                     type="text"
@@ -1397,9 +1394,7 @@ export default function ImageManagerPage() {
                   />
                 </div>
                 <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                  {(availableImages[menuCategory] ?? [])
-                    .filter(p => poolSearch === '' || p.toLowerCase().includes(poolSearch.toLowerCase()))
-                    .map(imgPath => {
+                  {masterPool.map(imgPath => {
                       const added = (menuImages[pickerOpen] ?? []).includes(imgPath);
                       return (
                         <button
