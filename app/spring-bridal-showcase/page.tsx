@@ -78,11 +78,11 @@ export default function SpringBridalShowcase() {
 
       <main>
         {/* Text Hero */}
-        <section className="bg-white pt-16 sm:pt-20 lg:pt-24 pb-0">
+        <section className="bg-white pt-16 sm:pt-20 lg:pt-14 pb-0">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 text-center">
 
             {/* Eyebrow */}
-            <p className="text-riviera-gold text-[10px] sm:text-xs tracking-[0.3em] mb-6 sm:mb-8 font-light">
+            <p className="text-riviera-gold text-[10px] sm:text-xs tracking-[0.3em] mb-6 sm:mb-8 lg:mb-4 font-light">
               RIVIERA WATERFRONT MANSION PRESENTS
             </p>
 
@@ -97,7 +97,7 @@ export default function SpringBridalShowcase() {
             </h1>
 
             {/* Thin rule */}
-            <div className="flex items-center gap-4 sm:gap-6 justify-center mt-8 sm:mt-10 mb-6 sm:mb-8">
+            <div className="flex items-center gap-4 sm:gap-6 justify-center mt-8 sm:mt-10 lg:mt-6 mb-6 sm:mb-8 lg:mb-5">
               <div className="flex-1 max-w-[120px] sm:max-w-[180px] h-px bg-riviera-neutral" />
               <p className="text-riviera-text text-[10px] sm:text-xs tracking-[0.2em] font-light whitespace-nowrap">
                 WEDNESDAY, APRIL 22 · 6 PM – 9 PM
@@ -106,7 +106,7 @@ export default function SpringBridalShowcase() {
             </div>
 
             {/* Location + Free badge row */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-12 sm:mb-16">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-12 sm:mb-16 lg:mb-8">
               <span className="text-riviera-text/55 text-xs tracking-widest font-light">
                 200 E SHORE DR · MASSAPEQUA, NY
               </span>
