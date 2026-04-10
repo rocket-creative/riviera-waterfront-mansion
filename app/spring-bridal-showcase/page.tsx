@@ -110,8 +110,9 @@ export default function SpringBridalShowcase() {
               <span className="text-riviera-text/55 text-xs tracking-widest font-light">
                 200 E SHORE DR · MASSAPEQUA, NY
               </span>
-              <span className="bg-riviera-gold text-white text-[10px] tracking-[0.25em] font-light px-4 py-1.5">
-                FREE ADMISSION
+              <span className="border border-riviera-gold text-[10px] tracking-[0.25em] font-light px-4 py-1.5">
+                <span className="text-riviera-gold">FREE</span>
+                <span className="text-riviera-text/50"> ADMISSION</span>
               </span>
             </div>
           </div>

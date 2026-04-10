@@ -6,12 +6,12 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com https://www.eventbrite.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.instagram.com",
-      "frame-src 'self' https://www.instagram.com",
+      "connect-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com",
+      "frame-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com",
       "media-src 'self' data: blob:",
     ].join('; ')
   },
