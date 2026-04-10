@@ -18,6 +18,7 @@ import SlideshowImage from './components/SlideshowImage';
 import { AnimatedSection } from './components/AnimatedSection';
 import { HoverScale } from './components/HoverScale';
 import { useFadeInUp, useStaggerChildren, useScrollTriggerCleanup } from './lib/useAnimations';
+import BridalShowcaseOverlay from './components/BridalShowcaseOverlay';
 
 const homepageFAQs = [
   {
@@ -128,6 +129,7 @@ export default function Home() {
                 interval={6000}
                 alt="Wedding couple at Riviera Waterfront Mansion in Massapequa, Long Island"
               />
+              <BridalShowcaseOverlay />
             </div>
           </div>
           
