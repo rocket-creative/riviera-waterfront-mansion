@@ -45,11 +45,17 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link 
-              href="/" 
-              className="font-cormorant text-xl font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:text-riviera-gold"
+            <Link
+              href="/"
+              className="font-cormorant font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:text-riviera-gold"
             >
-              RIVIERA WATERFRONT MANSION
+              {/* Desktop: single line */}
+              <span className="hidden lg:inline text-xl">RIVIERA WATERFRONT MANSION</span>
+              {/* Mobile: two lines */}
+              <span className="lg:hidden flex flex-col leading-none">
+                <span className="text-[2.75rem]">RIVIERA</span>
+                <span className="text-xs -mt-1">WATERFRONT MANSION</span>
+              </span>
             </Link>
           </div>
 

@@ -103,8 +103,8 @@ export default function RatesPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-0 border border-riviera-neutral">
-              <div className="p-8 border-b sm:border-b-0 sm:border-r border-riviera-neutral">
+            <div className="grid lg:grid-cols-3 gap-0 border border-riviera-neutral">
+              <div className="p-8 border-b lg:border-b-0 lg:border-r border-riviera-neutral">
                 <h3 className="text-xs tracking-widest text-riviera-gold mb-4">AVAILABLE DAYS</h3>
                 <p className="font-cormorant text-xl font-light text-riviera-text mb-2">
                   Thursday through Sunday
@@ -113,7 +113,7 @@ export default function RatesPage() {
                   We host weddings four days a week to ensure each couple receives our full attention and service.
                 </p>
               </div>
-              <div className="p-8 border-b sm:border-b-0 sm:border-r border-riviera-neutral">
+              <div className="p-8 border-b lg:border-b-0 lg:border-r border-riviera-neutral">
                 <h3 className="text-xs tracking-widest text-riviera-gold mb-4">GUEST COUNT</h3>
                 <p className="font-cormorant text-xl font-light text-riviera-text mb-2">
                   150 to 350 guests
@@ -144,7 +144,7 @@ export default function RatesPage() {
             <p className="text-base font-light text-riviera-text/70 mb-10 max-w-2xl">
               Every Riviera Waterfront Mansion wedding includes full access to the mansion, the grounds, and our complete team of wedding professionals.
             </p>
-            <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
+            <ul className="grid lg:grid-cols-2 gap-x-12 gap-y-4">
               {includedItems.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <svg
@@ -180,7 +180,7 @@ export default function RatesPage() {
             <p className="text-base font-light opacity-70 mb-10 max-w-xl mx-auto">
               Schedule a private tour and speak with our team about availability, pricing, and everything your wedding day will include.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-text"

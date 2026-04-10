@@ -111,7 +111,7 @@ export default function InteractiveWeddingForm() {
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
             When are you dreaming of getting married?
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {[
               { value: 'Spring', label: 'Spring', dates: 'Mar - May' },
               { value: 'Summer', label: 'Summer', dates: 'Jun - Aug' },
@@ -145,7 +145,7 @@ export default function InteractiveWeddingForm() {
           <p className="text-sm text-riviera-text/60 text-center mb-8 font-light">
             Minimum 150 guests required
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {[
               { 
                 value: '150-225', 
@@ -236,7 +236,7 @@ export default function InteractiveWeddingForm() {
           </div>
 
           {/* Summary Cards */}
-          <div className="grid grid-cols-3 gap-4 mb-8 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8 max-w-xl mx-auto">
             <div className="bg-riviera-neutral/20 p-4 text-center border border-riviera-gold/20">
               <div className="text-xs tracking-widest text-riviera-gold mb-2">SEASON</div>
               <div className="text-sm font-light text-riviera-text">{formData.season}</div>

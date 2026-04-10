@@ -15,7 +15,7 @@ export default function Footer() {
             className="object-contain brightness-0 invert"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Contact Info */}
           <div>
             <h3 className="text-sm font-light tracking-widest mb-4">CONTACT</h3>

@@ -30,7 +30,7 @@ function SubHead({ children }: { children: React.ReactNode }) {
   );
 }
 
-const grid4 = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4';
+const grid4 = 'grid grid-cols-1 lg:grid-cols-4 gap-4';
 
 export default function MenuPage() {
   return (
@@ -431,7 +431,7 @@ export default function MenuPage() {
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-12 text-center">
               Included wedding day features
             </h2>
-            <div className="grid md:grid-cols-2 gap-5 text-sm font-light text-riviera-text/80">
+            <div className="grid lg:grid-cols-2 gap-5 text-sm font-light text-riviera-text/80">
               {[
                 'Oval Tables Giving The Riviera The Barn Feel In An Elegant Manner',
                 'Linens: Tablecloths And Napkins',
@@ -495,7 +495,7 @@ export default function MenuPage() {
             <p className="text-lg font-light mb-8 opacity-90">
               Contact our team to discuss your menu options and design your perfect Long Island waterfront wedding celebration.
             </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <div className="flex flex-col lg:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-dark-brown text-center"

@@ -217,7 +217,7 @@ export default function VendorsPage() {
         {/* Trust Bar */}
         <section className="bg-riviera-neutral py-10 md:py-12">
           <div className="mx-auto px-6 sm:px-8 lg:px-12">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid lg:grid-cols-3 gap-8 text-center">
               <AnimatedSection animation="fadeInUp" delay={0}>
                 <div className="text-4xl md:text-5xl font-light text-riviera-gold mb-2">14+</div>
                 <h3 className="text-xs tracking-widest text-riviera-text mb-1">VENDOR CATEGORIES</h3>
@@ -255,7 +255,7 @@ export default function VendorsPage() {
         {/* Vendors List */}
         <section id="vendors-list" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
           <div ref={categoriesRef as any} className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-8">
               {vendorCategories.map((category, catIndex) => (
                 <div 
                   key={category.title} 

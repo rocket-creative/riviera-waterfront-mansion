@@ -114,7 +114,7 @@ export default function ContactPage() {
         {/* Quick Contact Info Bar */}
         <section className="bg-riviera-neutral py-10 md:py-12" aria-label="Contact information">
           <div className="mx-auto px-6 sm:px-8 lg:px-12">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid lg:grid-cols-3 gap-8 text-center">
               <AnimatedSection animation="fadeInUp" delay={0}>
                 <h3 className="text-xs tracking-widest text-riviera-gold mb-2">LOCATION</h3>
                 <address className="not-italic text-base font-light text-riviera-text/90">
@@ -156,7 +156,7 @@ export default function ContactPage() {
               </h2>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-8">
               <AnimatedSection animation="revealFromLeft" as="div">
                 <div className="bg-riviera-neutral p-8 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">FOR ENGAGED COUPLES</p>

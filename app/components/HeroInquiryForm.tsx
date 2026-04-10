@@ -44,7 +44,7 @@ export default function HeroInquiryForm() {
           </h3>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-4">
+        <div className="grid lg:grid-cols-3 gap-4 mb-4">
           <div>
             <label htmlFor="hero-name" className="block text-xs tracking-wider text-riviera-text mb-2">
               NAME *

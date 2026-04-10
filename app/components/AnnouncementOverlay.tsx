@@ -94,10 +94,10 @@ export default function AnnouncementOverlay({ config = ANNOUNCEMENT_CONFIG }: Pr
 
   // ── Full card ───────────────────────────────────────────────
   return (
-    <div className="absolute inset-x-0 top-0 z-20 pointer-events-none
+    <div className="absolute inset-x-0 top-0 z-20 pointer-events-none overflow-hidden
                     px-3 sm:px-5 lg:px-8
                     pt-3 sm:pt-5 lg:pt-7">
-      <div className="relative pointer-events-auto">
+      <div className="relative pointer-events-auto min-w-0">
 
         {/* Frosted glass background */}
         <div className="absolute inset-0 backdrop-blur-2xl bg-white/95 border border-gray-200/60 shadow-2xl" />
@@ -138,23 +138,20 @@ export default function AnnouncementOverlay({ config = ANNOUNCEMENT_CONFIG }: Pr
           </div>
 
           {/* Row 4 — badge word + CTA */}
-          <div className="border-t border-dashed border-gray-300 pt-3 sm:pt-5 flex items-center gap-4 sm:gap-6">
+          <div className="border-t border-dashed border-gray-300 pt-3 sm:pt-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
 
             {/* Col 1: badge word stacked */}
-            <div className="flex-1 min-w-0">
-              <p className="font-cormorant text-4xl sm:text-5xl lg:text-6xl font-light text-riviera-text leading-none tracking-wide">
+            <div className="min-w-0">
+              <p className="font-cormorant text-3xl sm:text-4xl lg:text-5xl font-light text-riviera-text leading-none tracking-wide">
                 {config.badgeWord}
               </p>
-              <p
-                className="text-riviera-text/45 text-[9px] sm:text-[10px] font-light mt-0.5 w-full"
-                style={{ letterSpacing: '1.1em' }}
-              >
+              <p className="text-riviera-text/45 text-[9px] sm:text-[10px] font-light tracking-widest mt-0.5">
                 {config.badgeSublabel}
               </p>
             </div>
 
             {/* Col 2: CTA button */}
-            <div className="shrink-0">
+            <div className="shrink-0 w-full sm:w-auto">
               {isExternal ? (
                 <a
                   href={config.ctaHref}
@@ -163,7 +160,7 @@ export default function AnnouncementOverlay({ config = ANNOUNCEMENT_CONFIG }: Pr
                   className="block bg-riviera-gold text-white
                              px-4 sm:px-6 py-3 sm:py-4
                              text-[10px] sm:text-[11px] font-light tracking-widest
-                             hover:bg-riviera-text transition-all text-center whitespace-nowrap"
+                             hover:bg-riviera-text transition-all text-center"
                 >
                   {config.ctaText}
                 </a>
@@ -173,7 +170,7 @@ export default function AnnouncementOverlay({ config = ANNOUNCEMENT_CONFIG }: Pr
                   className="block bg-riviera-gold text-white
                              px-4 sm:px-6 py-3 sm:py-4
                              text-[10px] sm:text-[11px] font-light tracking-widest
-                             hover:bg-riviera-text transition-all text-center whitespace-nowrap"
+                             hover:bg-riviera-text transition-all text-center"
                 >
                   {config.ctaText}
                 </Link>

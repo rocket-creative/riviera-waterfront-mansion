@@ -16,17 +16,17 @@ declare global {
 }
 
 const galleryPhotos = [
-  { src: '/images/large/_0359671-by-p.jpg',  span: 'md:col-span-2 md:row-span-2' },
+  { src: '/images/large/_0359671-by-p.jpg',  span: 'lg:col-span-2 lg:row-span-2' },
   { src: '/images/large/_1058724-jj-p.jpg',  span: '' },
   { src: '/images/large/_1059409-jj-p.jpg',  span: '' },
   { src: '/images/large/_0359652-by-p.jpg',  span: '' },
   { src: '/images/large/_0350091-by-p.jpg',  span: '' },
-  { src: '/images/large/_0359665-by-p.jpg',  span: 'col-span-2 md:col-span-2' },
+  { src: '/images/large/_0359665-by-p.jpg',  span: 'lg:col-span-2' },
   { src: '/images/large/_0359695-by-p.jpg',  span: '' },
   { src: '/images/large/_0359733-by-p.jpg',  span: '' },
   { src: '/images/tour/outdoor-ceremony/DJI_0003-mc-d-420d930c-1920w.jpg',  span: '' },
   { src: '/images/tour/outdoor-ceremony/DJI_0016-mc-d-1c988480-1920w.jpg',  span: '' },
-  { src: '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',     span: 'md:col-span-2 md:row-span-2' },
+  { src: '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',     span: 'lg:col-span-2 lg:row-span-2' },
   { src: '/images/tour/balconies/bal-1920w.jpg',                             span: '' },
   { src: '/images/tour/bridal-suite/_CRQ4695-b4b5b277-1920w.jpg',           span: '' },
   { src: '/images/large/_0359684-by-p.jpg',  span: '' },
@@ -119,7 +119,7 @@ export default function SpringBridalShowcase() {
 
           {/* Three preview images flush below hero text */}
           <div className="max-w-6xl mx-auto px-5 sm:px-6">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-3">
               {[
                 { src: '/images/large/_0359671-by-p.jpg',                                    label: 'The Couples' },
                 { src: '/images/tour/outdoor-ceremony/DJI_0003-mc-d-420d930c-1920w.jpg',    label: 'The Grounds' },
@@ -228,7 +228,7 @@ export default function SpringBridalShowcase() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 auto-rows-[260px] lg:auto-rows-[240px]">
               {galleryPhotos.map(({ src, span }, i) => (
                 <div
                   key={i}
@@ -251,7 +251,7 @@ export default function SpringBridalShowcase() {
 
         {/* Venue teaser strip */}
         <section className="bg-white py-12 lg:py-20 border-t border-riviera-neutral/50">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 grid grid-cols-3 gap-4 sm:gap-10 text-center">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 text-center">
             {[
               { stat: '1',   label: 'WEDDING PER DAY',       sub: 'Exclusively yours' },
               { stat: '75+', label: 'YEARS OF EXCELLENCE',   sub: 'Three generations' },
@@ -275,7 +275,7 @@ export default function SpringBridalShowcase() {
           <p className="text-white/50 font-light text-sm mb-10 tracking-wide">
             200 East Shore Drive · Massapequa, NY 11758
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
             <Link
               href="/contact"
               className="bg-riviera-gold text-white px-10 py-4 text-xs font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all"

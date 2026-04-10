@@ -134,7 +134,7 @@ export default function Home() {
           </div>
           
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-6 lg:left-auto lg:right-8 z-20">
+          <div className="hidden lg:block absolute lg:right-8 bottom-8 z-20">
             <a 
               href="#trust-bar" 
               className="text-riviera-text/50 text-xs tracking-widest flex flex-col items-center gap-2 hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
@@ -151,7 +151,7 @@ export default function Home() {
         {/* Trust Bar - Quick Stats */}
         <section id="trust-bar" className="bg-riviera-neutral py-12 md:py-16" aria-label="Venue highlights">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={statsRef as any} className="grid md:grid-cols-3 gap-8 text-center">
+            <div ref={statsRef as any} className="grid lg:grid-cols-3 gap-8 text-center">
               <div className="stat-item">
                 <div className="text-5xl md:text-6xl font-light text-riviera-gold mb-3">75+</div>
                 <h3 className="text-sm tracking-widest text-riviera-text mb-2">YEARS OF EXCELLENCE</h3>
@@ -337,7 +337,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
 
-            <div ref={featuresRef as any} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <div ref={featuresRef as any} className="grid lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative h-40 overflow-hidden">
                   <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />

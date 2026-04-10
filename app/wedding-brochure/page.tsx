@@ -41,7 +41,7 @@ export default function WeddingBrochurePage() {
 
       <main id="main">
         {/* Split layout: image left, form right */}
-        <section className="min-h-[calc(100dvh-80px)] grid md:grid-cols-2">
+        <section className="min-h-[calc(100dvh-80px)] grid lg:grid-cols-2">
 
           {/* Left — Brochure cover image */}
           <div className="relative min-h-[50vh] md:min-h-0">

@@ -122,7 +122,7 @@ export default function TourPage() {
         {/* Trust Bar - Quick Stats */}
         <section className="bg-riviera-neutral py-10 md:py-12">
           <div className="mx-auto px-6 sm:px-8 lg:px-12">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid lg:grid-cols-3 gap-8 text-center">
               <AnimatedSection animation="fadeInUp" delay={0}>
                 <div className="text-4xl md:text-5xl font-light text-riviera-gold mb-2">14</div>
                 <h3 className="text-xs tracking-widest text-riviera-text mb-1">STUNNING SPACES</h3>
@@ -156,7 +156,7 @@ export default function TourPage() {
             </p>
           </AnimatedSection>
 
-          <div ref={gridRef as any} className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          <div ref={gridRef as any} className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {tourSections.map((section, index) => (
               <div key={section.slug} className="tour-card">
                 <Link
