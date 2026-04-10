@@ -14,6 +14,7 @@ export async function POST(request: Request) {
       pageHeroes,
       homepage,
       tour,
+      tourHeroes,
       tourPreviews,
       sections,
       menuImages,
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
       pageHeroes,
       homepage,
       tour,
+      tourHeroes,
       tourPreviews,
       sections,
       menuImages,
@@ -60,6 +62,7 @@ function generateImageConfigTs(config: {
   pageHeroes: Record<string, string[]>;
   homepage: Record<string, string[]>;
   tour: Record<string, string[]>;
+  tourHeroes: Record<string, string[]>;
   tourPreviews: Record<string, string[]>;
   sections: Record<string, string[]>;
   menuImages: Record<string, string[]>;
@@ -119,6 +122,11 @@ ${tourLines.join('\n')}
 ${arrayMapLines(config.tourPreviews, 22)}
   },
 
+  // Tour detail page hero images — full-bleed, one per section, edit via /admin/image-manager
+  tourHeroes: {
+${arrayMapLines(config.tourHeroes, 22)}
+  },
+
   // Section CTA images — slideshow capable, edit via /admin/image-manager
   sections: {
 ${arrayMapLines(config.sections, 10)}
@@ -154,6 +162,15 @@ export function getTourPreviews(slug: string): string[] {
  */
 export function getTourPreview(slug: string): string {
   return getTourPreviews(slug)[0] ?? '';
+}
+
+/**
+ * Get hero image for a tour detail page
+ * Falls back to tourPreviews if no hero is set
+ */
+export function getTourHero(slug: string): string {
+  const heroes = imageConfig.tourHeroes[slug as keyof typeof imageConfig.tourHeroes] as string[] | undefined;
+  return heroes?.[0] ?? getTourPreview(slug);
 }
 
 /**

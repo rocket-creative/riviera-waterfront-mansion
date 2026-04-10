@@ -14,7 +14,7 @@ import { imageConfig } from '../../lib/imageConfig';
 
 type Tab = 'tour' | 'menu' | 'menu-heroes' | 'site-images' | 'upload';
 type UploadStatus = 'idle' | 'uploading' | 'done' | 'error';
-type SiteGroup = 'page-heroes' | 'homepage' | 'tour-previews' | 'sections';
+type SiteGroup = 'page-heroes' | 'homepage' | 'tour-heroes' | 'tour-previews' | 'sections';
 type MenuCategory = 'cocktail-hour' | 'enhancements' | 'dinner-plates' | 'exit-stations';
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
 
@@ -191,6 +191,7 @@ const MENU_HERO_SECTIONS: Array<{
 const SITE_GROUP_LABELS: Record<SiteGroup, string> = {
   'page-heroes':    'Page Heroes',
   'homepage':       'Homepage Sections',
+  'tour-heroes':    'Tour Page Heroes',
   'tour-previews':  'Tour Previews',
   'sections':       'Section CTAs',
 };
@@ -210,6 +211,21 @@ const SITE_IMAGE_SLOTS: Array<{
   // Homepage Sections
   { key: 'homepage-whyChooseUs', label: 'Why Choose Us Image', group: 'homepage', pool: 'large' },
   { key: 'homepage-venue',       label: 'Venue CTA Image',     group: 'homepage', pool: 'medium' },
+  // Tour Page Heroes
+  { key: 'tourhero-entrance-lobby',   label: 'Entrance & Lobby',         group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-bridal-suite',     label: 'Bridal Suite',             group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-indoor-ceremony',  label: 'Indoor Ceremony',          group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-outdoor-ceremony', label: 'Outdoor Ceremony',         group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-indoor-cocktail',  label: 'Indoor Cocktail Hour',     group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-outdoor-cocktail', label: 'Outdoor Cocktail Hour',    group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-main-ballroom',    label: 'Grand Ballroom',           group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-sweetheart-table', label: 'Sweetheart Table',         group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-guest-seating',    label: 'Guest Seating',            group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-dancefloor',       label: 'Dance Floor',              group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-entertainment',    label: 'Entertainment',            group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-main-bar',         label: 'Main Bar',                 group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-balconies',        label: 'Balconies',                group: 'tour-heroes', pool: 'large' },
+  { key: 'tourhero-photo-locations',  label: 'Photo Locations',          group: 'tour-heroes', pool: 'large' },
   // Tour Previews
   { key: 'tourpreview-entrance-lobby',   label: 'Entrance & Lobby',         group: 'tour-previews', pool: 'medium' },
   { key: 'tourpreview-bridal-suite',     label: 'Bridal Suite',             group: 'tour-previews', pool: 'medium' },
@@ -267,10 +283,11 @@ export default function ImageManagerPage() {
   const [selectedHeroSection, setSelectedHeroSection] = useState<string>('page-hero');
   const [heroPickerOpen, setHeroPickerOpen] = useState(false);
 
-  // Site Images state (page heroes, homepage sections, tour previews, section CTAs)
+  // Site Images state (page heroes, homepage sections, tour heroes, tour previews, section CTAs)
   const [siteImages, setSiteImages] = useState<Record<string, string[]>>(() => {
     const ph = imageConfig.pageHeroes as Record<string, string[]>;
     const hp = imageConfig.homepage as Record<string, string[]>;
+    const th = imageConfig.tourHeroes as Record<string, string[]>;
     const tp = imageConfig.tourPreviews as Record<string, string[]>;
     const sc = imageConfig.sections as Record<string, string[]>;
     return {
@@ -280,6 +297,9 @@ export default function ImageManagerPage() {
       'hero-rates':    [...(ph.rates    ?? [])],
       'homepage-whyChooseUs': [...(hp.whyChooseUs ?? [])],
       'homepage-venue':       [...(hp.venue       ?? [])],
+      ...Object.fromEntries(
+        Object.keys(th).map(k => [`tourhero-${k}`, [...(th[k] ?? [])]])
+      ),
       ...Object.fromEntries(
         Object.keys(tp).map(k => [`tourpreview-${k}`, [...(tp[k] ?? [])]])
       ),
@@ -384,6 +404,9 @@ export default function ImageManagerPage() {
     setSaveStatus('saving');
     try {
       // Reconstruct structured config from flat siteImages state
+      const builtTourHeroes = Object.fromEntries(
+        Object.keys(imageConfig.tourHeroes).map(k => [k, siteImages[`tourhero-${k}`] ?? []])
+      );
       const builtTourPreviews = Object.fromEntries(
         Object.keys(imageConfig.tourPreviews).map(k => [k, siteImages[`tourpreview-${k}`] ?? []])
       );
@@ -403,6 +426,7 @@ export default function ImageManagerPage() {
             venue:       siteImages['homepage-venue']       ?? [],
           },
           tour: tourSections,
+          tourHeroes: builtTourHeroes,
           tourPreviews: builtTourPreviews,
           sections: {
             vendors: siteImages['section-vendors'] ?? [],

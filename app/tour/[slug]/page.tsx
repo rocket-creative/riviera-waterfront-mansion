@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getTourImages, getTourPreview } from '../../lib/imageConfig';
+import { getTourImages, getTourHero } from '../../lib/imageConfig';
 import { AnimatedSection } from '../../components/AnimatedSection';
 import { HoverScale } from '../../components/HoverScale';
 import TourDetailClient from './TourDetailClient';
@@ -147,7 +147,7 @@ export default async function TourSectionPage({ params }: Props) {
             {/* Image Column - Full Height */}
             <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-1 overflow-hidden">
               <Image 
-                src={getTourPreview(slug)}
+                src={getTourHero(slug)}
                 alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
                 fill
                 priority
@@ -221,7 +221,20 @@ export default async function TourSectionPage({ params }: Props) {
 
         {/* Navigation Between Sections */}
         <section className="py-12 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto flex flex-col gap-6">
+            {/* VIEW ALL SPACES — full width centered on mobile, inline on lg */}
+            <div className="flex justify-center">
+              <HoverScale effect="lift">
+                <Link
+                  href="/tour"
+                  className="bg-riviera-text text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold transition-colors"
+                >
+                  VIEW ALL SPACES
+                </Link>
+              </HoverScale>
+            </div>
+
+            {/* PREVIOUS / NEXT row */}
             <div className="flex justify-between items-center">
               <div className="flex-1">
                 {previousSlug && (
@@ -239,15 +252,6 @@ export default async function TourSectionPage({ params }: Props) {
                   </Link>
                 )}
               </div>
-              
-              <HoverScale effect="lift">
-                <Link
-                  href="/tour"
-                  className="bg-riviera-text text-white px-6 py-3 text-sm font-light tracking-widest hover:bg-riviera-gold transition-colors"
-                >
-                  VIEW ALL SPACES
-                </Link>
-              </HoverScale>
 
               <div className="flex-1 flex justify-end">
                 {nextSlug && (

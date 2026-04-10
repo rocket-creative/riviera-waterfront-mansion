@@ -146,7 +146,6 @@ export const imageConfig = {
     ],
     'entrance-lobby': [
       '/images/tour/entrance-lobby/CRQ_3384kf-2nd-54969eb5-1920w.jpg',
-      '/images/tour/balconies/DJI_0036-mc-d-1920w.jpg',
       '/images/tour/entrance-lobby/DSC06609-web-f8ac5445-1920w.jpg',
       '/images/tour/entrance-lobby/DSC06613-web-91798ef3-1920w.jpg',
       '/images/tour/entrance-lobby/DSC06614-web-bfdd4d9b-1920w.jpg',
@@ -154,31 +153,15 @@ export const imageConfig = {
       '/images/tour/entrance-lobby/LAT-0141-mc-d-603f79cb-1920w.jpg',
       '/images/tour/entrance-lobby/LAT-0883-mc-d-8e9b9201-1920w.jpg',
       '/images/tour/entrance-lobby/LEA_0510-mc-d-bd9792c3-1920w.jpg',
-      '/images/tour/balconies/MAR-0882-mc-d+4-1920w.jpg',
-      '/images/tour/balconies/ORT-0631-mc-d-1920w.jpg',
-      '/images/tour/balconies/WOE_0330-mc-d-1920w.jpg',
-      '/images/tour/balconies/_50M1302me-1920w.jpg',
       '/images/tour/entrance-lobby/_CRQ4663-6a2bb65d-1920w.jpg',
       '/images/tour/balconies/_CRQ4676-1920w.jpg',
       '/images/tour/entrance-lobby/_CRQ4676-a06c432d-1920w.jpg',
       '/images/tour/entrance-lobby/_CRQ4677-e6592bb7-1920w.jpg',
       '/images/tour/entrance-lobby/_CRQ4678-cba3bfce-1920w.jpg',
-      '/images/tour/balconies/_CRQ4698cl-1920w.jpg',
-      '/images/tour/balconies/_CRQ4703-1920w.jpg',
-      '/images/tour/balconies/_CRQ4717-1920w.jpg',
-      '/images/tour/balconies/_CRQ4718-1920w.jpg',
-      '/images/tour/balconies/_CRQ4725-1920w.jpg',
-      '/images/tour/balconies/_CRQ4735cl-1920w.jpg',
-      '/images/tour/balconies/_CRQ4781-1920w.jpg',
-      '/images/tour/balconies/_CRQ4808-1920w.jpg',
-      '/images/tour/balconies/_CRQ4813-1920w.jpg',
-      '/images/tour/balconies/_CRQ4828-1920w.jpg',
-      '/images/tour/balconies/_CRQ4836-1920w.jpg',
       '/images/tour/entrance-lobby/_CRQ8946-f5f42523-1920w.jpg',
       '/images/tour/entrance-lobby/_DSC8360-mc-d-80bcf1c2-1920w.jpg',
       '/images/tour/entrance-lobby/_GS27018km-d-77a217ee-1920w.jpg',
       '/images/tour/entrance-lobby/entrance-2-1920w.jpg',
-      '/images/tour/balconies/riviera_massapequa_aerial-mc-d-1920w.jpg',
     ],
     'indoor-ceremony': [
       '/images/tour/indoor-ceremony/DSC04488-web--1920w.jpg',
@@ -406,20 +389,51 @@ export const imageConfig = {
 
   // Tour grid preview images — slideshow capable, edit via /admin/image-manager
   tourPreviews: {
-    'balconies':           ['/images/tour/balconies/272041450_2187190288099271_3872740174626610856_n-mc-d-1920w.jpg'],
-    'bridal-suite':        ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
+    'balconies':           ['/images/large/_DSC0105km-p.jpg'],
+    'bridal-suite':        ['/images/tour/bridal-suite/_CRQ4698cl-535e9495-1920w.jpg'],
     'sweetheart-table':    ['/images/tour/sweetheart-table/AR301874cs-d-24540e1b-1920w.jpg'],
-    'dancefloor':          ['/images/tour/dancefloor/AR306566jd-p-mc-d-36b90335-1920w.jpg'],
+    'dancefloor':          ['/images/tour/dancefloor/_GS20212me-af359faa-1920w.jpg'],
     'entertainment':       ['/images/tour/entertainment/AR307608kf-r-1920w.jpg'],
-    'entrance-lobby':      ['/images/tour/entrance-lobby/CRQ_3384kf-2nd-54969eb5-1920w.jpg'],
-    'indoor-ceremony':     ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
-    'indoor-cocktail':     ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
-    'main-ballroom':       ['/images/tour/dancefloor/AR306566jd-p-mc-d-36b90335-1920w.jpg'],
-    'main-bar':            ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
-    'guest-seating':       ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
+    'entrance-lobby':      ['/images/tour/entrance-lobby/_CRQ4677-e6592bb7-1920w.jpg'],
+    'indoor-ceremony':     ['/images/tour/indoor-ceremony/_DSC0457-mc-d+1-1920w.jpg'],
+    'indoor-cocktail':     ['/images/tour/indoor-cocktail/_CRQ4729-a3a83b33-1920w.jpg'],
+    'main-ballroom':       ['/images/medium/_DSC5114aa-port-2.jpg'],
+    'main-bar':            ['/images/tour/main-bar/DSC08250-web-b723d699-1920w.jpg'],
+    'guest-seating':       ['/images/tour/guest-seating/_CRQ4822-f638bf8a-1920w.jpg'],
     'outdoor-ceremony':    ['/images/tour/outdoor-ceremony/AR300976cr-c-mc-d-3e23d5e3-1920w.jpg'],
-    'outdoor-cocktail':    ['/images/tour/balconies/DJI_0036-mc-d-1920w.jpg'],
-    'photo-locations':     ['/images/tour/dancefloor/AR306566jd-p-mc-d-36b90335-1920w.jpg'],
+    'outdoor-cocktail':    ['/images/tour/outdoor-cocktail/_CRQ8173-593b7694-1920w.jpg'],
+    'photo-locations':     [
+      '/images/large/_1059409-jj-p.jpg',
+      '/images/large/_1051106-ea-p.jpg',
+      '/images/large/_2001310-jb-25-P.jpg',
+      '/images/large/_2005129-tc-p.jpg',
+      '/images/large/_2007528-jd-p.jpg',
+      '/images/large/_24M1353-jb-25-P.jpg',
+      '/images/large/_50M1231-jj-p.jpg',
+      '/images/large/_50M1309-jj-p.jpg',
+      '/images/large/_50M3097jj-p4.jpg',
+      '/images/large/_50M8930sa-p.jpg',
+      '/images/large/_COL4083ca-p.jpg',
+      '/images/large/_COL4113ca-p.jpg',
+    ],
+  },
+
+  // Tour detail page hero images — full-bleed, one per section, edit via /admin/image-manager
+  tourHeroes: {
+    'balconies':           ['/images/large/_DSC1460mj-p.jpg'],
+    'bridal-suite':        ['/images/tour/bridal-suite/_DSC9252-mc-d-ed37e318-1920w.jpg'],
+    'sweetheart-table':    ['/images/tour/sweetheart-table/CAB-0842-mc-d-868c6bce-1920w.jpg'],
+    'dancefloor':          ['/images/tour/dancefloor/DSC01547-mc-d-ae0c399a-1920w.jpg'],
+    'entertainment':       ['/images/tour/entertainment/DSC_1645-mc-d-1920w.jpg'],
+    'entrance-lobby':      ['/images/tour/entrance-lobby/DSC06888-mc-d-a988063f-1920w.jpg'],
+    'indoor-ceremony':     ['/images/tour/indoor-ceremony/_COL5634aj-C-52b43588-1920w.jpg'],
+    'indoor-cocktail':     ['/images/tour/indoor-cocktail/_CRQ4808-8a2f6f85-1920w.jpg'],
+    'main-ballroom':       ['/images/tour/main-ballroom/_CRQ4717-5535b05a-1920w.jpg'],
+    'main-bar':            ['/images/tour/main-bar/_CRQ4728-8df53262-2880w.jpg'],
+    'guest-seating':       ['/images/tour/guest-seating/_CRQ8220-dd58a46b-1920w.jpg'],
+    'outdoor-ceremony':    ['/images/tour/outdoor-ceremony/_DSC6084-mc-d-5630a9fb-1920w.jpg'],
+    'outdoor-cocktail':    ['/images/tour/outdoor-cocktail/_CRQ4801-5fd994d2-2880w.jpg'],
+    'photo-locations':     ['/images/large/_2004497-sm-t.jpg'],
   },
 
   // Section CTA images — slideshow capable, edit via /admin/image-manager
@@ -507,7 +521,6 @@ export const imageConfig = {
     'cocktail-beef-teriyaki': ['/images/cocktail-hour/beef-teriyaki.jpg'],
     'cocktail-sausage-and-peppers': ['/images/cocktail-hour/sausage-and-peppers.jpg'],
     'cocktail-kielbasa-sauerkraut': ['/images/cocktail-hour/kielbasa-sauerkraut.jpg'],
-    // Cocktail Hour — items newly wired to admin (previously no slot)
     'cocktail-seasonal-fruit-display': [],
     'cocktail-fruit-on-skewers': [],
     'cocktail-mini-tacos': [],
@@ -539,7 +552,6 @@ export const imageConfig = {
     'enhance-gelato-espresso-hero': ['/images/enhancements/gelato-espresso-hero.jpg'],
     'enhance-burger-station': ['/images/enhancements/burger-station.jpg'],
     'enhance-donut-wall-close': ['/images/enhancements/donut-wall-close.jpg'],
-    // Enhancements — items newly wired to admin (previously no slot)
     'enhance-welcome-snack-station': [],
     'enhance-bridal-suite-wrap-platter': [],
     'enhance-rolling-bar': [],
@@ -562,7 +574,6 @@ export const imageConfig = {
     'enhance-roaming-cannoli': [],
     'enhance-rainbow-explosion': [],
     'enhance-ice-cream-sundae-bar': [],
-    // Exit Stations — items newly wired to admin
     'exit-hot-pretzel-station': [],
     'exit-chips-gatorade': [],
     'exit-stuffed-bomboloni': [],
@@ -616,6 +627,15 @@ export function getTourPreviews(slug: string): string[] {
  */
 export function getTourPreview(slug: string): string {
   return getTourPreviews(slug)[0] ?? '';
+}
+
+/**
+ * Get hero image for a tour detail page
+ * Falls back to tourPreviews if no hero is set
+ */
+export function getTourHero(slug: string): string {
+  const heroes = imageConfig.tourHeroes[slug as keyof typeof imageConfig.tourHeroes] as string[] | undefined;
+  return heroes?.[0] ?? getTourPreview(slug);
 }
 
 /**
