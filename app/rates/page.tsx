@@ -39,7 +39,7 @@ const faqs = [
   {
     question: 'What does pricing include?',
     answer:
-      'All packages include ceremony, cocktail hour, plated reception dinner, five hour top shelf open bar, and full use of the venue and grounds. All pricing is plus a 22% admin fee and NYS tax.',
+      'All packages include cocktail hour, plated reception dinner, five hour top shelf open bar, and full use of the venue and grounds. All pricing is plus a 22% admin fee and NYS tax.',
   },
   {
     question: 'How do I get pricing?',
@@ -98,7 +98,7 @@ export default function RatesPage() {
               </h2>
               <div className="max-w-3xl">
                 <p className="text-base font-light text-riviera-text/70 leading-relaxed">
-                  All packages include ceremony, cocktail hour, plated reception dinner, Continental cuisine, and a five hour top shelf open bar. All pricing is plus a 22% admin fee and NYS tax. Contact us for a personalized proposal.
+                  All packages include cocktail hour, plated reception dinner, Continental cuisine, and a five hour top shelf open bar. All pricing is plus a 22% admin fee and NYS tax. Contact us for a personalized proposal.
                 </p>
               </div>
             </div>

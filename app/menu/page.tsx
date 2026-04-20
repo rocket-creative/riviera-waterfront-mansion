@@ -242,96 +242,6 @@ export default function MenuPage() {
           </div>
         </section>
 
-        {/* ── Enhancements ─────────────────────────────────────────────────────── */}
-        <section className="bg-stone-50">
-          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
-            <HeroCarousel images={h['enhancements']} interval={5000} alt="Wedding enhancement stations at Riviera Waterfront Mansion" />
-          </div>
-          <div className="py-14 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-
-              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
-                Wedding enhancements &amp; premium add-ons
-              </h2>
-              <p className="text-xs text-riviera-text/50 mb-12 text-center tracking-wider uppercase">
-                Call (516) 541 5020 for current pricing and seasonal availability
-              </p>
-
-              {/* Welcome Stations */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Welcome stations
-                </h3>
-                <div className={grid4}>
-                  <Item slot="enhance-welcome-snack-station" alt="Welcome snack station with fruits and biscotti" name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
-                  <Item slot="enhance-bridal-suite-wrap-platter" alt="Bridal suite wrap platter" name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
-                  <Item alt="Early arrival for photography at the venue" name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
-                </div>
-              </div>
-
-              {/* Cold Additions */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Cold cocktail hour additions
-                </h3>
-                <div className={grid4}>
-                  <Item slot="enhance-rolling-bar" alt="Rolling bar with beer and wine" name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
-                  <Item slot="enhance-full-rolling-bar" alt="Full rolling bar with top shelf alcohol" name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
-                  <Item slot="enhance-fresh-mozzarella-station" alt="Fresh mozzarella station with prosciutto and artisan breads" name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
-                  <Item slot="enhance-jumbo-shrimp-cocktail" alt="Jumbo shrimp cocktail on crushed ice" name="Jumbo Shrimp Cocktail" desc="Displayed on crushed ice with cocktail sauce and fresh lemon wedges" />
-                  <Item slot="enhance-fresh-clam-oyster-bar" alt="Fresh clam and oyster bar shucked to order" name="Fresh Clam &amp; Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, and horseradish sauce" />
-                  <Item slot="enhance-sushi-bar-waterfront" alt="Fresh sushi bar on the waterfront deck" name="Fresh Sushi Bar" desc="Traditional sushi boats with a large variety of handmade rolls" />
-                  <Item slot="enhance-whole-lobster-station" alt="Whole lobster station on crushed ice" name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
-                  <Item slot="enhance-lobster-tail-station" alt="Lobster tail station on crushed ice" name="Lobster Tail Station" desc="Chilled lobster tails on a crushed ice display (market price)" />
-                  <Item slot="enhance-alaskan-crab-legs" alt="Alaskan crab legs on crushed ice" name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display (market price)" />
-                  <Item slot="enhance-ice-sculpture" alt="Ice sculpture custom selection" name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
-                </div>
-              </div>
-
-              {/* Hot Additions */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Hot cocktail hour additions
-                </h3>
-                <div className={grid4}>
-                  <Item alt="Additional chafing dish from our brochure" name="Additional Chafing Dish" desc="Choose from our variety of chafing dishes" />
-                  <Item alt="Additional carving meat from our brochure" name="Additional Carving Meat" desc="Choose from our variety of carving board meats" />
-                  <Item slot="enhance-baby-lamb-chops" alt="Baby lamb chops as passed hors d'oeuvres" name="Baby Lamb Chops" desc="Served as an extra carving board meat or as passed hors d'oeuvres" />
-                  <Item slot="enhance-roast-suckling-pig" alt="Roast suckling pig as extra carving station" name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
-                  <Item slot="enhance-mashed-potato-bar" alt="Mashed potato bar with sweet and garlic options" name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with a full variety of toppings" />
-                  <Item slot="enhance-mac-cheese-station" alt="Macaroni and cheese station with multiple varieties" name="Macaroni &amp; Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional, and more" />
-                  <Item slot="enhance-gourmet-pasta-station" alt="Gourmet pasta station with choice of pasta and sauce" name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
-                  <Item slot="enhance-bacon-station-hero" alt="Full bacon station display with bacon-wrapped appetizers" name="Bacon Station" desc="Bacon every way! Choice of four: wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" />
-                  <Item slot="enhance-taco-bar-station" alt="Taco bar with hard and soft shells and all toppings" name="Taco Bar Station" desc="Hard and soft shell tacos with chopped meat, shredded chicken, and all toppings" />
-                  <Item slot="enhance-fried-chicken-donut" alt="Fried chicken and glazed donut station" name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
-                  <Item slot="enhance-french-fry-station" alt="French fry late night station with assorted fries" name="French Fry Station" desc="Choice of waffle, curly, classic, or sweet potato fries with dips" />
-                  <Item slot="enhance-pierogi-station" alt="Pierogi station with toppings" name="Pierogi Station" desc="Choice of pierogies with sauteed onions, sour cream, chives, and cheddar" />
-                </div>
-              </div>
-
-              {/* Viennese */}
-              <div>
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-2">
-                  Viennese dessert display
-                </h3>
-                <p className="text-sm font-light text-riviera-text/70 mb-6 max-w-3xl">
-                  Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
-                </p>
-                <div className={grid4}>
-                  <Item slot="enhance-full-viennese" alt="Full Viennese display of cakes, pies, cookies and ice cream sundae bar" name="Full Viennese" desc="Assorted cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" />
-                  <Item slot="enhance-donut-wall-hero" alt="Donut wall with assorted glazed and frosted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall (also available as an exit station)" />
-                  <Item slot="enhance-smores-station" alt="Outdoor s'mores station with open flames" name="S'mores Station" desc="Assorted cookies, chocolates, and crackers with open flames" />
-                  <Item slot="enhance-roaming-cannoli" alt="Roaming cannoli service freshly filled" name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" />
-                  <Item slot="enhance-rainbow-explosion" alt="Rainbow explosion with assorted rainbow cookies and treats" name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
-                  <Item slot="enhance-ice-cream-sundae-bar" alt="Ice cream sundae bar with two flavors and full toppings" name="Ice Cream Sundae Bar" desc="Two ice cream flavors with a full selection of toppings" />
-                  <Item slot="enhance-espresso-cordial-station" alt="Espresso and cordial station with after dinner drinks" name="Espresso &amp; Cordial Station" desc="After dinner cordials with our famous espresso and cappuccino" />
-                  <Item slot="enhance-gelato-espresso-hero" alt="Gelato bar with staff serving guests" name="Gelato Bar" desc="Choose four amazing flavors of gelato" />
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
 
         {/* ── Grand Ballroom ───────────────────────────────────────────────────── */}
         <section>
@@ -453,33 +363,114 @@ export default function MenuPage() {
           </div>
         </section>
 
-        {/* ── Exit Stations ────────────────────────────────────────────────────── */}
-        <section>
+        {/* ── Enhancements, Add-ons & Exit Stations ───────────────────────────── */}
+        <section className="bg-stone-50">
           <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
-            <HeroCarousel images={h['exit-stations']} interval={5000} alt="Late night exit stations at Riviera Waterfront Mansion" />
+            <HeroCarousel images={h['enhancements-combined']} interval={4500} alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
 
-              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-3 text-center">
-                Late night exit stations
+              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
+                Wedding enhancements, add-ons &amp; exit stations
               </h2>
-              <p className="text-sm text-riviera-text/60 mb-10 text-center">
-                Send your guests home with a memorable parting treat. New options added regularly — call (516) 541 5020 for the latest.
+              <p className="text-xs text-riviera-text/50 mb-12 text-center tracking-wider uppercase">
+                Call (516) 541 5020 for current pricing and seasonal availability
               </p>
 
-              <div className={grid4}>
-                <Item slot="enhance-burger-station" alt="All American Drive-In burger station with cheeseburgers and fries" name="All American Burger Station" desc="Assortment of hamburgers, cheeseburgers, and french fries" />
-                <Item slot="exit-hot-pretzel-station" alt="Hot pretzel station with dipping sauces" name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
-                <Item slot="exit-chips-gatorade" alt="Chips and Gatorade display" name="Chips &amp; Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and assorted Gatorade" />
-                <Item slot="exit-stuffed-bomboloni" alt="Stuffed bomboloni bar with pistachio and Nutella fillings" name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
-                <Item slot="exit-stuffed-garlic-knot" alt="Stuffed garlic knot station with ham and provolone" name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
-                <Item slot="exit-ramen-station" alt="Ramen exit station individual cups" name="Ramen Exit Station" desc="Individual instant cups of ramen" />
-                <Item slot="exit-popcorn-station" alt="Popcorn station with assorted flavors" name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
-                <Item slot="exit-morning-glory" alt="Morning glory station with breakfast sandwiches" name="Morning Glory Station" desc="Bacon, sausage, and ham egg and cheese on Kaiser rolls" />
-                <Item slot="exit-empanada-station" alt="Empanada station with beef and chicken" name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
-                <Item slot="enhance-donut-wall-close" alt="Donut wall close-up with assorted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall as guests head home" />
-                <Item alt="Custom exit station designed to your idea" name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" />
+              {/* Welcome Stations */}
+              <div className="mb-12">
+                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
+                  Welcome stations
+                </h3>
+                <div className={grid4}>
+                  <Item slot="enhance-welcome-snack-station" alt="Welcome snack station with fruits and biscotti" name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
+                  <Item slot="enhance-bridal-suite-wrap-platter" alt="Bridal suite wrap platter" name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
+                  <Item alt="Early arrival for photography at the venue" name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
+                </div>
+              </div>
+
+              {/* Cold Displays */}
+              <div className="mb-12">
+                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
+                  Cold cocktail hour additions
+                </h3>
+                <div className={grid4}>
+                  <Item slot="enhance-rolling-bar" alt="Rolling bar with beer and wine" name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
+                  <Item slot="enhance-full-rolling-bar" alt="Full rolling bar with top shelf alcohol" name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
+                  <Item slot="enhance-fresh-mozzarella-station" alt="Fresh mozzarella station with prosciutto and artisan breads" name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
+                  <Item slot="enhance-jumbo-shrimp-cocktail" alt="Jumbo shrimp cocktail on crushed ice" name="Jumbo Shrimp Cocktail" desc="Displayed on crushed ice with cocktail sauce and fresh lemon wedges" />
+                  <Item slot="enhance-fresh-clam-oyster-bar" alt="Fresh clam and oyster bar shucked to order" name="Fresh Clam &amp; Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, and horseradish sauce" />
+                  <Item slot="enhance-sushi-bar-waterfront" alt="Fresh sushi bar on the waterfront deck" name="Fresh Sushi Bar" desc="Traditional sushi boats with a large variety of handmade rolls" />
+                  <Item slot="enhance-whole-lobster-station" alt="Whole lobster station on crushed ice" name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
+                  <Item slot="enhance-lobster-tail-station" alt="Lobster tail station on crushed ice" name="Lobster Tail Station" desc="Chilled lobster tails on a crushed ice display (market price)" />
+                  <Item slot="enhance-alaskan-crab-legs" alt="Alaskan crab legs on crushed ice" name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display (market price)" />
+                  <Item slot="enhance-ice-sculpture" alt="Ice sculpture custom selection" name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
+                </div>
+              </div>
+
+              {/* Hot Additions */}
+              <div className="mb-12">
+                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
+                  Hot cocktail hour additions
+                </h3>
+                <div className={grid4}>
+                  <Item alt="Additional chafing dish from our brochure" name="Additional Chafing Dish" desc="Choose from our variety of chafing dishes" />
+                  <Item alt="Additional carving meat from our brochure" name="Additional Carving Meat" desc="Choose from our variety of carving board meats" />
+                  <Item slot="enhance-baby-lamb-chops" alt="Baby lamb chops as passed hors d'oeuvres" name="Baby Lamb Chops" desc="Served as an extra carving board meat or as passed hors d'oeuvres" />
+                  <Item slot="enhance-roast-suckling-pig" alt="Roast suckling pig as extra carving station" name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
+                  <Item slot="enhance-mashed-potato-bar" alt="Mashed potato bar with sweet and garlic options" name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with a full variety of toppings" />
+                  <Item slot="enhance-mac-cheese-station" alt="Macaroni and cheese station with multiple varieties" name="Macaroni &amp; Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional, and more" />
+                  <Item slot="enhance-gourmet-pasta-station" alt="Gourmet pasta station with choice of pasta and sauce" name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
+                  <Item slot="enhance-bacon-station-hero" alt="Full bacon station display with bacon-wrapped appetizers" name="Bacon Station" desc="Bacon every way! Choice of four: wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" />
+                  <Item slot="enhance-taco-bar-station" alt="Taco bar with hard and soft shells and all toppings" name="Taco Bar Station" desc="Hard and soft shell tacos with chopped meat, shredded chicken, and all toppings" />
+                  <Item slot="enhance-fried-chicken-donut" alt="Fried chicken and glazed donut station" name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
+                  <Item slot="enhance-french-fry-station" alt="French fry late night station with assorted fries" name="French Fry Station" desc="Choice of waffle, curly, classic, or sweet potato fries with dips" />
+                  <Item slot="enhance-pierogi-station" alt="Pierogi station with toppings" name="Pierogi Station" desc="Choice of pierogies with sauteed onions, sour cream, chives, and cheddar" />
+                </div>
+              </div>
+
+              {/* Viennese */}
+              <div className="mb-12">
+                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-2">
+                  Viennese dessert display
+                </h3>
+                <p className="text-sm font-light text-riviera-text/70 mb-6 max-w-3xl">
+                  Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
+                </p>
+                <div className={grid4}>
+                  <Item slot="enhance-full-viennese" alt="Full Viennese display of cakes, pies, cookies and ice cream sundae bar" name="Full Viennese" desc="Assorted cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" />
+                  <Item slot="enhance-donut-wall-hero" alt="Donut wall with assorted glazed and frosted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall (also available as an exit station)" />
+                  <Item slot="enhance-smores-station" alt="Outdoor s'mores station with open flames" name="S'mores Station" desc="Assorted cookies, chocolates, and crackers with open flames" />
+                  <Item slot="enhance-roaming-cannoli" alt="Roaming cannoli service freshly filled" name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" />
+                  <Item slot="enhance-rainbow-explosion" alt="Rainbow explosion with assorted rainbow cookies and treats" name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
+                  <Item slot="enhance-ice-cream-sundae-bar" alt="Ice cream sundae bar with two flavors and full toppings" name="Ice Cream Sundae Bar" desc="Two ice cream flavors with a full selection of toppings" />
+                  <Item slot="enhance-espresso-cordial-station" alt="Espresso and cordial station with after dinner drinks" name="Espresso &amp; Cordial Station" desc="After dinner cordials with our famous espresso and cappuccino" />
+                  <Item slot="enhance-gelato-espresso-hero" alt="Gelato bar with staff serving guests" name="Gelato Bar" desc="Choose four amazing flavors of gelato" />
+                </div>
+              </div>
+
+              {/* Exit Stations */}
+              <div>
+                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-2">
+                  Late night exit stations
+                </h3>
+                <p className="text-sm font-light text-riviera-text/70 mb-6 max-w-3xl">
+                  Send your guests home with a memorable parting treat. New options added regularly — call (516) 541 5020 for the latest.
+                </p>
+                <div className={grid4}>
+                  <Item slot="enhance-burger-station" alt="All American Drive-In burger station with cheeseburgers and fries" name="All American Burger Station" desc="Assortment of hamburgers, cheeseburgers, and french fries" />
+                  <Item slot="exit-hot-pretzel-station" alt="Hot pretzel station with dipping sauces" name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
+                  <Item slot="exit-chips-gatorade" alt="Chips and Gatorade display" name="Chips &amp; Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and assorted Gatorade" />
+                  <Item slot="exit-stuffed-bomboloni" alt="Stuffed bomboloni bar with pistachio and Nutella fillings" name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
+                  <Item slot="exit-stuffed-garlic-knot" alt="Stuffed garlic knot station with ham and provolone" name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
+                  <Item slot="exit-ramen-station" alt="Ramen exit station individual cups" name="Ramen Exit Station" desc="Individual instant cups of ramen" />
+                  <Item slot="exit-popcorn-station" alt="Popcorn station with assorted flavors" name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
+                  <Item slot="exit-morning-glory" alt="Morning glory station with breakfast sandwiches" name="Morning Glory Station" desc="Bacon, sausage, and ham egg and cheese on Kaiser rolls" />
+                  <Item slot="exit-empanada-station" alt="Empanada station with beef and chicken" name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
+                  <Item slot="enhance-donut-wall-close" alt="Donut wall close-up with assorted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall as guests head home" />
+                  <Item alt="Custom exit station designed to your idea" name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" />
+                </div>
               </div>
 
             </div>

@@ -481,6 +481,17 @@ export const imageConfig = {
       '/images/enhancements/french-fry-station.jpg',
       '/images/enhancements/espresso-cordial-station.jpg',
     ],
+    'enhancements-combined': [
+      '/images/cocktail-hour/hero-cold-displays.jpg',
+      '/images/enhancements/sushi-bar-waterfront.jpg',
+      '/images/enhancements/bacon-station-hero.jpg',
+      '/images/enhancements/donut-wall-hero.jpg',
+      '/images/enhancements/smores-station.jpg',
+      '/images/enhancements/burger-station.jpg',
+      '/images/enhancements/french-fry-station.jpg',
+      '/images/enhancements/espresso-cordial-station.jpg',
+      '/images/enhancements/donut-wall-close.jpg',
+    ],
   },
 
   // Menu item image slideshows — each slot holds an array; edit via /admin/image-manager
