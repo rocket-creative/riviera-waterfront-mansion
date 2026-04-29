@@ -469,6 +469,8 @@ export default function MenuPage() {
                   <Item slot="exit-morning-glory" alt="Morning glory station with breakfast sandwiches" name="Morning Glory Station" desc="Bacon, sausage, and ham egg and cheese on Kaiser rolls" />
                   <Item slot="exit-empanada-station" alt="Empanada station with beef and chicken" name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
                   <Item slot="enhance-donut-wall-close" alt="Donut wall close-up with assorted donuts" name="Donut Wall" desc="Assorted donuts displayed on a white wall as guests head home" />
+                  <Item slot="exit-apple-cider-donuts" alt="Apple cider donut station with seasonal pumpkin display" name="Apple Cider Donut Station" desc="Warm cinnamon sugar apple cider donuts on a seasonal display" />
+                  <Item slot="exit-white-castle-sliders" alt="White Castle slider late night exit station" name="White Castle Slider Station" desc="Iconic White Castle sliders served as guests head home" />
                   <Item alt="Custom exit station designed to your idea" name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" />
                 </div>
               </div>

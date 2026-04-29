@@ -124,6 +124,8 @@ const MENU_SLOTS: Array<{
   { key: 'exit-popcorn-station',              label: 'Popcorn Station',                  category: 'exit-stations' },
   { key: 'exit-morning-glory',                label: 'Morning Glory Station',            category: 'exit-stations' },
   { key: 'exit-empanada-station',             label: 'Empanada Station',                 category: 'exit-stations' },
+  { key: 'exit-apple-cider-donuts',           label: 'Apple Cider Donut Station',        category: 'exit-stations' },
+  { key: 'exit-white-castle-sliders',         label: 'White Castle Slider Station',      category: 'exit-stations' },
   // Dinner Plates
   { key: 'dinner-tomato-mozzarella',         label: 'Fresh Tomato & Mozzarella',    category: 'dinner-plates' },
   { key: 'dinner-bruschetta',                label: 'Bruschetta',                   category: 'dinner-plates' },
