@@ -42,8 +42,14 @@ export interface AnnouncementConfig {
 }
 
 // ─── EDIT THIS OBJECT TO CHANGE THE ANNOUNCEMENT ──────────────
+// `enabled` is the master switch. Setting it to `false`:
+//   1. Hides the homepage hero overlay card and collapsed pill.
+//   2. Causes /spring-bridal-showcase to redirect to the homepage
+//      (gated in app/spring-bridal-showcase/layout.tsx).
+// To bring the event back, fill in the new event details and set
+// `enabled: true`.
 export const ANNOUNCEMENT_CONFIG: AnnouncementConfig = {
-  enabled: true,
+  enabled: false,
 
   eyebrow:       'UPCOMING EVENT',
   title:         'Spring Bridal ',
