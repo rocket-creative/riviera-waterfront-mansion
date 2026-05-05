@@ -13,12 +13,13 @@ function hasImages(slot?: string) {
 }
 
 // Standard card with a photo, falls back to text-only when no image is available
-function Item({ slot, alt, name, desc }: { slot?: string; alt: string; name: string; desc: string }) {
+function Item({ slot, alt, name, desc, fit = 'cover' }: { slot?: string; alt: string; name: string; desc: string; fit?: 'cover' | 'contain' }) {
   if (!hasImages(slot)) return <TextItem name={name} desc={desc} />;
+  const heightClass = fit === 'contain' ? 'h-56' : 'h-44';
   return (
     <div>
-      <div className="h-44 relative overflow-hidden mb-2 bg-stone-100">
-        <MenuImage images={m[slot!]} alt={alt} />
+      <div className={`${heightClass} relative overflow-hidden mb-2 bg-stone-100`}>
+        <MenuImage images={m[slot!]} alt={alt} fit={fit} />
       </div>
       <p className="text-xs tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
       <p className="text-[11px] font-light text-riviera-text/60 leading-relaxed">{desc}</p>
@@ -275,9 +276,9 @@ export default function MenuPage() {
                   Duet plates &amp; starters
                 </h3>
                 <div className={grid4}>
-                  <Item slot="dinner-tomato-mozzarella" alt="Fresh tomato and mozzarella on mesclun greens" name="Fresh Tomato &amp; Mozzarella" desc="On a bed of Mesclun Greens with Aged Balsamic Vinaigrette" />
-                  <Item slot="dinner-bruschetta" alt="Bruschetta on toasted parmesan semolina bread" name="Bruschetta" desc="Vine Ripe Tomatoes, Olives, Onions, Provolone on Mesclun Greens" />
-                  <Item slot="dinner-warm-mozzarella-salad" alt="Warm mozzarella salad with strawberries and candied walnuts" name="Warm Mozzarella Salad" desc="Mesclun Greens with Strawberries, Candied Walnuts, Fried Mozzarella, Raspberry Vinaigrette" />
+                  <Item slot="dinner-tomato-mozzarella" fit="contain" alt="Fresh tomato and mozzarella on mesclun greens" name="Fresh Tomato &amp; Mozzarella" desc="On a bed of Mesclun Greens with Aged Balsamic Vinaigrette" />
+                  <Item slot="dinner-bruschetta" fit="contain" alt="Bruschetta on toasted parmesan semolina bread" name="Bruschetta" desc="Vine Ripe Tomatoes, Olives, Onions, Provolone on Mesclun Greens" />
+                  <Item slot="dinner-warm-mozzarella-salad" fit="contain" alt="Warm mozzarella salad with strawberries and candied walnuts" name="Warm Mozzarella Salad" desc="Mesclun Greens with Strawberries, Candied Walnuts, Fried Mozzarella, Raspberry Vinaigrette" />
                 </div>
               </div>
 
@@ -287,45 +288,45 @@ export default function MenuPage() {
               {/* Beef */}
               <SubHead>Beef</SubHead>
               <div className={grid4}>
-                <Item slot="dinner-prime-rib" alt="Prime rib with au jus sauce" name="Prime Rib" desc="Roasted Prime Rib with an Au Jus Sauce" />
-                <Item slot="dinner-filet-mignon" alt="Filet mignon grilled to perfection" name="Filet Mignon *" desc="Grilled to Perfection with a Bearnaise Sauce (*additional cost)" />
-                <Item slot="dinner-ny-shell-steak" alt="New York shell steak with caramelized onions" name="New York Shell Steak" desc="Grilled with Caramelized Onions and Mushrooms" />
-                <Item slot="dinner-chateaubriand" alt="Chateaubriand sliced filet mignon" name="Chateaubriand" desc="Sliced Filet Mignon with a Creamy Sherry Mushroom Sauce" />
+                <Item slot="dinner-prime-rib" fit="contain" alt="Prime rib with au jus sauce" name="Prime Rib" desc="Roasted Prime Rib with an Au Jus Sauce" />
+                <Item slot="dinner-filet-mignon" fit="contain" alt="Filet mignon grilled to perfection" name="Filet Mignon *" desc="Grilled to Perfection with a Bearnaise Sauce (*additional cost)" />
+                <Item slot="dinner-ny-shell-steak" fit="contain" alt="New York shell steak with caramelized onions" name="New York Shell Steak" desc="Grilled with Caramelized Onions and Mushrooms" />
+                <Item slot="dinner-chateaubriand" fit="contain" alt="Chateaubriand sliced filet mignon" name="Chateaubriand" desc="Sliced Filet Mignon with a Creamy Sherry Mushroom Sauce" />
               </div>
 
               {/* Poultry */}
               <SubHead>Poultry</SubHead>
               <div className={grid4}>
-                <Item slot="dinner-chicken-princess" alt="Chicken princess stuffed with asparagus and roasted peppers" name="Chicken Princess" desc="Stuffed with Asparagus, Red Roasted Peppers, Mozzarella with Lemon Herb Sauce" />
-                <Item slot="dinner-roast-duck" alt="Roast duck a l'orange with citrus sauce" name="Roast Duck A L'Orange" desc="Roasted Succulent Duck in a Citrus Sauce" />
-                <Item slot="dinner-chicken-romano" alt="Chicken romano with artichoke hearts and mushrooms" name="Chicken Romano" desc="Chicken Breast with Artichoke Hearts and Mushrooms in Cognac Cream Sauce" />
-                <Item slot="dinner-chicken-piccata" alt="Chicken piccata with lemon caper sauce" name="Chicken Piccata" desc="Sauteed Chicken Breast with a Lemon Caper Sauce" />
-                <Item slot="dinner-chicken-cordon-bleu" alt="Chicken Cordon Bleu stuffed with prosciutto and swiss" name="Chicken Cordon Bleu" desc="Breaded Chicken Stuffed with Prosciutto and Swiss Cheese, Mushroom Sauce" />
+                <Item slot="dinner-chicken-princess" fit="contain" alt="Chicken princess stuffed with asparagus and roasted peppers" name="Chicken Princess" desc="Stuffed with Asparagus, Red Roasted Peppers, Mozzarella with Lemon Herb Sauce" />
+                <Item slot="dinner-roast-duck" fit="contain" alt="Roast duck a l'orange with citrus sauce" name="Roast Duck A L'Orange" desc="Roasted Succulent Duck in a Citrus Sauce" />
+                <Item slot="dinner-chicken-romano" fit="contain" alt="Chicken romano with artichoke hearts and mushrooms" name="Chicken Romano" desc="Chicken Breast with Artichoke Hearts and Mushrooms in Cognac Cream Sauce" />
+                <Item slot="dinner-chicken-piccata" fit="contain" alt="Chicken piccata with lemon caper sauce" name="Chicken Piccata" desc="Sauteed Chicken Breast with a Lemon Caper Sauce" />
+                <Item slot="dinner-chicken-cordon-bleu" fit="contain" alt="Chicken Cordon Bleu stuffed with prosciutto and swiss" name="Chicken Cordon Bleu" desc="Breaded Chicken Stuffed with Prosciutto and Swiss Cheese, Mushroom Sauce" />
               </div>
 
               {/* Seafood */}
               <SubHead>Seafood</SubHead>
               <div className={grid4}>
-                <Item slot="dinner-salmon" alt="Salmon with herb oreganata crust" name="Salmon" desc="Lemon Dill Sauce or Oreganata with Garlic Scampi Sauce" />
-                <Item slot="dinner-striped-bass" alt="Striped bass with Dijon cream sauce" name="Striped Bass" desc="Served with a Dijon Cream Sauce (May through November)" />
-                <Item slot="dinner-stuffed-flounder" alt="Stuffed flounder with shrimp and crabmeat" name="Stuffed Flounder" desc="Flounder Stuffed with Shrimp, Scallops, Crabmeat, Bread Crumbs" />
-                <Item slot="dinner-grilled-swordfish" alt="Grilled swordfish with lemon caper sauce" name="Grilled Swordfish" desc="Served with a Lemon Caper Sauce" />
-                <Item slot="dinner-stuffed-shrimp" alt="Stuffed shrimp with scallop and crabmeat" name="Stuffed Shrimp" desc="Scallop and Crabmeat Stuffed Jumbo Shrimp with Lemon Butter Sauce" />
+                <Item slot="dinner-salmon" fit="contain" alt="Salmon with herb oreganata crust" name="Salmon" desc="Lemon Dill Sauce or Oreganata with Garlic Scampi Sauce" />
+                <Item slot="dinner-striped-bass" fit="contain" alt="Striped bass with Dijon cream sauce" name="Striped Bass" desc="Served with a Dijon Cream Sauce (May through November)" />
+                <Item slot="dinner-stuffed-flounder" fit="contain" alt="Stuffed flounder with shrimp and crabmeat" name="Stuffed Flounder" desc="Flounder Stuffed with Shrimp, Scallops, Crabmeat, Bread Crumbs" />
+                <Item slot="dinner-grilled-swordfish" fit="contain" alt="Grilled swordfish with lemon caper sauce" name="Grilled Swordfish" desc="Served with a Lemon Caper Sauce" />
+                <Item slot="dinner-stuffed-shrimp" fit="contain" alt="Stuffed shrimp with scallop and crabmeat" name="Stuffed Shrimp" desc="Scallop and Crabmeat Stuffed Jumbo Shrimp with Lemon Butter Sauce" />
               </div>
 
               {/* Vegan / Vegetarian */}
               <SubHead>Vegan / Vegetarian</SubHead>
               <div className={grid4}>
-                <Item slot="dinner-portabella-mushroom-tower" alt="Portabella mushroom tower with grilled vegetables" name="Portabella Mushroom Tower" desc="Grilled Eggplant, Peppers, Squash Stacked on Portabella with Balsamic Glaze" />
-                <Item slot="dinner-wild-mushroom-risotto" alt="Wild mushroom risotto with aged parmesan" name="Wild Mushroom Risotto" desc="With Aged Parmesan Cheese and Olive Oil" />
-                <Item slot="dinner-stuffed-eggplant" alt="Stuffed eggplant with vegetables and bread crumbs" name="Stuffed Eggplant" desc="Eggplant Stuffed with Carrots, Mushrooms, Celery, Peppers, Asparagus, Bread Crumbs" />
+                <Item slot="dinner-portabella-mushroom-tower" fit="contain" alt="Portabella mushroom tower with grilled vegetables" name="Portabella Mushroom Tower" desc="Grilled Eggplant, Peppers, Squash Stacked on Portabella with Balsamic Glaze" />
+                <Item slot="dinner-wild-mushroom-risotto" fit="contain" alt="Wild mushroom risotto with aged parmesan" name="Wild Mushroom Risotto" desc="With Aged Parmesan Cheese and Olive Oil" />
+                <Item slot="dinner-stuffed-eggplant" fit="contain" alt="Stuffed eggplant with vegetables and bread crumbs" name="Stuffed Eggplant" desc="Eggplant Stuffed with Carrots, Mushrooms, Celery, Peppers, Asparagus, Bread Crumbs" />
               </div>
 
               {/* Pork / Veal */}
               <SubHead>Pork / Veal</SubHead>
               <div className={grid4}>
-                <Item slot="dinner-pork-chop" alt="Grilled bone in pork chop with apple chutney" name="Grilled Bone-In Pork Chop" desc="Grilled to Perfection with Apple Brown Sugar Chutney or Pineapple Mango Cajun Sauce" />
-                <Item slot="dinner-veal-marsala" alt="Veal marsala with mushroom butter sauce" name="Veal Marsala" desc="Veal Cutlets Sauteed in a Marsala Wine, Mushroom, Butter Sauce" />
+                <Item slot="dinner-pork-chop" fit="contain" alt="Grilled bone in pork chop with apple chutney" name="Grilled Bone-In Pork Chop" desc="Grilled to Perfection with Apple Brown Sugar Chutney or Pineapple Mango Cajun Sauce" />
+                <Item slot="dinner-veal-marsala" fit="contain" alt="Veal marsala with mushroom butter sauce" name="Veal Marsala" desc="Veal Cutlets Sauteed in a Marsala Wine, Mushroom, Butter Sauce" />
               </div>
 
               {/* Coffee / Tea */}

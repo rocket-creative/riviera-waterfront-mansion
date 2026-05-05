@@ -741,7 +741,7 @@ export const imageConfig = {
     'dinner-roast-duck': ['/images/dinner-plates/_GS20450-riv-dp-ES.jpg'],
     'dinner-chicken-romano': ['/images/dinner-plates/_GS20392-riv-dp-ES.jpg'],
     'dinner-chicken-piccata': ['/images/dinner-plates/_GS20396-riv-dp-ES.jpg'],
-    'dinner-chicken-cordon-bleu': ['/images/dinner-plates/chicken-cordon-bleu.jpg'],
+    'dinner-chicken-cordon-bleu': [],
     'dinner-salmon': ['/images/dinner-plates/_GS20430-riv-dp-ES.jpg'],
     'dinner-striped-bass': ['/images/dinner-plates/_GS20435-riv-dp-ES.jpg'],
     'dinner-stuffed-flounder': ['/images/dinner-plates/_GS20440-riv-dp-ES.jpg'],

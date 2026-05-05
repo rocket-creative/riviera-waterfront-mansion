@@ -6,6 +6,7 @@ import Image from 'next/image';
 interface MenuImageProps {
   images: string[];
   alt: string;
+  fit?: 'cover' | 'contain';
 }
 
 function Placeholder() {
@@ -21,7 +22,7 @@ function Placeholder() {
   );
 }
 
-export default function MenuImage({ images, alt }: MenuImageProps) {
+export default function MenuImage({ images, alt, fit = 'cover' }: MenuImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set());
 
@@ -57,7 +58,7 @@ export default function MenuImage({ images, alt }: MenuImageProps) {
             src={src}
             alt={`${alt}${valid.length > 1 ? ` — ${idx + 1}` : ''}`}
             fill
-            className="object-cover object-center"
+            className={`${fit === 'contain' ? 'object-contain' : 'object-cover'} object-center`}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             onError={() => setFailedSrcs(prev => new Set([...prev, src]))}
           />
