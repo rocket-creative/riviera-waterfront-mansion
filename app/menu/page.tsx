@@ -124,7 +124,7 @@ export default function MenuPage() {
 
         {/* ── Cocktail Hour ─────────────────────────────────────────────────────── */}
         <section className="bg-stone-50">
-          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
+          <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel images={h['cocktail-hour']} interval={5500} alt="Cocktail hour at Riviera Waterfront Mansion" />
 
           </div>
@@ -184,7 +184,7 @@ export default function MenuPage() {
 
         {/* ── Hot Gourmet Dishes ───────────────────────────────────────────────── */}
         <section>
-          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
+          <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel images={h['hot-gourmet']} interval={5000} alt="Hot gourmet dishes at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -254,7 +254,7 @@ export default function MenuPage() {
 
         {/* ── Grand Ballroom ───────────────────────────────────────────────────── */}
         <section>
-          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
+          <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel images={h['ballroom']} interval={6000} alt="Grand ballroom wedding reception at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -373,7 +373,7 @@ export default function MenuPage() {
 
         {/* ── Enhancements, Add-ons & Exit Stations ───────────────────────────── */}
         <section className="bg-stone-50">
-          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
+          <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel images={h['enhancements-combined']} interval={4500} alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">

@@ -457,8 +457,6 @@ export const imageConfig = {
       '/images/cocktail-hour/hero-cold-displays.jpg',
       '/images/cocktail-hour/hero-carving-station.jpg',
       '/images/cocktail-hour/hero-hot-gourmet.jpg',
-      '/images/medium/_50M1199-jj-p.jpg',
-      '/images/medium/_50M1231-jj-p.jpg',
       // Cold displays & artisan boards
       '/images/cocktail-hour/seasonal-fruit-display.jpg',
       '/images/cocktail-hour/cold-meats-board.jpg',
