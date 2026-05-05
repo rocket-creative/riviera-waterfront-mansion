@@ -75,13 +75,13 @@ export default function MenuPage() {
           <div className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
-                Long Island wedding catering and chef inspired menu
+                Long Island Wedding Catering And Chef Inspired Menu
               </h1>
               <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto mb-4">
                 Our chef inspired Continental wedding menu will wow you and your guests from your first bite until your last. Experience exceptional Long Island wedding catering at Riviera Waterfront Mansion in Massapequa, NY.
               </p>
               <p className="text-base font-light text-riviera-text/70 max-w-2xl mx-auto">
-                With seasonal wedding menu options added regularly, please request an updated menu for your Long Island celebration. All Riviera waterfront weddings include a five hour top shelf open bar serving premium liquors, fine wines, champagne, and soft drinks throughout your reception.
+                With seasonal wedding menu options added regularly, please request an updated menu for your Long Island celebration. All Riviera Waterfront Weddings include a five hour top shelf open bar serving premium liquors, fine wines, champagne, and soft drinks throughout your reception.
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function MenuPage() {
         <section className="bg-riviera-gold py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
             <p className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-2">
-              Limited Long Island wedding dates available!
+              Limited Long Island Wedding Dates Available!
             </p>
             <p className="text-lg font-light mb-4">
               Call us today to check wedding date availability at our Long Island venue
@@ -109,7 +109,7 @@ export default function MenuPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-8 text-center">
-              Five hour top shelf open bar
+              Five Hour Top Shelf Open Bar
             </h2>
             <div className="bg-riviera-neutral p-8">
               <ul className="text-base font-light text-riviera-text/80 space-y-3">
@@ -132,11 +132,11 @@ export default function MenuPage() {
             <div className="max-w-5xl mx-auto">
 
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
-                Lavish cocktail hour
+                Lavish Cocktail Hour
               </h2>
               <div className="w-16 h-px bg-riviera-gold mx-auto mb-12" />
 
-              <SubHead>Gourmet cold displays &amp; artisan boards</SubHead>
+              <SubHead>Gourmet Cold Displays &amp; Artisan Boards</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Seasonal Fruit Display" desc="Bountiful seasonal fruits beautifully arranged" />
                 <TextItem name="Cold Meats Board" desc="Salami, Prosciutto, Mortadella, Pepperoni, Ham" />
@@ -146,7 +146,7 @@ export default function MenuPage() {
                 <TextItem name="Vegetable Crudité" desc="Individual Cones of Carrots, Peppers, Asparagus, Celery, Cherry Tomatoes" />
               </div>
 
-              <SubHead>Passed hot &amp; cold hors d&apos;oeuvres</SubHead>
+              <SubHead>Passed Hot &amp; Cold Hors D&apos;oeuvres</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Spanakopita" desc="Flaky phyllo dough filled with spinach and feta" />
                 <TextItem name="Kobe Slider" desc="Grilled Kobe beef with cheese on a fresh golden bun" />
@@ -160,13 +160,13 @@ export default function MenuPage() {
                 <TextItem name="Lemon Blueberry Crostini" desc="Toasted semolina bread with ricotta, blueberry jam, lemon zest" />
               </div>
 
-              <SubHead>Gourmet cold salads</SubHead>
+              <SubHead>Gourmet Cold Salads</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Riviera's Seafood Salad" desc="Shrimp, Mussels, Crabmeat in a Secret Recipe Dressing" />
                 <TextItem name="Greek Couscous Salad" desc="Mediterranean Couscous with Walnuts, Cranberries, Grapes, Feta" />
               </div>
 
-              <SubHead>Butcher block carving station</SubHead>
+              <SubHead>Butcher Block Carving Station</SubHead>
               <p className="text-[11px] tracking-widest text-riviera-gold mb-6 uppercase text-center -mt-6">Select two carved meats</p>
               <div className={menuGrid}>
                 <TextItem name="Brisket of Beef" desc="Cooked to Perfection with Mushroom Gravy" />
@@ -191,7 +191,7 @@ export default function MenuPage() {
             <div className="max-w-5xl mx-auto">
 
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
-                Hot gourmet dishes
+                Hot Gourmet Dishes
               </h2>
               <div className="w-16 h-px bg-riviera-gold mx-auto mb-3" />
               <p className="text-[11px] tracking-widest text-riviera-gold mb-10 text-center uppercase">Select eight hot dishes</p>
@@ -261,19 +261,21 @@ export default function MenuPage() {
             <div className="max-w-5xl mx-auto">
 
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-3 text-center">
-                Grand ballroom wedding reception
+                Grand Ballroom Wedding Reception
               </h2>
-              <p className="text-center text-sm font-light text-riviera-text/70 mb-2">
-                Seated plated dinner with champagne toast
-              </p>
-              <p className="text-center text-xs font-light text-riviera-text/50 mb-12">
-                All entree choices served with seasonal vegetables and your choice of garlic mashed potatoes, rice pilaf, or roasted red bliss potatoes. Dietary restrictions and gluten free options available.
-              </p>
+              <div className="text-center py-4 px-4 mb-12">
+                <p className="font-cormorant text-xl md:text-2xl font-light text-riviera-text mb-1.5 leading-tight">
+                  Champagne Toast
+                </p>
+                <p className="text-xs md:text-sm font-light text-riviera-text/65 italic leading-relaxed max-w-sm mx-auto">
+                  A chilled glass of crisp, refreshing bubbly, ready and waiting for each guest at their seat.
+                </p>
+              </div>
 
               {/* Duet Plates / Starters */}
               <div className="mb-12">
                 <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Duet plates &amp; starters
+                  Duet Plates &amp; Starters
                 </h3>
                 <div className={grid4}>
                   <Item slot="dinner-tomato-mozzarella" fit="contain" alt="Fresh tomato and mozzarella on mesclun greens" name="Fresh Tomato &amp; Mozzarella" desc="On a bed of Mesclun Greens with Aged Balsamic Vinaigrette" />
@@ -332,7 +334,7 @@ export default function MenuPage() {
               {/* Coffee / Tea */}
               <div className="text-center mt-14 pt-10 border-t border-stone-100">
                 <p className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-2">
-                  Finish with tableside coffee and tea service
+                  Finish With Tableside Coffee And Tea Service
                 </p>
                 <p className="text-sm font-light text-riviera-text/60">
                   Regular and decaffeinated coffee and tea served tableside at your reception
@@ -347,7 +349,7 @@ export default function MenuPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-riviera-neutral">
           <div className="max-w-5xl mx-auto">
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-12 text-center">
-              Included wedding day features
+              Included Wedding Day Features
             </h2>
             <div className="grid lg:grid-cols-2 gap-5 text-sm font-light text-riviera-text/80">
               {[
@@ -380,21 +382,21 @@ export default function MenuPage() {
             <div className="max-w-5xl mx-auto">
 
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
-                Wedding enhancements, add-ons &amp; exit stations
+                Wedding Enhancements, Add-Ons &amp; Exit Stations
               </h2>
               <div className="w-16 h-px bg-riviera-gold mx-auto mb-3" />
               <p className="text-xs text-riviera-text/50 mb-12 text-center tracking-wider uppercase">
                 Call (516) 541 5020 for current pricing and seasonal availability
               </p>
 
-              <SubHead>Welcome stations</SubHead>
+              <SubHead>Welcome Stations</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
                 <TextItem name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
                 <TextItem name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
               </div>
 
-              <SubHead>Cold cocktail hour additions</SubHead>
+              <SubHead>Cold Cocktail Hour Additions</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
                 <TextItem name="Jumbo Shrimp Cocktail" desc="On crushed ice with cocktail sauce and lemon wedges" />
@@ -408,7 +410,7 @@ export default function MenuPage() {
                 <TextItem name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
               </div>
 
-              <SubHead>Hot cocktail hour additions</SubHead>
+              <SubHead>Hot Cocktail Hour Additions</SubHead>
               <div className={menuGrid}>
                 <TextItem name="Bacon Station" desc="Bacon every way. Wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" />
                 <TextItem name="Taco Bar Station" desc="Hard and soft shells with chopped meat, shredded chicken, and toppings" />
@@ -424,7 +426,7 @@ export default function MenuPage() {
                 <TextItem name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
               </div>
 
-              <SubHead>Viennese dessert display</SubHead>
+              <SubHead>Viennese Dessert Display</SubHead>
               <p className="text-sm font-light text-riviera-text/70 mb-8 max-w-2xl mx-auto text-center -mt-6 italic">
                 Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
               </p>
@@ -439,7 +441,7 @@ export default function MenuPage() {
                 <TextItem name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
               </div>
 
-              <SubHead>Late night exit stations</SubHead>
+              <SubHead>Late Night Exit Stations</SubHead>
               <p className="text-sm font-light text-riviera-text/70 mb-8 max-w-2xl mx-auto text-center -mt-6 italic">
                 Send your guests home with a memorable parting treat. New options added regularly &mdash; call (516) 541 5020 for the latest.
               </p>
@@ -467,7 +469,7 @@ export default function MenuPage() {
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 text-center text-white bg-riviera-dark-brown">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide mb-6">
-              Customize your Long Island wedding menu
+              Customize Your Long Island Wedding Menu
             </h2>
             <p className="text-lg font-light mb-8 opacity-90">
               Contact our team to discuss your menu options and design your perfect Long Island waterfront wedding celebration.
