@@ -26,109 +26,38 @@ function Item({ slot, alt, name, desc }: { slot?: string; alt: string; name: str
   );
 }
 
-// Text-only listing for items without a photo (no placeholder, no empty image well)
+// Printed-menu style item: serif name with small italic description below
 function TextItem({ name, desc }: { name: string; desc: string }) {
   return (
-    <div className="py-3 border-l-2 border-riviera-gold/40 pl-4">
-      <p className="text-xs tracking-widest uppercase text-riviera-gold mb-1 leading-snug">{name}</p>
-      <p className="text-[11px] font-light text-riviera-text/60 leading-relaxed">{desc}</p>
+    <div className="text-center py-4 px-4">
+      <p className="font-cormorant text-xl md:text-2xl font-light text-riviera-text mb-1.5 leading-tight">{name}</p>
+      <p className="text-xs md:text-sm font-light text-riviera-text/65 italic leading-relaxed max-w-sm mx-auto">{desc}</p>
     </div>
   );
 }
 
-// Divider label for sub-categories
+// Alias for prior callers; same printed-menu look, no card chrome
+function TextOnlyTile({ name, desc }: { name: string; desc: string }) {
+  return <TextItem name={name} desc={desc} />;
+}
+
+// Centered subsection heading with a thin gold rule below
 function SubHead({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="font-cormorant text-lg font-light tracking-wide text-riviera-text mb-4 mt-10 first:mt-0 pb-2 border-b border-stone-200">
-      {children}
-    </h4>
+    <>
+      <h4 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mt-12 first:mt-0 text-center">
+        {children}
+      </h4>
+      <div className="w-10 h-px bg-riviera-gold mx-auto mt-3 mb-8" />
+    </>
   );
 }
 
+// Shared two-column menu list grid for text-only sections
+const menuGrid = 'grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-1 max-w-3xl mx-auto';
+
+// Image-card grid retained for the Grand Ballroom dinner section
 const grid4 = 'grid grid-cols-1 lg:grid-cols-4 gap-4';
-
-// ── Magazine collage primitives (Enhancements section only) ──────────────────
-
-// Tall hero tile: large photo with name+desc overlaid on a translucent strip
-function FeatureItem({
-  slot,
-  alt,
-  name,
-  desc,
-  className = '',
-}: { slot: string; alt: string; name: string; desc: string; className?: string }) {
-  if (!hasImages(slot)) return <TextOnlyTile name={name} desc={desc} className={className} />;
-  return (
-    <div className={`relative overflow-hidden bg-stone-100 group ${className}`}>
-      <MenuImage images={m[slot]} alt={alt} />
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-5 pt-16">
-        <p className="text-[11px] tracking-[0.25em] uppercase text-riviera-gold mb-1.5">{name}</p>
-        <p className="text-xs md:text-sm font-light text-white/90 leading-relaxed max-w-md">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-// Wide landscape tile: image on left half, text on right half inside the same cell
-function WideItem({
-  slot,
-  alt,
-  name,
-  desc,
-  className = '',
-}: { slot: string; alt: string; name: string; desc: string; className?: string }) {
-  if (!hasImages(slot)) return <TextOnlyTile name={name} desc={desc} className={className} />;
-  return (
-    <div className={`grid grid-cols-2 bg-white overflow-hidden ${className}`}>
-      <div className="relative bg-stone-100">
-        <MenuImage images={m[slot]} alt={alt} />
-      </div>
-      <div className="flex flex-col justify-center px-5 py-4 bg-stone-50">
-        <p className="text-[11px] tracking-[0.25em] uppercase text-riviera-gold mb-1.5">{name}</p>
-        <p className="text-[11px] font-light text-riviera-text/70 leading-relaxed">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-// Square tile: image fills the cell, name+desc below in the same cell
-function SquareItem({
-  slot,
-  alt,
-  name,
-  desc,
-  className = '',
-}: { slot: string; alt: string; name: string; desc: string; className?: string }) {
-  if (!hasImages(slot)) return <TextOnlyTile name={name} desc={desc} className={className} />;
-  return (
-    <div className={`flex flex-col bg-white overflow-hidden ${className}`}>
-      <div className="relative flex-1 bg-stone-100">
-        <MenuImage images={m[slot]} alt={alt} />
-      </div>
-      <div className="px-3 py-2.5 bg-stone-50">
-        <p className="text-[10px] tracking-[0.2em] uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
-        <p className="text-[10px] font-light text-riviera-text/65 leading-snug line-clamp-2">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-// Text-only tile sized to fit the same grid cells as image tiles
-function TextOnlyTile({
-  name,
-  desc,
-  className = '',
-}: { name: string; desc: string; className?: string }) {
-  return (
-    <div className={`flex flex-col justify-center bg-stone-50 border-l-2 border-riviera-gold/50 px-5 py-5 ${className}`}>
-      <p className="text-[11px] tracking-[0.25em] uppercase text-riviera-gold mb-2">{name}</p>
-      <p className="text-xs font-light text-riviera-text/70 leading-relaxed">{desc}</p>
-    </div>
-  );
-}
-
-// Asymmetric collage grid wrapper for an enhancements subsection
-const collageGrid = 'grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 auto-rows-[180px] md:auto-rows-[200px]';
 
 export default function MenuPage() {
   return (
@@ -201,70 +130,51 @@ export default function MenuPage() {
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
 
-              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-12 text-center">
+              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
                 Lavish cocktail hour
               </h2>
+              <div className="w-16 h-px bg-riviera-gold mx-auto mb-12" />
 
-              {/* Cold Displays */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Gourmet cold displays &amp; artisan boards
-                </h3>
-                <div className={grid4}>
-                  <TextItem name="Seasonal Fruit Display" desc="Bountiful seasonal fruits beautifully arranged" />
-                  <TextItem name="Cold Meats Board" desc="Salami, Prosciutto, Mortadella, Pepperoni, Ham" />
-                  <TextItem name="Assorted Cheeseboard" desc="Smoked Gouda, Cheddar, Colby Jack, Provolone, Swiss with Artisan Crackers" />
-                  <TextItem name="Mediterranean Board" desc="Grape Leaves, Kalamata Olives, Mushrooms, Feta, Giardiniera" />
-                  <TextItem name="Homemade Antipasto Salad" desc="Artichoke Hearts, Olives, Sun Dried Tomatoes, Provolone, Prosciutto in Italian Dressing" />
-                  <TextItem name="Vegetable Crudité" desc="Individual Cones of Carrots, Peppers, Asparagus, Celery, Cherry Tomatoes" />
-                </div>
+              <SubHead>Gourmet cold displays &amp; artisan boards</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Seasonal Fruit Display" desc="Bountiful seasonal fruits beautifully arranged" />
+                <TextItem name="Cold Meats Board" desc="Salami, Prosciutto, Mortadella, Pepperoni, Ham" />
+                <TextItem name="Assorted Cheeseboard" desc="Smoked Gouda, Cheddar, Colby Jack, Provolone, Swiss with Artisan Crackers" />
+                <TextItem name="Mediterranean Board" desc="Grape Leaves, Kalamata Olives, Mushrooms, Feta, Giardiniera" />
+                <TextItem name="Homemade Antipasto Salad" desc="Artichoke Hearts, Olives, Sun Dried Tomatoes, Provolone, Prosciutto in Italian Dressing" />
+                <TextItem name="Vegetable Crudité" desc="Individual Cones of Carrots, Peppers, Asparagus, Celery, Cherry Tomatoes" />
               </div>
 
-              {/* Passed Hors d'oeuvres */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Passed hot &amp; cold hors d&apos;oeuvres
-                </h3>
-                <div className={grid4}>
-                  <TextItem name="Spanakopita" desc="Flaky phyllo dough filled with spinach and feta" />
-                  <TextItem name="Kobe Slider" desc="Grilled Kobe beef with cheese on a fresh golden bun" />
-                  <TextItem name="Spring Rolls" desc="Flaky wrapped Asian inspired vegetables" />
-                  <TextItem name="Miniature Empanadas" desc="Meat filled, crescent shaped pastry" />
-                  <TextItem name="Zucchini Sticks" desc="Lightly breaded and fried" />
-                  <TextItem name="Bourbon Chicken Bites" desc="White meat chicken wrapped in smoked bacon with a bourbon glaze" />
-                  <TextItem name="Fried Coconut Shrimp" desc="Jumbo shrimp battered with toasted coconut flakes" />
-                  <TextItem name="Mini Tacos" desc="Meat filling, fresh pico de gallo, sour cream" />
-                  <TextItem name="Date Night" desc="Dates stuffed with goat cheese, wrapped in prosciutto" />
-                  <TextItem name="Lemon Blueberry Crostini" desc="Toasted semolina bread with ricotta, blueberry jam, lemon zest" />
-                </div>
+              <SubHead>Passed hot &amp; cold hors d&apos;oeuvres</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Spanakopita" desc="Flaky phyllo dough filled with spinach and feta" />
+                <TextItem name="Kobe Slider" desc="Grilled Kobe beef with cheese on a fresh golden bun" />
+                <TextItem name="Spring Rolls" desc="Flaky wrapped Asian inspired vegetables" />
+                <TextItem name="Miniature Empanadas" desc="Meat filled, crescent shaped pastry" />
+                <TextItem name="Zucchini Sticks" desc="Lightly breaded and fried" />
+                <TextItem name="Bourbon Chicken Bites" desc="White meat chicken wrapped in smoked bacon with a bourbon glaze" />
+                <TextItem name="Fried Coconut Shrimp" desc="Jumbo shrimp battered with toasted coconut flakes" />
+                <TextItem name="Mini Tacos" desc="Meat filling, fresh pico de gallo, sour cream" />
+                <TextItem name="Date Night" desc="Dates stuffed with goat cheese, wrapped in prosciutto" />
+                <TextItem name="Lemon Blueberry Crostini" desc="Toasted semolina bread with ricotta, blueberry jam, lemon zest" />
               </div>
 
-              {/* Cold Salads */}
-              <div className="mb-12">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Gourmet cold salads
-                </h3>
-                <div className={grid4}>
-                  <TextItem name="Riviera's Seafood Salad" desc="Shrimp, Mussels, Crabmeat in a Secret Recipe Dressing" />
-                  <TextItem name="Greek Couscous Salad" desc="Mediterranean Couscous with Walnuts, Cranberries, Grapes, Feta" />
-                </div>
+              <SubHead>Gourmet cold salads</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Riviera's Seafood Salad" desc="Shrimp, Mussels, Crabmeat in a Secret Recipe Dressing" />
+                <TextItem name="Greek Couscous Salad" desc="Mediterranean Couscous with Walnuts, Cranberries, Grapes, Feta" />
               </div>
 
-              {/* Carving Station */}
-              <div>
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-1">
-                  Butcher block carving station
-                </h3>
-                <p className="text-[11px] tracking-widest text-riviera-gold mb-6 uppercase">Select two carved meats</p>
-                <div className={grid4}>
-                  <TextItem name="Brisket of Beef" desc="Cooked to Perfection with Mushroom Gravy" />
-                  <TextItem name="Pastrami" desc="Spicy Brown Mustard, Russian Dressing, Sliced Rye Bread" />
-                  <TextItem name="Marinated London Broil" desc="Garlic Bread, Horseradish Sauce, Beef Gravy" />
-                  <TextItem name="Roast Pork Tenderloin" desc="In a Garlic Herb Crust" />
-                  <TextItem name="Corned Beef" desc="Spicy Brown Mustard, Sauerkraut, Sliced Rye Bread" />
-                  <TextItem name="Roasted Whole Turkey" desc="With Cranberry Chutney" />
-                  <TextItem name="Glazed Virginia Ham" desc="Roasted Pineapples and Dijon Mustard" />
-                </div>
+              <SubHead>Butcher block carving station</SubHead>
+              <p className="text-[11px] tracking-widest text-riviera-gold mb-6 uppercase text-center -mt-6">Select two carved meats</p>
+              <div className={menuGrid}>
+                <TextItem name="Brisket of Beef" desc="Cooked to Perfection with Mushroom Gravy" />
+                <TextItem name="Pastrami" desc="Spicy Brown Mustard, Russian Dressing, Sliced Rye Bread" />
+                <TextItem name="Marinated London Broil" desc="Garlic Bread, Horseradish Sauce, Beef Gravy" />
+                <TextItem name="Roast Pork Tenderloin" desc="In a Garlic Herb Crust" />
+                <TextItem name="Corned Beef" desc="Spicy Brown Mustard, Sauerkraut, Sliced Rye Bread" />
+                <TextItem name="Roasted Whole Turkey" desc="With Cranberry Chutney" />
+                <TextItem name="Glazed Virginia Ham" desc="Roasted Pineapples and Dijon Mustard" />
               </div>
 
             </div>
@@ -273,16 +183,20 @@ export default function MenuPage() {
 
         {/* ── Hot Gourmet Dishes ───────────────────────────────────────────────── */}
         <section>
+          <div className="h-[360px] md:h-[520px] w-full overflow-hidden">
+            <HeroCarousel images={h['hot-gourmet']} interval={5000} alt="Hot gourmet dishes at Riviera Waterfront Mansion" />
+          </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
 
-              <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-1 text-center">
+              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
                 Hot gourmet dishes
               </h2>
+              <div className="w-16 h-px bg-riviera-gold mx-auto mb-3" />
               <p className="text-[11px] tracking-widest text-riviera-gold mb-10 text-center uppercase">Select eight hot dishes</p>
 
               <SubHead>Poultry</SubHead>
-              <div className={grid4}>
+              <div className={menuGrid}>
                 <TextItem name="Chicken Pina Colada" desc="Sauteed Chicken with Pineapples in Cream of Coconut Sauce" />
                 <TextItem name="Chicken Marsala" desc="Sauteed Chicken in Sweet Marsala Wine and Mushroom Sauce" />
                 <TextItem name="Chicken Scarpariello" desc="Roasted Chicken, Sausage, Potatoes, Peppers in Lemon Garlic Sauce" />
@@ -293,7 +207,7 @@ export default function MenuPage() {
               </div>
 
               <SubHead>Pasta</SubHead>
-              <div className={grid4}>
+              <div className={menuGrid}>
                 <TextItem name="Tortellini / Fettuccine Alfredo" desc="Smothered in our incredible Alfredo sauce" />
                 <TextItem name="Rigatoni with Prosciutto" desc="White Cream Sauce, Parmesan, Prosciutto, Peas" />
                 <TextItem name="Penne Ala Vodka" desc="A fan favorite!" />
@@ -304,13 +218,13 @@ export default function MenuPage() {
               </div>
 
               <SubHead>Vegan &amp; Vegetarian</SubHead>
-              <div className={grid4}>
+              <div className={menuGrid}>
                 <TextItem name="Eggplant Rollatini" desc="Pan Fried Eggplant Stuffed with Ricotta, Mozzarella, Parmesan in Marinara" />
                 <TextItem name="Vegetable Stir Fry" desc="Fresh Vegetables Sauteed with choice of Garlic Oil, Marinara, or Teriyaki" />
               </div>
 
               <SubHead>Seafood</SubHead>
-              <div className={grid4}>
+              <div className={menuGrid}>
                 <TextItem name="Fried Calamari" desc="Succulent crispy calamari" />
                 <TextItem name="Seafood Paella" desc="Clams, Mussels, Shrimp in Saffron Seasoned Rice" />
                 <TextItem name="Seafood Newburg" desc="Scallops, Shrimp, Crabmeat in a Sherry White Cream Sauce" />
@@ -322,7 +236,7 @@ export default function MenuPage() {
               </div>
 
               <SubHead>Beef</SubHead>
-              <div className={grid4}>
+              <div className={menuGrid}>
                 <TextItem name="Swedish Meatballs" desc="Ground Beef and Pork Baked in a Cream Gravy Sauce" />
                 <TextItem name="Beef Teriyaki" desc="Sliced Beef in Teriyaki Sauce with Chinese Vegetables over Lo Mein" />
                 <TextItem name="Italian Meatballs" desc="Ground Beef and Pork in Our Homemade Tomato Sauce" />
@@ -467,115 +381,81 @@ export default function MenuPage() {
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-2 text-center">
                 Wedding enhancements, add-ons &amp; exit stations
               </h2>
+              <div className="w-16 h-px bg-riviera-gold mx-auto mb-3" />
               <p className="text-xs text-riviera-text/50 mb-12 text-center tracking-wider uppercase">
                 Call (516) 541 5020 for current pricing and seasonal availability
               </p>
 
-              {/* Welcome Stations — small intro collage */}
-              <div className="mb-14">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Welcome stations
-                </h3>
-                <div className={collageGrid}>
-                  <TextOnlyTile name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" className="md:col-span-2" />
-                  <TextOnlyTile name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
-                  <TextOnlyTile name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
-                </div>
+              <SubHead>Welcome stations</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Welcome Snack Station" desc="Fruits, biscotti, and assorted Italian cookies for arriving guests" />
+                <TextItem name="Bridal Suite Wrap Platter" desc="Assorted wraps for bridal suite arrival: ham, turkey, roast beef, veggie" />
+                <TextItem name="Early Arrival for Photography" desc="Additional time on the grounds before your event begins" />
               </div>
 
-              {/* Cold cocktail hour additions */}
-              <div className="mb-14">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Cold cocktail hour additions
-                </h3>
-                <div className={collageGrid}>
-                  <TextOnlyTile name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" className="row-span-2 col-span-2 md:col-span-1" />
-                  <TextOnlyTile name="Jumbo Shrimp Cocktail" desc="On crushed ice with cocktail sauce and lemon wedges" />
-                  <TextOnlyTile name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display" />
-                  <TextOnlyTile name="Fresh Sushi Bar" desc="Traditional sushi boats with a large variety of handmade rolls" className="row-span-2 col-span-2 md:col-span-1" />
-
-                  <TextOnlyTile name="Fresh Clam & Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, horseradish" className="col-span-2" />
-
-                  <TextOnlyTile name="Lobster Tail Station" desc="Chilled lobster tails on crushed ice display (market price)" />
-                  <TextOnlyTile name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
-                  <TextOnlyTile name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
-                  <TextOnlyTile name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
-                  <TextOnlyTile name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." className="col-span-2" />
-                </div>
+              <SubHead>Cold cocktail hour additions</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Whole Lobster Station" desc="Chilled whole lobsters on a crushed ice display (market price)" />
+                <TextItem name="Jumbo Shrimp Cocktail" desc="On crushed ice with cocktail sauce and lemon wedges" />
+                <TextItem name="Alaskan Crab Legs" desc="Chilled Alaskan crab legs on a crushed ice display" />
+                <TextItem name="Fresh Sushi Bar" desc="Traditional sushi boats with a large variety of handmade rolls" />
+                <TextItem name="Fresh Clam &amp; Oyster Bar" desc="Shucked to order with Tabasco, lemon wedges, horseradish" />
+                <TextItem name="Lobster Tail Station" desc="Chilled lobster tails on crushed ice display (market price)" />
+                <TextItem name="Fresh Mozzarella Station" desc="Fresh mozzarella with prosciutto, cured meats, tomatoes, artisan breads" />
+                <TextItem name="Rolling Bar" desc="Indoor or outdoor beer and wine rolling bar" />
+                <TextItem name="Full Rolling Bar" desc="Indoor or outdoor rolling bar with full selection of top shelf alcohol" />
+                <TextItem name="Ice Sculpture" desc="Choose from a large selection through Apple Ice Inc." />
               </div>
 
-              {/* Hot cocktail hour additions */}
-              <div className="mb-14">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-6">
-                  Hot cocktail hour additions
-                </h3>
-                <div className={collageGrid}>
-                  <TextOnlyTile name="Bacon Station" desc="Bacon every way. Wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" className="row-span-2 col-span-2" />
-                  <TextOnlyTile name="Taco Bar Station" desc="Hard and soft shells with chopped meat, shredded chicken, and toppings" />
-                  <TextOnlyTile name="French Fry Station" desc="Waffle, curly, classic, or sweet potato fries with dips" />
-
-                  <TextOnlyTile name="Pierogi Station" desc="Sauteed onions, sour cream, chives, and cheddar" className="col-span-2" />
-
-                  <TextOnlyTile name="Additional Chafing Dish" desc="Choose from our variety of chafing dishes" />
-                  <TextOnlyTile name="Additional Carving Meat" desc="Choose from our variety of carving board meats" />
-                  <TextOnlyTile name="Baby Lamb Chops" desc="As an extra carving board meat or as passed hors d'oeuvres" />
-                  <TextOnlyTile name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
-                  <TextOnlyTile name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with toppings" />
-                  <TextOnlyTile name="Mac & Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional" />
-                  <TextOnlyTile name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
-                  <TextOnlyTile name="Fried Chicken & Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
-                </div>
+              <SubHead>Hot cocktail hour additions</SubHead>
+              <div className={menuGrid}>
+                <TextItem name="Bacon Station" desc="Bacon every way. Wrapped asparagus, stuffed mushrooms, BLT skewers, scallops, and more" />
+                <TextItem name="Taco Bar Station" desc="Hard and soft shells with chopped meat, shredded chicken, and toppings" />
+                <TextItem name="French Fry Station" desc="Waffle, curly, classic, or sweet potato fries with dips" />
+                <TextItem name="Pierogi Station" desc="Sauteed onions, sour cream, chives, and cheddar" />
+                <TextItem name="Additional Chafing Dish" desc="Choose from our variety of chafing dishes" />
+                <TextItem name="Additional Carving Meat" desc="Choose from our variety of carving board meats" />
+                <TextItem name="Baby Lamb Chops" desc="As an extra carving board meat or as passed hors d'oeuvres" />
+                <TextItem name="Roast Suckling Pig" desc="Whole roasted suckling pig as an extra carving station" />
+                <TextItem name="Mashed Potato Bar" desc="Choice of two: sweet, garlic, or plain with toppings" />
+                <TextItem name="Mac &amp; Cheese Station" desc="Choice of two: smoked Gouda prosciutto, bacon cheddar, traditional" />
+                <TextItem name="Gourmet Pasta Station" desc="Choose three pastas and three sauces from our full selection" />
+                <TextItem name="Fried Chicken &amp; Glazed Donut" desc="Golden fried chicken meets pillowy glazed donuts" />
               </div>
 
-              {/* Viennese — Full Viennese hero + sweets collage */}
-              <div className="mb-14">
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-2">
-                  Viennese dessert display
-                </h3>
-                <p className="text-sm font-light text-riviera-text/70 mb-6 max-w-3xl">
-                  Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
-                </p>
-                <div className={collageGrid}>
-                  <TextOnlyTile name="Full Viennese" desc="Cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" className="row-span-2 col-span-2" />
-                  <TextOnlyTile name="Donut Wall" desc="Assorted donuts displayed on a white wall" />
-                  <TextOnlyTile name="S'mores Station" desc="Cookies, chocolates, and crackers with open flames" />
-
-                  <TextOnlyTile name="Gelato Bar" desc="Choose four amazing flavors of gelato" />
-                  <TextOnlyTile name="Ice Cream Sundae Bar" desc="Two flavors with a full selection of toppings" />
-
-                  <TextOnlyTile name="Espresso & Cordial Station" desc="After dinner cordials with our famous espresso and cappuccino" className="col-span-2" />
-
-                  <TextOnlyTile name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" className="col-span-2" />
-                  <TextOnlyTile name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" className="col-span-2" />
-                </div>
+              <SubHead>Viennese dessert display</SubHead>
+              <p className="text-sm font-light text-riviera-text/70 mb-8 max-w-2xl mx-auto text-center -mt-6 italic">
+                Our Viennese takes place in our cocktail hour room without taking away from your party time, adding a world of sweet treats for all your guests.
+              </p>
+              <div className={menuGrid}>
+                <TextItem name="Full Viennese" desc="Cakes, pies, cannolis, rainbow cookies, pastries, cake pops, ice cream sundae bar" />
+                <TextItem name="Donut Wall" desc="Assorted donuts displayed on a white wall" />
+                <TextItem name="S'mores Station" desc="Cookies, chocolates, and crackers with open flames" />
+                <TextItem name="Gelato Bar" desc="Choose four amazing flavors of gelato" />
+                <TextItem name="Ice Cream Sundae Bar" desc="Two flavors with a full selection of toppings" />
+                <TextItem name="Espresso &amp; Cordial Station" desc="After dinner cordials with our famous espresso and cappuccino" />
+                <TextItem name="Roaming Cannoli" desc="Roaming service with freshly filled cannolis" />
+                <TextItem name="Rainbow Explosion" desc="Rainbow cookies every way: crumb cake, black and white, cupcakes, stuffed brownies" />
               </div>
 
-              {/* Late night exit stations — White Castle hero + savory/sweet collage */}
-              <div>
-                <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-2">
-                  Late night exit stations
-                </h3>
-                <p className="text-sm font-light text-riviera-text/70 mb-6 max-w-3xl">
-                  Send your guests home with a memorable parting treat. New options added regularly — call (516) 541 5020 for the latest.
-                </p>
-                <div className={collageGrid}>
-                  <TextOnlyTile name="White Castle Slider Station" desc="Iconic White Castle sliders served as guests head home" className="row-span-2 col-span-2" />
-                  <TextOnlyTile name="All American Burger Station" desc="Hamburgers, cheeseburgers, and french fries" />
-                  <TextOnlyTile name="Apple Cider Donut Station" desc="Warm cinnamon sugar apple cider donuts" />
-
-                  <TextOnlyTile name="Donut Wall" desc="Assorted donuts as guests head home" />
-                  <TextOnlyTile name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
-
-                  <TextOnlyTile name="Morning Glory Station" desc="Bacon, sausage, ham, egg and cheese on Kaiser rolls" className="col-span-2" />
-                  <TextOnlyTile name="Chips & Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and Gatorade" className="col-span-2" />
-
-                  <TextOnlyTile name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
-                  <TextOnlyTile name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
-                  <TextOnlyTile name="Ramen Exit Station" desc="Individual instant cups of ramen" />
-                  <TextOnlyTile name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
-                  <TextOnlyTile name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" className="col-span-2" />
-                  <TextOnlyTile name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" className="col-span-2" />
-                </div>
+              <SubHead>Late night exit stations</SubHead>
+              <p className="text-sm font-light text-riviera-text/70 mb-8 max-w-2xl mx-auto text-center -mt-6 italic">
+                Send your guests home with a memorable parting treat. New options added regularly &mdash; call (516) 541 5020 for the latest.
+              </p>
+              <div className={menuGrid}>
+                <TextItem name="White Castle Slider Station" desc="Iconic White Castle sliders served as guests head home" />
+                <TextItem name="All American Burger Station" desc="Hamburgers, cheeseburgers, and french fries" />
+                <TextItem name="Apple Cider Donut Station" desc="Warm cinnamon sugar apple cider donuts" />
+                <TextItem name="Donut Wall" desc="Assorted donuts as guests head home" />
+                <TextItem name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />
+                <TextItem name="Morning Glory Station" desc="Bacon, sausage, ham, egg and cheese on Kaiser rolls" />
+                <TextItem name="Chips &amp; Gatorade Display" desc="Individually packaged chips, pretzels, Doritos, and Gatorade" />
+                <TextItem name="Stuffed Bomboloni Bar" desc="Choice of two fillings: pistachio, Nutella, cannoli cream, or raspberry" />
+                <TextItem name="Stuffed Garlic Knot Station" desc="Warm buttery garlic knots stuffed with ham, salami, or provolone" />
+                <TextItem name="Ramen Exit Station" desc="Individual instant cups of ramen" />
+                <TextItem name="Popcorn Station" desc="Individual bags of popcorn in an assortment of flavors" />
+                <TextItem name="Empanada Station" desc="Corn flour beef and chicken empanadas with choice of additional filling" />
+                <TextItem name="Custom Station" desc="Have an idea unlike any other — give us your vision and we will make it happen" />
               </div>
 
             </div>
