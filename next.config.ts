@@ -35,6 +35,10 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  // googleapis ships its own nested node-fetch that Next's webpack resolves to
+  // ESM source files, breaking the build. Marking it external keeps it in
+  // node's runtime resolver where it works correctly.
+  serverExternalPackages: ['googleapis', 'gaxios', 'google-auth-library'],
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [393, 810, 1024, 1440, 1920, 3840],
