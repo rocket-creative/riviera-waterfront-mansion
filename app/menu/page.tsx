@@ -17,7 +17,7 @@ function Item({ slot, alt, name, desc, fit = 'contain' }: { slot?: string; alt: 
   if (!hasImages(slot)) return <TextItem name={name} desc={desc} />;
   return (
     <div>
-      <div className="relative mb-2 aspect-video w-full overflow-hidden bg-stone-100">
+      <div className="relative mb-2 aspect-square w-full overflow-hidden bg-stone-100">
         <MenuImage images={m[slot!]} alt={alt} fit={fit} />
       </div>
       <p className="text-xs tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
@@ -56,8 +56,8 @@ function SubHead({ children }: { children: React.ReactNode }) {
 // Shared two-column menu list grid for text-only sections
 const menuGrid = 'grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-1 max-w-3xl mx-auto';
 
-// Image-card grid retained for the Grand Ballroom dinner section
-const grid4 = 'grid grid-cols-1 lg:grid-cols-4 gap-4';
+// Image-card grid: one column on mobile, two from tablet, four on xl
+const grid4 = 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4';
 
 export default function MenuPage() {
   return (

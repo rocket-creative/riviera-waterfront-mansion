@@ -59,7 +59,7 @@ export default function MenuImage({ images, alt, fit = 'contain' }: MenuImagePro
             alt={`${alt}${valid.length > 1 ? ` — ${idx + 1}` : ''}`}
             fill
             className={`${fit === 'contain' ? 'object-contain' : 'object-cover'} object-center`}
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            sizes="(max-width: 767px) 92vw, (max-width: 1279px) 45vw, 22vw"
             onError={() => setFailedSrcs(prev => new Set([...prev, src]))}
           />
         </div>
