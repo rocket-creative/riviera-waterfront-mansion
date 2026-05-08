@@ -2,6 +2,12 @@ import { writeFileSync } from 'fs';
 import { join } from 'path';
 import { NextResponse } from 'next/server';
 
+/**
+ * Persists edits from /admin/image-manager by rewriting app/lib/imageConfig.ts.
+ *
+ * IMPORTANT: Saves are disabled in production (returns 404). On Vercel there is no
+ * separate server-side image store; only this repo file (and static public assets) apply.
+ */
 export async function POST(request: Request) {
   if (process.env.NODE_ENV === 'production') {
     return new NextResponse('Not Found', { status: 404 });
@@ -143,18 +149,56 @@ ${menuImageLines.join('\n')}
   },
 };
 
+const TOUR_GRID_PREVIEW_MAX = 8;
+
+/** Client-requested exclusions: identifiable couple-heavy frames (stay out of venue marketing galleries). Match literals in save-config/route.ts generateImageConfigTs output. */
+const BANNED_TOUR_MARKETING_SUBSTRINGS = [
+  'dsc07552-mc-d-6f2bb2bf',
+  'dsc07530-mc-d-6b6ebd24',
+  'dsc04305-web-fa6b6ecf',
+  'dsc02284-mc-d-ef3e99ba',
+] as const;
+
+function tourPathBannedFromVenueMarketing(src: string): boolean {
+  const f = src.toLowerCase();
+  return BANNED_TOUR_MARKETING_SUBSTRINGS.some(sub => f.includes(sub));
+}
+
+/** Filenames tagged as portrait exports in shared naming (listing grid favors landscape shots). */
+function tourPathLooksPortraitTagged(src: string): boolean {
+  const f = src.toLowerCase();
+  return f.includes('-port-') || f.includes('_port-') || f.includes('aa-port');
+}
+
+function pickTourGridPreviewPaths(paths: string[], max: number): string[] {
+  const noBan = paths.filter((p) => !tourPathBannedFromVenueMarketing(p));
+  const landscape = noBan.filter((p) => !tourPathLooksPortraitTagged(p));
+  const pool = landscape.length ? landscape : noBan;
+  return pool.slice(0, max);
+}
+
 /**
  * Get images for a specific tour section
  */
 export function getTourImages(slug: string): string[] {
-  return imageConfig.tour[slug as keyof typeof imageConfig.tour] || [];
+  const raw = imageConfig.tour[slug as keyof typeof imageConfig.tour] || [];
+  return raw.filter((p) => !tourPathBannedFromVenueMarketing(p));
 }
 
 /**
- * Get preview images for tour section (slideshow array)
+ * Tour listing grid slideshow: first landscapes from section gallery, capped for performance.
  */
 export function getTourPreviews(slug: string): string[] {
-  return (imageConfig.tourPreviews[slug as keyof typeof imageConfig.tourPreviews] as string[] | undefined) ?? [];
+  const key = slug as keyof typeof imageConfig.tour;
+  const gallery = imageConfig.tour[key];
+  if (Array.isArray(gallery) && gallery.length > 0) {
+    const allowed = gallery.filter((p) => !tourPathBannedFromVenueMarketing(p));
+    if (allowed.length > 0) {
+      return pickTourGridPreviewPaths(allowed, TOUR_GRID_PREVIEW_MAX);
+    }
+  }
+  const curated = imageConfig.tourPreviews[key as keyof typeof imageConfig.tourPreviews] as string[] | undefined;
+  return curated?.length ? pickTourGridPreviewPaths(curated, TOUR_GRID_PREVIEW_MAX) : [];
 }
 
 /**

@@ -200,7 +200,6 @@ export const imageConfig = {
       '/images/tour/main-ballroom/CAB-0782-mc-d-f521fc78-1920w.jpg',
       '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',
       '/images/tour/main-ballroom/DSC01547-mc-d-ae0c399a-1920w.jpg',
-      '/images/tour/main-ballroom/DSC04305-web-fa6b6ecf-1920w.jpg',
       '/images/tour/main-ballroom/DSC04661-web-2c3d07f6-1920w.jpg',
       '/images/tour/main-ballroom/DSC07011-mc-d-b6cb9b24-1920w.jpg',
       '/images/tour/main-ballroom/DSC08201-web-e1e96a80-1920w.jpg',
@@ -325,10 +324,6 @@ export const imageConfig = {
       '/images/tour/dancefloor/AR306566jd-p-mc-d-36b90335-1920w.jpg',
       '/images/tour/photo-locations/CAB-0690-mc-d-0dfe19f6-1920w.jpg',
       '/images/tour/balconies/DJI_0036-mc-d-1920w.jpg',
-      '/images/tour/photo-locations/DSC02284-mc-d-ef3e99ba-1920w.jpg',
-      '/images/tour/balconies/DSC04305-web-fa6b6ecf-1920w.jpg',
-      '/images/tour/photo-locations/DSC07530-mc-d-6b6ebd24-1920w.jpg',
-      '/images/tour/photo-locations/DSC07552-mc-d-6f2bb2bf-1920w.jpg',
       '/images/tour/photo-locations/DSC07773-mc-d-5460bf87-1920w.jpg',
       '/images/tour/outdoor-ceremony/DSC07826-mc-d-95f6b4c7-1920w.jpg',
       '/images/tour/photo-locations/DSC08078-web-fa714298-1920w.jpg',
@@ -553,7 +548,6 @@ export const imageConfig = {
       '/images/tour/main-ballroom/CAB-0782-mc-d-f521fc78-1920w.jpg',
       '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',
       '/images/tour/main-ballroom/DSC01547-mc-d-ae0c399a-1920w.jpg',
-      '/images/tour/main-ballroom/DSC04305-web-fa6b6ecf-1920w.jpg',
       '/images/tour/main-ballroom/DSC04661-web-2c3d07f6-1920w.jpg',
       '/images/tour/main-ballroom/DSC07011-mc-d-b6cb9b24-1920w.jpg',
       '/images/tour/main-ballroom/DSC08201-web-e1e96a80-1920w.jpg',
@@ -785,6 +779,19 @@ export const imageConfig = {
 
 const TOUR_GRID_PREVIEW_MAX = 8;
 
+/** Client-requested exclusions: identifiable couple-heavy frames (stay out of venue marketing galleries). Match literals in save-config/route.ts generateImageConfigTs output. */
+const BANNED_TOUR_MARKETING_SUBSTRINGS = [
+  'dsc07552-mc-d-6f2bb2bf',
+  'dsc07530-mc-d-6b6ebd24',
+  'dsc04305-web-fa6b6ecf',
+  'dsc02284-mc-d-ef3e99ba',
+] as const;
+
+function tourPathBannedFromVenueMarketing(src: string): boolean {
+  const f = src.toLowerCase();
+  return BANNED_TOUR_MARKETING_SUBSTRINGS.some(sub => f.includes(sub));
+}
+
 /** Filenames tagged as portrait exports in shared naming (listing grid favors landscape shots). */
 function tourPathLooksPortraitTagged(src: string): boolean {
   const f = src.toLowerCase();
@@ -792,8 +799,9 @@ function tourPathLooksPortraitTagged(src: string): boolean {
 }
 
 function pickTourGridPreviewPaths(paths: string[], max: number): string[] {
-  const landscape = paths.filter((p) => !tourPathLooksPortraitTagged(p));
-  const pool = landscape.length ? landscape : paths;
+  const noBan = paths.filter((p) => !tourPathBannedFromVenueMarketing(p));
+  const landscape = noBan.filter((p) => !tourPathLooksPortraitTagged(p));
+  const pool = landscape.length ? landscape : noBan;
   return pool.slice(0, max);
 }
 
@@ -801,7 +809,8 @@ function pickTourGridPreviewPaths(paths: string[], max: number): string[] {
  * Get images for a specific tour section
  */
 export function getTourImages(slug: string): string[] {
-  return imageConfig.tour[slug as keyof typeof imageConfig.tour] || [];
+  const raw = imageConfig.tour[slug as keyof typeof imageConfig.tour] || [];
+  return raw.filter((p) => !tourPathBannedFromVenueMarketing(p));
 }
 
 /**
@@ -811,7 +820,10 @@ export function getTourPreviews(slug: string): string[] {
   const key = slug as keyof typeof imageConfig.tour;
   const gallery = imageConfig.tour[key];
   if (Array.isArray(gallery) && gallery.length > 0) {
-    return pickTourGridPreviewPaths(gallery, TOUR_GRID_PREVIEW_MAX);
+    const allowed = gallery.filter((p) => !tourPathBannedFromVenueMarketing(p));
+    if (allowed.length > 0) {
+      return pickTourGridPreviewPaths(allowed, TOUR_GRID_PREVIEW_MAX);
+    }
   }
   const curated = imageConfig.tourPreviews[key as keyof typeof imageConfig.tourPreviews] as string[] | undefined;
   return curated?.length ? pickTourGridPreviewPaths(curated, TOUR_GRID_PREVIEW_MAX) : [];
