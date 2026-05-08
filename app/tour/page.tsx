@@ -225,7 +225,7 @@ export default function TourPage() {
           faqs={tourFAQs}
           title="Virtual Tour & Venue Questions"
           eyebrow="YOUR VENUE QUESTIONS ANSWERED"
-          background="neutral"
+          background="white"
         />
 
         {/* Final CTA - Book Tour */}
