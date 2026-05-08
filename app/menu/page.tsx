@@ -59,6 +59,13 @@ const menuGrid = 'grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-1 m
 // Image-card grid: one column on mobile, two from tablet, four on xl
 const grid4 = 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4';
 
+/** Full-bleed section heroes: full photo in each panel, two panels per slide */
+const menuVenueDualHero = {
+  variant: 'venue' as const,
+  presentation: 'dual' as const,
+  sizes: '100vw' as const,
+};
+
 export default function MenuPage() {
   return (
     <>
@@ -69,7 +76,14 @@ export default function MenuPage() {
         {/* ── Page Hero ─────────────────────────────────────────────────────────── */}
         <section className="bg-riviera-neutral">
           <div className="h-[460px] md:h-[640px] w-full overflow-hidden">
-            <HeroCarousel images={h['page-hero']} interval={3300} fadeMs={650} alt="Riviera Waterfront Mansion Long Island wedding catering" />
+            <HeroCarousel
+              {...menuVenueDualHero}
+              enlargeOnDoubleClick
+              images={h['page-hero']}
+              interval={3300}
+              fadeMs={650}
+              alt="Chef inspired wedding catering and plated food at Riviera Waterfront Mansion"
+            />
           </div>
           <div className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
@@ -105,18 +119,29 @@ export default function MenuPage() {
         </section>
 
         {/* ── Open Bar ─────────────────────────────────────────────────────────── */}
-        <section className="py-14 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-8 text-center">
-              Five Hour Top Shelf Open Bar
-            </h2>
-            <div className="bg-riviera-neutral p-8">
-              <ul className="text-base font-light text-riviera-text/80 space-y-3">
-                <li>• Create 2 custom signature cocktails for your wedding day</li>
-                <li>• Champagne toast, soft drinks, juices, and non-alcoholic beverages</li>
-                <li>• Premium top shelf liquors and fine wines</li>
-                <li>• Five hour top shelf open bar service included with every Riviera wedding</li>
-              </ul>
+        <section>
+          <div className="h-[340px] min-h-[260px] sm:h-[380px] md:h-[460px] w-full overflow-hidden">
+            <HeroCarousel
+              {...menuVenueDualHero}
+              images={h['open-bar']}
+              interval={3800}
+              fadeMs={650}
+              alt="Top shelf wedding bar service at Riviera Waterfront Mansion"
+            />
+          </div>
+          <div className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-8 text-center">
+                Five Hour Top Shelf Open Bar
+              </h2>
+              <div className="bg-riviera-neutral p-8">
+                <ul className="text-base font-light text-riviera-text/80 space-y-3">
+                  <li>• Create 2 custom signature cocktails for your wedding day</li>
+                  <li>• Champagne toast, soft drinks, juices, and non-alcoholic beverages</li>
+                  <li>• Premium top shelf liquors and fine wines</li>
+                  <li>• Five hour top shelf open bar service included with every Riviera wedding</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -125,12 +150,11 @@ export default function MenuPage() {
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
+              {...menuVenueDualHero}
               images={h['cocktail-hour']}
               interval={3000}
               fadeMs={650}
               alt="Cocktail hour at Riviera Waterfront Mansion"
-              variant="venue"
-              sizes="100vw"
             />
 
           </div>
@@ -192,12 +216,11 @@ export default function MenuPage() {
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
+              {...menuVenueDualHero}
               images={h['hot-gourmet']}
               interval={2800}
               fadeMs={650}
               alt="Hot gourmet dishes at Riviera Waterfront Mansion"
-              variant="venue"
-              sizes="100vw"
             />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -269,12 +292,11 @@ export default function MenuPage() {
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
+              {...menuVenueDualHero}
               images={h['ballroom']}
               interval={3200}
               fadeMs={650}
               alt="Grand ballroom wedding reception at Riviera Waterfront Mansion"
-              variant="venue"
-              sizes="100vw"
             />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -397,12 +419,11 @@ export default function MenuPage() {
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
+              {...menuVenueDualHero}
               images={h['enhancements-combined']}
               interval={3000}
               fadeMs={650}
               alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion"
-              variant="venue"
-              sizes="100vw"
             />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">

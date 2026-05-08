@@ -16,6 +16,7 @@ const config: Config = {
           gold: '#C19A5B',             // Gold/bronze - ACCENT role
           text: '#3A3A3A',             // Dark charcoal - TEXT role
           brown: '#A07856',            // Brown - HERO secondary (deprecated)
+          'dark-brown': '#2a1f1a',     // Deepest espresso (menu CTA blocks, aligns with gradients)
         },
       },
       backgroundImage: {

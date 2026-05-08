@@ -181,6 +181,7 @@ const MENU_HERO_SECTIONS: Array<{
   pool: MenuCategory | 'large' | 'medium';
 }> = [
   { key: 'page-hero',     label: 'Page Hero',          description: 'Full-width carousel at the top of the menu page', pool: 'large' },
+  { key: 'open-bar',      label: 'Open Bar',           description: 'Two-up carousel above the five hour open bar listing', pool: 'medium' },
   { key: 'cocktail-hour', label: 'Cocktail Hour',       description: 'Hero slider at the top of the cocktail hour section', pool: 'cocktail-hour' },
   { key: 'hot-gourmet',   label: 'Hot Gourmet Dishes',  description: 'Hero slider above the hot gourmet dishes section', pool: 'cocktail-hour' },
   { key: 'enhancements',  label: 'Enhancements',        description: 'Hero slider at the top of the enhancements section', pool: 'enhancements' },

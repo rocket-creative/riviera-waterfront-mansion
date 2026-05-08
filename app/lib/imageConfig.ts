@@ -444,11 +444,22 @@ export const imageConfig = {
 
   // Menu Section Hero Carousels — edit via /admin/image-manager
   menuSectionHeroes: {
+    // Food photography only — no venue or couple editorial frames
     'page-hero': [
-      '/images/large/_0359671-by-p.jpg',
-      '/images/large/_1058724-jj-p.jpg',
-      '/images/large/_1059409-jj-p.jpg',
-      '/images/large/_0359652-by-p.jpg',
+      '/images/cocktail-hour/hero-cold-displays.jpg',
+      '/images/cocktail-hour/hero-hot-gourmet.jpg',
+      '/images/cocktail-hour/seasonal-fruit-display.jpg',
+      '/images/cocktail-hour/cold-meats-board.jpg',
+      '/images/dinner-plates/surf-and-turf.jpg',
+      '/images/dinner-plates/chicken-cordon-bleu.jpg',
+    ],
+    'open-bar': [
+      '/images/tour/main-bar/DSC04395-web-1210a69c-1920w.jpg',
+      '/images/tour/main-bar/DSC04398-web-42bcd5b6-1920w.jpg',
+      '/images/tour/main-bar/DSC08247-web-67f34e79-1920w.jpg',
+      '/images/tour/main-bar/DSC08250-web-b723d699-1920w.jpg',
+      '/images/tour/main-bar/_35S7201-1920w.jpg',
+      '/images/tour/main-bar/_GS22313-1920w.jpg',
     ],
     'cocktail-hour': [
       '/images/cocktail-hour/hero-cold-displays.jpg',
