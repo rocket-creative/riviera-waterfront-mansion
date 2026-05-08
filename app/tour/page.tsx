@@ -174,7 +174,7 @@ export default function TourPage() {
                       quality={80}
                       interval={4000}
                       showPlaceholder
-                      fit={section.slug === 'main-ballroom' ? 'cover' : 'contain'}
+                      fit="cover"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity group-hover:opacity-90" />

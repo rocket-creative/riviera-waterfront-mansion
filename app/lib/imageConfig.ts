@@ -20,7 +20,12 @@ export const imageConfig = {
   // Per-page hero images — slideshow capable, edit via /admin/image-manager
   pageHeroes: {
     'contact': ['/images/large/_0359652-by-p.jpg'],
-    'tour':    ['/images/large/_DSC8864sa-p.jpg'],
+    'tour': [
+      '/images/large/_DSC8864sa-p.jpg',
+      '/images/large/_0359671-by-p.jpg',
+      '/images/large/_1058724-jj-p.jpg',
+      '/images/large/_1059409-jj-p.jpg',
+    ],
     'vendors': ['/images/large/_0359671-by-p.jpg'],
     'rates':   ['/images/medium/_1058432-jj-p.jpg'],
   },
@@ -778,6 +783,20 @@ export const imageConfig = {
   },
 };
 
+const TOUR_GRID_PREVIEW_MAX = 8;
+
+/** Filenames tagged as portrait exports in shared naming (listing grid favors landscape shots). */
+function tourPathLooksPortraitTagged(src: string): boolean {
+  const f = src.toLowerCase();
+  return f.includes('-port-') || f.includes('_port-') || f.includes('aa-port');
+}
+
+function pickTourGridPreviewPaths(paths: string[], max: number): string[] {
+  const landscape = paths.filter((p) => !tourPathLooksPortraitTagged(p));
+  const pool = landscape.length ? landscape : paths;
+  return pool.slice(0, max);
+}
+
 /**
  * Get images for a specific tour section
  */
@@ -786,10 +805,16 @@ export function getTourImages(slug: string): string[] {
 }
 
 /**
- * Get preview images for tour section (slideshow array)
+ * Tour listing grid slideshow: first landscapes from section gallery, capped for performance.
  */
 export function getTourPreviews(slug: string): string[] {
-  return (imageConfig.tourPreviews[slug as keyof typeof imageConfig.tourPreviews] as string[] | undefined) ?? [];
+  const key = slug as keyof typeof imageConfig.tour;
+  const gallery = imageConfig.tour[key];
+  if (Array.isArray(gallery) && gallery.length > 0) {
+    return pickTourGridPreviewPaths(gallery, TOUR_GRID_PREVIEW_MAX);
+  }
+  const curated = imageConfig.tourPreviews[key as keyof typeof imageConfig.tourPreviews] as string[] | undefined;
+  return curated?.length ? pickTourGridPreviewPaths(curated, TOUR_GRID_PREVIEW_MAX) : [];
 }
 
 /**
