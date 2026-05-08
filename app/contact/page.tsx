@@ -152,7 +152,7 @@ export default function ContactPage() {
             <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">HOW CAN WE HELP?</p>
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text">
-                Choose your inquiry type
+                Choose Your Inquiry Type
               </h2>
             </AnimatedSection>
 
@@ -161,7 +161,7 @@ export default function ContactPage() {
                 <div className="bg-riviera-neutral p-8 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">FOR ENGAGED COUPLES</p>
                   <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                    Long Island wedding inquiries
+                    Long Island Wedding Inquiries
                   </h3>
                   <p className="text-sm font-light text-riviera-text/80 mb-6 flex-grow">
                     If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below. Limited dates available for 2026 and 2027.
@@ -180,7 +180,7 @@ export default function ContactPage() {
                 <div className="bg-white border-2 border-riviera-neutral p-8 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">GENERAL QUESTIONS</p>
                   <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                    Other event inquiries
+                    Other Event Inquiries
                   </h3>
                   <p className="text-sm font-light text-riviera-text/80 mb-6 flex-grow">
                     If you are looking to host other special events at our Massapequa waterfront venue, we would love to hear from you. Please note: Riviera Waterfront Mansion specializes exclusively in weddings.
@@ -208,7 +208,7 @@ export default function ContactPage() {
                 <div className="bg-white p-8 md:p-10 h-full flex flex-col">
                   <p className="text-riviera-gold text-xs tracking-widest mb-3">REQUEST INFORMATION</p>
                   <h2 id="inquiry-heading" className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                    Request your Long Island wedding date
+                    Request Your Long Island Wedding Date
                   </h2>
                   <InquiryForm />
                 </div>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                   <div className="bg-riviera-text p-8 text-white">
                     <p className="text-riviera-gold text-xs tracking-widest mb-3">CONSULTATION HOURS</p>
                     <h3 className="font-cormorant text-2xl font-light tracking-wide mb-6">
-                      Visit our Massapequa venue
+                      Visit Our Massapequa Venue
                     </h3>
                     <div className="text-sm font-light leading-relaxed opacity-90 space-y-2">
                       <div className="flex justify-between">
@@ -240,7 +240,7 @@ export default function ContactPage() {
                   <div className="bg-white p-8 border-2 border-riviera-gold">
                     <p className="text-riviera-gold text-xs tracking-widest mb-3">WEDDING BROCHURE</p>
                     <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                      Get our wedding brochure
+                      Get Our Wedding Brochure
                     </h3>
                     <p className="text-sm font-light text-riviera-text/70 mb-6">
                       Request our comprehensive wedding brochure covering our Massapequa waterfront venue, Long Island wedding packages, menu options, and more
@@ -260,7 +260,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-riviera-gold text-xs tracking-widest mb-3">PREFER TO CALL?</p>
                       <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                        Speak with our team
+                        Speak With Our Team
                       </h3>
                       <p className="text-sm font-light text-riviera-text/70 mb-6">
                         Our friendly staff is ready to answer your questions and help you begin planning your dream Long Island waterfront wedding
@@ -329,7 +329,7 @@ export default function ContactPage() {
         {/* FAQ Section */}
         <FAQSection 
           faqs={contactFAQs}
-          title="Contact & tour questions"
+          title="Contact & Tour Questions"
           eyebrow="PLANNING YOUR VISIT"
           background="white"
         />
@@ -337,7 +337,7 @@ export default function ContactPage() {
         {/* Final CTA - Explore More */}
         <CTASection
           eyebrow="EXPLORE WHILE YOU WAIT"
-          headline="Continue planning your dream Long Island wedding"
+          headline="Continue Planning Your Dream Long Island Wedding"
           description="Take a virtual tour of our stunning Massapequa waterfront venue, explore our chef inspired Continental menu, or discover our hand selected wedding vendors while you wait to visit us in person."
           background="dark"
           buttons={[

@@ -40,7 +40,7 @@ export default function HeroInquiryForm() {
         <div className="mb-4">
           <p className="text-riviera-gold text-xs tracking-widest mb-2 text-center">CHECK AVAILABILITY</p>
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text text-center mb-6">
-            Reserve your wedding date
+            Reserve Your Wedding Date
           </h3>
         </div>
 

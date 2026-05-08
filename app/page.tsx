@@ -47,7 +47,8 @@ const homepageFAQs = [
   },
   {
     question: 'Do you offer wedding tastings?',
-    answer: 'Yes! We offer private menu tastings so you can sample our chef inspired Continental cuisine before your wedding day. Tastings can be scheduled as part of your planning process after booking your date.'
+    answer:
+      'Yes! Our food tastings are exclusively for our booked couples. This special event gives you the opportunity not only to sample our menu selections, but also to enjoy time on the dance floor before your big day. Invitations are sent via email to our RWMansion couples.'
   },
   {
     question: 'Is there parking available at the venue?',
@@ -156,7 +157,7 @@ export default function Home() {
                 <div className="text-5xl md:text-6xl font-light text-riviera-gold mb-3">75+</div>
                 <h3 className="text-sm tracking-widest text-riviera-text mb-2">YEARS OF EXCELLENCE</h3>
                 <p className="text-sm font-light text-riviera-text/70">
-                  Third generation family owned since 1947
+                  Third generation family owned since 1946
                 </p>
               </div>
               
@@ -192,10 +193,10 @@ export default function Home() {
             <div className="text-center">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">REAL LONG ISLAND WEDDING REVIEWS</p>
               <h2 id="reviews-heading" className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-white mb-4">
-                Why couples choose Riviera Waterfront Mansion
+                Why Couples Choose Riviera Waterfront Mansion
               </h2>
               <p className="text-lg font-light text-white/80 max-w-2xl mx-auto">
-                Join hundreds of happy couples who celebrated their dream wedding at our historic Massapequa waterfront mansion since 1947
+                Join hundreds of happy couples who celebrated their dream wedding at our historic Massapequa waterfront mansion since 1946
               </p>
             </div>
           </AnimatedSection>
@@ -236,10 +237,10 @@ export default function Home() {
               <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <p className="text-riviera-gold text-sm tracking-widest mb-4">75+ YEARS OF WEDDING EXCELLENCE IN MASSAPEQUA NY</p>
                 <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-8 leading-tight">
-                  Why is Riviera Waterfront Mansion the most trusted Long Island wedding venue?
+                  Why Is Riviera Waterfront Mansion The Most Trusted Long Island Wedding Venue?
                 </h2>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
-                  We set the standards for all Long Island wedding venues to follow. As a third generation family owned and operated waterfront wedding venue since 1947, we bring unmatched experience and dedication to every celebration in Massapequa, NY.
+                  We set the standards for all Long Island wedding venues to follow. As a third generation family owned and operated waterfront wedding venue since 1946, we bring unmatched experience and dedication to every celebration in Massapequa, NY.
                 </p>
                 <p className="text-base md:text-lg font-light text-riviera-text/80 leading-relaxed mb-6">
                   Our historic waterfront mansion is kept in pristine condition with continuous updates and renovations throughout our tenure, making this a genuinely one of a kind modern yet classic destination wedding venue on Long Island. From outdoor waterfront ceremonies to elegant ballroom receptions, our venue offers everything couples dream of.
@@ -273,7 +274,7 @@ export default function Home() {
               <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
                 <p className="text-riviera-gold text-sm tracking-widest mb-3">FOLLOW OUR LONG ISLAND WEDDING VENUE</p>
                 <h2 id="social-heading" className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                  See real Long Island waterfront weddings at Riviera Waterfront Mansion
+                  See Real Long Island Waterfront Weddings At Riviera Waterfront Mansion
                 </h2>
                 <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto mb-8">
                   Get a front row seat to stunning waterfront weddings at our Massapequa venue, behind the scenes setups, and must know Long Island wedding venue updates. Be inspired by real couples celebrating at our historic waterfront estate and dreamy decor.
@@ -314,7 +315,7 @@ export default function Home() {
         {/* Mid Page CTA - After Social Proof, Before Features */}
         <InlineCTA
           eyebrow="LIMITED WEDDING DATES AVAILABLE"
-          headline="Your dream Massapequa waterfront wedding starts here"
+          headline="Your Dream Massapequa Waterfront Wedding starts here"
           description="Ready to experience our historic Long Island venue in person? Schedule a private tour and discover why couples have chosen Riviera Waterfront Mansion for over 75 years. Personalized consultations available Tuesday through Sunday."
           buttonText="CHECK AVAILABILITY →"
           buttonHref="/contact"
@@ -330,7 +331,7 @@ export default function Home() {
             <AnimatedSection animation="fadeInUp" className="text-center mb-16" as="div">
               <p className="text-riviera-gold text-sm tracking-widest mb-3">EVERYTHING YOU NEED FOR YOUR LONG ISLAND WEDDING</p>
               <h2 id="features-heading" className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-                What does Riviera Waterfront Mansion offer for your Long Island wedding?
+                What Does Riviera Waterfront Mansion Offer for Your Long Island Wedding?
               </h2>
               <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
                 From ceremony to reception, our complete Long Island waterfront estate offers every amenity for your perfect wedding day with indoor and outdoor options
@@ -339,8 +340,8 @@ export default function Home() {
 
             <div ref={featuresRef as any} className="grid lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -356,8 +357,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('indoor-ceremony')} alt="Indoor ceremony space" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('indoor-ceremony')} alt="Indoor ceremony space" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -373,8 +374,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Waterfront cocktail area" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Waterfront cocktail area" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -390,8 +391,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-ballroom')} alt="Grand ballroom" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('main-ballroom')} alt="Grand ballroom" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -407,8 +408,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('bridal-suite')} alt="Bridal suite" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('bridal-suite')} alt="Bridal suite" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -424,8 +425,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('balconies')} alt="Balcony overlook" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('balconies')} alt="Balcony overlook" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -441,8 +442,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-bar')} alt="Top shelf bar" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('main-bar')} alt="Top shelf bar" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -458,8 +459,8 @@ export default function Home() {
               </Link>
               
               <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entertainment')} alt="Entertainment and DJ" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('entertainment')} alt="Entertainment and DJ" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -475,8 +476,8 @@ export default function Home() {
               </Link>
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={imageConfig.sections.rates as string[]} alt="Venue amenities" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={imageConfig.sections.rates as string[]} alt="Venue amenities" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">BACKUP GENERATOR</h3>
@@ -487,8 +488,8 @@ export default function Home() {
               </div>
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Climate controlled venue" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Climate controlled venue" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">CLIMATE CONTROLLED</h3>
@@ -499,8 +500,8 @@ export default function Home() {
               </div>
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entrance-lobby')} alt="Coat check service" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('entrance-lobby')} alt="Coat check service" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">COAT CHECK SERVICE</h3>
@@ -511,8 +512,8 @@ export default function Home() {
               </div>
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
-                <div className="relative h-40 overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('photo-locations')} alt="Full grounds access" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <SlideshowImage images={getTourPreviews('photo-locations')} alt="Full grounds access" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">FULL GROUNDS ACCESS</h3>
@@ -539,7 +540,7 @@ export default function Home() {
         {/* FAQ Section */}
         <FAQSection 
           faqs={homepageFAQs}
-          title="Frequently asked questions about our Long Island wedding venue"
+          title="Frequently Asked Questions About Our Long Island Wedding Venue"
           eyebrow="YOUR QUESTIONS ANSWERED"
           background="white"
         />
@@ -547,7 +548,7 @@ export default function Home() {
         {/* Final CTA - Conversion Focused */}
         <CTASection
           eyebrow="READY TO BOOK YOUR LONG ISLAND WATERFRONT WEDDING?"
-          headline="Start planning your dream Massapequa waterfront wedding today"
+          headline="Start Planning Your Dream Massapequa Waterfront Wedding Today"
           description="Schedule a personal tour of our historic Riviera Waterfront Mansion in Massapequa, NY and experience the magic of our Long Island waterfront wedding venue for yourself. Limited wedding dates available for 2026 and 2027. Call now or submit an inquiry to check your date."
           background="dark"
           buttons={[
@@ -581,7 +582,7 @@ export default function Home() {
             url: 'https://www.rivierawaterfrontmansion.com',
             logo: 'https://www.rivierawaterfrontmansion.com/logo.png',
             image: 'https://www.rivierawaterfrontmansion.com/og-image.jpg',
-            description: 'Premier waterfront wedding venue in Massapequa, NY. Third generation family owned since 1947.',
+            description: 'Premier waterfront wedding venue in Massapequa, NY. Third generation family owned since 1946.',
             address: {
               '@type': 'PostalAddress',
               streetAddress: '200 E Shore Dr',

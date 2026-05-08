@@ -15,10 +15,9 @@ function hasImages(slot?: string) {
 // Standard card with a photo, falls back to text-only when no image is available
 function Item({ slot, alt, name, desc, fit = 'cover' }: { slot?: string; alt: string; name: string; desc: string; fit?: 'cover' | 'contain' }) {
   if (!hasImages(slot)) return <TextItem name={name} desc={desc} />;
-  const heightClass = fit === 'contain' ? 'h-56' : 'h-44';
   return (
     <div>
-      <div className={`${heightClass} relative overflow-hidden mb-2 bg-stone-100`}>
+      <div className="relative mb-2 aspect-video w-full overflow-hidden bg-stone-100">
         <MenuImage images={m[slot!]} alt={alt} fit={fit} />
       </div>
       <p className="text-xs tracking-widest uppercase text-riviera-gold mb-0.5 leading-snug">{name}</p>
@@ -70,12 +69,12 @@ export default function MenuPage() {
         {/* ── Page Hero ─────────────────────────────────────────────────────────── */}
         <section className="bg-riviera-neutral">
           <div className="h-[460px] md:h-[640px] w-full overflow-hidden">
-            <HeroCarousel images={h['page-hero']} interval={6000} alt="Riviera Waterfront Mansion Long Island wedding catering" />
+            <HeroCarousel images={h['page-hero']} interval={3300} fadeMs={650} alt="Riviera Waterfront Mansion Long Island wedding catering" />
           </div>
           <div className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
-                Long Island Wedding Catering And Chef Inspired Menu
+                Long Island Wedding Catering With Chef Inspired Menu
               </h1>
               <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto mb-4">
                 Our chef inspired Continental wedding menu will wow you and your guests from your first bite until your last. Experience exceptional Long Island wedding catering at Riviera Waterfront Mansion in Massapequa, NY.
@@ -125,7 +124,7 @@ export default function MenuPage() {
         {/* ── Cocktail Hour ─────────────────────────────────────────────────────── */}
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['cocktail-hour']} interval={5500} alt="Cocktail hour at Riviera Waterfront Mansion" />
+            <HeroCarousel images={h['cocktail-hour']} interval={3000} fadeMs={650} alt="Cocktail hour at Riviera Waterfront Mansion" />
 
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -185,7 +184,7 @@ export default function MenuPage() {
         {/* ── Hot Gourmet Dishes ───────────────────────────────────────────────── */}
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['hot-gourmet']} interval={5000} alt="Hot gourmet dishes at Riviera Waterfront Mansion" />
+            <HeroCarousel images={h['hot-gourmet']} interval={2800} fadeMs={650} alt="Hot gourmet dishes at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
@@ -255,7 +254,7 @@ export default function MenuPage() {
         {/* ── Grand Ballroom ───────────────────────────────────────────────────── */}
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['ballroom']} interval={6000} alt="Grand ballroom wedding reception at Riviera Waterfront Mansion" />
+            <HeroCarousel images={h['ballroom']} interval={3200} fadeMs={650} alt="Grand ballroom wedding reception at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
@@ -376,7 +375,7 @@ export default function MenuPage() {
         {/* ── Enhancements, Add-ons & Exit Stations ───────────────────────────── */}
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['enhancements-combined']} interval={4500} alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion" />
+            <HeroCarousel images={h['enhancements-combined']} interval={3000} fadeMs={650} alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion" />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">

@@ -48,7 +48,7 @@ export default function BrochureFormEmbed() {
         </div>
 
         <h3 className="font-cormorant text-xl font-light tracking-wide text-riviera-text mb-3">
-          Form embed goes here
+          Form Embed Goes Here
         </h3>
 
         <p className="text-sm font-light text-riviera-text/60 leading-relaxed mb-6">

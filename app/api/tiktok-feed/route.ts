@@ -89,7 +89,7 @@ const PLACEHOLDER_VIDEOS = [
   },
   {
     id: 'tiktok_010',
-    caption: '75+ years of wedding perfection. Family owned since 1947 #longislandwedding',
+    caption: '75+ years of wedding perfection. Family owned since 1946 #longislandwedding',
     thumbnail_url: '/images/medium/_COL3623ca-p.jpg',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',

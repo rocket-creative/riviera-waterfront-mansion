@@ -61,7 +61,7 @@ export default function WeddingBrochurePage() {
             <div className="max-w-md w-full mx-auto">
               <p className="text-sm tracking-widest text-riviera-gold mb-4">WEDDING BROCHURE</p>
               <h1 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4 leading-tight">
-                Everything you need to plan your perfect Long Island wedding
+                Everything You Need to Plan Your Perfect Long Island Wedding
               </h1>
               <p className="text-base font-light text-riviera-text/70 leading-relaxed mb-8">
                 Complete the form to receive our comprehensive wedding brochure covering our Massapequa waterfront venue, packages, catering, and availability.

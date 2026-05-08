@@ -126,7 +126,7 @@ export default function TourPage() {
               <AnimatedSection animation="fadeInUp" delay={0}>
                 <div className="text-4xl md:text-5xl font-light text-riviera-gold mb-2">14</div>
                 <h3 className="text-xs tracking-widest text-riviera-text mb-1">STUNNING SPACES</h3>
-                <p className="text-xs font-light text-riviera-text/70">Indoor and outdoor venues to explore</p>
+                <p className="text-xs font-light text-riviera-text/70">Indoor and outdoor spaces to explore</p>
               </AnimatedSection>
               
               <AnimatedSection animation="fadeInUp" delay={0.1}>
@@ -149,7 +149,7 @@ export default function TourPage() {
           <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
             <p className="text-riviera-gold text-sm tracking-widest mb-3">EXPLORE EVERY SPACE</p>
             <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4">
-              Discover our Long Island waterfront wedding venue
+              Discover Our Long Island Waterfront Wedding Venue
             </h2>
             <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto">
               Click on any space below to view the full photo gallery and learn more about each area of our historic Massapequa mansion
@@ -161,7 +161,7 @@ export default function TourPage() {
               <div key={section.slug} className="tour-card">
                 <Link
                   href={`/tour/${section.slug}`}
-                  className="group relative overflow-hidden block h-52 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
+                  className="group relative overflow-hidden block aspect-video focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
                 >
                   {/* Photo does the heavy lifting */}
                   <div className="relative w-full h-full overflow-hidden">
@@ -169,7 +169,7 @@ export default function TourPage() {
                       images={getTourPreviews(section.slug)}
                       alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      objectClass="object-cover transition-transform duration-700 group-hover:scale-110"
+                      objectClass="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                       quality={80}
                       interval={4000}
                       showPlaceholder
@@ -208,7 +208,7 @@ export default function TourPage() {
         {/* Mid Page CTA - After Gallery */}
         <InlineCTA
           eyebrow="VISIT OUR VENUE"
-          headline="Nothing compares to seeing our Long Island venue in person"
+          headline="Nothing Compares to Seeing Our Long Island Venue in Person"
           description="While our virtual tour offers a glimpse of our stunning Massapequa waterfront spaces, we invite you to experience the magic of Riviera Waterfront Mansion firsthand. Schedule a private tour, meet our team, and envision your perfect wedding day."
           buttonText="BOOK A TOUR →"
           buttonHref="/contact"
@@ -221,7 +221,7 @@ export default function TourPage() {
         {/* FAQ Section */}
         <FAQSection 
           faqs={tourFAQs}
-          title="Virtual tour & venue questions"
+          title="Virtual Tour & Venue Questions"
           eyebrow="YOUR VENUE QUESTIONS ANSWERED"
           background="neutral"
         />
@@ -229,8 +229,8 @@ export default function TourPage() {
         {/* Final CTA - Book Tour */}
         <CTASection
           eyebrow="READY TO BEGIN YOUR WEDDING JOURNEY?"
-          headline="Experience our Long Island waterfront wedding venue in person"
-          description="Contact Riviera Waterfront Mansion today to schedule a private tour and discover why we are Long Island's premiere waterfront wedding venue since 1947. Available Tuesday through Sunday with personalized consultations."
+          headline="Experience Our Long Island Waterfront Wedding Venue in Person"
+          description="Contact Riviera Waterfront Mansion today to schedule a private tour and discover why we are Long Island's premiere waterfront wedding venue since 1946. Available Tuesday through Sunday with personalized consultations."
           background="dark"
           buttons={[
             {

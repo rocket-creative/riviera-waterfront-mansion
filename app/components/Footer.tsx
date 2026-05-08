@@ -136,7 +136,7 @@ export default function Footer() {
             © 2026 Riviera Waterfront Mansion. All Rights Reserved.
           </p>
           <p className="text-xs font-light opacity-60 mt-2 text-center">
-            Third generation family owned Long Island waterfront wedding venue since 1947 in Massapequa, NY
+            Third generation family owned Long Island waterfront wedding venue since 1946 in Massapequa, NY
           </p>
         </div>
       </div>

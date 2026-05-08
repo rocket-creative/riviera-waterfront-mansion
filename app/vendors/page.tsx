@@ -244,7 +244,7 @@ export default function VendorsPage() {
           <AnimatedSection animation="fadeInUp" className="max-w-3xl mx-auto text-center" as="div">
             <p className="text-riviera-gold text-sm tracking-widest mb-4">CREATING YOUR PERFECT DAY</p>
             <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-6">
-              Building your dream wedding team
+              Building Your Dream Wedding Team
             </h2>
             <p className="text-base md:text-lg font-light text-riviera-text/70 leading-relaxed">
               These professionals have been hand picked by The Riviera at Massapequa for their exceptional service, reliability, and expertise. Each vendor has proven themselves at our venue and understands the unique beauty of waterfront weddings. All vendors are listed in alphabetical order within their categories.
@@ -318,7 +318,7 @@ export default function VendorsPage() {
         {/* Mid Page CTA - Vendor Questions */}
         <InlineCTA
           eyebrow="QUESTIONS ABOUT VENDORS?"
-          headline="Our team is here to help build your dream wedding team"
+          headline="Our Team Is Here to Help Build Your Dream Wedding Team"
           description="For personalized vendor recommendations tailored to your wedding vision, budget, and style, contact our experienced banquet department. We have worked with all our preferred vendors for years and can guide you to the perfect match."
           buttonText="GET RECOMMENDATIONS →"
           buttonHref="/contact"
@@ -331,7 +331,7 @@ export default function VendorsPage() {
         {/* FAQ Section */}
         <FAQSection 
           faqs={vendorsFAQs}
-          title="Wedding vendor questions"
+          title="Wedding Vendor Questions"
           eyebrow="YOUR VENDOR QUESTIONS ANSWERED"
           background="neutral"
         />
@@ -339,7 +339,7 @@ export default function VendorsPage() {
         {/* Final CTA - Start Planning */}
         <CTASection
           eyebrow="READY TO START PLANNING?"
-          headline="Request your Long Island wedding date"
+          headline="Request Your Long Island Wedding Date"
           description="Contact our banquet department to learn more about our preferred vendors, get personalized recommendations, check wedding date availability, and schedule a tour of our Massapequa waterfront venue. Limited dates for 2026 and 2027."
           background="dark"
           buttons={[

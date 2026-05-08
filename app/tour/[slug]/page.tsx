@@ -212,7 +212,7 @@ export default async function TourSectionPage({ params }: Props) {
           <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
             <p className="text-riviera-gold text-sm tracking-widest mb-3">PHOTO GALLERY</p>
             <h2 className="font-cormorant text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-riviera-text">
-              Explore the {section.title.toLowerCase()}
+              Explore Our {section.title}
             </h2>
           </AnimatedSection>
 
@@ -276,7 +276,7 @@ export default async function TourSectionPage({ params }: Props) {
         {/* CTA Section - Book Tour */}
         <CTASection
           eyebrow="READY TO BOOK YOUR LONG ISLAND WATERFRONT WEDDING?"
-          headline="Experience our venue in person"
+          headline="Experience Our Venue in Person"
           description="Contact Riviera Waterfront Mansion today to check wedding date availability and schedule an in person tour of our historic Massapequa venue. See the spaces you have just explored come to life and envision your perfect celebration."
           background="dark"
           buttons={[

@@ -155,7 +155,7 @@ export default function SpringBridalShowcase() {
                 EVENT DETAILS
               </p>
               <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-riviera-text mb-8 leading-tight">
-                Your dream day<br />starts here
+                Your Dream Day<br />Starts Here
               </h2>
               <p className="text-riviera-text/65 font-light leading-relaxed mb-10 text-base">
                 Explore the latest bridal trends, meet Long Island&apos;s top wedding vendors, and find inspiration for your perfect day at our stunning waterfront estate. Whether you&apos;re just beginning to plan or adding finishing touches, the Spring Bridal Showcase has something for every bride-to-be.
@@ -206,7 +206,7 @@ export default function SpringBridalShowcase() {
                 SECURE YOUR SPOT
               </p>
               <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-riviera-text mb-8 leading-tight">
-                Register now —<br />it&apos;s free
+                Register Now —<br />It&apos;s Free
               </h2>
               <div className="border border-riviera-neutral">
                 <EventbriteWidget />
@@ -224,7 +224,7 @@ export default function SpringBridalShowcase() {
             <div className="text-center mb-8 sm:mb-14">
               <p className="text-riviera-gold text-xs tracking-[0.25em] mb-4 font-light">THE VENUE</p>
               <h2 className="font-cormorant text-3xl sm:text-4xl lg:text-5xl font-light text-riviera-text leading-tight">
-                See where the magic happens
+                See Where The Magic Happens
               </h2>
             </div>
 
@@ -270,7 +270,7 @@ export default function SpringBridalShowcase() {
         <section className="bg-riviera-text py-14 sm:py-20 text-center px-5 sm:px-6">
           <p className="text-riviera-gold text-xs tracking-[0.25em] mb-5 font-light">QUESTIONS?</p>
           <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-white mb-3 leading-tight">
-            We&apos;d love to hear from you
+            We&apos;d Love to Hear From You
           </h2>
           <p className="text-white/50 font-light text-sm mb-10 tracking-wide">
             200 East Shore Drive · Massapequa, NY 11758

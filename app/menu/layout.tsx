@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion',
-  description: 'Chef inspired Continental wedding catering at Riviera Waterfront Mansion in Massapequa, NY. Five hour top shelf open bar, gourmet cocktail hour, carved meats, and plated dinner. Exceptional since 1947.',
+  description: 'Chef inspired Continental wedding catering at Riviera Waterfront Mansion in Massapequa, NY. Five hour top shelf open bar, gourmet cocktail hour, carved meats, and plated dinner. Exceptional since 1946.',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/menu'
   },

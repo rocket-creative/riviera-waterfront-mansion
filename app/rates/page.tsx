@@ -63,7 +63,7 @@ export default function RatesPage() {
         <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
-              Rates and availability for your Long Island waterfront wedding
+              Rates and Availability for Your Long Island Waterfront Wedding
             </h1>
             <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto">
               Every Riviera Waterfront Mansion wedding is priced based on your chosen date, guest count, and menu selections. Contact us for a personalized proposal.
@@ -75,7 +75,7 @@ export default function RatesPage() {
         <section className="bg-riviera-gold py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
             <p className="font-cormorant text-2xl md:text-3xl font-light tracking-wide mb-3">
-              Limited 2026 and 2027 wedding dates remaining
+              Limited 2026 and 2027 Wedding Dates Remaining
             </p>
             <p className="text-sm font-light tracking-widest opacity-90 mb-3">
               CALL TUESDAY THROUGH SUNDAY TO CHECK AVAILABILITY FOR YOUR DATE
@@ -94,7 +94,7 @@ export default function RatesPage() {
           <div className="max-w-5xl mx-auto">
             <div className="mb-12">
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-6">
-                How our Long Island wedding pricing works
+                How Our Long Island Wedding Pricing Works
               </h2>
               <div className="max-w-3xl">
                 <p className="text-base font-light text-riviera-text/70 leading-relaxed">
@@ -139,7 +139,7 @@ export default function RatesPage() {
         <section className="bg-riviera-neutral py-16 md:py-24 px-4 sm:px-6 lg:px-8" aria-labelledby="included-heading">
           <div className="max-w-5xl mx-auto">
             <h2 id="included-heading" className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
-              {"What's included with every Riviera Waterfront Mansion wedding"}
+              {"What's Included With Every Riviera Waterfront Mansion Wedding"}
             </h2>
             <p className="text-base font-light text-riviera-text/70 mb-10 max-w-2xl">
               Every Riviera Waterfront Mansion wedding includes full access to the mansion, the grounds, and our complete team of wedding professionals.
@@ -166,7 +166,7 @@ export default function RatesPage() {
         {/* FAQ Section */}
         <FAQSection
           faqs={faqs}
-          title="Frequently asked questions about rates and availability"
+          title="Frequently Asked Questions About Rates and Availability"
           eyebrow="RATES & AVAILABILITY"
           background="white"
         />
@@ -175,7 +175,7 @@ export default function RatesPage() {
         <section className="bg-riviera-text py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-6">
-              Ready to check your date at Riviera Waterfront Mansion?
+              Ready to Check Your Date At Riviera Waterfront Mansion?
             </h2>
             <p className="text-base font-light opacity-70 mb-10 max-w-xl mx-auto">
               Schedule a private tour and speak with our team about availability, pricing, and everything your wedding day will include.

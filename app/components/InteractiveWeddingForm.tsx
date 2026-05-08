@@ -69,7 +69,7 @@ export default function InteractiveWeddingForm() {
           </svg>
         </div>
         <h3 className="font-cormorant text-3xl md:text-4xl font-light text-riviera-text mb-4">
-          Thank you!
+          Thank You!
         </h3>
         <p className="text-base font-light text-riviera-text/70 mb-8">
           We will be in touch soon to help plan your perfect day at Riviera Waterfront Mansion.
@@ -109,7 +109,7 @@ export default function InteractiveWeddingForm() {
       {step === 1 && (
         <div className="animate-fadeIn">
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            When are you dreaming of getting married?
+            When Are You Dreaming Of Getting Married?
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {[
@@ -140,7 +140,7 @@ export default function InteractiveWeddingForm() {
       {step === 2 && (
         <div className="animate-fadeIn">
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            How many guests are you expecting?
+            How Many Guests Are You Expecting?
           </h3>
           <p className="text-sm text-riviera-text/60 text-center mb-8 font-light">
             Minimum 150 guests required
@@ -185,7 +185,7 @@ export default function InteractiveWeddingForm() {
       {step === 3 && (
         <div className="animate-fadeIn">
           <h3 className="font-cormorant text-2xl md:text-3xl font-light text-riviera-text mb-8 text-center">
-            What&apos;s your ceremony vision?
+            What&apos;s Your Ceremony Vision?
           </h3>
           <div className="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
             {[
