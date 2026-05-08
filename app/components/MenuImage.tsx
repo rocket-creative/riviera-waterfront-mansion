@@ -22,7 +22,7 @@ function Placeholder() {
   );
 }
 
-export default function MenuImage({ images, alt, fit = 'cover' }: MenuImageProps) {
+export default function MenuImage({ images, alt, fit = 'contain' }: MenuImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set());
 

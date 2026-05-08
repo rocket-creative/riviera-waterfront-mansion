@@ -126,12 +126,12 @@ export default function SpringBridalShowcase() {
                 { src: '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',       label: 'The Ballroom' },
               ].map(({ src, label }) => (
                 <div key={label} className="group">
-                  <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
+                  <div className="relative overflow-hidden bg-stone-100" style={{ aspectRatio: '3/4' }}>
                     <Image
                       src={src}
                       alt={label}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 640px) 33vw, (max-width: 1024px) 33vw, 400px"
                       priority
                     />
@@ -232,13 +232,13 @@ export default function SpringBridalShowcase() {
               {galleryPhotos.map(({ src, span }, i) => (
                 <div
                   key={i}
-                  className={`relative overflow-hidden group ${span}`}
+                  className={`relative overflow-hidden group bg-stone-100 ${span}`}
                 >
                   <Image
                     src={src}
                     alt={`Riviera Waterfront Mansion — wedding photo ${i + 1}`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                   {/* Hover shimmer */}

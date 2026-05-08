@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Schedule a Tour | Riviera Waterfront Mansion Long Island',
-  description: 'Schedule a private tour of Riviera Waterfront Mansion in Massapequa, NY. Check wedding date availability for 2026 and 2027. Call (516) 541 5020 or submit an inquiry. Open Tuesday to Sunday.',
+  description: 'Schedule a private tour of Riviera Waterfront Mansion in Massapequa, NY. Check wedding date availability for 2026 and 2027. Call (516) 541 5020 or submit an inquiry. Open Tuesday through Sunday, 11 a.m. to 7 p.m.',
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/contact'
   },

@@ -341,7 +341,7 @@ export default function Home() {
             <div ref={featuresRef as any} className="grid lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -358,7 +358,7 @@ export default function Home() {
               
               <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('indoor-ceremony')} alt="Indoor ceremony space" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('indoor-ceremony')} alt="Indoor ceremony space" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -375,7 +375,7 @@ export default function Home() {
               
               <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Waterfront cocktail area" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Waterfront cocktail area" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -392,7 +392,7 @@ export default function Home() {
               
               <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-ballroom')} alt="Grand ballroom" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('main-ballroom')} alt="Grand ballroom" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -409,7 +409,7 @@ export default function Home() {
               
               <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('bridal-suite')} alt="Bridal suite" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('bridal-suite')} alt="Bridal suite" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -426,7 +426,7 @@ export default function Home() {
               
               <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('balconies')} alt="Balcony overlook" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('balconies')} alt="Balcony overlook" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -443,7 +443,7 @@ export default function Home() {
               
               <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-bar')} alt="Top shelf bar" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('main-bar')} alt="Top shelf bar" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -460,7 +460,7 @@ export default function Home() {
               
               <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entertainment')} alt="Entertainment and DJ" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('entertainment')} alt="Entertainment and DJ" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -477,7 +477,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={imageConfig.sections.rates as string[]} alt="Venue amenities" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.sections.rates as string[]} alt="Venue amenities" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">BACKUP GENERATOR</h3>
@@ -489,7 +489,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Climate controlled venue" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Climate controlled venue" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">CLIMATE CONTROLLED</h3>
@@ -501,7 +501,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entrance-lobby')} alt="Coat check service" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('entrance-lobby')} alt="Coat check service" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">COAT CHECK SERVICE</h3>
@@ -513,7 +513,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('photo-locations')} alt="Full grounds access" sizes="(max-width: 768px) 100vw, 33vw" objectClass="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={getTourPreviews('photo-locations')} alt="Full grounds access" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">FULL GROUNDS ACCESS</h3>
@@ -601,20 +601,15 @@ export default function Home() {
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                dayOfWeek: [
+                  'Tuesday',
+                  'Wednesday',
+                  'Thursday',
+                  'Friday',
+                  'Saturday',
+                  'Sunday'
+                ],
                 opens: '11:00',
-                closes: '20:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Saturday'],
-                opens: '10:00',
-                closes: '20:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Sunday'],
-                opens: '10:00',
                 closes: '19:00'
               }
             ],

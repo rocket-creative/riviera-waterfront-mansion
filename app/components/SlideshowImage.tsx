@@ -8,7 +8,15 @@ interface SlideshowImageProps {
   alt: string;
   interval?: number;
   sizes?: string;
+  /**
+   * Extra classes (transitions, hover). Do not set object-fit here; use `fit`.
+   */
   objectClass?: string;
+  /**
+   * `contain` shows the full image (letterboxed). `cover` crops to fill the frame.
+   * Use `cover` only for top-of-page editorial hero columns. Default is `contain`.
+   */
+  fit?: 'cover' | 'contain';
   quality?: number;
   priority?: boolean;
   /** Show placeholder when images array is empty. Default false (renders nothing). */
@@ -20,7 +28,8 @@ export default function SlideshowImage({
   alt,
   interval = 5000,
   sizes = '(max-width: 1024px) 100vw, 58vw',
-  objectClass = 'object-cover object-center',
+  objectClass = '',
+  fit = 'contain',
   quality = 85,
   priority = false,
   showPlaceholder = false,
@@ -56,8 +65,12 @@ export default function SlideshowImage({
     );
   }
 
+  const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
+  const frameClass =
+    fit === 'contain' ? 'relative w-full h-full bg-stone-100' : 'relative w-full h-full';
+
   return (
-    <div className="relative w-full h-full">
+    <div className={frameClass}>
       {valid.map((src, idx) => (
         <div
           key={src}
@@ -69,7 +82,7 @@ export default function SlideshowImage({
             src={src}
             alt={`${alt}${valid.length > 1 ? ` — ${idx + 1}` : ''}`}
             fill
-            className={objectClass}
+            className={`${fitClass} object-center ${objectClass}`.trim()}
             sizes={sizes}
             quality={quality}
             priority={priority && idx === 0}

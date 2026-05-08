@@ -44,12 +44,12 @@ export default function WeddingBrochurePage() {
         <section className="min-h-[calc(100dvh-80px)] grid lg:grid-cols-2">
 
           {/* Left — Brochure cover image */}
-          <div className="relative min-h-[50vh] md:min-h-0">
+          <div className="relative min-h-[50vh] md:min-h-0 bg-stone-100">
             <Image
               src="/brochure-cover.png"
               alt="Riviera Waterfront Mansion Wedding Brochure — Long Island wedding venue in Massapequa, NY"
               fill
-              className="object-cover object-top"
+              className="object-contain object-center"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
               quality={90}

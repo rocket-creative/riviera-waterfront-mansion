@@ -84,6 +84,7 @@ export default function TourPage() {
               <SlideshowImage
                 images={imageConfig.pageHeroes.tour as string[]}
                 alt="Stunning virtual tour of Riviera Waterfront Mansion Long Island wedding venue in Massapequa NY"
+                fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 quality={90}
@@ -169,7 +170,7 @@ export default function TourPage() {
                       images={getTourPreviews(section.slug)}
                       alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      objectClass="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      objectClass="transition-transform duration-700 group-hover:scale-110"
                       quality={80}
                       interval={4000}
                       showPlaceholder

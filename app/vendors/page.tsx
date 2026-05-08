@@ -28,10 +28,6 @@ const vendorsFAQs = [
     answer: 'Absolutely! Our banquet team can provide personalized recommendations based on your budget, wedding style, and specific needs. We have worked with all our preferred vendors for years and can match you with professionals who fit your vision and budget.'
   },
   {
-    question: 'What happens if our vendor cancels?',
-    answer: 'If your vendor cancels, our team can quickly connect you with alternative options from our preferred list. Because we maintain strong relationships with multiple vendors in each category, we can help resolve last minute changes smoothly.'
-  },
-  {
     question: 'Do you provide any vendors in house?',
     answer: 'Yes! Catering, bartending, serving staff, and venue coordination are all provided by our expert in house team. You will need to arrange your own photographer, DJ or band, florist, cake, and other specialty vendors.'
   },
@@ -52,7 +48,6 @@ const vendorsFAQs = [
 const vendorCategories = [
   {
     title: 'Photography',
-    icon: '📷',
     vendors: [
       { name: 'Elena Kay Photography', website: 'https://www.elenakayphotography.com', phone: '(631) 213 5013' },
       { name: 'Jovon Photography & Video', website: 'https://www.Jovonphotographyandvideo.com', phone: '(516) 922 3535' },
@@ -62,7 +57,6 @@ const vendorCategories = [
   },
   {
     title: 'DJ Entertainment',
-    icon: '🎧',
     vendors: [
       { name: 'After Hours', website: 'https://www.afterhoursent.com', phone: '(631) 736 2921' },
       { name: 'Barattini Productions', website: 'https://www.BarattiniProductions.com', phone: '(631) 979 2662' },
@@ -72,14 +66,12 @@ const vendorCategories = [
   },
   {
     title: 'Live Bands',
-    icon: '🎸',
     vendors: [
       { name: 'Ready In 10', website: 'https://www.readyin10.com', phone: '(516) 317 4853' },
     ]
   },
   {
     title: 'Florist',
-    icon: '💐',
     vendors: [
       { name: "Tim's Florist", website: 'https://www.timsflorist.com', phone: '(516) 541 6001' },
       { name: "Tom's Towers Flowers", phone: '(631) 422 6714' },
@@ -87,21 +79,18 @@ const vendorCategories = [
   },
   {
     title: 'Bakery',
-    icon: '🎂',
     vendors: [
       { name: "Francesco's Bakery", website: 'https://www.francescosbakery.com', phone: '(516) 931 6821' },
     ]
   },
   {
     title: 'Lighting',
-    icon: '✨',
     vendors: [
       { name: "Gail's Lights (Riviera Only)", description: 'Edison & Tulle Lighting', phone: '(516) 804 2363' },
     ]
   },
   {
     title: 'Limousines',
-    icon: '🚗',
     vendors: [
       { name: 'Mark of Elegance', website: 'https://www.markofelegance.com', phone: '(516) 506 7155' },
       { name: 'Dynasty Limousine', website: 'https://www.dynastylimosli.com', phone: '(631) 587 8500' },
@@ -109,14 +98,12 @@ const vendorCategories = [
   },
   {
     title: 'Décor & Backdrops',
-    icon: '🎨',
     vendors: [
       { name: 'Element Events', website: 'https://www.elementeventsli.com', phone: '(631) 786 7141' },
     ]
   },
   {
     title: 'Fireworks',
-    icon: '🎆',
     vendors: [
       { name: 'Starfire Corporation', description: 'Charles Rappa', phone: '(631) 624 4972' },
       { name: 'Grucci Fireworks', website: 'https://www.grucci.com', phone: '(631) 286 0088' },
@@ -124,7 +111,6 @@ const vendorCategories = [
   },
   {
     title: 'Clergy & Officiants',
-    icon: '💒',
     vendors: [
       { name: 'NY Officiants', website: 'https://www.nyofficiants.com', phone: '(516) 662 2191' },
       { name: 'Long Island Wedding Officiants', website: 'https://longislandweddingofficiants.org', email: 'joe@longislandweddingofficiants.org', phone: '(917) 863 7865' },
@@ -132,7 +118,6 @@ const vendorCategories = [
   },
   {
     title: 'Bridal Attire',
-    icon: '👰',
     vendors: [
       { name: 'Princess Bridals', website: 'https://princessbridals.com', phone: '(516) 249 3005' },
       { name: 'Esquire Tuxedos', website: 'https://www.esquiretuxedos.com', phone: '(516) 378 6060' },
@@ -140,14 +125,12 @@ const vendorCategories = [
   },
   {
     title: 'Invitations',
-    icon: '💌',
     vendors: [
       { name: 'Gemini Invitations', website: 'https://www.geminiinvitations.com', phone: '(347) 348 8145' },
     ]
   },
   {
     title: 'Special Services',
-    icon: '⭐',
     vendors: [
       { name: 'Village Cigar Headquarters', website: 'https://www.villagecigarhq.com', phone: '(631) 307 9033' },
       { name: 'Rainbow Tents (Heater Rentals)', website: 'https://www.rainbowtents.com', phone: '(631) 665 RENT' },
@@ -155,7 +138,6 @@ const vendorCategories = [
   },
   {
     title: 'Hotels',
-    icon: '🏨',
     vendors: [
       { name: 'Courtyard Marriott', description: '2 Marriott Plaza, Farmingdale, NY 11735', phone: '(631) 927 6910' },
     ]
@@ -205,6 +187,7 @@ export default function VendorsPage() {
               <SlideshowImage
                 images={imageConfig.pageHeroes.vendors as string[]}
                 alt="Preferred wedding vendors at Riviera Waterfront Mansion Long Island wedding venue"
+                fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 quality={90}
@@ -262,7 +245,7 @@ export default function VendorsPage() {
                   className="vendor-category bg-white p-8 hover:shadow-lg transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="text-2xl" aria-hidden="true">{category.icon}</span>
+                    <span className="w-1 h-8 bg-riviera-gold shrink-0" aria-hidden="true" />
                     <h2 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text">
                       {category.title}
                     </h2>

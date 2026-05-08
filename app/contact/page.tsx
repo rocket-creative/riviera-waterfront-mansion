@@ -17,7 +17,7 @@ import { imageConfig } from '../lib/imageConfig';
 const contactFAQs = [
   {
     question: 'What are your consultation hours?',
-    answer: 'We are open for private tours and consultations Tuesday through Sunday. Hours are 11am to 8pm Tuesday through Friday, 10am to 8pm Saturday, and 10am to 7pm Sunday. Monday is by appointment only. Call 516 541 5020 to schedule your visit.'
+    answer: 'We are open for private tours and consultations Tuesday through Sunday, 11:00 AM to 7:00 PM. Call 516 541 5020 to schedule your visit.'
   },
   {
     question: 'How do I schedule a tour of the venue?',
@@ -102,6 +102,7 @@ export default function ContactPage() {
               <SlideshowImage
                 images={imageConfig.pageHeroes.contact as string[]}
                 alt="Contact Riviera Waterfront Mansion to plan your Long Island wedding"
+                fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 quality={90}

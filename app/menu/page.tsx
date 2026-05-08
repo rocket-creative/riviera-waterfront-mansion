@@ -13,7 +13,7 @@ function hasImages(slot?: string) {
 }
 
 // Standard card with a photo, falls back to text-only when no image is available
-function Item({ slot, alt, name, desc, fit = 'cover' }: { slot?: string; alt: string; name: string; desc: string; fit?: 'cover' | 'contain' }) {
+function Item({ slot, alt, name, desc, fit = 'contain' }: { slot?: string; alt: string; name: string; desc: string; fit?: 'cover' | 'contain' }) {
   if (!hasImages(slot)) return <TextItem name={name} desc={desc} />;
   return (
     <div>
@@ -124,7 +124,14 @@ export default function MenuPage() {
         {/* ── Cocktail Hour ─────────────────────────────────────────────────────── */}
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['cocktail-hour']} interval={3000} fadeMs={650} alt="Cocktail hour at Riviera Waterfront Mansion" />
+            <HeroCarousel
+              images={h['cocktail-hour']}
+              interval={3000}
+              fadeMs={650}
+              alt="Cocktail hour at Riviera Waterfront Mansion"
+              variant="venue"
+              sizes="100vw"
+            />
 
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
@@ -184,7 +191,14 @@ export default function MenuPage() {
         {/* ── Hot Gourmet Dishes ───────────────────────────────────────────────── */}
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['hot-gourmet']} interval={2800} fadeMs={650} alt="Hot gourmet dishes at Riviera Waterfront Mansion" />
+            <HeroCarousel
+              images={h['hot-gourmet']}
+              interval={2800}
+              fadeMs={650}
+              alt="Hot gourmet dishes at Riviera Waterfront Mansion"
+              variant="venue"
+              sizes="100vw"
+            />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
@@ -254,7 +268,14 @@ export default function MenuPage() {
         {/* ── Grand Ballroom ───────────────────────────────────────────────────── */}
         <section>
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['ballroom']} interval={3200} fadeMs={650} alt="Grand ballroom wedding reception at Riviera Waterfront Mansion" />
+            <HeroCarousel
+              images={h['ballroom']}
+              interval={3200}
+              fadeMs={650}
+              alt="Grand ballroom wedding reception at Riviera Waterfront Mansion"
+              variant="venue"
+              sizes="100vw"
+            />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
@@ -375,7 +396,14 @@ export default function MenuPage() {
         {/* ── Enhancements, Add-ons & Exit Stations ───────────────────────────── */}
         <section className="bg-stone-50">
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
-            <HeroCarousel images={h['enhancements-combined']} interval={3000} fadeMs={650} alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion" />
+            <HeroCarousel
+              images={h['enhancements-combined']}
+              interval={3000}
+              fadeMs={650}
+              alt="Wedding enhancements and exit stations at Riviera Waterfront Mansion"
+              variant="venue"
+              sizes="100vw"
+            />
           </div>
           <div className="py-14 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
@@ -446,7 +474,7 @@ export default function MenuPage() {
               </p>
               <div className={menuGrid}>
                 <TextItem name="White Castle Slider Station" desc="Iconic White Castle sliders served as guests head home" />
-                <TextItem name="All American Burger Station" desc="Hamburgers, cheeseburgers, and french fries" />
+                <TextItem name="All American Burger Station" desc="Hamburgers, cheeseburgers, and french fries from All American Drive In, served as guests head home" />
                 <TextItem name="Apple Cider Donut Station" desc="Warm cinnamon sugar apple cider donuts" />
                 <TextItem name="Donut Wall" desc="Assorted donuts as guests head home" />
                 <TextItem name="Hot Pretzel Station" desc="Hot pretzels with mustard and cheese sauce" />

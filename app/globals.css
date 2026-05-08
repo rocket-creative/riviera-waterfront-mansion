@@ -63,11 +63,10 @@
     object-position: center center;
   }
 
-  /* For portrait-oriented images, ensure faces are centered */
-  @media (max-width: 768px) {
-    .hero-carousel-image {
-      object-position: center 35%;
-    }
+  /* Full-frame venue photography: show entire image, centered (no crop, no upward mobile bias). */
+  .hero-carousel-image--venue {
+    object-fit: contain;
+    object-position: center center;
   }
 
   /* Smooth horizontal scrolling animation for reviews */

@@ -12,6 +12,13 @@ interface HeroCarouselProps {
   alt?: string;
   /** Crossfade duration in ms (default 1000). */
   fadeMs?: number;
+  /**
+   * `venue` shows the full image (letterboxed) with true centering; use for wide ballroom shots.
+   * `default` uses cover and existing mobile focal bias for other heroes.
+   */
+  variant?: 'default' | 'venue';
+  /** Passed to next/image `sizes`. Default matches full-bleed menu sections. */
+  sizes?: string;
 }
 
 export default function HeroCarousel({
@@ -19,6 +26,8 @@ export default function HeroCarousel({
   interval = 5000,
   alt = 'Wedding couple at Riviera Waterfront Mansion',
   fadeMs = 1000,
+  variant = 'default',
+  sizes = '(max-width: 1024px) 100vw, 65vw',
 }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -103,6 +112,13 @@ export default function HeroCarousel({
 
   if (images.length === 0) return null;
 
+  const imageClass =
+    variant === 'venue' ? 'hero-carousel-image--venue' : 'hero-carousel-image';
+  const frameClass =
+    variant === 'venue'
+      ? 'relative w-full h-full overflow-hidden bg-stone-100 touch-pan-y'
+      : 'relative w-full h-full overflow-hidden bg-riviera-text touch-pan-y';
+
   const fadeStyle =
     reducedMotion
       ? { transition: 'none' }
@@ -110,7 +126,7 @@ export default function HeroCarousel({
 
   return (
     <div
-      className="relative w-full h-full overflow-hidden bg-riviera-text touch-pan-y"
+      className={frameClass}
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
       role={images.length > 1 ? 'region' : undefined}
@@ -130,15 +146,19 @@ export default function HeroCarousel({
             alt={`${alt} - Image ${index + 1}`}
             fill
             priority={index === 0}
-            className="hero-carousel-image"
-            sizes="(max-width: 1024px) 100vw, 65vw"
+            className={imageClass}
+            sizes={sizes}
             quality={90}
           />
         </div>
       ))}
 
       {images.length > 1 && (
-        <div className="absolute bottom-6 right-6 z-20 flex gap-2">
+        <div
+          className={`absolute bottom-6 right-6 z-20 flex gap-2 ${
+            variant === 'venue' ? '[&_button]:shadow-sm' : ''
+          }`}
+        >
           {images.map((_, index) => (
             <button
               key={index}
@@ -146,8 +166,12 @@ export default function HeroCarousel({
               onClick={() => goToIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-white w-6'
-                  : 'bg-white/50 hover:bg-white/70'
+                  ? variant === 'venue'
+                    ? 'bg-riviera-text w-6'
+                    : 'bg-white w-6'
+                  : variant === 'venue'
+                    ? 'bg-riviera-text/35 hover:bg-riviera-text/50'
+                    : 'bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Go to image ${index + 1} of ${images.length}`}
             />
