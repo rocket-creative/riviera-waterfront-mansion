@@ -105,10 +105,10 @@ export default function Home() {
                 <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
                     <Link 
-                      href="/contact"
+                      href="/wedding-pricing"
                       className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block w-full"
                     >
-                      BOOK A TOUR →
+                      DOWNLOAD OUR WELCOME BROCHURE →
                     </Link>
                   </HoverScale>
                   <HoverScale effect="lift">
@@ -250,10 +250,10 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col gap-4 max-w-md">
                   <Link 
-                    href="/wedding-brochure"
+                    href="/wedding-pricing"
                     className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 text-center block"
                   >
-                    WEDDING BROCHURE →
+                    DOWNLOAD OUR WELCOME BROCHURE →
                   </Link>
                   <a 
                     href="tel:+15165415020"
@@ -316,9 +316,9 @@ export default function Home() {
         <InlineCTA
           eyebrow="LIMITED WEDDING DATES AVAILABLE"
           headline="Your Dream Massapequa Waterfront Wedding starts here"
-          description="Ready to experience our historic Long Island venue in person? Schedule a private tour and discover why couples have chosen Riviera Waterfront Mansion for over 75 years. Personalized consultations available Tuesday through Sunday."
-          buttonText="CHECK AVAILABILITY →"
-          buttonHref="/contact"
+          description="Ready to experience our historic Long Island venue in person? Download our welcome brochure to explore packages, amenities, and everything Riviera Waterfront Mansion has to offer. Limited 2026 and 2027 dates available."
+          buttonText="DOWNLOAD OUR WELCOME BROCHURE →"
+          buttonHref="/wedding-pricing"
           imageSrc={imageConfig.homepage.venue as string[]}
           imageAlt="Elegant Long Island wedding reception at Riviera Waterfront Mansion in Massapequa with stunning table settings and waterfront views"
           imagePosition="left"
@@ -553,8 +553,8 @@ export default function Home() {
           background="dark"
           buttons={[
             {
-              text: 'BOOK A TOUR →',
-              href: '/contact',
+              text: 'DOWNLOAD OUR WELCOME BROCHURE →',
+              href: '/wedding-pricing',
               intent: 'schedule',
             },
             {

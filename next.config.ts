@@ -6,11 +6,11 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com https://www.eventbrite.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com https://www.eventbrite.com https://connect.facebook.net",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com",
+      "connect-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com https://www.facebook.com https://connect.facebook.net",
       "frame-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com",
       "media-src 'self' data: blob:",
     ].join('; ')
@@ -48,6 +48,15 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/wedding-brochure',
+        destination: '/wedding-pricing',
+        permanent: true,
       },
     ];
   },

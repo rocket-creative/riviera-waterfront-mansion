@@ -524,10 +524,10 @@ export default function MenuPage() {
             </p>
             <div className="flex flex-col lg:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/wedding-pricing"
                 className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-dark-brown text-center"
               >
-                INQUIRE ABOUT MENU →
+                DOWNLOAD OUR WELCOME BROCHURE →
               </Link>
               <a
                 href="tel:+15165415020"

@@ -31,9 +31,9 @@ export default function MobileStickyCTA() {
           CALL US
         </a>
         <Link
-          href="/contact"
+          href="/wedding-pricing"
           className="flex items-center justify-center gap-2 py-4 text-white text-xs font-light tracking-widest bg-riviera-gold hover:bg-riviera-gold/90 active:bg-riviera-gold/80 transition-colors min-h-[56px]"
-          aria-label="Schedule a tour of Riviera Waterfront Mansion"
+          aria-label="Download the Riviera Waterfront Mansion welcome brochure"
         >
           <svg
             className="w-4 h-4 flex-shrink-0"
@@ -46,10 +46,10 @@ export default function MobileStickyCTA() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={1.5}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
             />
           </svg>
-          SCHEDULE A TOUR
+          GET BROCHURE
         </Link>
       </div>
     </div>

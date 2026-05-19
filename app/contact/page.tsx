@@ -147,55 +147,42 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Inquiry Options */}
+        {/* Wedding Brochure Redirect */}
         <section className="py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-white">
           <div className="max-w-6xl mx-auto">
             <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
-              <p className="text-riviera-gold text-sm tracking-widest mb-3">HOW CAN WE HELP?</p>
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">PLANNING YOUR WEDDING?</p>
               <h2 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text">
-                Choose Your Inquiry Type
+                Start With Our Welcome Brochure
               </h2>
             </AnimatedSection>
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              <AnimatedSection animation="revealFromLeft" as="div">
-                <div className="bg-riviera-neutral p-8 h-full flex flex-col">
-                  <p className="text-riviera-gold text-xs tracking-widest mb-3">FOR ENGAGED COUPLES</p>
-                  <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                    Long Island Wedding Inquiries
-                  </h3>
-                  <p className="text-sm font-light text-riviera-text/80 mb-6 flex-grow">
-                    If you are interested in hosting your waterfront wedding at Riviera Waterfront Mansion in Massapequa, NY, please use the form below. Limited dates available for 2026 and 2027.
-                  </p>
-                  <HoverScale effect="lift">
-                    <a 
-                      href="#inquiry-form"
-                      className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center block w-full"
-                    >
-                      WEDDING INQUIRY →
-                    </a>
-                  </HoverScale>
-                </div>
-              </AnimatedSection>
-              <AnimatedSection animation="revealFromRight" delay={0.1} as="div">
-                <div className="bg-white border-2 border-riviera-neutral p-8 h-full flex flex-col">
-                  <p className="text-riviera-gold text-xs tracking-widest mb-3">GENERAL QUESTIONS</p>
-                  <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                    Other Event Inquiries
-                  </h3>
-                  <p className="text-sm font-light text-riviera-text/80 mb-6 flex-grow">
-                    If you are looking to host other special events at our Massapequa waterfront venue, we would love to hear from you. Please note: Riviera Waterfront Mansion specializes exclusively in weddings.
-                  </p>
-                  <HoverScale effect="lift">
-                    <a 
-                      href="#inquiry-form"
-                      className="bg-white border-2 border-riviera-gold text-riviera-gold px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center block w-full"
-                    >
-                      GENERAL INQUIRY →
-                    </a>
-                  </HoverScale>
-                </div>
-              </AnimatedSection>
+            <AnimatedSection animation="fadeInUp" delay={0.1} as="div">
+              <div className="bg-riviera-neutral p-10 md:p-14 text-center max-w-3xl mx-auto">
+                <p className="text-riviera-gold text-xs tracking-widest mb-4">FOR ENGAGED COUPLES</p>
+                <h3 className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-6 leading-tight">
+                  Download The Riviera Waterfront Mansion Welcome Brochure
+                </h3>
+                <p className="text-base font-light text-riviera-text/70 leading-relaxed mb-8 max-w-xl mx-auto">
+                  Discover our wedding packages, amenities, venue spaces, and more — all in one place. Download our free welcome brochure to explore the full Riviera Waterfront Mansion experience from the comfort of your own home.
+                </p>
+                <HoverScale effect="lift">
+                  <Link
+                    href="/wedding-pricing"
+                    className="bg-riviera-gold text-white px-10 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-colors text-center inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
+                  >
+                    DOWNLOAD OUR WELCOME BROCHURE →
+                  </Link>
+                </HoverScale>
+              </div>
+            </AnimatedSection>
+
+            {/* Non-wedding divider */}
+            <div className="mt-16 text-center">
+              <p className="text-riviera-text/50 text-sm font-light tracking-wide">
+                For all non-wedding inquiries, please reach out to us below.
+              </p>
+              <div className="mt-4 w-16 h-px bg-riviera-gold/40 mx-auto" />
             </div>
           </div>
         </section>

@@ -211,9 +211,9 @@ export default function TourPage() {
         <InlineCTA
           eyebrow="VISIT OUR VENUE"
           headline="Nothing Compares to Seeing Our Long Island Venue in Person"
-          description="While our virtual tour offers a glimpse of our stunning Massapequa waterfront spaces, we invite you to experience the magic of Riviera Waterfront Mansion firsthand. Schedule a private tour, meet our team, and envision your perfect wedding day."
-          buttonText="BOOK A TOUR →"
-          buttonHref="/contact"
+          description="While our virtual tour offers a glimpse of our stunning Massapequa waterfront spaces, we invite you to download our welcome brochure and explore packages, amenities, and everything included in your perfect waterfront wedding day."
+          buttonText="DOWNLOAD OUR WELCOME BROCHURE →"
+          buttonHref="/wedding-pricing"
           imageSrc={imageConfig.hero}
           imageAlt="Stunning waterfront wedding ceremony at Riviera Waterfront Mansion in Massapequa, Long Island"
           imagePosition="left"
@@ -236,8 +236,8 @@ export default function TourPage() {
           background="dark"
           buttons={[
             {
-              text: 'SCHEDULE A VISIT →',
-              href: '/contact',
+              text: 'DOWNLOAD OUR WELCOME BROCHURE →',
+              href: '/wedding-pricing',
               intent: 'schedule',
             },
             {

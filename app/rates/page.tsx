@@ -182,10 +182,10 @@ export default function RatesPage() {
             </p>
             <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href="/wedding-pricing"
                 className="inline-block bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-white hover:text-riviera-text transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 focus-visible:ring-offset-riviera-text"
               >
-                BOOK A TOUR &rarr;
+                DOWNLOAD OUR WELCOME BROCHURE &rarr;
               </Link>
               <a
                 href="tel:+15165415020"

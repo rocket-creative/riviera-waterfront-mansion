@@ -281,8 +281,8 @@ export default async function TourSectionPage({ params }: Props) {
           background="dark"
           buttons={[
             {
-              text: 'SCHEDULE A VISIT →',
-              href: '/contact',
+              text: 'DOWNLOAD OUR WELCOME BROCHURE →',
+              href: '/wedding-pricing',
               intent: 'schedule',
             },
             {

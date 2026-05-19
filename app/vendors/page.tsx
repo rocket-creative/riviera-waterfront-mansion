@@ -302,9 +302,9 @@ export default function VendorsPage() {
         <InlineCTA
           eyebrow="QUESTIONS ABOUT VENDORS?"
           headline="Our Team Is Here to Help Build Your Dream Wedding Team"
-          description="For personalized vendor recommendations tailored to your wedding vision, budget, and style, contact our experienced banquet department. We have worked with all our preferred vendors for years and can guide you to the perfect match."
-          buttonText="GET RECOMMENDATIONS →"
-          buttonHref="/contact"
+          description="Download our welcome brochure to explore everything included in a Riviera Waterfront Mansion wedding, including packages, amenities, and our complete vendor recommendations. Your perfect wedding team starts here."
+          buttonText="DOWNLOAD OUR WELCOME BROCHURE →"
+          buttonHref="/wedding-pricing"
           imageSrc={imageConfig.homepage.venue}
           imageAlt="Beautiful wedding reception setup at Riviera Waterfront Mansion"
           imagePosition="right"
@@ -327,8 +327,8 @@ export default function VendorsPage() {
           background="dark"
           buttons={[
             {
-              text: 'CONTACT US →',
-              href: '/contact',
+              text: 'DOWNLOAD OUR WELCOME BROCHURE →',
+              href: '/wedding-pricing',
               intent: 'schedule',
             },
             {

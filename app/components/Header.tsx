@@ -125,16 +125,16 @@ export default function Header() {
               VENDORS
             </Link>
             <Link 
-              href="/wedding-brochure"
+              href="/wedding-pricing"
               className="border border-riviera-gold text-riviera-gold px-5 py-2 text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
-              WEDDING BROCHURE
+              WEDDING PRICING
             </Link>
             <Link 
-              href="/contact"
+              href="/wedding-pricing"
               className="bg-riviera-gold text-white px-6 py-2 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
             >
-              BOOK YOUR TOUR →
+              DOWNLOAD BROCHURE →
             </Link>
           </div>
 
@@ -234,18 +234,18 @@ export default function Header() {
               </Link>
               <div className="flex flex-col gap-3 pt-4">
                 <Link 
-                  href="/wedding-brochure"
+                  href="/wedding-pricing"
                   className="border border-riviera-gold text-riviera-gold px-6 min-h-[44px] flex items-center justify-center text-sm font-light tracking-wider hover:bg-riviera-gold hover:text-white transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  WEDDING BROCHURE
+                  WEDDING PRICING
                 </Link>
                 <Link 
-                  href="/contact"
+                  href="/wedding-pricing"
                   className="bg-riviera-gold text-white px-6 min-h-[44px] flex items-center justify-center text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  BOOK YOUR TOUR →
+                  DOWNLOAD BROCHURE →
                 </Link>
               </div>
             </div>
