@@ -131,32 +131,33 @@ export async function submitQuickInquiry(formData: FormData) {
     };
   }
 
-  try {
-    // Send email via Resend
-    const emailResult = await sendEmail(result.data);
-    
-    if (!emailResult.success) {
-      console.error('Failed to send email:', emailResult.error);
-      return {
-        success: false,
-        error: 'Failed to send inquiry. Please try again or call us directly.'
-      };
-    }
+  // Run Sheet backup and email in parallel — Sheet is the safety net so we
+  // always capture the lead even when Resend is unavailable.
+  const [sheetsResult, emailResult] = await Promise.allSettled([
+    logToGoogleSheets(result.data),
+    sendEmail(result.data),
+  ]);
 
-    // Log to Google Sheets (non-blocking)
-    logToGoogleSheets(result.data).catch(error => {
-      console.error('Google Sheets logging failed (non-critical):', error);
-    });
+  const sheetOk =
+    sheetsResult.status === 'fulfilled' && sheetsResult.value.success;
+  const emailOk = emailResult.status === 'fulfilled' && emailResult.value.success;
 
-    return { 
-      success: true,
-      message: 'Thank you! We will contact you within 24 hours about your wedding date.'
-    };
-  } catch (error) {
-    console.error('Quick inquiry error:', error);
+  if (!sheetOk) {
+    console.error('Quick inquiry Sheet log failed:', sheetsResult);
+  }
+  if (!emailOk) {
+    console.error('Quick inquiry email failed:', emailResult);
+  }
+
+  if (!sheetOk && !emailOk) {
     return {
       success: false,
-      error: 'An unexpected error occurred. Please call us at (516) 541 5020.'
+      error: 'Unable to process your inquiry right now. Please call us at (516) 541 5020.',
     };
   }
+
+  return {
+    success: true,
+    message: 'Thank you! We will contact you within 24 hours about your wedding date.',
+  };
 }
