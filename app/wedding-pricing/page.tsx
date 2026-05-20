@@ -16,7 +16,7 @@ export default function WeddingPricingPage() {
           <div className="relative min-h-[50vh] md:min-h-0 bg-stone-100">
             <Image
               src="/brochure-cover.png"
-              alt="Riviera Waterfront Mansion Welcome Brochure — Long Island wedding venue packages and pricing in Massapequa, NY"
+              alt="Riviera Waterfront Mansion Wedding Brochure — Long Island wedding venue packages and pricing in Massapequa, NY"
               fill
               className="object-contain object-center"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -28,12 +28,12 @@ export default function WeddingPricingPage() {
           {/* Right — Form gate */}
           <div className="flex flex-col justify-center px-8 py-16 md:px-12 lg:px-16 bg-white">
             <div className="max-w-md w-full mx-auto">
-              <p className="text-sm tracking-widest text-riviera-gold mb-4">WEDDING PRICING</p>
+              <p className="text-sm tracking-widest text-riviera-gold mb-4">WEDDING BROCHURE</p>
               <h1 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4 leading-tight">
-                Download The Riviera Waterfront Mansion Welcome Brochure!
+                Download the Riviera Waterfront Mansion Wedding Brochure
               </h1>
               <p className="text-base font-light text-riviera-text/70 leading-relaxed mb-8">
-                Fill out your information below to gain access to our ultimate welcome brochure. This free pamphlet will give you a taste of the Riviera Waterfront Mansion wedding experience while in the comfort of your own home. Packed with packages, amenities, and much more!
+                This free brochure will give you a taste of the Riviera Waterfront Mansion wedding experience while in the comfort of your own home. Fill out your information below to gain access to our ultimate wedding brochure.
               </p>
 
               <BrochureFormEmbed />
@@ -71,7 +71,7 @@ export default function WeddingPricingPage() {
               {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'Wedding Pricing',
+                name: 'Wedding Brochure',
                 item: 'https://www.rivierawaterfrontmansion.com/wedding-pricing'
               }
             ]
