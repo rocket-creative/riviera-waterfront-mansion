@@ -2,7 +2,6 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import InquiryForm from '../components/InquiryForm';
 import CTASection from '../components/CTASection';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
@@ -21,7 +20,7 @@ const contactFAQs = [
   },
   {
     question: 'How do I schedule a tour of the venue?',
-    answer: 'You can schedule a tour by calling us at 516 541 5020, emailing appointments@rivierawaterfrontmansion.com, or submitting the inquiry form on this page. We will respond within 24 hours to confirm your appointment.'
+    answer: 'You can schedule a tour by calling us at 516 541 5020 or emailing appointments@rivierawaterfrontmansion.com. We will respond within 24 hours to confirm your appointment.'
   },
   {
     question: 'Do I need an appointment to visit?',
@@ -45,7 +44,7 @@ const contactFAQs = [
   },
   {
     question: 'Can I get wedding information before visiting?',
-    answer: 'Yes! You can request our comprehensive wedding brochure with package details, menu options, and venue information at rivierawaterfrontmansion.com/wedding-brochure, or reach us directly at appointments@rivierawaterfrontmansion.com.'
+    answer: 'Yes! You can download our comprehensive wedding brochure with package details, menu options, and venue information at rivierawaterfrontmansion.com/wedding-pricing, or reach us directly at appointments@rivierawaterfrontmansion.com.'
   }
 ];
 
@@ -78,12 +77,12 @@ export default function ContactPage() {
                 </p>
                 <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
-                    <a 
-                      href="#inquiry-form"
+                    <Link 
+                      href="/wedding-pricing"
                       className="bg-riviera-gold text-white px-8 py-4 text-sm font-light tracking-widest hover:bg-riviera-text transition-all text-center block w-full"
                     >
-                      INQUIRE NOW →
-                    </a>
+                      DOWNLOAD OUR WELCOME BROCHURE →
+                    </Link>
                   </HoverScale>
                   <HoverScale effect="lift">
                     <a 
@@ -187,88 +186,74 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Main Contact Section */}
-        <section id="inquiry-form" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral" aria-labelledby="inquiry-heading">
+        {/* Direct Contact Section */}
+        <section id="get-in-touch" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral" aria-labelledby="contact-heading">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Contact Form */}
-              <AnimatedSection animation="fadeInUp" delay={0.2} as="div" className="h-full">
-                <div className="bg-white p-8 md:p-10 h-full flex flex-col">
-                  <p className="text-riviera-gold text-xs tracking-widest mb-3">REQUEST INFORMATION</p>
-                  <h2 id="inquiry-heading" className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-8">
-                    Request Your Long Island Wedding Date
-                  </h2>
-                  <InquiryForm />
-                </div>
+            <AnimatedSection animation="fadeInUp" className="text-center mb-12" as="div">
+              <p className="text-riviera-gold text-sm tracking-widest mb-3">GET IN TOUCH</p>
+              <h2 id="contact-heading" className="font-cormorant text-3xl md:text-4xl font-light tracking-wide text-riviera-text mb-4">
+                Reach Our Team Directly
+              </h2>
+              <p className="text-base font-light text-riviera-text/70 max-w-xl mx-auto">
+                For non-wedding questions, or to speak with our team about your visit, call or email us anytime during office hours.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid lg:grid-cols-2 gap-6 mb-8">
+              {/* Email Card */}
+              <AnimatedSection animation="revealFromLeft" as="div">
+                <a
+                  href="mailto:appointments@rivierawaterfrontmansion.com"
+                  className="group bg-white p-8 md:p-10 h-full flex flex-col hover:bg-riviera-gold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
+                >
+                  <p className="text-riviera-gold group-hover:text-white text-xs tracking-widest mb-4 transition-colors">EMAIL US</p>
+                  <h3 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text group-hover:text-white mb-4 leading-tight break-all transition-colors">
+                    appointments@rivierawaterfrontmansion.com
+                  </h3>
+                  <p className="text-sm font-light text-riviera-text/70 group-hover:text-white/90 mb-6 flex-grow transition-colors">
+                    We respond to every inquiry within 24 hours during business days.
+                  </p>
+                  <span className="text-xs tracking-widest text-riviera-text group-hover:text-white font-light transition-colors">
+                    SEND AN EMAIL →
+                  </span>
+                </a>
               </AnimatedSection>
 
-              {/* Contact Information & Office Hours */}
-              <AnimatedSection animation="fadeInUp" delay={0.3} as="div" className="h-full">
-                <div className="flex flex-col gap-8 h-full">
-                  {/* Office Hours */}
-                  <div className="bg-riviera-text p-8 text-white">
-                    <p className="text-riviera-gold text-xs tracking-widest mb-3">CONSULTATION HOURS</p>
-                    <h3 className="font-cormorant text-2xl font-light tracking-wide mb-6">
-                      Visit Our Massapequa Venue
-                    </h3>
-                    <div className="text-sm font-light leading-relaxed opacity-90 space-y-2">
-                      <div className="flex justify-between">
-                        <span>Tuesday – Sunday</span>
-                        <span>11:00 AM – 7:00 PM</span>
-                      </div>
-                    </div>
-                    <div className="mt-6 pt-6 border-t border-white/20">
-                      <p className="text-riviera-gold text-sm">
-                        Schedule your private wedding venue tour today
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Wedding Brochure */}
-                  <div className="bg-white p-8 border-2 border-riviera-gold">
-                    <p className="text-riviera-gold text-xs tracking-widest mb-3">WEDDING BROCHURE</p>
-                    <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                      Get Our Wedding Brochure
-                    </h3>
-                    <p className="text-sm font-light text-riviera-text/70 mb-6">
-                      Request our comprehensive wedding brochure covering our Massapequa waterfront venue, Long Island wedding packages, menu options, and more
-                    </p>
-                    <HoverScale effect="lift">
-                      <Link
-                        href="/wedding-brochure"
-                        className="bg-riviera-gold text-white px-6 py-3 text-sm font-light tracking-wider hover:bg-riviera-text transition-colors text-center block w-full"
-                      >
-                        REQUEST BROCHURE →
-                      </Link>
-                    </HoverScale>
-                  </div>
-
-                  {/* Quick Contact */}
-                  <div className="bg-white p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                      <p className="text-riviera-gold text-xs tracking-widest mb-3">PREFER TO CALL?</p>
-                      <h3 className="font-cormorant text-2xl font-light tracking-wide text-riviera-text mb-4">
-                        Speak With Our Team
-                      </h3>
-                      <p className="text-sm font-light text-riviera-text/70 mb-6">
-                        Our friendly staff is ready to answer your questions and help you begin planning your dream Long Island waterfront wedding
-                      </p>
-                    </div>
-                    <HoverScale effect="lift">
-                      <a
-                        href="tel:+15165415020"
-                        className="inline-flex items-center gap-2 text-2xl font-light text-riviera-text hover:text-riviera-gold transition-colors"
-                      >
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        (516) 541 5020
-                      </a>
-                    </HoverScale>
-                  </div>
-                </div>
+              {/* Phone Card */}
+              <AnimatedSection animation="revealFromRight" delay={0.1} as="div">
+                <a
+                  href="tel:+15165415020"
+                  className="group bg-riviera-text p-8 md:p-10 h-full flex flex-col hover:bg-riviera-gold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
+                >
+                  <p className="text-riviera-gold group-hover:text-white text-xs tracking-widest mb-4 transition-colors">CALL US</p>
+                  <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-white mb-4 leading-tight">
+                    (516) 541 5020
+                  </h3>
+                  <p className="text-sm font-light text-white/80 mb-6 flex-grow">
+                    Speak with our team Tuesday through Sunday, 11:00 AM to 7:00 PM.
+                  </p>
+                  <span className="text-xs tracking-widest text-white font-light">
+                    CALL NOW →
+                  </span>
+                </a>
               </AnimatedSection>
             </div>
+
+            {/* Office Hours */}
+            <AnimatedSection animation="fadeInUp" delay={0.2} as="div">
+              <div className="bg-white p-8 md:p-10 text-center">
+                <p className="text-riviera-gold text-xs tracking-widest mb-3">CONSULTATION HOURS</p>
+                <h3 className="font-cormorant text-2xl md:text-3xl font-light tracking-wide text-riviera-text mb-4">
+                  Visit Our Massapequa Venue By Appointment
+                </h3>
+                <p className="text-base font-light text-riviera-text/70 mb-2">
+                  Tuesday through Sunday, 11:00 AM to 7:00 PM
+                </p>
+                <p className="text-sm font-light text-riviera-text/50">
+                  Closed Monday. Appointments required for all venue tours.
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 

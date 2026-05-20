@@ -198,13 +198,13 @@ export default function PrivacyPage() {
             </p>
             <div className="bg-stone-50 p-6 rounded">
               <p className="text-stone-700 mb-2">
-                <strong>Riviera Mansion</strong>
+                <strong>Riviera Waterfront Mansion</strong>
               </p>
               <p className="text-stone-700 mb-2">
-                Email: <a href="mailto:info@rivieramansion.com" className="underline hover:text-stone-900">info@rivieramansion.com</a>
+                Email: <a href="mailto:appointments@rivierawaterfrontmansion.com" className="underline hover:text-stone-900">appointments@rivierawaterfrontmansion.com</a>
               </p>
               <p className="text-stone-700">
-                Phone: (555) 123 4567
+                Phone: (516) 541 5020
               </p>
             </div>
           </section>

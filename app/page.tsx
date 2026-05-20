@@ -4,13 +4,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import GoogleReviews from './components/GoogleReviews';
 import DualSocialFeed from './components/DualSocialFeed';
-import HeroInquiryForm from './components/HeroInquiryForm';
 import HeroCarousel from './components/HeroCarousel';
 import CTASection from './components/CTASection';
 import InlineCTA from './components/InlineCTA';
 import FAQSection from './components/FAQSection';
 import MobileStickyCTA from './components/MobileStickyCTA';
-import InteractiveWeddingForm from './components/InteractiveWeddingForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import { imageConfig, getTourPreviews } from './lib/imageConfig';
@@ -97,11 +95,6 @@ export default function Home() {
                   Three generations of wedding excellence on a stunning waterfront estate in Massapequa, Long Island. One wedding at a time. Your day, exclusively yours.
                 </p>
 
-                {/* Hero Inquiry Form - Above the Fold */}
-                <div className="mb-8 max-w-md">
-                  <HeroInquiryForm />
-                </div>
-
                 <div className="flex flex-col gap-4 max-w-md">
                   <HoverScale effect="lift">
                     <Link 
@@ -178,13 +171,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Interactive Wedding Planner Form */}
-        <section className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-white">
-          <AnimatedSection animation="fadeInUp" as="div">
-            <InteractiveWeddingForm />
-          </AnimatedSection>
         </section>
 
         {/* Live Google Reviews - Social Proof */}
