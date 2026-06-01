@@ -80,8 +80,8 @@ export default function CookieConsent() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 bg-white border-t border-stone-200 shadow-lg">
-      <div className="max-w-7xl mx-auto p-6 sm:p-8">
+    <div className="fixed inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom))] md:bottom-0 z-50 bg-white border-t border-stone-200 shadow-lg">
+      <div className="max-w-7xl mx-auto p-5 sm:p-8">
         {!showDetails ? (
           // Simple view
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -101,22 +101,22 @@ export default function CookieConsent() {
               </p>
             </div>
             
-            <div className="flex flex-wrap gap-3 sm:flex-nowrap">
+            <div className="flex flex-col sm:flex-row sm:flex-nowrap gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setShowDetails(true)}
-                className="px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full sm:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Customize
               </button>
               <button
                 onClick={handleRejectAll}
-                className="px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full sm:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Reject All
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
               >
                 Accept All
               </button>
@@ -131,7 +131,7 @@ export default function CookieConsent() {
               </h3>
               <button
                 onClick={() => setShowDetails(false)}
-                className="text-stone-500 hover:text-stone-900"
+                className="flex items-center justify-center w-11 h-11 -mr-2 text-stone-500 hover:text-stone-900"
                 aria-label="Close details"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -140,7 +140,7 @@ export default function CookieConsent() {
               </button>
             </div>
 
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4 mb-6 max-h-[60vh] overflow-y-auto">
               {/* Necessary */}
               <div className="flex items-start justify-between p-4 bg-stone-50 rounded">
                 <div className="flex-1 pr-4">
@@ -220,16 +220,16 @@ export default function CookieConsent() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-end">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-end">
               <button
                 onClick={handleRejectAll}
-                className="px-6 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Reject All
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
               >
                 Save Preferences
               </button>

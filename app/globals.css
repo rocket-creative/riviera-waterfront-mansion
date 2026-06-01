@@ -79,7 +79,7 @@
   }
 
   .animate-scroll-smooth {
-    animation: scroll-smooth 60s linear infinite;
+    animation: scroll-smooth 35s linear infinite;
     will-change: transform;
   }
 
