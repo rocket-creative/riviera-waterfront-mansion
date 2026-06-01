@@ -90,16 +90,16 @@ export default function DualSocialFeed() {
           </a>
         </div>
 
-        <div className="relative overflow-hidden py-4">
+        <div className="relative overflow-x-auto md:overflow-hidden py-4 social-feed-scroll">
           {instagramPosts.length > 0 ? (
-            <div className="flex animate-scroll-left gap-4">
+            <div className="flex animate-scroll-left gap-4 px-4 sm:px-6 md:px-0 snap-x snap-mandatory md:snap-none">
               {duplicatedInstagram.map((post, index) => (
                 <a
                   key={`${post.id}-${index}`}
                   href={post.permalink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex-none w-72 sm:w-80 relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
+                  className="group flex-none w-72 sm:w-80 snap-start relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
                 >
                   <div className="h-72 relative overflow-hidden bg-stone-100">
                     <Image
@@ -152,16 +152,16 @@ export default function DualSocialFeed() {
           </a>
         </div>
 
-        <div className="relative overflow-hidden py-4">
+        <div className="relative overflow-x-auto md:overflow-hidden py-4 social-feed-scroll">
           {tiktokVideos.length > 0 ? (
-            <div className="flex animate-scroll-right gap-4">
+            <div className="flex animate-scroll-right gap-4 px-4 sm:px-6 md:px-0 snap-x snap-mandatory md:snap-none">
               {duplicatedTikTok.map((video, index) => (
                 <a
                   key={`${video.id}-${index}`}
                   href={video.permalink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex-none w-72 sm:w-80 relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
+                  className="group flex-none w-72 sm:w-80 snap-start relative overflow-hidden bg-white border border-riviera-neutral hover:border-riviera-gold transition-all"
                 >
                   <div className="h-72 relative overflow-hidden bg-stone-100">
                     <Image
