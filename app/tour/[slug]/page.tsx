@@ -13,59 +13,59 @@ import TourDetailClient from './TourDetailClient';
 const tourSections = {
   'entrance-lobby': {
     title: 'Entrance Lobby',
-    description: 'Welcome your Long Island wedding guests in our grand entrance lobby at Riviera Waterfront Mansion, featuring elegant architecture and refined details that set the tone for your Massapequa waterfront celebration from the moment guests arrive.',
+    description: 'Our grand entrance lobby is where your guests arrive and get their first look at the mansion. Warm wood, soft lighting, and plenty of room to greet everyone as they come in.',
   },
   'bridal-suite': {
     title: 'Bridal Suite',
-    description: 'Prepare for your special day in our luxurious Long Island wedding bridal suite. Private preparation space with ample room for your entire wedding party, complete with dedicated restroom facilities, natural lighting, and elegant amenities at our Massapequa venue.',
+    description: 'A private suite where you and your wedding party get ready. It takes up the entire top floor and opens onto two balconies, one overlooking the ballroom and one outside. Comes with its own restroom and great natural light.',
   },
   'indoor-ceremony': {
     title: 'Indoor Ceremony Space',
-    description: 'Exchange vows in our elegant indoor Long Island wedding ceremony space. Perfect for any season, with beautiful natural light, sophisticated ambiance, and seating for your guests at our historic Massapequa waterfront venue.',
+    description: 'A beautiful indoor spot to say your vows, ready for any season or weather. Plenty of natural light and comfortable seating for your guests.',
   },
   'outdoor-ceremony': {
     title: 'Outdoor Waterfront Ceremony',
-    description: 'Say "I do" with breathtaking Massapequa waterfront views as your backdrop. Our outdoor Long Island wedding ceremony area offers an unforgettable setting overlooking the water with stunning sunset views for your special moment.',
+    description: 'Say your vows right on the water. Our outdoor ceremony area looks out over the bay and is especially stunning at sunset.',
   },
   'indoor-cocktail': {
     title: 'Indoor Cocktail Hour',
-    description: 'Sophisticated indoor cocktail space with stunning waterfront views at our Long Island venue. Your wedding guests will enjoy premium top shelf beverages and gourmet hors d\'oeuvres in an elegant Massapequa setting with professional bar service.',
+    description: 'An indoor cocktail space with water views, full bar service, and room for guests to relax and mingle before the reception.',
   },
   'outdoor-cocktail': {
     title: 'Outdoor Cocktail Hour',
-    description: 'Entertain your Long Island wedding guests on our stunning Massapequa waterfront patio. Fresh air, beautiful water views, and top shelf open bar service create the perfect atmosphere for your cocktail hour reception.',
+    description: 'A waterfront patio for cocktail hour, with fresh air, open water views, and full bar service. A relaxed spot for guests to gather before dinner.',
   },
   'main-ballroom': {
     title: 'Grand Waterfront Ballroom',
-    description: 'Our grand Long Island wedding ballroom features soaring ceilings, crystal chandeliers, and floor to ceiling windows showcasing breathtaking Massapequa waterfront views. The elegant centerpiece of your reception with spacious dance floor and room for up to 350 guests.',
+    description: 'Our main ballroom is the heart of the reception. High ceilings, chandeliers, and big windows looking out over the water, with a large dance floor and room for up to 350 guests.',
   },
   'sweetheart-table': {
     title: 'Bride & Groom Table',
-    description: 'Your head table takes center stage in our Massapequa waterfront ballroom. Elegantly positioned with the perfect view of your Long Island wedding guests and the dance floor for your special celebration.',
+    description: 'Your table sits front and center in the ballroom, with a clear view of your guests and the dance floor all night long.',
   },
   'guest-seating': {
     title: 'Wedding Guest Reception Seating',
-    description: 'Beautifully arranged Long Island wedding reception seating with attention to every detail. Elegant table settings and comfortable spacing for your guests at our Massapequa waterfront venue with accommodations for up to 350 guests.',
+    description: 'Comfortable, beautifully set tables with room for up to 350 guests, arranged so everyone has a good view of the celebration.',
   },
   'dancefloor': {
     title: 'Spacious Dancefloor',
-    description: 'Spacious dance floor at the heart of our Long Island wedding ballroom. Plenty of room for you and your Massapequa waterfront wedding guests to celebrate and dance throughout the night.',
+    description: 'A large dance floor right in the middle of the ballroom, with plenty of space for you and your guests to dance all night.',
   },
   'entertainment': {
     title: 'DJ & Live Band Setup Area',
-    description: 'Professional Long Island wedding entertainment space with optimal acoustics at our Massapequa venue. Accommodates DJs, live bands, and full audio visual setups for your reception celebration.',
+    description: 'A dedicated space for your DJ or live band, with great sound and room for a full setup. Bring whoever you like to keep the party going.',
   },
   'main-bar': {
     title: 'Top Shelf Bar',
-    description: 'Full service Long Island wedding bar featuring premium top shelf liquors, craft cocktails, fine wines, and professional bartending staff to keep your Massapequa waterfront celebration flowing throughout your five hour open bar.',
+    description: 'A full service bar pouring premium liquor, wine, and cocktails, staffed by our bartenders throughout your five hour open bar.',
   },
   'balconies': {
-    title: 'Waterfront Balconies',
-    description: 'Elegant balconies overlooking the dance floor and offering stunning Massapequa waterfront views. Perfect for intimate moments and spectacular Long Island wedding photography opportunities.',
+    title: 'Double Balconies',
+    description: 'We have two balconies: one inside that overlooks the ballroom, and one outside with double waterfront views. Both make for great photos and quiet moments away from the crowd.',
   },
   'photo-locations': {
     title: 'Wedding Photo Locations',
-    description: 'Countless stunning Long Island wedding photography opportunities throughout our Massapequa waterfront grounds. From breathtaking water views to elegant architectural details, your wedding photographer will have endless beautiful options for timeless portraits.',
+    description: 'Beautiful photo spots all over the grounds, from the water and gardens to the architecture inside. Your photographer will have plenty to work with.',
   },
 };
 

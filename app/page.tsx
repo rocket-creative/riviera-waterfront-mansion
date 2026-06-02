@@ -41,7 +41,7 @@ const homepageFAQs = [
   },
   {
     question: 'Can we bring our own vendors?',
-    answer: 'Yes, you may bring your own photographer, DJ, florist, and other vendors. We also provide a curated list of preferred wedding vendors who are familiar with our Massapequa venue and have proven their excellence at our waterfront mansion.'
+    answer: 'Yes, you can bring your own photographer, DJ, florist, and other vendors. We just ask that every outside vendor carries their own insurance. We are also happy to share our list of trusted vendors who know our venue well.'
   },
   {
     question: 'Do you offer wedding tastings?',
@@ -306,9 +306,10 @@ export default function Home() {
           buttonText="DOWNLOAD OUR WELCOME BROCHURE →"
           buttonHref="/wedding-pricing"
           imageSrc={imageConfig.homepage.venue as string[]}
-          imageAlt="Elegant Long Island wedding reception at Riviera Waterfront Mansion in Massapequa with stunning table settings and waterfront views"
+          imageAlt="Real couples celebrating their waterfront wedding at Riviera Waterfront Mansion in Massapequa, Long Island"
           imagePosition="left"
           background="neutral"
+          imageFit="cover"
         />
 
         {/* Venue Features - What You Get */}
@@ -388,7 +389,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium group-hover:text-riviera-gold transition-colors">GRAND BALLROOM</h3>
                   <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                    Stunning water view grand ballroom with spacious dance floor
+                    Water view ballroom with a large dance floor and room for up to 350 guests
                   </p>
                 </div>
               </Link>
@@ -405,7 +406,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium group-hover:text-riviera-gold transition-colors">BRIDAL SUITE</h3>
                   <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                    Private luxury suite with two balconies and private restroom
+                    Private top floor suite with two balconies and its own restroom
                   </p>
                 </div>
               </Link>
@@ -420,9 +421,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium group-hover:text-riviera-gold transition-colors">BALCONY OVERLOOK</h3>
+                  <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium group-hover:text-riviera-gold transition-colors">DOUBLE BALCONIES</h3>
                   <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                    Elevated viewing area overlooking the dance floor for dramatic moments
+                    Two balconies, one over the ballroom and one outside with double waterfront views
                   </p>
                 </div>
               </Link>
@@ -439,7 +440,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium group-hover:text-riviera-gold transition-colors">TOP SHELF BARS</h3>
                   <p className="text-sm font-light text-riviera-text/70 leading-relaxed">
-                    Multiple indoor and outdoor full service top shelf bars
+                    Full service indoor and outdoor bars pouring premium liquor, wine, and cocktails
                   </p>
                 </div>
               </Link>

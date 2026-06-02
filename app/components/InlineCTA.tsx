@@ -17,6 +17,8 @@ interface InlineCTAProps {
   imageAlt: string;
   imagePosition?: 'left' | 'right';
   background?: 'white' | 'neutral' | 'light';
+  /** `contain` shows the full image (letterboxed); `cover` fills the column. Default `contain`. */
+  imageFit?: 'cover' | 'contain';
 }
 
 export default function InlineCTA({
@@ -29,9 +31,11 @@ export default function InlineCTA({
   imageAlt,
   imagePosition = 'left',
   background = 'neutral',
+  imageFit = 'contain',
 }: InlineCTAProps) {
   const bgClass = background === 'white' ? 'bg-white' : background === 'light' ? 'bg-riviera-neutral-light' : 'bg-riviera-neutral';
   const images = Array.isArray(imageSrc) ? imageSrc : [imageSrc];
+  const singleImageFitClass = imageFit === 'cover' ? 'object-cover' : 'object-contain bg-stone-100';
 
   return (
     <section className={`relative min-h-[70vh] overflow-hidden ${bgClass}`}>
@@ -66,6 +70,7 @@ export default function InlineCTA({
               interval={6000}
               sizes="(max-width: 1024px) 100vw, 58vw"
               quality={85}
+              fit={imageFit}
               showPlaceholder
             />
           ) : (
@@ -73,7 +78,7 @@ export default function InlineCTA({
               src={images[0] ?? ''}
               alt={imageAlt}
               fill
-              className="object-contain object-center bg-stone-100 transition-transform duration-700 hover:scale-105"
+              className={`${singleImageFitClass} object-center transition-transform duration-700 hover:scale-105`}
               sizes="(max-width: 1024px) 100vw, 58vw"
               quality={85}
             />

@@ -172,7 +172,6 @@ export default function MenuPage() {
                 <TextItem name="Cold Meats Board" desc="Salami, Prosciutto, Mortadella, Pepperoni, Ham" />
                 <TextItem name="Assorted Cheeseboard" desc="Smoked Gouda, Cheddar, Colby Jack, Provolone, Swiss with Artisan Crackers" />
                 <TextItem name="Mediterranean Board" desc="Grape Leaves, Kalamata Olives, Mushrooms, Feta, Giardiniera" />
-                <TextItem name="Homemade Antipasto Salad" desc="Artichoke Hearts, Olives, Sun Dried Tomatoes, Provolone, Prosciutto in Italian Dressing" />
                 <TextItem name="Vegetable Crudité" desc="Individual Cones of Carrots, Peppers, Asparagus, Celery, Cherry Tomatoes" />
               </div>
 
@@ -192,6 +191,7 @@ export default function MenuPage() {
 
               <SubHead>Gourmet Cold Salads</SubHead>
               <div className={menuGrid}>
+                <TextItem name="Homemade Antipasto Salad" desc="Artichoke Hearts, Olives, Sun Dried Tomatoes, Provolone, Prosciutto in Italian Dressing" />
                 <TextItem name="Riviera's Seafood Salad" desc="Shrimp, Mussels, Crabmeat in a Secret Recipe Dressing" />
                 <TextItem name="Greek Couscous Salad" desc="Mediterranean Couscous with Walnuts, Cranberries, Grapes, Feta" />
               </div>
