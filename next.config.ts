@@ -6,11 +6,11 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com https://www.eventbrite.com https://connect.facebook.net https://link.msgsndr.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.instagram.com https://www.eventbrite.com https://connect.facebook.net https://link.msgsndr.com https://s.adroll.com https://*.adroll.com https://*.rollworks.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com https://www.facebook.com https://connect.facebook.net https://api.leadconnectorhq.com https://link.msgsndr.com",
+      "connect-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com https://www.facebook.com https://connect.facebook.net https://api.leadconnectorhq.com https://link.msgsndr.com https://*.adroll.com https://*.rollworks.com",
       "frame-src 'self' https://www.instagram.com https://www.eventbrite.com https://eventbrite.com https://api.leadconnectorhq.com https://link.msgsndr.com",
       "media-src 'self' data: blob:",
     ].join('; ')
