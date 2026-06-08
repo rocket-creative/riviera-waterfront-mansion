@@ -50,8 +50,9 @@ const vendorCategories = [
     title: 'Photography',
     vendors: [
       { name: 'Elena Kay Photography', website: 'https://www.elenakayphotography.com', phone: '(631) 213 5013' },
-      { name: 'Jovon Photography & Video', website: 'https://www.Jovonphotographyandvideo.com', phone: '(516) 922 3535' },
       { name: 'Glenmar Studio', website: 'https://www.glenmarstudio.com', phone: '(516) 484 4646' },
+      { name: 'Heritage House', website: 'https://www.heritagehousephoto.com', phone: '(516) 667 4223' },
+      { name: 'Jovon Photography & Video', website: 'https://www.Jovonphotographyandvideo.com', phone: '(516) 922 3535' },
       { name: 'Wavelight Photography', website: 'https://wavelightphoto.com', phone: '(516) 445 6937' },
     ]
   },
