@@ -98,12 +98,6 @@ const vendorCategories = [
     ]
   },
   {
-    title: 'Décor & Backdrops',
-    vendors: [
-      { name: 'Element Events', website: 'https://www.elementeventsli.com', phone: '(631) 786 7141' },
-    ]
-  },
-  {
     title: 'Fireworks',
     vendors: [
       { name: 'Starfire Corporation', description: 'Charles Rappa', phone: '(631) 624 4972' },
@@ -203,7 +197,7 @@ export default function VendorsPage() {
           <div className="mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid lg:grid-cols-3 gap-8 text-center">
               <AnimatedSection animation="fadeInUp" delay={0}>
-                <div className="text-4xl md:text-5xl font-light text-riviera-gold mb-2">14+</div>
+                <div className="text-4xl md:text-5xl font-light text-riviera-gold mb-2">13+</div>
                 <h3 className="text-xs tracking-widest text-riviera-text mb-1">VENDOR CATEGORIES</h3>
                 <p className="text-xs font-light text-riviera-text/70">Complete wedding services</p>
               </AnimatedSection>
