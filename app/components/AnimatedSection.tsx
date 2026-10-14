@@ -1,12 +1,9 @@
 /**
- * Reusable animated section wrapper
- * Applies entrance animations to any content
+ * Layout wrapper. Entrance motion used to hide content until GSAP ran;
+ * sections now paint at full opacity.
  */
 
-'use client';
-
-import React, { ReactNode, forwardRef } from 'react';
-import { useFadeInUp, useRevealFromLeft, useRevealFromRight, useFadeInScale, useImageReveal } from '@/app/lib/useAnimations';
+import React, { ReactNode } from 'react';
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -17,38 +14,10 @@ interface AnimatedSectionProps {
   as?: React.ElementType;
 }
 
-export const AnimatedSection = forwardRef<HTMLElement, AnimatedSectionProps>(
-  ({ children, className = '', animation = 'fadeInUp', delay = 0, duration = 1.2, as = 'section' }, externalRef) => {
-    const fadeInUpRef = useFadeInUp({ delay, duration });
-    const fadeInScaleRef = useFadeInScale({ delay, duration });
-    const revealFromLeftRef = useRevealFromLeft({ delay, duration });
-    const revealFromRightRef = useRevealFromRight({ delay, duration });
-    const imageRevealRef = useImageReveal({ delay, duration });
-
-    const getRef = () => {
-      switch (animation) {
-        case 'fadeInScale':
-          return fadeInScaleRef;
-        case 'revealFromLeft':
-          return revealFromLeftRef;
-        case 'revealFromRight':
-          return revealFromRightRef;
-        case 'imageReveal':
-          return imageRevealRef;
-        default:
-          return fadeInUpRef;
-      }
-    };
-
-    const Component = as;
-    const ref = externalRef || getRef();
-
-    return (
-      <Component ref={ref as any} className={className}>
-        {children}
-      </Component>
-    );
-  }
-);
-
-AnimatedSection.displayName = 'AnimatedSection';
+export function AnimatedSection({
+  children,
+  className = '',
+  as: Component = 'section',
+}: AnimatedSectionProps) {
+  return <Component className={className}>{children}</Component>;
+}

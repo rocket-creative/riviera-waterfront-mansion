@@ -1,5 +1,3 @@
-'use client';
-
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CTASection from '../components/CTASection';
@@ -7,11 +5,9 @@ import InlineCTA from '../components/InlineCTA';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
-import Image from 'next/image';
 import SlideshowImage from '../components/SlideshowImage';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
-import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
 import { imageConfig } from '../lib/imageConfig';
 import AnswerBlock from '../components/AnswerBlock';
 import JsonLd from '../components/JsonLd';
@@ -113,10 +109,6 @@ const vendorCategories = [
 ];
 
 export default function VendorsPage() {
-  useScrollTriggerCleanup();
-  const heroContentRef = useFadeInUp({ delay: 0.3, duration: 1.2 });
-  const categoriesRef = useStaggerChildren('.vendor-category', { stagger: 0.1, duration: 0.8 });
-
   return (
     <>
       <Header />
@@ -127,7 +119,7 @@ export default function VendorsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Text Column */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
-              <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
+              <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   TRUSTED WEDDING PROFESSIONALS
                 </p>
@@ -159,7 +151,6 @@ export default function VendorsPage() {
                 fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
-                quality={90}
                 showPlaceholder
               />
             </div>
@@ -206,7 +197,7 @@ export default function VendorsPage() {
 
         {/* Vendors List */}
         <section id="vendors-list" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-riviera-neutral">
-          <div ref={categoriesRef as any} className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8">
               {vendorCategories.map((category, catIndex) => (
                 <div 

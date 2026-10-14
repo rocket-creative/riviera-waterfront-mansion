@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic';
 export const revalidate = 600; // Cache for 10 minutes
 
 // Placeholder Instagram posts using 2026 Elena Kay photos with faces in frame.

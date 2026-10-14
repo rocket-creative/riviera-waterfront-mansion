@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import ResponsiveFillImage from './ResponsiveFillImage';
-import { altForImage, elenaKayFallbackSrc, isElenaKayPhoto } from '../lib/elenaKay2026';
+import { altForImage, elenaKayPreloadSrc, isElenaKayPhoto } from '../lib/elenaKay2026';
 
 const SWIPE_THRESHOLD_PX = 50;
 const MANUAL_NAV_COOLDOWN_MS = 4000;
@@ -35,6 +35,10 @@ interface HeroCarouselProps {
   presentation?: 'single' | 'dual';
   /** Double-click a slide or panel to open fullscreen preview with zoom (+ and − buttons). */
   enlargeOnDoubleClick?: boolean;
+  /** Preload and prioritize only the first slide. Use on the page's LCP carousel. */
+  priority?: boolean;
+  /** Skip image work until the carousel is near the viewport. */
+  deferUntilVisible?: boolean;
 }
 
 export default function HeroCarousel({
@@ -46,14 +50,20 @@ export default function HeroCarousel({
   sizes = '(max-width: 1024px) 100vw, 65vw',
   presentation = 'single',
   enlargeOnDoubleClick = false,
+  priority = false,
+  deferUntilVisible = false,
 }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [heldIndex, setHeldIndex] = useState<number | null>(null);
+  const [inView, setInView] = useState(!deferUntilVisible);
   const [expandedSrc, setExpandedSrc] = useState<string | null>(null);
   const [expandedZoom, setExpandedZoom] = useState(1.25);
   const [reducedMotion, setReducedMotion] = useState(false);
   const interactionLockUntil = useRef(0);
   const pointerStartX = useRef<number | null>(null);
   const pointerStartY = useRef<number | null>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const previousIndexRef = useRef(0);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -89,27 +99,63 @@ export default function HeroCarousel({
     setCurrentIndex(0);
   }, [images, dualPresentation]);
 
-  // Auto-advance (skipped when reduced motion or single slide)
   useEffect(() => {
-    if (slideCount <= 1 || reducedMotion) return;
+    if (!deferUntilVisible) return;
+    const el = frameRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [deferUntilVisible]);
+
+  useEffect(() => {
+    if (previousIndexRef.current === currentIndex) return;
+    const leaving = previousIndexRef.current;
+    previousIndexRef.current = currentIndex;
+    setHeldIndex(leaving);
+    const timer = window.setTimeout(() => setHeldIndex(null), fadeMs);
+    return () => window.clearTimeout(timer);
+  }, [currentIndex, fadeMs]);
+
+  // Auto-advance (skipped when reduced motion, offscreen, or single slide)
+  useEffect(() => {
+    if (!inView || slideCount <= 1 || reducedMotion) return;
 
     const id = window.setInterval(() => {
       if (Date.now() < interactionLockUntil.current) return;
       nextSlide();
     }, interval);
     return () => window.clearInterval(id);
-  }, [slideCount, interval, nextSlide, reducedMotion]);
+  }, [inView, slideCount, interval, nextSlide, reducedMotion]);
 
-  // Preload next slide images
+  // Preload the next slide after the page is idle, at a phone-sized width.
   useEffect(() => {
-    if (slideCount <= 1) return;
+    if (!inView || slideCount <= 1) return;
 
-    const nextIdx = (currentIndex + 1) % slideCount;
-    for (const src of slides[nextIdx]) {
-      const img = new window.Image();
-      img.src = isElenaKayPhoto(src) ? elenaKayFallbackSrc(src) : src;
-    }
-  }, [currentIndex, slides, slideCount]);
+    let cancelled = false;
+    const preload = () => {
+      if (cancelled) return;
+      const nextIdx = (currentIndex + 1) % slideCount;
+      for (const src of slides[nextIdx]) {
+        const img = new window.Image();
+        img.src = isElenaKayPhoto(src) ? elenaKayPreloadSrc(src) : src;
+      }
+    };
+
+    const id = window.requestIdleCallback(preload, { timeout: 2500 });
+    return () => {
+      cancelled = true;
+      window.cancelIdleCallback(id);
+    };
+  }, [inView, currentIndex, slides, slideCount]);
 
   const goToIndex = useCallback(
     (index: number) => {
@@ -177,6 +223,10 @@ export default function HeroCarousel({
 
   const imageClass =
     variant === 'venue' ? 'hero-carousel-image--venue' : 'hero-carousel-image';
+  const mountedSlides = new Set<number>([currentIndex]);
+  if (slideCount > 1) mountedSlides.add((currentIndex + 1) % slideCount);
+  if (heldIndex !== null) mountedSlides.add(heldIndex);
+
   const frameClass =
     variant === 'venue'
       ? 'relative w-full h-full overflow-hidden bg-stone-100 touch-pan-y'
@@ -190,6 +240,7 @@ export default function HeroCarousel({
   return (
     <>
     <div
+      ref={frameRef}
       className={frameClass}
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
@@ -197,7 +248,9 @@ export default function HeroCarousel({
       aria-roledescription={slideCount > 1 ? 'carousel' : undefined}
       aria-label={slideCount > 1 ? `${alt}, image carousel` : undefined}
     >
-      {slides.map((slideSrcs, slideIndex) => (
+      {inView && slides.map((slideSrcs, slideIndex) => {
+        if (!mountedSlides.has(slideIndex)) return null;
+        return (
         <div
           key={`slide-${slideIndex}-${slideSrcs.join('|')}`}
           className={`absolute inset-0 ease-in-out ${
@@ -225,10 +278,10 @@ export default function HeroCarousel({
                   <ResponsiveFillImage
                     src={src}
                     alt={`${alt}, photo ${slideIndex * 2 + i + 1}`}
-                    priority={slideIndex === 0 && i === 0}
+                    priority={priority && slideIndex === 0 && i === 0}
                     className={imageClass}
                     sizes={imageSizesResolved}
-                    quality={90}
+                    quality={75}
                   />
                 </div>
               ))}
@@ -250,10 +303,10 @@ export default function HeroCarousel({
                 <ResponsiveFillImage
                   src={slideSrcs[0]}
                   alt={`${alt}, photo ${slideIndex * 2 + 1}`}
-                  priority={slideIndex === 0}
+                  priority={priority && slideIndex === 0}
                   className={imageClass}
                   sizes="(max-width: 768px) 85vw, 520px"
-                  quality={90}
+                  quality={75}
                 />
               </div>
             </div>
@@ -273,15 +326,16 @@ export default function HeroCarousel({
               <ResponsiveFillImage
                 src={slideSrcs[0]}
                 alt={`${alt} - Image ${slideIndex + 1}`}
-                priority={slideIndex === 0}
+                priority={priority && slideIndex === 0}
                 className={imageClass}
                 sizes={sizes}
-                quality={90}
+                quality={75}
               />
             </div>
           )}
         </div>
-      ))}
+        );
+      })}
 
       {slideCount > 12 ? (
         <p

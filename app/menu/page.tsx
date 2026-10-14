@@ -83,6 +83,7 @@ export default function MenuPage() {
             <HeroCarousel
               {...menuVenueDualHero}
               enlargeOnDoubleClick
+              priority
               images={h['page-hero']}
               interval={3300}
               fadeMs={650}
@@ -128,6 +129,7 @@ export default function MenuPage() {
           <div className="h-[340px] min-h-[260px] sm:h-[380px] md:h-[460px] w-full overflow-hidden">
             <HeroCarousel
               {...menuVenueDualHero}
+              deferUntilVisible
               images={h['open-bar']}
               interval={3800}
               fadeMs={650}
@@ -156,6 +158,7 @@ export default function MenuPage() {
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
               {...menuVenueDualHero}
+              deferUntilVisible
               images={h['cocktail-hour']}
               interval={3000}
               fadeMs={650}
@@ -222,6 +225,7 @@ export default function MenuPage() {
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
               {...menuVenueDualHero}
+              deferUntilVisible
               images={h['hot-gourmet']}
               interval={2800}
               fadeMs={650}
@@ -298,6 +302,7 @@ export default function MenuPage() {
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
               {...menuVenueDualHero}
+              deferUntilVisible
               images={h['ballroom']}
               interval={3200}
               fadeMs={650}
@@ -425,6 +430,7 @@ export default function MenuPage() {
           <div className="h-[480px] md:h-[720px] w-full overflow-hidden">
             <HeroCarousel
               {...menuVenueDualHero}
+              deferUntilVisible
               images={h['enhancements-combined']}
               interval={3000}
               fadeMs={650}

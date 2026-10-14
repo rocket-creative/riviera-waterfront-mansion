@@ -42,7 +42,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [393, 810, 1024, 1440, 1920, 3840],
+    deviceSizes: [393, 810, 1024, 1440, 1920],
   },
   async headers() {
     return [

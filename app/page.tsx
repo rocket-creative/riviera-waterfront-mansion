@@ -1,9 +1,7 @@
-'use client';
-
+import dynamic from 'next/dynamic';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import GoogleReviews from './components/GoogleReviews';
-import DualSocialFeed from './components/DualSocialFeed';
 import HeroCarousel from './components/HeroCarousel';
 import CTASection from './components/CTASection';
 import InlineCTA from './components/InlineCTA';
@@ -15,21 +13,18 @@ import { imageConfig } from './lib/imageConfig';
 import SlideshowImage from './components/SlideshowImage';
 import { AnimatedSection } from './components/AnimatedSection';
 import { HoverScale } from './components/HoverScale';
-import { useFadeInUp, useStaggerChildren, useScrollTriggerCleanup } from './lib/useAnimations';
 import BridalShowcaseOverlay from './components/BridalShowcaseOverlay';
 import AnswerBlock from './components/AnswerBlock';
 import JsonLd from './components/JsonLd';
 import { homePage } from './lib/pageAnswers';
 import { pageGraph } from './lib/schema';
+import { getGoogleReviews } from './lib/googleReviews';
 
-export default function Home() {
-  // Cleanup ScrollTriggers on unmount
-  useScrollTriggerCleanup();
+const DualSocialFeed = dynamic(() => import('./components/DualSocialFeed'));
 
-  // Refs for custom animations
-  const heroContentRef = useFadeInUp({ delay: 0.3, duration: 1.4 });
-  const statsRef = useStaggerChildren('.stat-item', { stagger: 0.2, duration: 1 });
-  const featuresRef = useStaggerChildren('.feature-card', { stagger: 0.1, duration: 0.8 });
+export default async function Home() {
+  const { reviews } = await getGoogleReviews();
+
   return (
     <>
       <Header />
@@ -40,7 +35,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-4 lg:gap-6">
             {/* Text Column - 35% (roughly 5/12) */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-1 bg-white">
-              <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
+              <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <div className="mb-6">
                   <Image
                     src="/rw-mansion-logo-circular.svg"
@@ -90,6 +85,7 @@ export default function Home() {
               <HeroCarousel 
                 images={imageConfig.hero}
                 interval={6000}
+                priority
                 alt="Wedding couple at Riviera Waterfront Mansion in Massapequa, Long Island"
               />
               <BridalShowcaseOverlay />
@@ -114,7 +110,7 @@ export default function Home() {
         {/* Trust Bar - Quick Stats */}
         <section id="trust-bar" className="bg-riviera-neutral py-12 md:py-16" aria-label="Venue highlights">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={statsRef as any} className="grid lg:grid-cols-3 gap-8 text-center">
+            <div className="grid lg:grid-cols-3 gap-8 text-center">
               <div className="stat-item">
                 <div className="text-5xl md:text-6xl font-light text-riviera-gold mb-3">75+</div>
                 <h3 className="text-sm tracking-widest text-riviera-text mb-2">YEARS OF EXCELLENCE</h3>
@@ -156,7 +152,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <GoogleReviews />
+          <GoogleReviews reviews={reviews} />
 
           <AnimatedSection animation="fadeInUp" delay={0.2} className="text-center mt-12 max-w-md mx-auto" as="div">
             <HoverScale effect="lift">
@@ -181,8 +177,6 @@ export default function Home() {
                 images={imageConfig.homepage.whyChooseUs as string[]}
                 alt="Elegant wedding ceremony at Riviera Waterfront Mansion in Massapequa, Long Island"
                 sizes="(max-width: 1024px) 100vw, 58vw"
-                quality={90}
-                priority
                 showPlaceholder
               />
             </div>
@@ -294,7 +288,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
 
-            <div ref={featuresRef as any} className="grid lg:grid-cols-3 gap-6 mb-16">
+            <div className="grid lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
                   <SlideshowImage images={imageConfig.homepage.outdoorCeremony} alt="Outdoor waterfront ceremony" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />

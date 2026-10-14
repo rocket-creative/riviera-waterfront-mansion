@@ -40,6 +40,15 @@ export function elenaKaySrcSet(src: string): string | undefined {
   return widths.map((width) => `/images/2026/w${width}/${file} ${width}w`).join(', ');
 }
 
+/** ~810px file for idle preloads so phones do not fetch the 1440 or 2400 master. */
+export function elenaKayPreloadSrc(src: string): string {
+  const file = fileName(src);
+  const widths = elenaKayWidths[file];
+  if (!file || !widths?.length) return src;
+  const preferred = widths.find((width) => width >= 810) ?? widths[widths.length - 1];
+  return `/images/2026/w${preferred}/${file}`;
+}
+
 /** Default src for browsers that ignore srcset. Prefers the 1440 breakpoint. */
 export function elenaKayFallbackSrc(src: string): string {
   const file = fileName(src);

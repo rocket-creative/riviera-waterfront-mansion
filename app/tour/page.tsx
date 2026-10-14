@@ -1,5 +1,3 @@
-'use client';
-
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CTASection from '../components/CTASection';
@@ -7,12 +5,10 @@ import InlineCTA from '../components/InlineCTA';
 import FAQSection from '../components/FAQSection';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
-import Image from 'next/image';
 import SlideshowImage from '../components/SlideshowImage';
 import { getTourPreviews, imageConfig } from '../lib/imageConfig';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
-import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
 import AnswerBlock from '../components/AnswerBlock';
 import JsonLd from '../components/JsonLd';
 import { tourPage } from '../lib/pageAnswers';
@@ -36,10 +32,6 @@ const tourSections = [
 ];
 
 export default function TourPage() {
-  useScrollTriggerCleanup();
-  const gridRef = useStaggerChildren('.tour-card', { stagger: 0.08, duration: 0.9 });
-  const heroContentRef = useFadeInUp({ delay: 0.3, duration: 1.2 });
-
   return (
     <>
       <Header />
@@ -56,14 +48,13 @@ export default function TourPage() {
                 fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
-                quality={90}
                 showPlaceholder
               />
             </div>
 
             {/* Text Column */}
             <div className="lg:col-span-5 flex items-center order-2 lg:order-2 bg-white">
-              <div ref={heroContentRef as any} className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
+              <div className="px-6 sm:px-10 lg:px-12 xl:px-16 py-16 lg:py-20">
                 <p className="text-riviera-gold text-xs sm:text-sm tracking-widest mb-6 font-light">
                   EXPLORE OUR MASSAPEQUA WATERFRONT VENUE
                 </p>
@@ -127,7 +118,7 @@ export default function TourPage() {
             </p>
           </AnimatedSection>
 
-          <div ref={gridRef as any} className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {tourSections.map((section, index) => (
               <div key={section.slug} className="tour-card">
                 <Link

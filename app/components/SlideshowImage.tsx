@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import ResponsiveFillImage from './ResponsiveFillImage';
 
 interface SlideshowImageProps {
@@ -30,12 +30,14 @@ export default function SlideshowImage({
   sizes = '(max-width: 1024px) 100vw, 58vw',
   objectClass = '',
   fit = 'contain',
-  quality = 85,
+  quality = 75,
   priority = false,
   showPlaceholder = false,
 }: SlideshowImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [heldIndex, setHeldIndex] = useState<number | null>(null);
   const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set());
+  const previousIndexRef = useRef(0);
 
   const valid = images.filter(src => src && !failedSrcs.has(src));
 
@@ -45,7 +47,17 @@ export default function SlideshowImage({
 
   useEffect(() => {
     setCurrentIndex(0);
+    previousIndexRef.current = 0;
   }, [images]);
+
+  useEffect(() => {
+    if (previousIndexRef.current === currentIndex) return;
+    const leaving = previousIndexRef.current;
+    previousIndexRef.current = currentIndex;
+    setHeldIndex(leaving);
+    const timer = window.setTimeout(() => setHeldIndex(null), 1000);
+    return () => window.clearTimeout(timer);
+  }, [currentIndex]);
 
   useEffect(() => {
     if (valid.length <= 1) return;
@@ -69,9 +81,15 @@ export default function SlideshowImage({
   const frameClass =
     fit === 'contain' ? 'relative w-full h-full bg-stone-100' : 'relative w-full h-full';
 
+  const nextIndex = valid.length > 1 ? (currentIndex + 1) % valid.length : currentIndex;
+  const mounted = new Set<number>([currentIndex, nextIndex]);
+  if (heldIndex !== null && heldIndex < valid.length) mounted.add(heldIndex);
+
   return (
     <div className={frameClass}>
-      {valid.map((src, idx) => (
+      {valid.map((src, idx) => {
+        if (!mounted.has(idx)) return null;
+        return (
         <div
           key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -89,7 +107,8 @@ export default function SlideshowImage({
             onError={() => setFailedSrcs(prev => new Set([...prev, src]))}
           />
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

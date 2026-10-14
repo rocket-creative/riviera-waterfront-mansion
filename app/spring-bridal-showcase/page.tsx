@@ -1,21 +1,9 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ResponsiveFillImage from '../components/ResponsiveFillImage';
+import EventbriteWidget from '../components/EventbriteWidget';
 import { altForImage } from '../lib/elenaKay2026';
 import Link from 'next/link';
-import Script from 'next/script';
-import { trackAction } from '../lib/track-action';
-
-declare global {
-  interface Window {
-    EBWidgets: {
-      createWidget: (options: Record<string, unknown>) => void;
-    };
-  }
-}
 
 const galleryPhotos: { src: string; span: string }[] = [
   { src: '/images/2026/w2400/spano-waterfront-sunset.webp', span: 'lg:col-span-2 lg:row-span-2' },
@@ -40,44 +28,6 @@ const galleryPhotos: { src: string; span: string }[] = [
   { src: '/images/large/_0359684-by-p.jpg',  span: '' },
   { src: '/images/large/_0359729-by-p.jpg',  span: '' },
 ];
-
-function EventbriteWidget() {
-  const initialized = useRef(false);
-
-  const handleScriptLoad = () => {
-    if (initialized.current) return;
-    if (typeof window !== 'undefined' && window.EBWidgets) {
-      initialized.current = true;
-      window.EBWidgets.createWidget({
-        widgetType: 'checkout',
-        eventId: '1984985517116',
-        iframeContainerId: 'eventbrite-widget-container-1984985517116',
-        iframeContainerHeight: 425,
-        onOrderComplete: () => trackAction('eventbrite', 'order_complete'),
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.EBWidgets && !initialized.current) {
-      handleScriptLoad();
-    }
-  });
-
-  return (
-    <>
-      <div
-        id="eventbrite-widget-container-1984985517116"
-        className="min-h-[425px] w-full"
-      />
-      <Script
-        src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
-        strategy="afterInteractive"
-        onLoad={handleScriptLoad}
-      />
-    </>
-  );
-}
 
 export default function SpringBridalShowcase() {
   return (
@@ -132,7 +82,7 @@ export default function SpringBridalShowcase() {
                 { src: '/images/2026/w1600/pycior-lawn-cupola.webp', label: 'The Couples' },
                 { src: '/images/2026/w2400/spano-waterfront-sunset.webp', label: 'The Grounds' },
                 { src: '/images/2026/w2400/pycior-ballroom-couple.webp', label: 'The Ballroom' },
-              ].map(({ src, label }) => (
+              ].map(({ src, label }, index) => (
                 <div key={label} className="group">
                   <div className="relative overflow-hidden bg-stone-100" style={{ aspectRatio: '3/4' }}>
                     <ResponsiveFillImage
@@ -140,7 +90,7 @@ export default function SpringBridalShowcase() {
                       alt={altForImage(src, label)}
                       className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 400px"
-                      priority
+                      priority={index === 0}
                     />
                   </div>
                   <p className="text-riviera-text/45 text-[9px] sm:text-[10px] tracking-[0.2em] font-light mt-2 text-center">

@@ -121,11 +121,13 @@
     animation-play-state: paused;
   }
 
-  /* Mobile: disable marquee so the feed becomes a manual swipe area */
+  /* Mobile: no always-on marquees. Social rows become a manual swipe. */
   @media (max-width: 767px) {
+    .animate-scroll-smooth,
     .animate-scroll-left,
     .animate-scroll-right {
       animation: none;
+      will-change: auto;
     }
   }
 

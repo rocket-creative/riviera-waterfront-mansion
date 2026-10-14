@@ -25,7 +25,7 @@ export default function WeddingPricingPage() {
               className="object-contain object-center"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
-              quality={90}
+              quality={75}
             />
           </div>
 

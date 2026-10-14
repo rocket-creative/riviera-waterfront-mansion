@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useStaggerChildren, useScrollTriggerCleanup } from '../../lib/useAnimations';
 import { altForImage } from '../../lib/elenaKay2026';
 import ResponsiveFillImage from '../../components/ResponsiveFillImage';
 
@@ -11,8 +10,6 @@ interface TourDetailClientProps {
 }
 
 export default function TourDetailClient({ images, sectionTitle }: TourDetailClientProps) {
-  useScrollTriggerCleanup();
-  const galleryRef = useStaggerChildren('.gallery-image', { stagger: 0.1, duration: 0.8 });
   const closeRef = useRef<HTMLButtonElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -51,7 +48,7 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
   }, [lightboxIndex]);
 
   return (
-    <div ref={galleryRef as any} className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {images.map((imagePath, index) => {
           const description = altForImage(
@@ -72,7 +69,7 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
               decorative
               className="object-contain object-center transition-transform duration-700 group-hover:scale-105 pointer-events-none"
               sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 33vw, 25vw"
-              quality={85}
+              quality={75}
             />
             <span className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" aria-hidden />
           </button>
@@ -147,7 +144,7 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
                 )}
                 className="object-contain object-center"
                 sizes="100vw"
-                quality={90}
+                quality={75}
                 priority
               />
             </div>

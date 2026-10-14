@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import SlideshowImage from './SlideshowImage';
 import ResponsiveFillImage from './ResponsiveFillImage';
@@ -69,7 +67,7 @@ export default function InlineCTA({
               alt={imageAlt}
               interval={6000}
               sizes="(max-width: 1024px) 100vw, 58vw"
-              quality={85}
+              quality={75}
               fit={imageFit}
               showPlaceholder
             />
@@ -79,7 +77,7 @@ export default function InlineCTA({
               alt={imageAlt}
               className={`${singleImageFitClass} object-center transition-transform duration-700 hover:scale-105`}
               sizes="(max-width: 1024px) 100vw, 58vw"
-              quality={85}
+              quality={75}
             />
           )}
         </div>

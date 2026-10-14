@@ -1,12 +1,8 @@
 /**
- * Hover scale wrapper component
- * Applies smooth scale animation on hover
+ * CSS lift on hover. No JS, so buttons stay in the server HTML.
  */
 
-'use client';
-
-import React, { ReactNode, forwardRef } from 'react';
-import { useScaleHover, useLiftHover, useMagneticHover } from '@/app/lib/useAnimations';
+import React, { ReactNode } from 'react';
 
 interface HoverScaleProps {
   children: ReactNode;
@@ -18,40 +14,17 @@ interface HoverScaleProps {
   as?: React.ElementType;
 }
 
-export const HoverScale = forwardRef<HTMLElement, HoverScaleProps>(
-  ({ 
-    children, 
-    className = '', 
-    effect = 'scale',
-    scale = 1.05,
-    duration = 0.6,
-    strength = 0.3,
-    as = 'div' 
-  }, externalRef) => {
-    const scaleRef = useScaleHover({ scale, duration });
-    const liftRef = useLiftHover({ scale, duration });
-    const magneticRef = useMagneticHover(strength);
+const effectClass = {
+  scale: 'transition-transform duration-300 ease-out hover:scale-105 active:scale-100',
+  lift: 'transition-transform duration-300 ease-out hover:-translate-y-1 active:translate-y-0',
+  magnetic: 'transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-100',
+};
 
-    const getRef = () => {
-      switch (effect) {
-        case 'lift':
-          return liftRef;
-        case 'magnetic':
-          return magneticRef;
-        default:
-          return scaleRef;
-      }
-    };
-
-    const Component = as;
-    const ref = externalRef || getRef();
-
-    return (
-      <Component ref={ref as any} className={className}>
-        {children}
-      </Component>
-    );
-  }
-);
-
-HoverScale.displayName = 'HoverScale';
+export function HoverScale({
+  children,
+  className = '',
+  effect = 'scale',
+  as: Component = 'div',
+}: HoverScaleProps) {
+  return <Component className={`${effectClass[effect]} ${className}`.trim()}>{children}</Component>;
+}
