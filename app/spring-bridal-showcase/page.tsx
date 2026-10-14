@@ -3,9 +3,11 @@
 import { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Image from 'next/image';
+import ResponsiveFillImage from '../components/ResponsiveFillImage';
+import { altForImage } from '../lib/elenaKay2026';
 import Link from 'next/link';
 import Script from 'next/script';
+import { trackAction } from '../lib/track-action';
 
 declare global {
   interface Window {
@@ -15,7 +17,13 @@ declare global {
   }
 }
 
-const galleryPhotos = [
+const galleryPhotos: { src: string; span: string }[] = [
+  { src: '/images/2026/w2400/spano-waterfront-sunset.webp', span: 'lg:col-span-2 lg:row-span-2' },
+  { src: '/images/2026/w2400/morrone-vows.webp', span: '' },
+  { src: '/images/2026/w2400/pycior-bay-couple.webp', span: '' },
+  { src: '/images/2026/w2400/pycior-bridal-party.webp', span: 'lg:col-span-2' },
+  { src: '/images/2026/w2400/pycior-mansion-facade.webp', span: '' },
+  { src: '/images/2026/w2400/morrone-first-look.webp', span: '' },
   { src: '/images/large/_0359671-by-p.jpg',  span: 'lg:col-span-2 lg:row-span-2' },
   { src: '/images/large/_1058724-jj-p.jpg',  span: '' },
   { src: '/images/large/_1059409-jj-p.jpg',  span: '' },
@@ -45,7 +53,7 @@ function EventbriteWidget() {
         eventId: '1984985517116',
         iframeContainerId: 'eventbrite-widget-container-1984985517116',
         iframeContainerHeight: 425,
-        onOrderComplete: () => console.log('Order complete!'),
+        onOrderComplete: () => trackAction('eventbrite', 'order_complete'),
       });
     }
   };
@@ -121,18 +129,17 @@ export default function SpringBridalShowcase() {
           <div className="max-w-6xl mx-auto px-5 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-3">
               {[
-                { src: '/images/large/_0359671-by-p.jpg',                                    label: 'The Couples' },
-                { src: '/images/tour/outdoor-ceremony/DJI_0003-mc-d-420d930c-1920w.jpg',    label: 'The Grounds' },
-                { src: '/images/tour/main-ballroom/CAB-0836-mc-d-3e752c5c-1920w.jpg',       label: 'The Ballroom' },
+                { src: '/images/2026/w1600/pycior-lawn-cupola.webp', label: 'The Couples' },
+                { src: '/images/2026/w2400/spano-waterfront-sunset.webp', label: 'The Grounds' },
+                { src: '/images/2026/w2400/pycior-ballroom-couple.webp', label: 'The Ballroom' },
               ].map(({ src, label }) => (
                 <div key={label} className="group">
                   <div className="relative overflow-hidden bg-stone-100" style={{ aspectRatio: '3/4' }}>
-                    <Image
+                    <ResponsiveFillImage
                       src={src}
-                      alt={label}
-                      fill
+                      alt={altForImage(src, label)}
                       className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 640px) 33vw, (max-width: 1024px) 33vw, 400px"
+                      sizes="(max-width: 1024px) 100vw, 400px"
                       priority
                     />
                   </div>
@@ -234,12 +241,11 @@ export default function SpringBridalShowcase() {
                   key={i}
                   className={`relative overflow-hidden group bg-stone-100 ${span}`}
                 >
-                  <Image
+                  <ResponsiveFillImage
                     src={src}
-                    alt={`Riviera Waterfront Mansion — wedding photo ${i + 1}`}
-                    fill
+                    alt={altForImage(src, `Riviera Waterfront Mansion — wedding photo ${i + 1}`)}
                     className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, 25vw"
                   />
                   {/* Hover shimmer */}
                   <div className="absolute inset-0 bg-riviera-gold/0 group-hover:bg-riviera-gold/10 transition-colors duration-500" />

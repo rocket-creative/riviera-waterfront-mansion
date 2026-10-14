@@ -1,8 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useStaggerChildren, useScrollTriggerCleanup } from '../../lib/useAnimations';
+import { altForImage } from '../../lib/elenaKay2026';
+import ResponsiveFillImage from '../../components/ResponsiveFillImage';
 
 interface TourDetailClientProps {
   images: string[];
@@ -52,26 +53,31 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
   return (
     <div ref={galleryRef as any} className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-        {images.map((imagePath, index) => (
+        {images.map((imagePath, index) => {
+          const description = altForImage(
+            imagePath,
+            `${sectionTitle} photo ${index + 1} at Riviera Waterfront Mansion`
+          );
+          return (
           <button
             key={imagePath}
             type="button"
             onClick={() => setLightboxIndex(index)}
-            aria-label={`View larger ${sectionTitle} photo ${index + 1}`}
+            aria-label={`View larger photo: ${description}`}
             className="gallery-image relative overflow-hidden group cursor-pointer aspect-video bg-stone-100 border-0 p-0 w-full block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           >
-            <Image
+            <ResponsiveFillImage
               src={imagePath}
-              alt=""
-              aria-hidden
-              fill
+              alt={description}
+              decorative
               className="object-contain object-center transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 33vw, 25vw"
               quality={85}
             />
             <span className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" aria-hidden />
           </button>
-        ))}
+          );
+        })}
       </div>
 
       {lightboxIndex !== null && (
@@ -133,10 +139,12 @@ export default function TourDetailClient({ images, sectionTitle }: TourDetailCli
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative block h-full w-full min-h-[240px]">
-              <Image
+              <ResponsiveFillImage
                 src={images[lightboxIndex]}
-                alt={`${sectionTitle} photo ${lightboxIndex + 1} at Riviera Waterfront Mansion wedding venue in Massapequa, Long Island`}
-                fill
+                alt={altForImage(
+                  images[lightboxIndex],
+                  `${sectionTitle} photo ${lightboxIndex + 1} at Riviera Waterfront Mansion wedding venue in Massapequa, Long Island`
+                )}
                 className="object-contain object-center"
                 sizes="100vw"
                 quality={90}

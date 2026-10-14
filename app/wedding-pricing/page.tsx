@@ -2,6 +2,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BrochureFormEmbed from '../components/BrochureFormEmbed';
 import Image from 'next/image';
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { weddingPricingPage } from '../lib/pageAnswers';
+import { pageGraph } from '../lib/schema';
 
 export default function WeddingPricingPage() {
   return (
@@ -32,6 +36,7 @@ export default function WeddingPricingPage() {
               <h1 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-riviera-text mb-4 leading-tight">
                 Download the Riviera Waterfront Mansion Wedding Brochure
               </h1>
+              <AnswerBlock>{weddingPricingPage.answer}</AnswerBlock>
               <p className="text-base font-light text-riviera-text/70 leading-relaxed mb-8">
                 This free brochure will give you a taste of the Riviera Waterfront Mansion wedding experience while in the comfort of your own home. Fill out your information below to gain access to our ultimate wedding brochure.
               </p>
@@ -54,29 +59,16 @@ export default function WeddingPricingPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Wedding Brochure',
-                item: 'https://www.rivierawaterfrontmansion.com/wedding-pricing'
-              }
-            ]
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: weddingPricingPage.path,
+          name: weddingPricingPage.title,
+          description: weddingPricingPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Wedding Brochure', path: '/wedding-pricing' },
+          ],
+        })}
       />
     </>
   );

@@ -13,41 +13,10 @@ import { getTourPreviews, imageConfig } from '../lib/imageConfig';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
-
-const tourFAQs = [
-  {
-    question: 'Can I see all areas of the venue during a tour?',
-    answer: 'Yes! During your in person tour, you will see the grand entrance lobby, bridal suite, indoor and outdoor ceremony spaces, cocktail areas, grand ballroom with dance floor, bars, balconies, and all waterfront photography locations. We show you every space available for your Long Island wedding.'
-  },
-  {
-    question: 'How does the virtual tour compare to an in person visit?',
-    answer: 'Our virtual tour offers a comprehensive view of all our spaces, but nothing compares to experiencing our Massapequa waterfront venue in person. We encourage you to schedule a private tour to see the stunning water views, feel the ambiance, and envision your perfect wedding day.'
-  },
-  {
-    question: 'What indoor spaces are available?',
-    answer: 'Indoor spaces include a grand entrance lobby, luxury bridal suite with two balconies, elegant indoor ceremony space, indoor cocktail reception area, and our magnificent grand ballroom with waterfront views. All spaces are climate controlled year round.'
-  },
-  {
-    question: 'What outdoor spaces can we use?',
-    answer: 'Outdoor spaces include a stunning waterfront ceremony area overlooking the water, outdoor cocktail reception space, waterfront balconies for photos, and full access to our beautiful landscaped grounds. Perfect for Long Island outdoor weddings and photography.'
-  },
-  {
-    question: 'Can we take photos everywhere on the property?',
-    answer: 'Absolutely! You and your photographer have complete access to all indoor and outdoor areas including waterfront locations, gardens, balconies, the grand staircase, and all architectural details. Our venue provides countless stunning Long Island wedding photo opportunities.'
-  },
-  {
-    question: 'Is the entire venue ours for the day?',
-    answer: 'Yes! We host only one wedding at a time, so the entire Riviera Waterfront Mansion is exclusively yours. All spaces, grounds, and amenities are available for your private use throughout your celebration.'
-  },
-  {
-    question: 'Are ceremony and reception in the same location?',
-    answer: 'Yes, both ceremony and reception take place at our Massapequa waterfront venue. Guests can enjoy cocktail hour while we flip the ceremony space, or you can use our separate outdoor ceremony area and indoor reception spaces.'
-  },
-  {
-    question: 'What makes your venue unique?',
-    answer: 'Our historic waterfront mansion has been family owned for over 75 years, offering one wedding at a time for complete exclusivity, stunning water views from multiple spaces, both indoor and outdoor options, and three generations of wedding expertise. We set the standard for Long Island wedding venues.'
-  }
-];
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { tourPage } from '../lib/pageAnswers';
+import { pageGraph } from '../lib/schema';
 
 const tourSections = [
   { title: 'Entrance Lobby', slug: 'entrance-lobby', description: 'Grand entrance with elegant architectural details' },
@@ -104,6 +73,7 @@ export default function TourPage() {
                   <span className="block">WATERFRONT</span>
                   <span className="block">MANSION</span>
                 </h1>
+                <AnswerBlock>{tourPage.answer}</AnswerBlock>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Step inside our stunning Long Island waterfront wedding venue. Explore every corner from the grand entrance to the elegant reception spaces and discover why couples choose Riviera for their dream wedding.
                 </p>
@@ -222,7 +192,7 @@ export default function TourPage() {
 
         {/* FAQ Section */}
         <FAQSection 
-          faqs={tourFAQs}
+          faqs={tourPage.faqs ?? []}
           title="Virtual Tour & Venue Questions"
           eyebrow="YOUR VENUE QUESTIONS ANSWERED"
           background="white"
@@ -252,46 +222,17 @@ export default function TourPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Virtual Tour'
-              }
-            ]
-          })
-        }}
-      />
-      {/* JSON-LD FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: tourFAQs.map(faq => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer
-              }
-            }))
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: tourPage.path,
+          name: tourPage.title,
+          description: tourPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Virtual Tour', path: '/tour' },
+          ],
+          faqs: tourPage.faqs,
+        })}
       />
       <MobileStickyCTA />
     </>

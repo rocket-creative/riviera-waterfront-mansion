@@ -1,24 +1,28 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AnswerBlock from '../components/AnswerBlock'
+import JsonLd from '../components/JsonLd'
+import { privacyPage } from '../lib/pageAnswers'
+import { pageGraph } from '../lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Riviera Mansion',
-  description: 'Learn how Riviera Mansion collects, uses, and protects your personal information. Our privacy policy explains your rights and our data practices.',
+  title: 'Privacy Policy | Riviera Waterfront Mansion',
+  description: 'Learn how Riviera Waterfront Mansion collects, uses, and protects your personal information. Our privacy policy explains your rights and our data practices.',
   alternates: {
-    canonical: 'https://rivieramansion.com/privacy',
+    canonical: 'https://www.rivierawaterfrontmansion.com/privacy',
   },
   openGraph: {
-    title: 'Privacy Policy | Riviera Mansion',
-    description: 'Learn how Riviera Mansion collects, uses, and protects your personal information.',
-    url: 'https://rivieramansion.com/privacy',
-    siteName: 'Riviera Mansion',
+    title: 'Privacy Policy | Riviera Waterfront Mansion',
+    description: 'Learn how Riviera Waterfront Mansion collects, uses, and protects your personal information.',
+    url: 'https://www.rivierawaterfrontmansion.com/privacy',
+    siteName: 'Riviera Waterfront Mansion',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Privacy Policy | Riviera Mansion',
-    description: 'Learn how Riviera Mansion collects, uses, and protects your personal information.',
+    title: 'Privacy Policy | Riviera Waterfront Mansion',
+    description: 'Learn how Riviera Waterfront Mansion collects, uses, and protects your personal information.',
   },
 }
 
@@ -40,6 +44,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl sm:text-5xl font-light text-stone-900 mb-4">
             Privacy Policy
           </h1>
+          <AnswerBlock className="max-w-none">{privacyPage.answer}</AnswerBlock>
           <p className="text-stone-600">
             Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </p>
@@ -50,7 +55,7 @@ export default function PrivacyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-light text-stone-900 mb-4">Introduction</h2>
             <p className="text-stone-700 leading-relaxed mb-4">
-              Riviera Mansion ("we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Riviera Waterfront Mansion ("we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
           </section>
 
@@ -210,6 +215,17 @@ export default function PrivacyPage() {
           </section>
         </div>
       </div>
+      <JsonLd
+        data={pageGraph({
+          path: privacyPage.path,
+          name: privacyPage.title,
+          description: privacyPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Privacy Policy', path: '/privacy' },
+          ],
+        })}
+      />
     </div>
   )
 }

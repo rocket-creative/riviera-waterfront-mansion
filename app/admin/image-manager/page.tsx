@@ -423,6 +423,11 @@ export default function ImageManagerPage() {
             rates:    siteImages['hero-rates']    ?? [],
           },
           homepage: {
+            ...Object.fromEntries(
+              Object.entries(imageConfig.homepage).filter(
+                ([key, value]) => key !== 'whyChooseUs' && key !== 'venue' && Array.isArray(value)
+              )
+            ),
             whyChooseUs: siteImages['homepage-whyChooseUs'] ?? [],
             venue:       siteImages['homepage-venue']       ?? [],
           },

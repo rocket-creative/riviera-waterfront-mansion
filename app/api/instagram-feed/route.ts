@@ -3,76 +3,76 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 export const revalidate = 600; // Cache for 10 minutes
 
-// Placeholder Instagram posts using real venue images
-// These display while waiting for live API connection
+// Placeholder Instagram posts using 2026 Elena Kay photos with faces in frame.
+// These display while waiting for a live API connection.
 const PLACEHOLDER_POSTS = [
   {
     id: 'inst_001',
     caption: 'Stunning waterfront ceremony at golden hour. Another perfect day at Riviera! #RivieraWedding #WaterfrontWedding #LongIslandWedding',
-    media_url: '/images/medium/_0359652-by-p.jpg',
+    media_url: '/images/2026/w1440/spano-waterfront-sunset.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date().toISOString()
   },
   {
     id: 'inst_002',
     caption: 'The grand ballroom transformation is complete. Ready for tonight\'s celebration! #WeddingVenue #BallroomWedding #ElegantWedding',
-    media_url: '/images/medium/_DSC5114aa-port-2.jpg',
+    media_url: '/images/2026/w1440/pycior-ballroom-couple.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 86400000).toISOString()
   },
   {
     id: 'inst_003',
     caption: 'Our gorgeous bridal suite with those dreamy waterfront views. #BridalSuite #WeddingPrep #GettingReady',
-    media_url: '/images/medium/_DSC5139aa-port-2.jpg',
+    media_url: '/images/2026/w1440/morrone-bride-lawn.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 172800000).toISOString()
   },
   {
     id: 'inst_004',
     caption: 'Cocktail hour perfection! Indoor and outdoor spaces flowing seamlessly #CocktailHour #WeddingReception #Celebrations',
-    media_url: '/images/medium/_DSC4964cb-p.jpg',
+    media_url: '/images/2026/w1440/morrone-flower-embrace.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 259200000).toISOString()
   },
   {
     id: 'inst_005',
     caption: 'That first dance moment. Magic happens here every weekend #FirstDance #WeddingReception #NewlyWeds',
-    media_url: '/images/medium/_50M1318-jj-p.jpg',
+    media_url: '/images/2026/w1440/morrone-just-married.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 345600000).toISOString()
   },
   {
     id: 'inst_006',
     caption: 'Table settings on point. Every detail matters at Riviera #WeddingDecor #TableSettings #ReceptionDetails',
-    media_url: '/images/medium/_DSC8820sa-p.jpg',
+    media_url: '/images/2026/w1440/morrone-reception-hall.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 432000000).toISOString()
   },
   {
     id: 'inst_007',
     caption: 'The venue at dusk is absolutely magical. #NightWedding #VenueVibes #WaterfrontMagic',
-    media_url: '/images/medium/_DSC8849sa-p.jpg',
+    media_url: '/images/2026/w1440/spano-lawn-gaze.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 518400000).toISOString()
   },
   {
     id: 'inst_008',
     caption: 'Behind the scenes: Our team setting up for today\'s ceremony #WeddingSetup #BehindTheScenes #EventPlanning',
-    media_url: '/images/medium/_0359665-by-p.jpg',
+    media_url: '/images/2026/w1440/morrone-processional.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 604800000).toISOString()
   },
   {
     id: 'inst_009',
     caption: 'Outdoor ceremony with water views never gets old. #OutdoorWedding #CeremonyViews #DreamWedding',
-    media_url: '/images/medium/_DSC4629cb-p.jpg',
+    media_url: '/images/2026/w1440/morrone-vows.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 691200000).toISOString()
   },
   {
     id: 'inst_010',
     caption: 'Cheers to another beautiful celebration! #WeddingToast #Celebration #RivieraLove',
-    media_url: '/images/medium/_50M1265-jj-p.jpg',
+    media_url: '/images/2026/w1440/morrone-entrance.webp',
     permalink: 'https://www.instagram.com/rivierawaterfrontmansion/',
     timestamp: new Date(Date.now() - 777600000).toISOString()
   }

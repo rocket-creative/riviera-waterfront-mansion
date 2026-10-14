@@ -4,6 +4,10 @@ import HeroCarousel from '../components/HeroCarousel';
 import MenuImage from '../components/MenuImage';
 import Link from 'next/link';
 import { imageConfig } from '../lib/imageConfig';
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { menuPage, menuSections } from '../lib/pageAnswers';
+import { menuEntity, pageGraph } from '../lib/schema';
 
 const m = imageConfig.menuImages as Record<string, string[]>;
 const h = imageConfig.menuSectionHeroes;
@@ -90,6 +94,7 @@ export default function MenuPage() {
               <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
                 Long Island Wedding Catering With Chef Inspired Menu
               </h1>
+              <AnswerBlock align="center">{menuPage.answer}</AnswerBlock>
               <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto mb-4">
                 Our chef inspired Continental wedding menu will wow you and your guests from your first bite until your last. Experience exceptional Long Island wedding catering at Riviera Waterfront Mansion in Massapequa, NY.
               </p>
@@ -543,19 +548,17 @@ export default function MenuPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.rivierawaterfrontmansion.com' },
-              { '@type': 'ListItem', position: 2, name: 'Menu', item: 'https://www.rivierawaterfrontmansion.com/menu' },
-            ],
-          }),
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: menuPage.path,
+          name: menuPage.title,
+          description: menuPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Menu', path: '/menu' },
+          ],
+          extra: [menuEntity(menuSections)],
+        })}
       />
     </>
   );

@@ -1,8 +1,23 @@
 'use client';
 
+import { useLayoutEffect } from 'react';
 import Link from 'next/link';
 
 export default function MobileStickyCTA() {
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const query = window.matchMedia('(max-width: 809px)');
+    const apply = () => {
+      root.style.setProperty('--sticky-offset', query.matches ? '56px' : '0px');
+    };
+    apply();
+    query.addEventListener('change', apply);
+    return () => {
+      query.removeEventListener('change', apply);
+      root.style.removeProperty('--sticky-offset');
+    };
+  }, []);
+
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"

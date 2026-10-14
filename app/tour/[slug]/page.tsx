@@ -2,72 +2,17 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CTASection from '../../components/CTASection';
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTourImages, getTourHero } from '../../lib/imageConfig';
 import { AnimatedSection } from '../../components/AnimatedSection';
 import { HoverScale } from '../../components/HoverScale';
+import ResponsiveFillImage from '../../components/ResponsiveFillImage';
 import TourDetailClient from './TourDetailClient';
-
-const tourSections = {
-  'entrance-lobby': {
-    title: 'Entrance Lobby',
-    description: 'Our grand entrance lobby is where your guests arrive and get their first look at the mansion. Warm wood, soft lighting, and plenty of room to greet everyone as they come in.',
-  },
-  'bridal-suite': {
-    title: 'Bridal Suite',
-    description: 'A private suite where you and your wedding party get ready. It takes up the entire top floor and opens onto two balconies, one overlooking the ballroom and one outside. Comes with its own restroom and great natural light.',
-  },
-  'indoor-ceremony': {
-    title: 'Indoor Ceremony Space',
-    description: 'A beautiful indoor spot to say your vows, ready for any season or weather. Plenty of natural light and comfortable seating for your guests.',
-  },
-  'outdoor-ceremony': {
-    title: 'Outdoor Waterfront Ceremony',
-    description: 'Say your vows right on the water. Our outdoor ceremony area looks out over the bay and is especially stunning at sunset.',
-  },
-  'indoor-cocktail': {
-    title: 'Indoor Cocktail Hour',
-    description: 'An indoor cocktail space with water views, full bar service, and room for guests to relax and mingle before the reception.',
-  },
-  'outdoor-cocktail': {
-    title: 'Outdoor Cocktail Hour',
-    description: 'A waterfront patio for cocktail hour, with fresh air, open water views, and full bar service. A relaxed spot for guests to gather before dinner.',
-  },
-  'main-ballroom': {
-    title: 'Grand Waterfront Ballroom',
-    description: 'Our main ballroom is the heart of the reception. High ceilings, chandeliers, and big windows looking out over the water, with a large dance floor and room for up to 350 guests.',
-  },
-  'sweetheart-table': {
-    title: 'Bride & Groom Table',
-    description: 'Your table sits front and center in the ballroom, with a clear view of your guests and the dance floor all night long.',
-  },
-  'guest-seating': {
-    title: 'Wedding Guest Reception Seating',
-    description: 'Comfortable, beautifully set tables with room for up to 350 guests, arranged so everyone has a good view of the celebration.',
-  },
-  'dancefloor': {
-    title: 'Spacious Dancefloor',
-    description: 'A large dance floor right in the middle of the ballroom, with plenty of space for you and your guests to dance all night.',
-  },
-  'entertainment': {
-    title: 'DJ & Live Band Setup Area',
-    description: 'A dedicated space for your DJ or live band, with great sound and room for a full setup. Bring whoever you like to keep the party going.',
-  },
-  'main-bar': {
-    title: 'Top Shelf Bar',
-    description: 'A full service bar pouring premium liquor, wine, and cocktails, staffed by our bartenders throughout your five hour open bar.',
-  },
-  'balconies': {
-    title: 'Double Balconies',
-    description: 'We have two balconies: one inside that overlooks the ballroom, and one outside with double waterfront views. Both make for great photos and quiet moments away from the crowd.',
-  },
-  'photo-locations': {
-    title: 'Wedding Photo Locations',
-    description: 'Beautiful photo spots all over the grounds, from the water and gardens to the architecture inside. Your photographer will have plenty to work with.',
-  },
-};
+import AnswerBlock from '../../components/AnswerBlock';
+import JsonLd from '../../components/JsonLd';
+import { tourRooms as tourSections } from '../../lib/pageAnswers';
+import { pageGraph, placeInVenue } from '../../lib/schema';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -146,10 +91,9 @@ export default async function TourSectionPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-0">
             {/* Image Column - Full Height */}
             <div className="relative lg:col-span-7 h-[50svh] lg:h-auto order-1 lg:order-1 overflow-hidden">
-              <Image 
+              <ResponsiveFillImage
                 src={getTourHero(slug)}
                 alt={`${section.title} at Riviera Waterfront Mansion Long Island wedding venue in Massapequa, NY`}
-                fill
                 priority
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 58vw"
@@ -191,9 +135,7 @@ export default async function TourSectionPage({ params }: Props) {
                 <h1 className="font-cormorant text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-riviera-text mb-6 leading-[1.1]">
                   {section.title}
                 </h1>
-                <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
-                  {section.description}
-                </p>
+                <AnswerBlock>{section.description}</AnswerBlock>
                 <HoverScale effect="lift">
                   <a 
                     href="#photo-gallery"
@@ -297,35 +239,24 @@ export default async function TourSectionPage({ params }: Props) {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Tour',
-                item: 'https://www.rivierawaterfrontmansion.com/tour'
-              },
-              {
-                '@type': 'ListItem',
-                position: 3,
-                name: section.title,
-                item: `https://www.rivierawaterfrontmansion.com/tour/${slug}`
-              }
-            ]
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: `/tour/${slug}`,
+          name: section.title,
+          description: section.description,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Tour', path: '/tour' },
+            { name: section.title, path: `/tour/${slug}` },
+          ],
+          extra: [
+            placeInVenue({
+              path: `/tour/${slug}`,
+              name: section.title,
+              description: section.description,
+            }),
+          ],
+        })}
       />
     </>
   );

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import Image from 'next/image';
+import ResponsiveFillImage from './ResponsiveFillImage';
+import { altForImage, elenaKayFallbackSrc, isElenaKayPhoto } from '../lib/elenaKay2026';
 
 const SWIPE_THRESHOLD_PX = 50;
 const MANUAL_NAV_COOLDOWN_MS = 4000;
@@ -106,7 +107,7 @@ export default function HeroCarousel({
     const nextIdx = (currentIndex + 1) % slideCount;
     for (const src of slides[nextIdx]) {
       const img = new window.Image();
-      img.src = src;
+      img.src = isElenaKayPhoto(src) ? elenaKayFallbackSrc(src) : src;
     }
   }, [currentIndex, slides, slideCount]);
 
@@ -203,6 +204,7 @@ export default function HeroCarousel({
             slideIndex === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           } ${reducedMotion ? '' : 'transition-opacity'}`}
           style={fadeStyle}
+          aria-hidden={slideIndex === currentIndex ? undefined : true}
         >
           {dualPresentation && slideSrcs.length === 2 ? (
             <div className="grid h-full min-h-0 w-full grid-cols-2 gap-2 px-3 sm:gap-4 sm:px-6 md:gap-6 md:px-10 lg:px-14">
@@ -220,10 +222,9 @@ export default function HeroCarousel({
                   }
                   title={enlargeOnDoubleClick ? 'Double-click to enlarge photo' : undefined}
                 >
-                  <Image
+                  <ResponsiveFillImage
                     src={src}
                     alt={`${alt}, photo ${slideIndex * 2 + i + 1}`}
-                    fill
                     priority={slideIndex === 0 && i === 0}
                     className={imageClass}
                     sizes={imageSizesResolved}
@@ -246,10 +247,9 @@ export default function HeroCarousel({
                 }
                 title={enlargeOnDoubleClick ? 'Double-click to enlarge photo' : undefined}
               >
-                <Image
+                <ResponsiveFillImage
                   src={slideSrcs[0]}
                   alt={`${alt}, photo ${slideIndex * 2 + 1}`}
-                  fill
                   priority={slideIndex === 0}
                   className={imageClass}
                   sizes="(max-width: 768px) 85vw, 520px"
@@ -270,10 +270,9 @@ export default function HeroCarousel({
               }
               title={enlargeOnDoubleClick ? 'Double-click to enlarge photo' : undefined}
             >
-              <Image
+              <ResponsiveFillImage
                 src={slideSrcs[0]}
                 alt={`${alt} - Image ${slideIndex + 1}`}
-                fill
                 priority={slideIndex === 0}
                 className={imageClass}
                 sizes={sizes}
@@ -284,9 +283,21 @@ export default function HeroCarousel({
         </div>
       ))}
 
-      {slideCount > 1 && (
+      {slideCount > 12 ? (
+        <p
+          className={`absolute bottom-4 right-4 z-20 px-2.5 py-1 text-xs tracking-wider tabular-nums ${
+            variant === 'venue'
+              ? 'bg-white/90 text-riviera-text'
+              : 'bg-black/45 text-white'
+          }`}
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {currentIndex + 1} / {slideCount}
+        </p>
+      ) : slideCount > 1 ? (
         <div
-          className={`absolute bottom-6 right-6 z-20 flex gap-2 ${
+          className={`absolute bottom-6 right-6 z-20 flex max-w-[calc(100%-3rem)] flex-wrap justify-end gap-2 ${
             variant === 'venue' ? '[&_button]:shadow-sm' : ''
           }`}
         >
@@ -312,7 +323,7 @@ export default function HeroCarousel({
             />
           ))}
         </div>
-      )}
+      ) : null}
     </div>
 
     {expandedSrc && (
@@ -370,7 +381,7 @@ export default function HeroCarousel({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={expandedSrc}
-              alt={`${alt} enlarged view`}
+              alt={altForImage(expandedSrc, `${alt} enlarged view`)}
               className="max-h-[78vh] w-auto max-w-[min(1200px,96vw)] object-contain select-none"
               draggable={false}
             />

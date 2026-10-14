@@ -3,6 +3,10 @@ import Footer from '../components/Footer';
 import Link from 'next/link';
 import MobileStickyCTA from '../components/MobileStickyCTA';
 import FAQSection from '../components/FAQSection';
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { ratesPage } from '../lib/pageAnswers';
+import { pageGraph } from '../lib/schema';
 
 const includedItems = [
   'Exclusive use of the mansion and all grounds for the entire event',
@@ -21,37 +25,6 @@ const includedItems = [
   'One event at a time — the entire venue is exclusively yours',
 ];
 
-const faqs = [
-  {
-    question: 'Do you host more than one event at a time?',
-    answer:
-      'No. Riviera Waterfront Mansion hosts one wedding at a time. Once your date is reserved, the entire venue is exclusively yours for the duration of your event.',
-  },
-  {
-    question: 'What days of the week do you host weddings?',
-    answer: 'We host weddings Thursday through Sunday.',
-  },
-  {
-    question: 'What is the guest minimum?',
-    answer:
-      'Our minimum is 150 guests. Our grand ballroom accommodates up to 350 guests.',
-  },
-  {
-    question: 'What does pricing include?',
-    answer:
-      'All packages include cocktail hour, plated reception dinner, five hour top shelf open bar, and full use of the venue and grounds. All pricing is plus a 22% admin fee and NYS tax.',
-  },
-  {
-    question: 'How do I get pricing?',
-    answer:
-      'Contact our team to schedule a private tour and receive a personalized proposal for your date.',
-  },
-  {
-    question: 'What is your cancellation policy?',
-    answer: 'Contact us directly for details on our policies and payment schedule.',
-  },
-];
-
 export default function RatesPage() {
   return (
     <>
@@ -65,6 +38,7 @@ export default function RatesPage() {
             <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-riviera-text mb-6">
               Rates and Availability for Your Long Island Waterfront Wedding
             </h1>
+            <AnswerBlock align="center">{ratesPage.answer}</AnswerBlock>
             <p className="text-lg md:text-xl font-light text-riviera-text/70 max-w-2xl mx-auto">
               Every Riviera Waterfront Mansion wedding is priced based on your chosen date, guest count, and menu selections. Contact us for a personalized proposal.
             </p>
@@ -165,7 +139,7 @@ export default function RatesPage() {
 
         {/* FAQ Section */}
         <FAQSection
-          faqs={faqs}
+          faqs={ratesPage.faqs ?? []}
           title="Frequently Asked Questions About Rates and Availability"
           eyebrow="RATES & AVAILABILITY"
           background="white"
@@ -201,47 +175,17 @@ export default function RatesPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com',
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Rates',
-                item: 'https://www.rivierawaterfrontmansion.com/rates',
-              },
-            ],
-          }),
-        }}
-      />
-      {/* JSON-LD FAQPage Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqs.map((faq) => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer,
-              },
-            })),
-          }),
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: ratesPage.path,
+          name: ratesPage.title,
+          description: ratesPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Rates', path: '/rates' },
+          ],
+          faqs: ratesPage.faqs,
+        })}
       />
       <MobileStickyCTA />
     </>

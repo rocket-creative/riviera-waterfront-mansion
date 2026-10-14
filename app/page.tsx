@@ -11,48 +11,16 @@ import FAQSection from './components/FAQSection';
 import MobileStickyCTA from './components/MobileStickyCTA';
 import Image from 'next/image';
 import Link from 'next/link';
-import { imageConfig, getTourPreviews } from './lib/imageConfig';
+import { imageConfig } from './lib/imageConfig';
 import SlideshowImage from './components/SlideshowImage';
 import { AnimatedSection } from './components/AnimatedSection';
 import { HoverScale } from './components/HoverScale';
 import { useFadeInUp, useStaggerChildren, useScrollTriggerCleanup } from './lib/useAnimations';
 import BridalShowcaseOverlay from './components/BridalShowcaseOverlay';
-
-const homepageFAQs = [
-  {
-    question: 'How many guests can Riviera Waterfront Mansion accommodate?',
-    answer: 'Our Long Island waterfront venue can accommodate 150 to 350 guests for your wedding celebration. We require a minimum of 150 guests and offer flexible seating arrangements in our grand ballroom to suit your specific needs.'
-  },
-  {
-    question: 'Do you host multiple weddings on the same day?',
-    answer: 'Riviera Waterfront Mansion hosts only one wedding at a time, ensuring your day is completely exclusive. You and your guests have full private access to our entire Massapequa waterfront facility, grounds, and all amenities.'
-  },
-  {
-    question: 'What is included in your Long Island wedding packages?',
-    answer: 'Our wedding packages include a five hour top shelf open bar, chef inspired Continental cuisine with cocktail hour and plated dinner, full venue access, bridal suite, professional staff, tables and linens, backup generator, climate control, and more. Contact us for complete package details and pricing.'
-  },
-  {
-    question: 'Do you offer both indoor and outdoor ceremony options?',
-    answer: 'Yes! We offer a stunning outdoor waterfront ceremony area with breathtaking water views, as well as a beautiful indoor ceremony space for any weather conditions. Both options are included with your wedding package.'
-  },
-  {
-    question: 'How far in advance should we book our wedding date?',
-    answer: 'We recommend booking 12 to 18 months in advance to secure your preferred date, especially for peak wedding season from May through October. However, we sometimes have availability for shorter notice weddings. Contact us to check current date availability for 2026 and 2027.'
-  },
-  {
-    question: 'Can we bring our own vendors?',
-    answer: 'Yes, you can bring your own photographer, DJ, florist, and other vendors. We just ask that every outside vendor carries their own insurance. We are also happy to share our list of trusted vendors who know our venue well.'
-  },
-  {
-    question: 'Do you offer wedding tastings?',
-    answer:
-      'Yes! Our food tastings are exclusively for our booked couples. This special event gives you the opportunity not only to sample our menu selections, but also to enjoy time on the dance floor before your big day. Invitations are sent via email to our RWMansion couples.'
-  },
-  {
-    question: 'Is there parking available at the venue?',
-    answer: 'Riviera Waterfront Mansion offers professional valet parking service for all guests. Our dedicated valet team takes care of every vehicle so your guests can focus entirely on celebrating.'
-  }
-];
+import AnswerBlock from './components/AnswerBlock';
+import JsonLd from './components/JsonLd';
+import { homePage } from './lib/pageAnswers';
+import { pageGraph } from './lib/schema';
 
 export default function Home() {
   // Cleanup ScrollTriggers on unmount
@@ -91,6 +59,7 @@ export default function Home() {
                   <span className="block">DESERVES</span>
                   <span className="block">PERFECTION</span>
                 </h1>
+                <AnswerBlock>{homePage.answer}</AnswerBlock>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Three generations of wedding excellence on a stunning waterfront estate in Massapequa, Long Island. One wedding at a time. Your day, exclusively yours.
                 </p>
@@ -265,7 +234,7 @@ export default function Home() {
                 <p className="text-lg font-light text-riviera-text/70 max-w-2xl mx-auto mb-8">
                   Get a front row seat to stunning waterfront weddings at our Massapequa venue, behind the scenes setups, and must know Long Island wedding venue updates. Be inspired by real couples celebrating at our historic waterfront estate and dreamy decor.
                 </p>
-                <div className="flex items-center justify-center gap-6">
+                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                   <a
                     href="https://www.instagram.com/rivierawaterfrontmansion/"
                     target="_blank"
@@ -277,7 +246,7 @@ export default function Home() {
                     </svg>
                     <span>@RIVIERAWATERFRONTMANSION</span>
                   </a>
-                  <span className="text-riviera-text/30">|</span>
+                  <span className="hidden md:inline text-riviera-text/30" aria-hidden="true">|</span>
                   <a
                     href="https://www.tiktok.com/@rivierawaterfrontmansion"
                     target="_blank"
@@ -328,7 +297,7 @@ export default function Home() {
             <div ref={featuresRef as any} className="grid lg:grid-cols-3 gap-6 mb-16">
               <Link href="/tour/outdoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-ceremony')} alt="Outdoor waterfront ceremony" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.outdoorCeremony} alt="Outdoor waterfront ceremony" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -345,7 +314,7 @@ export default function Home() {
               
               <Link href="/tour/indoor-ceremony" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('indoor-ceremony')} alt="Indoor ceremony space" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.indoorCeremony} alt="Indoor ceremony space" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -362,7 +331,7 @@ export default function Home() {
               
               <Link href="/tour/outdoor-cocktail" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Waterfront cocktail area" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.outdoorCocktail} alt="Waterfront cocktail area" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -379,7 +348,7 @@ export default function Home() {
               
               <Link href="/tour/main-ballroom" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-ballroom')} alt="Grand ballroom" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.ballroom} alt="Grand ballroom" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -396,7 +365,7 @@ export default function Home() {
               
               <Link href="/tour/bridal-suite" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('bridal-suite')} alt="Bridal suite" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.bridal} alt="Bridal suite" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -413,7 +382,7 @@ export default function Home() {
               
               <Link href="/tour/balconies" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('balconies')} alt="Balcony overlook" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.balconies} alt="Balcony overlook" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -430,7 +399,7 @@ export default function Home() {
               
               <Link href="/tour/main-bar" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('main-bar')} alt="Top shelf bar" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.bar} alt="Top shelf bar" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -447,7 +416,7 @@ export default function Home() {
               
               <Link href="/tour/entertainment" className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all block focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2 relative">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entertainment')} alt="Entertainment and DJ" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.entertainment} alt="Entertainment and DJ" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 bg-riviera-gold/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -464,7 +433,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={imageConfig.sections.rates as string[]} alt="Venue amenities" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.amenities} alt="Venue amenities" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">BACKUP GENERATOR</h3>
@@ -476,7 +445,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('outdoor-cocktail')} alt="Climate controlled venue" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.climate} alt="Climate controlled venue" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">CLIMATE CONTROLLED</h3>
@@ -488,7 +457,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('entrance-lobby')} alt="Coat check service" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.entrance} alt="Coat check service" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">COAT CHECK SERVICE</h3>
@@ -500,7 +469,7 @@ export default function Home() {
               
               <div className="feature-card border-2 border-riviera-gold overflow-hidden group hover:shadow-lg transition-all">
                 <div className="relative aspect-video w-full overflow-hidden">
-                  <SlideshowImage images={getTourPreviews('photo-locations')} alt="Full grounds access" sizes="(max-width: 768px) 100vw, 33vw" objectClass="group-hover:scale-105 transition-transform duration-500" />
+                  <SlideshowImage images={imageConfig.homepage.grounds} alt="Full grounds access" sizes="(max-width: 1024px) 100vw, 33vw" fit="contain" objectClass="group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-sm tracking-widest text-riviera-text mb-3 font-medium">FULL GROUNDS ACCESS</h3>
@@ -526,7 +495,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <FAQSection 
-          faqs={homepageFAQs}
+          faqs={homePage.faqs ?? []}
           title="Frequently Asked Questions About Our Long Island Wedding Venue"
           eyebrow="YOUR QUESTIONS ANSWERED"
           background="white"
@@ -557,103 +526,13 @@ export default function Home() {
       <Footer />
       <MobileStickyCTA />
 
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            '@id': 'https://www.rivierawaterfrontmansion.com/#organization',
-            name: 'Riviera Waterfront Mansion',
-            url: 'https://www.rivierawaterfrontmansion.com',
-            logo: 'https://www.rivierawaterfrontmansion.com/logo.png',
-            image: 'https://www.rivierawaterfrontmansion.com/og-image.jpg',
-            description: 'Premier waterfront wedding venue in Massapequa, NY. Third generation family owned since 1946.',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '200 E Shore Dr',
-              addressLocality: 'Massapequa',
-              addressRegion: 'NY',
-              postalCode: '11758',
-              addressCountry: 'US'
-            },
-            telephone: '+15165415020',
-            sameAs: [
-              'https://www.instagram.com/rivierawaterfrontmansion/',
-              'https://www.facebook.com/rivierawaterfrontmansion',
-              'https://www.tiktok.com/@rivierawaterfrontmansion',
-              'https://www.google.com/maps/place/Riviera+Waterfront+Mansion'
-            ],
-            openingHoursSpecification: [
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: [
-                  'Tuesday',
-                  'Wednesday',
-                  'Thursday',
-                  'Friday',
-                  'Saturday',
-                  'Sunday'
-                ],
-                opens: '11:00',
-                closes: '19:00'
-              }
-            ],
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: 40.6644,
-              longitude: -73.4711
-            },
-            /* REVIEW REQUIRED: Update ratingValue and reviewCount with verified figures from Google Business Profile */
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '5.0',
-              reviewCount: '100',
-              bestRating: '5',
-              worstRating: '1'
-            },
-            priceRange: '$$$',
-            servesCuisine: 'Continental'
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            '@id': 'https://www.rivierawaterfrontmansion.com/#website',
-            name: 'Riviera Waterfront Mansion',
-            url: 'https://www.rivierawaterfrontmansion.com',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: {
-                '@type': 'EntryPoint',
-                urlTemplate: 'https://www.rivierawaterfrontmansion.com/?s={search_term_string}'
-              },
-              'query-input': 'required name=search_term_string'
-            }
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: homepageFAQs.map(faq => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer
-              }
-            }))
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: homePage.path,
+          name: homePage.title,
+          description: homePage.answer,
+          faqs: homePage.faqs,
+        })}
       />
     </>
   );

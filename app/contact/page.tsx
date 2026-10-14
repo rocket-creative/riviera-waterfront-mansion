@@ -12,41 +12,10 @@ import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import { useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
 import { imageConfig } from '../lib/imageConfig';
-
-const contactFAQs = [
-  {
-    question: 'What are your consultation hours?',
-    answer: 'We are open for private tours and consultations Tuesday through Sunday, 11:00 AM to 7:00 PM. Call 516 541 5020 to schedule your visit.'
-  },
-  {
-    question: 'How do I schedule a tour of the venue?',
-    answer: 'You can schedule a tour by calling us at 516 541 5020 or emailing appointments@rivierawaterfrontmansion.com. We will respond within 24 hours to confirm your appointment.'
-  },
-  {
-    question: 'Do I need an appointment to visit?',
-    answer: 'Yes, we require appointments for all tours and consultations. Since we host only one wedding at a time, we want to ensure our full attention is on you during your visit. This allows us to provide a personalized, unhurried experience.'
-  },
-  {
-    question: 'How long does a venue tour take?',
-    answer: 'Plan for approximately 60 to 90 minutes for your tour and consultation. This gives you time to explore all our indoor and outdoor spaces, discuss your wedding vision, review menu options, and ask questions about our Long Island waterfront venue.'
-  },
-  {
-    question: 'Can we tour the venue during an event?',
-    answer: 'While we occasionally accommodate tours during setup, we prefer to schedule visits when no events are taking place. This ensures you can fully experience the space and have our complete attention without distractions.'
-  },
-  {
-    question: 'Where is Riviera Waterfront Mansion located?',
-    answer: 'We are located at 200 E Shore Dr, Massapequa, NY 11758. Our Long Island waterfront venue is conveniently accessible from anywhere in the tri state area with ample complimentary parking on site.'
-  },
-  {
-    question: 'What should I bring to my tour?',
-    answer: 'Bring your guest count estimate, preferred wedding date or season, and any specific questions or must haves for your celebration. If you are ready to book, we will provide all necessary paperwork during your visit.'
-  },
-  {
-    question: 'Can I get wedding information before visiting?',
-    answer: 'Yes! You can download our comprehensive wedding brochure with package details, menu options, and venue information at rivierawaterfrontmansion.com/wedding-pricing, or reach us directly at appointments@rivierawaterfrontmansion.com.'
-  }
-];
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { contactPage } from '../lib/pageAnswers';
+import { pageGraph } from '../lib/schema';
 
 export default function ContactPage() {
   useScrollTriggerCleanup();
@@ -72,6 +41,7 @@ export default function ContactPage() {
                   <span className="block">WATERFRONT</span>
                   <span className="block">MANSION</span>
                 </h1>
+                <AnswerBlock>{contactPage.answer}</AnswerBlock>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Schedule a private tour, check wedding date availability, or request information about our Massapequa waterfront venue. Limited dates available for 2026 and 2027.
                 </p>
@@ -301,7 +271,7 @@ export default function ContactPage() {
 
         {/* FAQ Section */}
         <FAQSection 
-          faqs={contactFAQs}
+          faqs={contactPage.faqs ?? []}
           title="Contact & Tour Questions"
           eyebrow="PLANNING YOUR VISIT"
           background="white"
@@ -330,78 +300,18 @@ export default function ContactPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Contact',
-                item: 'https://www.rivierawaterfrontmansion.com/contact'
-              }
-            ]
-          })
-        }}
-      />
-      {/* JSON-LD LocalBusiness Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            '@id': 'https://www.rivierawaterfrontmansion.com/#organization',
-            name: 'Riviera Waterfront Mansion',
-            url: 'https://www.rivierawaterfrontmansion.com/contact',
-            telephone: '+15165415020',
-            email: 'appointments@rivierawaterfrontmansion.com',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '200 E Shore Dr',
-              addressLocality: 'Massapequa',
-              addressRegion: 'NY',
-              postalCode: '11758',
-              addressCountry: 'US'
-            },
-            openingHoursSpecification: [
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                opens: '11:00',
-                closes: '19:00'
-              }
-            ]
-          })
-        }}
-      />
-      {/* JSON-LD FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: contactFAQs.map(faq => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer
-              }
-            }))
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: contactPage.path,
+          name: contactPage.title,
+          description: contactPage.answer,
+          pageType: 'ContactPage',
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Contact', path: '/contact' },
+          ],
+          faqs: contactPage.faqs,
+        })}
       />
       <MobileStickyCTA />
     </>

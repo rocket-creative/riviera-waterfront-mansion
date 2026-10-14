@@ -80,12 +80,18 @@ export default function CookieConsent() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom))] md:bottom-0 z-50 bg-white border-t border-stone-200 shadow-lg">
-      <div className="max-w-7xl mx-auto p-5 sm:p-8">
+    <div
+      className="fixed inset-x-0 z-50 overflow-y-auto bg-white border-t border-stone-200 shadow-lg"
+      style={{
+        bottom: 'calc(var(--sticky-offset, 0px) + env(safe-area-inset-bottom))',
+        maxHeight: 'calc(100dvh - var(--sticky-offset, 0px) - env(safe-area-inset-bottom))',
+      }}
+    >
+      <div className="max-w-7xl mx-auto p-5 md:p-8">
         {!showDetails ? (
-          // Simple view
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex-1">
+          // Simple view. Stay stacked until md (810px). This project's sm is 393px.
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="min-w-0 flex-1">
               <h3 className="text-lg font-medium text-stone-900 mb-2">
                 We Value Your Privacy
               </h3>
@@ -101,22 +107,22 @@ export default function CookieConsent() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row sm:flex-nowrap gap-2 sm:gap-3 w-full sm:w-auto">
+            <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-3 w-full md:w-auto">
               <button
                 onClick={() => setShowDetails(true)}
-                className="w-full sm:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full md:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Customize
               </button>
               <button
                 onClick={handleRejectAll}
-                className="w-full sm:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full md:w-auto min-h-[44px] px-4 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Reject All
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
+                className="w-full md:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
               >
                 Accept All
               </button>
@@ -140,7 +146,7 @@ export default function CookieConsent() {
               </button>
             </div>
 
-            <div className="space-y-4 mb-6 max-h-[60vh] overflow-y-auto">
+            <div className="space-y-4 mb-6">
               {/* Necessary */}
               <div className="flex items-start justify-between p-4 bg-stone-50 rounded">
                 <div className="flex-1 pr-4">
@@ -220,16 +226,16 @@ export default function CookieConsent() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-end">
+            <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-3 md:justify-end">
               <button
                 onClick={handleRejectAll}
-                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
+                className="w-full md:w-auto min-h-[44px] px-6 py-2 text-sm border border-stone-300 hover:bg-stone-50 transition-colors uppercase tracking-wider"
               >
                 Reject All
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="w-full sm:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
+                className="w-full md:w-auto min-h-[44px] px-6 py-2 text-sm bg-stone-900 text-white hover:bg-stone-800 transition-colors uppercase tracking-wider"
               >
                 Save Preferences
               </button>

@@ -3,13 +3,13 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 export const revalidate = 600; // Cache for 10 minutes
 
-// Placeholder TikTok videos using real venue images
-// These display while waiting for live API connection
+// Placeholder TikTok videos using 2026 Elena Kay photos with faces in frame.
+// These display while waiting for a live API connection.
 const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_001',
     caption: 'POV: You\'re getting married at the most stunning waterfront venue on Long Island #RivieraWedding',
-    thumbnail_url: '/images/medium/_0359671-by-p.jpg',
+    thumbnail_url: '/images/2026/w1440/spano-waterfront-sunset.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date().toISOString(),
@@ -18,7 +18,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_002',
     caption: 'Venue tour part 1: The Grand Entrance #wedding #weddingvenue #longisland',
-    thumbnail_url: '/images/medium/_DSC3791kj-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-entrance.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 86400000).toISOString(),
@@ -27,7 +27,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_003',
     caption: 'When the golden hour hits different at your wedding #goldenhour #weddinggoals',
-    thumbnail_url: '/images/medium/_0359672-by-p.jpg',
+    thumbnail_url: '/images/2026/w1440/spano-mansion-portrait.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 172800000).toISOString(),
@@ -36,7 +36,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_004',
     caption: 'This is why couples choose waterfront weddings #waterfrontwedding #dreamwedding',
-    thumbnail_url: '/images/medium/_DSC4647cb-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-bay-portrait.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 259200000).toISOString(),
@@ -45,7 +45,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_005',
     caption: 'The bridal suite reveal everyone asks for #bridalsuite #weddingday',
-    thumbnail_url: '/images/medium/_DSC6150aa-port-2.jpg',
+    thumbnail_url: '/images/2026/w1440/spano-bride-portrait.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 345600000).toISOString(),
@@ -54,7 +54,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_006',
     caption: 'Setting up for today\'s ceremony #weddingsetup #behindthescenes',
-    thumbnail_url: '/images/medium/_0359684-by-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-processional.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 432000000).toISOString(),
@@ -63,7 +63,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_007',
     caption: 'That first dance energy #firstdance #weddingvibes #celebration',
-    thumbnail_url: '/images/medium/_50M1180-jj-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-just-married.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 518400000).toISOString(),
@@ -72,7 +72,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_008',
     caption: 'The venue transformation is INSANE. Day to night magic!',
-    thumbnail_url: '/images/medium/_DSC8864sa-p.jpg',
+    thumbnail_url: '/images/2026/w1440/spano-ballroom.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 604800000).toISOString(),
@@ -81,7 +81,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_009',
     caption: 'Cocktail hour hits different when you have THIS view #cocktailhour',
-    thumbnail_url: '/images/medium/_GS28903sc-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-flower-embrace.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 691200000).toISOString(),
@@ -90,7 +90,7 @@ const PLACEHOLDER_VIDEOS = [
   {
     id: 'tiktok_010',
     caption: '75+ years of wedding perfection. Family owned since 1946 #longislandwedding',
-    thumbnail_url: '/images/medium/_COL3623ca-p.jpg',
+    thumbnail_url: '/images/2026/w1440/morrone-mansion-lawn.webp',
     video_url: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     permalink: 'https://www.tiktok.com/@rivierawaterfrontmansion',
     timestamp: new Date(Date.now() - 777600000).toISOString(),

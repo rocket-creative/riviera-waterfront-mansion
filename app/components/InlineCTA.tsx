@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import SlideshowImage from './SlideshowImage';
+import ResponsiveFillImage from './ResponsiveFillImage';
 import { HoverScale } from './HoverScale';
 import { AnimatedSection } from './AnimatedSection';
 
@@ -74,10 +74,9 @@ export default function InlineCTA({
               showPlaceholder
             />
           ) : (
-            <Image
+            <ResponsiveFillImage
               src={images[0] ?? ''}
               alt={imageAlt}
-              fill
               className={`${singleImageFitClass} object-center transition-transform duration-700 hover:scale-105`}
               sizes="(max-width: 1024px) 100vw, 58vw"
               quality={85}

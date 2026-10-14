@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Lato } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import CookieConsent from './components/CookieConsent';
+import ActionTracker from './components/ActionTracker';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -96,6 +97,7 @@ export default function RootLayout({
 
         {/* Cookie consent banner */}
         <CookieConsent />
+        <ActionTracker />
 
         {/* Meta Pixel */}
         <Script id="facebook-pixel" strategy="afterInteractive">

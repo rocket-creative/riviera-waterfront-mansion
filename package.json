@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize:2026": "python3 scripts/optimize-2026-photos.py"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",

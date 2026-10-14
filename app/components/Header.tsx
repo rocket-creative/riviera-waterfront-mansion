@@ -50,9 +50,9 @@ export default function Header() {
               className="font-cormorant font-light tracking-widest text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus:text-riviera-gold"
             >
               {/* Desktop: single line */}
-              <span className="hidden lg:inline text-xl">RIVIERA WATERFRONT MANSION</span>
-              {/* Mobile: two lines */}
-              <span className="lg:hidden flex flex-col leading-none">
+              <span className="hidden xl:inline text-xl">RIVIERA WATERFRONT MANSION</span>
+              {/* Mobile and tablet: two lines. The full nav row does not fit below 1440px. */}
+              <span className="xl:hidden flex flex-col leading-none">
                 <span className="text-[2.75rem]">RIVIERA</span>
                 <span className="text-xs -mt-1">WATERFRONT MANSION</span>
               </span>
@@ -60,7 +60,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-4">
+          <div className="hidden xl:flex xl:items-center xl:gap-4">
             <Link 
               href="/"
               className="text-sm font-light tracking-wider text-riviera-text hover:text-riviera-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold focus-visible:ring-offset-2"
@@ -141,7 +141,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden flex items-center justify-center min-w-[44px] min-h-[44px] -mr-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold select-none"
+            className="xl:hidden flex items-center justify-center min-w-[44px] min-h-[44px] -mr-2 text-riviera-text hover:text-riviera-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-riviera-gold select-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -159,7 +159,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div
-            className="lg:hidden py-4 border-t border-riviera-neutral"
+            className="xl:hidden py-4 border-t border-riviera-neutral"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"

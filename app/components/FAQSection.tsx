@@ -77,7 +77,6 @@ export default function FAQSection({
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     openIndex === index ? 'max-h-[500px] opacity-100 pb-8' : 'max-h-0 opacity-0'
                   }`}
-                  aria-hidden={openIndex !== index}
                 >
                   <div className="pr-12">
                     <p className={`text-sm md:text-base font-light ${answerClass} leading-relaxed`}>

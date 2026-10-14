@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import ResponsiveFillImage from './ResponsiveFillImage';
 
 interface SlideshowImageProps {
   images: string[];
@@ -77,11 +77,11 @@ export default function SlideshowImage({
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             idx === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
+          aria-hidden={idx === currentIndex ? undefined : true}
         >
-          <Image
+          <ResponsiveFillImage
             src={src}
             alt={`${alt}${valid.length > 1 ? ` — ${idx + 1}` : ''}`}
-            fill
             className={`${fitClass} object-center ${objectClass}`.trim()}
             sizes={sizes}
             quality={quality}

@@ -13,37 +13,10 @@ import { AnimatedSection } from '../components/AnimatedSection';
 import { HoverScale } from '../components/HoverScale';
 import { useStaggerChildren, useScrollTriggerCleanup, useFadeInUp } from '../lib/useAnimations';
 import { imageConfig } from '../lib/imageConfig';
-
-const vendorsFAQs = [
-  {
-    question: 'Do we have to use your preferred vendors?',
-    answer: 'No, you are welcome to bring your own wedding vendors. However, our preferred vendors know our Massapequa venue intimately and have consistently delivered exceptional service. They understand the unique features of our waterfront location and work seamlessly with our team.'
-  },
-  {
-    question: 'Are your preferred vendors more expensive?',
-    answer: 'No. Our preferred vendors offer competitive rates for the Long Island market. Being on our list does not inflate their pricing. They earned their spot through quality work, reliability, and professionalism, not by paying fees.'
-  },
-  {
-    question: 'Can you recommend vendors based on our budget?',
-    answer: 'Absolutely! Our banquet team can provide personalized recommendations based on your budget, wedding style, and specific needs. We have worked with all our preferred vendors for years and can match you with professionals who fit your vision and budget.'
-  },
-  {
-    question: 'Do you provide any vendors in house?',
-    answer: 'Yes! Catering, bartending, serving staff, and venue coordination are all provided by our expert in house team. You will need to arrange your own photographer, DJ or band, florist, cake, and other specialty vendors.'
-  },
-  {
-    question: 'How do I contact the vendors on your list?',
-    answer: 'Contact information including websites, phone numbers, and emails are listed for each vendor. You can reach out directly to discuss your wedding needs, request quotes, and check their availability for your Long Island wedding date.'
-  },
-  {
-    question: 'Can vendors visit the venue before our wedding?',
-    answer: 'Yes, your vendors are welcome to visit Riviera Waterfront Mansion before your wedding for site visits, consultations, and planning. Many of our preferred vendors already know the space well from previous events.'
-  },
-  {
-    question: 'Are there any vendor restrictions at your venue?',
-    answer: 'We require all vendors to have proper insurance and licensing. Fireworks vendors must follow local regulations. Otherwise, professional vendors who respect our venue and deliver quality service are welcome.'
-  }
-];
+import AnswerBlock from '../components/AnswerBlock';
+import JsonLd from '../components/JsonLd';
+import { vendorsPage } from '../lib/pageAnswers';
+import { pageGraph } from '../lib/schema';
 
 const vendorCategories = [
   {
@@ -163,6 +136,7 @@ export default function VendorsPage() {
                   <span className="block text-riviera-gold">WEDDING</span>
                   <span className="block">VENDORS</span>
                 </h1>
+                <AnswerBlock>{vendorsPage.answer}</AnswerBlock>
                 <p className="text-base sm:text-lg font-light text-riviera-text/70 mb-8 max-w-md leading-relaxed">
                   Our hand selected wedding professionals have earned the Riviera seal of approval. These trusted partners will help bring your Long Island waterfront wedding vision to life.
                 </p>
@@ -308,7 +282,7 @@ export default function VendorsPage() {
 
         {/* FAQ Section */}
         <FAQSection 
-          faqs={vendorsFAQs}
+          faqs={vendorsPage.faqs ?? []}
           title="Wedding Vendor Questions"
           eyebrow="YOUR VENDOR QUESTIONS ANSWERED"
           background="neutral"
@@ -337,47 +311,17 @@ export default function VendorsPage() {
 
       <Footer />
 
-      {/* JSON-LD Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.rivierawaterfrontmansion.com'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Preferred Vendors',
-                item: 'https://www.rivierawaterfrontmansion.com/vendors'
-              }
-            ]
-          })
-        }}
-      />
-      {/* JSON-LD FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: vendorsFAQs.map(faq => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer
-              }
-            }))
-          })
-        }}
+      <JsonLd
+        data={pageGraph({
+          path: vendorsPage.path,
+          name: vendorsPage.title,
+          description: vendorsPage.answer,
+          crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Preferred Vendors', path: '/vendors' },
+          ],
+          faqs: vendorsPage.faqs,
+        })}
       />
       <MobileStickyCTA />
     </>
