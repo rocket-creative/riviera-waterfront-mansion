@@ -35,6 +35,11 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  // Admin image routes only scan public/images in local dev. Tracing those
+  // files into the serverless function pushes it over Vercel's 250 MB limit.
+  outputFileTracingExcludes: {
+    '/api/admin/**': ['./public/images/**/*'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [393, 810, 1024, 1440, 1920, 3840],
