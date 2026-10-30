@@ -366,6 +366,8 @@ export default function FallBridalShowcase() {
               eventStatus: 'https://schema.org/EventScheduled',
               offers: {
                 '@type': 'Offer',
+                name: 'Fall Bridal Showcase admission',
+                description: 'Admission to the Fall Bridal Showcase. Wedding pricing at this high-end Long Island waterfront venue is quoted in a private proposal.',
                 price: '0',
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',

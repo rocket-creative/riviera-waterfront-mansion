@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Preferred vendors for a high-end waterfront wedding at Riviera Waterfront Mansion on Long Island. Photographers, DJs, florists, and other professionals chosen for the quality of their work.';
+
 export const metadata: Metadata = {
   title: 'Long Island Wedding Vendors | Riviera Waterfront Mansion',
-  description: 'Trusted Long Island wedding vendors recommended by Riviera Waterfront Mansion in Massapequa, NY. Hand selected photographers, DJs, florists, bakers, lighting, and transportation. Over 30 vetted professionals.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/vendors'
   },
   openGraph: {
     title: 'Preferred Wedding Vendors | Riviera Waterfront Mansion',
-    description: 'Hand selected Long Island wedding vendors including photographers, DJs, florists, and more. Trusted professionals recommended by our Massapequa venue.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/vendors',
     siteName: 'Riviera Waterfront Mansion',
     images: [
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Preferred Wedding Vendors | Riviera Waterfront Mansion',
-    description: 'Hand selected Long Island wedding professionals including photographers, DJs, florists, and more.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-vendors.jpg'],
   },
   robots: {

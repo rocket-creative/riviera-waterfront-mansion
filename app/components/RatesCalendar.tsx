@@ -25,7 +25,7 @@ export default function RatesCalendar() {
 
   const busyMonths = [4, 5, 6, 7, 8, 9, 10]; // May through November (0-indexed)
 
-  // Simulated booked dates - heavy on Thursdays and Sundays (typical budget days)
+  // Simulated booked dates, heavier on Thursdays and Sundays.
   const bookedDates = [
     // January
     { month: 0, date: 3 },  // Sunday

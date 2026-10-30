@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Tour a high-end waterfront wedding mansion on Long Island. Bridal suite, indoor and outdoor ceremonies on the water, cocktail spaces, and grand ballroom in Massapequa, NY.';
+
 export const metadata: Metadata = {
   title: 'Virtual Venue Tour | Riviera Waterfront Mansion Long Island',
-  description: 'Tour Riviera Waterfront Mansion in Massapequa, NY. Explore the bridal suite, ceremony spaces, cocktail areas, grand ballroom, and waterfront views. See why couples choose our Long Island venue.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/tour'
   },
   openGraph: {
     title: 'Virtual Tour | Riviera Waterfront Mansion Long Island',
-    description: 'Explore every corner of our stunning Massapequa waterfront wedding venue. Virtual tour of ceremony spaces, grand ballroom, bridal suite, and more.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/tour',
     siteName: 'Riviera Waterfront Mansion',
     images: [
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Virtual Tour | Riviera Waterfront Mansion',
-    description: 'Explore our stunning Long Island waterfront wedding venue with our virtual tour. See ceremony spaces, grand ballroom, and more.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-tour.jpg'],
   },
   robots: {

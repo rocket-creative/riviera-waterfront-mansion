@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Chef-inspired Continental wedding catering at a high-end Long Island waterfront venue. Five-hour top-shelf open bar, cocktail hour, and plated dinner. Family owned since 1946.';
+
 export const metadata: Metadata = {
   title: 'Long Island Wedding Catering Menu | Riviera Waterfront Mansion',
-  description: 'Chef inspired Continental wedding catering at Riviera Waterfront Mansion in Massapequa, NY. Five hour top shelf open bar, gourmet cocktail hour, carved meats, and plated dinner. Exceptional since 1946.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/menu'
   },
   openGraph: {
     title: 'Wedding Menu & Catering | Riviera Waterfront Mansion',
-    description: 'Chef inspired Continental wedding catering at our Long Island waterfront venue. Five hour top shelf bar, gourmet cocktail hour, and plated dinner with four entree selections.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/menu',
     siteName: 'Riviera Waterfront Mansion',
     images: [
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Wedding Menu & Catering | Riviera Waterfront Mansion',
-    description: 'Chef inspired Continental wedding catering at our Massapequa waterfront venue with five hour top shelf bar and gourmet selections.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-menu.jpg'],
   },
   robots: {

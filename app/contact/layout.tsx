@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Schedule a private tour of Riviera Waterfront Mansion, a high-end waterfront wedding venue on Long Island in Massapequa, NY. Tuesday through Sunday, 11 a.m. to 7 p.m. Call (516) 541 5020.';
+
 export const metadata: Metadata = {
   title: 'Schedule a Tour | Riviera Waterfront Mansion Long Island',
-  description: 'Schedule a private tour of Riviera Waterfront Mansion in Massapequa, NY. Check wedding date availability for 2026 and 2027. Call (516) 541 5020 or submit an inquiry. Open Tuesday through Sunday, 11 a.m. to 7 p.m.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/contact'
   },
   openGraph: {
     title: 'Contact & Schedule Tour | Riviera Waterfront Mansion',
-    description: 'Schedule a private tour of our Long Island waterfront wedding venue in Massapequa, NY. Check date availability and plan your dream wedding.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/contact',
     siteName: 'Riviera Waterfront Mansion',
     images: [
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact & Schedule Tour | Riviera Waterfront Mansion',
-    description: 'Schedule a private tour of our Massapequa waterfront wedding venue. Check date availability for your Long Island wedding.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-contact.jpg'],
   },
   robots: {

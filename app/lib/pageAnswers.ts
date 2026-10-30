@@ -67,7 +67,7 @@ export const contactFaqs: Faq[] = [
   },
   {
     question: 'Where is Riviera Waterfront Mansion located?',
-    answer: 'We are located at 200 E Shore Dr, Massapequa, NY 11758. Our Long Island waterfront venue is conveniently accessible from anywhere in the tri state area with ample complimentary parking on site.',
+    answer: 'We are located at 200 E Shore Dr, Massapequa, NY 11758, a high-end waterfront estate in Nassau County on Long Island. Professional valet parking is provided for wedding guests. Tours are by appointment.',
   },
   {
     question: 'What should I bring to my tour?',
@@ -110,7 +110,7 @@ export const tourFaqs: Faq[] = [
   },
   {
     question: 'What makes your venue unique?',
-    answer: 'Our historic waterfront mansion has been family owned for over 75 years, offering one wedding at a time for complete exclusivity, stunning water views from multiple spaces, both indoor and outdoor options, and three generations of wedding expertise. We set the standard for Long Island wedding venues.',
+    answer: 'Riviera is a high-end waterfront wedding mansion on Long Island, family owned for over 75 years. One wedding at a time means the estate is exclusively yours, with water views from the ceremony, cocktail spaces, and grand ballroom, plus three generations of wedding expertise.',
   },
 ];
 
@@ -147,12 +147,12 @@ export const vendorsFaqs: Faq[] = [
     answer: 'No, you are welcome to bring your own wedding vendors. However, our preferred vendors know our Massapequa venue intimately and have consistently delivered exceptional service. They understand the unique features of our waterfront location and work seamlessly with our team.',
   },
   {
-    question: 'Are your preferred vendors more expensive?',
-    answer: 'No. Our preferred vendors offer competitive rates for the Long Island market. Being on our list does not inflate their pricing. They earned their spot through quality work, reliability, and professionalism, not by paying fees.',
+    question: 'How are preferred vendors chosen?',
+    answer: 'Preferred vendors are established Long Island wedding professionals whose work fits a high-end waterfront celebration at the mansion. They are chosen for quality, reliability, and how they work with our team. Vendors do not buy a place on the list.',
   },
   {
-    question: 'Can you recommend vendors based on our budget?',
-    answer: 'Absolutely! Our banquet team can provide personalized recommendations based on your budget, wedding style, and specific needs. We have worked with all our preferred vendors for years and can match you with professionals who fit your vision and budget.',
+    question: 'Can you recommend vendors for our wedding?',
+    answer: 'Yes. Our banquet team recommends preferred vendors based on your celebration and the standard of a high-end waterfront wedding at Riviera. Recommendations are about quality and how the work fits the mansion.',
   },
   {
     question: 'Do you provide any vendors in house?',
@@ -175,24 +175,24 @@ export const vendorsFaqs: Faq[] = [
 export const homePage: AiPage = {
   path: '/',
   title: 'Home',
-  summary: 'Waterfront wedding venue in Massapequa, NY. One wedding at a time for 150 to 350 guests.',
-  answer: 'Riviera Waterfront Mansion is a waterfront wedding venue at 200 E Shore Dr in Massapequa, NY, family owned since 1946. The mansion hosts one wedding at a time for 150 to 350 guests, with indoor and outdoor ceremony spaces and a grand ballroom on the water. Professional valet parking is available for guests.',
+  summary: 'High-end waterfront wedding venue on Long Island in Massapequa, NY. One exclusive wedding at a time for 150 to 350 guests.',
+  answer: venue.description,
   faqs: homeFaqs,
 };
 
 export const contactPage: AiPage = {
   path: '/contact',
   title: 'Schedule a Tour',
-  summary: 'Book a private tour Tuesday through Sunday, 11:00 AM to 7:00 PM, at 200 E Shore Dr, Massapequa, NY.',
-  answer: `Schedule a private tour by calling ${venue.telephoneDisplay} or emailing ${venue.email}. Tours are by appointment Tuesday through Sunday, 11:00 AM to 7:00 PM, at 200 E Shore Dr, Massapequa, NY 11758.`,
+  summary: 'Private tours of a high-end Long Island waterfront wedding venue, Tuesday through Sunday, 11:00 AM to 7:00 PM.',
+  answer: `Schedule a private tour of this high-end waterfront wedding venue by calling ${venue.telephoneDisplay} or emailing ${venue.email}. Tours are by appointment Tuesday through Sunday, 11:00 AM to 7:00 PM, at 200 E Shore Dr, Massapequa, NY 11758.`,
   faqs: contactFaqs,
 };
 
 export const tourPage: AiPage = {
   path: '/tour',
   title: 'Virtual Tour',
-  summary: 'Virtual tour of the bridal suite, ceremony spaces, cocktail areas, grand ballroom, and waterfront.',
-  answer: 'This virtual tour covers the bridal suite, indoor and outdoor ceremony spaces, cocktail areas, grand ballroom, and waterfront views at Riviera Waterfront Mansion in Massapequa, NY.',
+  summary: 'Virtual tour of a high-end Long Island waterfront wedding mansion: bridal suite, ceremonies, cocktail areas, grand ballroom, and the water.',
+  answer: 'This virtual tour covers a high-end waterfront wedding mansion on Long Island: the bridal suite, indoor and outdoor ceremony spaces, cocktail areas, grand ballroom, and views of the water at 200 E Shore Dr in Massapequa, NY.',
   faqs: tourFaqs,
 };
 
@@ -260,8 +260,8 @@ export type TourSlug = keyof typeof tourRooms;
 export const ratesPage: AiPage = {
   path: '/rates',
   title: 'Wedding Rates and Availability',
-  summary: 'Thursday through Sunday weddings, 150 guest minimum, packages include cocktail hour, plated dinner, and a five hour top shelf bar.',
-  answer: 'Weddings are hosted Thursday through Sunday for a minimum of 150 guests, with the grand ballroom seating up to 350. Packages include cocktail hour, a plated dinner, and a five hour top shelf open bar. A personalized proposal is prepared after you schedule a tour. All pricing is plus a 22% admin fee and NYS tax.',
+  summary: 'High-end Long Island waterfront weddings, Thursday through Sunday, 150 guest minimum, with cocktail hour, plated dinner, and a five hour top shelf bar.',
+  answer: 'Riviera hosts high-end waterfront weddings on Long Island, Thursday through Sunday, for a minimum of 150 guests. The grand ballroom seats up to 350. Packages include cocktail hour, a plated dinner, and a five hour top shelf open bar. A personalized proposal follows a private tour. All pricing is plus a 22% admin fee and NYS tax.',
   faqs: ratesFaqs,
 };
 
@@ -291,23 +291,23 @@ export const menuSections = [
 export const menuPage: AiPage = {
   path: '/menu',
   title: 'Wedding Menu and Catering',
-  summary: 'Chef inspired Continental catering with a five hour top shelf open bar, cocktail hour, and plated dinner.',
-  answer: 'Riviera Waterfront Mansion serves chef inspired Continental wedding catering in Massapequa, NY. Every wedding includes a five hour top shelf open bar, a lavish cocktail hour, and a plated dinner.',
+  summary: 'Chef-inspired Continental catering for a high-end Long Island waterfront wedding, with a five-hour top-shelf open bar, cocktail hour, and plated dinner.',
+  answer: 'Riviera Waterfront Mansion serves chef-inspired Continental cuisine for high-end waterfront weddings on Long Island. Every wedding includes a five-hour top-shelf open bar, a cocktail hour, and a plated dinner.',
 };
 
 export const vendorsPage: AiPage = {
   path: '/vendors',
   title: 'Preferred Wedding Vendors',
-  summary: 'Preferred vendors are optional. Outside vendors must carry their own insurance.',
-  answer: 'The preferred vendor list at Riviera Waterfront Mansion is optional. You may bring your own photographer, DJ, florist, and other vendors, and every outside vendor needs their own insurance. Catering, bartending, serving staff, and venue coordination are provided in house.',
+  summary: 'Preferred vendors for a high-end Long Island waterfront wedding. Outside vendors are welcome and must carry their own insurance.',
+  answer: 'The preferred vendor list at Riviera Waterfront Mansion is optional and chosen for the standard of a high-end waterfront wedding. You may bring your own photographer, DJ, florist, and other vendors, and every outside vendor needs their own insurance. Catering, bartending, serving staff, and venue coordination are provided in house.',
   faqs: vendorsFaqs,
 };
 
 export const weddingPricingPage: AiPage = {
   path: '/wedding-pricing',
   title: 'Wedding Brochure',
-  summary: 'Download the wedding brochure for packages, amenities, menu options, and 2026 and 2027 availability.',
-  answer: 'Download the Riviera Waterfront Mansion wedding brochure for packages, amenities, menu options, and availability for 2026 and 2027. Fill out the form on this page to receive it.',
+  summary: 'Wedding brochure for a high-end Long Island waterfront venue: packages, amenities, menu, and 2026 and 2027 dates.',
+  answer: 'Request the Riviera Waterfront Mansion wedding brochure for packages, amenities, menu options, and availability for 2026 and 2027 at this high-end waterfront wedding venue on Long Island. Fill out the form on this page to receive it.',
 };
 
 export const privacyPage: AiPage = {
@@ -353,7 +353,8 @@ export function renderLlmsTxt() {
     `Phone: ${venue.telephoneDisplay}`,
     `Email: ${venue.email}`,
     'Tours: Tuesday through Sunday, 11:00 AM to 7:00 PM, by appointment',
-    `Weddings: ${venue.weddingDays}, one wedding at a time, ${venue.guestMin} to ${venue.guestMax} guests`,
+    `Weddings: ${venue.weddingDays}, one exclusive wedding at a time, ${venue.guestMin} to ${venue.guestMax} guests`,
+    'Positioning: High-end waterfront wedding venue on Long Island. Top-shelf open bar, chef-inspired Continental cuisine, professional valet.',
     '',
     '## Pages',
     '',

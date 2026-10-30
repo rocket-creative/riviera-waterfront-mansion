@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Wedding pricing for a high-end waterfront venue on Long Island. Ceremony, cocktail hour, plated dinner, and a five-hour top-shelf open bar. A personalized proposal follows a private tour.';
+
 export const metadata: Metadata = {
   title: 'Wedding Rates & Availability | Riviera Waterfront Mansion',
-  description: 'Wedding pricing and availability at Riviera Waterfront Mansion in Massapequa, NY. Packages include ceremony, cocktail hour, plated dinner, and five hour open bar. Contact us for a personalized proposal.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/rates',
   },
   openGraph: {
     title: 'Wedding Rates & Availability | Riviera Waterfront Mansion',
-    description: 'Wedding pricing and availability at our Massapequa waterfront venue. Packages include ceremony, cocktail hour, plated dinner, and five hour open bar.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/rates',
     siteName: 'Riviera Waterfront Mansion',
     locale: 'en_US',
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Wedding Rates & Availability | Riviera Waterfront Mansion',
-    description: 'Wedding pricing and availability at our Massapequa waterfront venue. Packages include ceremony, cocktail hour, plated dinner, and five hour open bar.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-image.jpg'],
   },
 };

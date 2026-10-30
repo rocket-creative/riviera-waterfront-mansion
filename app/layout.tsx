@@ -4,6 +4,7 @@ import './globals.css';
 import CookieConsent from './components/CookieConsent';
 import ActionTracker from './components/ActionTracker';
 import MarketingPixels from './components/MarketingPixels';
+import { venue } from './lib/venueFacts';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -28,13 +29,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rivierawaterfrontmansion.com'),
   title: 'Long Island Wedding Venue | Riviera Waterfront Mansion',
-  description: 'Premier waterfront wedding venue in Massapequa, NY. Historic mansion, stunning water views, grand ballroom, indoor and outdoor ceremonies. Family owned since 1946. 150 to 350 guests.',
+  description: venue.metaDescription,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com'
   },
   openGraph: {
     title: 'Long Island Wedding Venue | Riviera Waterfront Mansion',
-    description: 'Premier waterfront wedding venue in Massapequa, NY. Historic mansion, stunning water views, grand ballroom, indoor and outdoor ceremonies. Family owned since 1946.',
+    description: venue.metaDescription,
     url: 'https://www.rivierawaterfrontmansion.com',
     siteName: 'Riviera Waterfront Mansion',
     images: [
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Long Island Wedding Venue | Riviera Waterfront Mansion',
-    description: 'Premier waterfront wedding venue in Massapequa, NY. Historic mansion, water views, grand ballroom, indoor and outdoor ceremonies. Family owned since 1946.',
+    description: venue.metaDescription,
     images: ['https://www.rivierawaterfrontmansion.com/og-image.jpg'],
   },
   robots: {
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     google: 'verification_token',
   },
   category: 'Wedding Venue',
-  classification: 'Wedding Venue, Event Space, Banquet Hall',
+  classification: 'Wedding Venue, Waterfront Estate',
 };
 
 export default function RootLayout({

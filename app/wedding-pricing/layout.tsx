@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 
+const description =
+  'Request the wedding brochure for Riviera Waterfront Mansion, a high-end waterfront wedding venue on Long Island. Packages, amenities, menu, and 2026 and 2027 dates.';
+
 export const metadata: Metadata = {
   title: 'Wedding Brochure | Riviera Waterfront Mansion Long Island NY',
-  description: 'Download the Riviera Waterfront Mansion wedding brochure. Explore Long Island wedding packages, amenities, menu options, and availability for 2026 and 2027.',
+  description,
   alternates: {
     canonical: 'https://www.rivierawaterfrontmansion.com/wedding-pricing'
   },
   openGraph: {
     title: 'Wedding Brochure | Riviera Waterfront Mansion',
-    description: 'Download the Riviera Waterfront Mansion wedding brochure. Long Island wedding packages, amenities, and availability for 2026 and 2027.',
+    description,
     url: 'https://www.rivierawaterfrontmansion.com/wedding-pricing',
     siteName: 'Riviera Waterfront Mansion',
     locale: 'en_US',
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Wedding Brochure | Riviera Waterfront Mansion',
-    description: 'Download the Riviera Waterfront Mansion wedding brochure. Packages, amenities, and availability for your Long Island waterfront wedding.',
+    description,
     images: ['https://www.rivierawaterfrontmansion.com/og-image.jpg'],
   },
 };
