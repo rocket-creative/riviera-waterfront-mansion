@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { ANNOUNCEMENT_CONFIG } from './lib/announcement';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.rivierawaterfrontmansion.com';
@@ -69,6 +70,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
+    ...(ANNOUNCEMENT_CONFIG.enabled
+      ? [{
+          url: `${baseUrl}/fall-bridal-showcase`,
+          lastModified: new Date(),
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        }]
+      : []),
   ];
 
   const tourPages = tourSections.map((slug) => ({

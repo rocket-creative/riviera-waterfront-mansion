@@ -166,7 +166,7 @@ export default function SpringBridalShowcase() {
                 Register Now —<br />It&apos;s Free
               </h2>
               <div className="border border-riviera-neutral">
-                <EventbriteWidget />
+                <EventbriteWidget eventId="1984985517116" />
               </div>
               <p className="text-riviera-text/40 text-xs font-light mt-4 tracking-wide">
                 Powered by Eventbrite · Free admission · Limited capacity

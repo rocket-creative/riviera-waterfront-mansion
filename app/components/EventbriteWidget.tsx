@@ -12,8 +12,9 @@ declare global {
   }
 }
 
-export default function EventbriteWidget() {
+export default function EventbriteWidget({ eventId }: { eventId: string }) {
   const initialized = useRef(false);
+  const containerId = `eventbrite-widget-container-${eventId}`;
 
   const handleScriptLoad = () => {
     if (initialized.current) return;
@@ -21,8 +22,8 @@ export default function EventbriteWidget() {
       initialized.current = true;
       window.EBWidgets.createWidget({
         widgetType: 'checkout',
-        eventId: '1984985517116',
-        iframeContainerId: 'eventbrite-widget-container-1984985517116',
+        eventId,
+        iframeContainerId: containerId,
         iframeContainerHeight: 425,
         onOrderComplete: () => trackAction('eventbrite', 'order_complete'),
       });
@@ -38,7 +39,7 @@ export default function EventbriteWidget() {
   return (
     <>
       <div
-        id="eventbrite-widget-container-1984985517116"
+        id={containerId}
         className="min-h-[425px] w-full"
       />
       <Script

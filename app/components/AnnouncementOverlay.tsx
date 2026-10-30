@@ -4,68 +4,19 @@
  * AnnouncementOverlay — master reusable announcement card
  *
  * Sits over the hero carousel as a floating frosted-glass card.
- * Toggle it on/off via the `enabled` prop in the config below.
- * To swap announcements, edit ANNOUNCEMENT_CONFIG — the component
- * design never needs to change.
- *
- * ─── HOW TO UPDATE ────────────────────────────────────────────
- *  1. Set `enabled: true` to show the card, `false` to hide it.
- *  2. Fill in eyebrow, title, titleAccent, dateLabel, etc.
- *  3. Set ctaHref to any internal route or external URL.
- *  4. collapsedLabel is the pill text shown after the user closes.
- * ──────────────────────────────────────────────────────────────
+ * To swap announcements, edit ANNOUNCEMENT_CONFIG in app/lib/announcement.ts.
+ * The component design never needs to change.
  */
-
-export interface AnnouncementConfig {
-  /** Master on/off switch — set false to fully remove the overlay */
-  enabled: boolean;
-  /** Gold uppercase eyebrow, e.g. "UPCOMING EVENT" */
-  eyebrow: string;
-  /** Main title (plain portion) */
-  title: string;
-  /** Italic gold accent appended to title */
-  titleAccent: string;
-  /** Primary date line, e.g. "WEDNESDAY, APRIL 22" */
-  dateLabel: string;
-  /** Secondary time + location line */
-  timeLocation: string;
-  /** Large Cormorant word in bottom-left, e.g. "FREE" or "NEW" */
-  badgeWord: string;
-  /** Small label beneath the badge word, e.g. "ADMISSION" */
-  badgeSublabel: string;
-  /** Button text */
-  ctaText: string;
-  /** Internal route or external URL for the button */
-  ctaHref: string;
-  /** Text shown in the collapsed pill after user dismisses */
-  collapsedLabel: string;
-}
-
-// ─── EDIT THIS OBJECT TO CHANGE THE ANNOUNCEMENT ──────────────
-// `enabled` is the master switch. Setting it to `false`:
-//   1. Hides the homepage hero overlay card and collapsed pill.
-//   2. Causes /spring-bridal-showcase to redirect to the homepage
-//      (gated in app/spring-bridal-showcase/layout.tsx).
-// To bring the event back, fill in the new event details and set
-// `enabled: true`.
-export const ANNOUNCEMENT_CONFIG: AnnouncementConfig = {
-  enabled: false,
-
-  eyebrow:       'UPCOMING EVENT',
-  title:         'Spring Bridal ',
-  titleAccent:   'Showcase!',
-  dateLabel:     'WEDNESDAY, APRIL 22',
-  timeLocation:  '6:00 PM – 9:00 PM · 200 E Shore Dr, Massapequa NY',
-  badgeWord:     'FREE',
-  badgeSublabel: 'ADMISSION',
-  ctaText:       'SIGN UP HERE →',
-  ctaHref:       '/spring-bridal-showcase',
-  collapsedLabel: 'SPRING SHOWCASE',
-};
-// ──────────────────────────────────────────────────────────────
 
 import { useState } from 'react';
 import Link from 'next/link';
+import {
+  ANNOUNCEMENT_CONFIG,
+  type AnnouncementConfig,
+} from '../lib/announcement';
+
+export type { AnnouncementConfig };
+export { ANNOUNCEMENT_CONFIG };
 
 interface Props {
   config?: AnnouncementConfig;
