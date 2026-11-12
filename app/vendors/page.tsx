@@ -14,7 +14,16 @@ import JsonLd from '../components/JsonLd';
 import { vendorsPage } from '../lib/pageAnswers';
 import { pageGraph } from '../lib/schema';
 
-const vendorCategories = [
+type Vendor = {
+  name: string;
+  description?: string;
+  website?: string;
+  email?: string;
+  instagram?: string;
+  phone?: string;
+};
+
+const vendorCategories: { title: string; vendors: Vendor[] }[] = [
   {
     title: 'Photography',
     vendors: [
@@ -43,8 +52,15 @@ const vendorCategories = [
   {
     title: 'Florist',
     vendors: [
+      { name: 'Black Dahlia', website: 'https://blackdahliainc.com', email: 'sales@blackdahliainc.com', phone: '(516) 456 5440' },
       { name: "Tim's Florist", website: 'https://www.timsflorist.com', phone: '(516) 541 6001' },
       { name: "Tom's Towers Flowers", phone: '(631) 422 6714' },
+    ]
+  },
+  {
+    title: 'Event Planning & Design',
+    vendors: [
+      { name: 'Mariana Sangiorgi', description: 'Event Planner & Designer', instagram: 'casa_sangiorgi' },
     ]
   },
   {
@@ -218,11 +234,11 @@ export default function VendorsPage() {
                         className="border-b border-riviera-neutral/50 pb-4 last:border-b-0 last:pb-0"
                       >
                         <h3 className="text-base font-light text-riviera-text mb-1">{vendor.name}</h3>
-                        {'description' in vendor && vendor.description && (
+                        {vendor.description && (
                           <p className="text-sm text-riviera-text/60 mb-1">{vendor.description}</p>
                         )}
                         <div className="flex flex-wrap items-center gap-3 text-sm">
-                          {'website' in vendor && vendor.website && (
+                          {vendor.website && (
                             <a 
                               href={vendor.website}
                               target="_blank"
@@ -232,12 +248,22 @@ export default function VendorsPage() {
                               Website →
                             </a>
                           )}
-                          {'email' in vendor && vendor.email && (
+                          {vendor.email && (
                             <a 
                               href={`mailto:${vendor.email}`}
                               className="text-riviera-gold hover:underline"
                             >
                               Email
+                            </a>
+                          )}
+                          {vendor.instagram && (
+                            <a 
+                              href={`https://www.instagram.com/${vendor.instagram}/`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-riviera-gold hover:underline"
+                            >
+                              Instagram @{vendor.instagram}
                             </a>
                           )}
                           {vendor.phone && (
