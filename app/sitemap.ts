@@ -1,5 +1,10 @@
 import { MetadataRoute } from 'next';
 import { ANNOUNCEMENT_CONFIG } from './lib/announcement';
+import { isEventLive } from './lib/eventWindow';
+import { NYE_EVENT } from './lib/nyeEvent';
+
+// Rebuilt hourly so finished events leave the sitemap without a deploy.
+export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.rivierawaterfrontmansion.com';
@@ -70,9 +75,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
-    ...(ANNOUNCEMENT_CONFIG.enabled
+    ...(isEventLive(ANNOUNCEMENT_CONFIG.enabled, ANNOUNCEMENT_CONFIG.endsAt)
       ? [{
           url: `${baseUrl}/fall-bridal-showcase`,
+          lastModified: new Date(),
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        }]
+      : []),
+    ...(isEventLive(NYE_EVENT.enabled, NYE_EVENT.endDate)
+      ? [{
+          url: `${baseUrl}${NYE_EVENT.path}`,
           lastModified: new Date(),
           changeFrequency: 'weekly' as const,
           priority: 0.8,

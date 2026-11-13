@@ -13,12 +13,18 @@
  *   2. Causes /fall-bridal-showcase to redirect to the homepage
  *      (gated in app/fall-bridal-showcase/layout.tsx).
  * /spring-bridal-showcase always redirects to the current showcase.
- * To take the event offline after it ends, set `enabled: false`.
+ *
+ * `endsAt` takes the event offline automatically. From that moment the
+ * homepage card, the showcase page and its sitemap entry all disappear,
+ * with no edit or deploy needed (see app/lib/eventWindow.ts). Update it
+ * whenever the announcement changes to a new event.
  */
 
 export interface AnnouncementConfig {
   /** Master on/off switch — set false to fully remove the overlay */
   enabled: boolean;
+  /** When the event ends, as an ISO date with the Eastern offset (-05:00 winter, -04:00 summer). Everything comes down automatically at this time. */
+  endsAt: string;
   /** Gold uppercase eyebrow, e.g. "UPCOMING EVENT" */
   eyebrow: string;
   /** Main title (plain portion) */
@@ -43,6 +49,8 @@ export interface AnnouncementConfig {
 
 export const ANNOUNCEMENT_CONFIG: AnnouncementConfig = {
   enabled: true,
+  // Thursday, November 19, 2026 at 8:30 PM Eastern, when the showcase ends.
+  endsAt: '2026-11-19T20:30:00-05:00',
 
   eyebrow: 'UPCOMING EVENT',
   title: 'Fall Bridal ',

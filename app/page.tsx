@@ -14,13 +14,19 @@ import SlideshowImage from './components/SlideshowImage';
 import { AnimatedSection } from './components/AnimatedSection';
 import { HoverScale } from './components/HoverScale';
 import BridalShowcaseOverlay from './components/BridalShowcaseOverlay';
+import { NyeHomeBand, NyeHomeStrip } from './components/NyeHomePromo';
 import AnswerBlock from './components/AnswerBlock';
 import JsonLd from './components/JsonLd';
 import { homePage } from './lib/pageAnswers';
 import { pageGraph } from './lib/schema';
 import { getGoogleReviews } from './lib/googleReviews';
+import { ANNOUNCEMENT_CONFIG } from './lib/announcement';
+import { isEventLive } from './lib/eventWindow';
 
 const DualSocialFeed = dynamic(() => import('./components/DualSocialFeed'));
+
+// Re-rendered every few minutes so finished events drop off without a deploy.
+export const revalidate = 300;
 
 export default async function Home() {
   const { reviews } = await getGoogleReviews();
@@ -30,6 +36,9 @@ export default async function Home() {
       <Header />
       
       <main id="main">
+        {/* New Year's Eve gala strip. Controlled by NYE_EVENT in app/lib/nyeEvent.ts; removes itself when the event ends */}
+        <NyeHomeStrip />
+
         {/* Hero Section - Editorial 2-Column Layout */}
         <section className="relative min-h-dvh overflow-hidden bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh gap-4 lg:gap-6">
@@ -88,7 +97,7 @@ export default async function Home() {
                 priority
                 alt="Wedding couple at Riviera Waterfront Mansion in Massapequa, Long Island"
               />
-              <BridalShowcaseOverlay />
+              {isEventLive(ANNOUNCEMENT_CONFIG.enabled, ANNOUNCEMENT_CONFIG.endsAt) && <BridalShowcaseOverlay />}
             </div>
           </div>
           
@@ -106,6 +115,9 @@ export default async function Home() {
             </a>
           </div>
         </section>
+
+        {/* New Year's Eve gala feature. Controlled by NYE_EVENT in app/lib/nyeEvent.ts; removes itself when the event ends */}
+        <NyeHomeBand />
 
         {/* Trust Bar - Quick Stats */}
         <section id="trust-bar" className="bg-riviera-neutral py-12 md:py-16" aria-label="Venue highlights">

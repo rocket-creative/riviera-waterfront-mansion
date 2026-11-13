@@ -12,7 +12,14 @@ declare global {
   }
 }
 
-export default function EventbriteWidget({ eventId }: { eventId: string }) {
+export default function EventbriteWidget({
+  eventId,
+  height = 425,
+}: {
+  eventId: string;
+  /** Checkout frame height in pixels. Eventbrite's minimum is 425. */
+  height?: number;
+}) {
   const initialized = useRef(false);
   const containerId = `eventbrite-widget-container-${eventId}`;
 
@@ -24,7 +31,7 @@ export default function EventbriteWidget({ eventId }: { eventId: string }) {
         widgetType: 'checkout',
         eventId,
         iframeContainerId: containerId,
-        iframeContainerHeight: 425,
+        iframeContainerHeight: height,
         onOrderComplete: () => trackAction('eventbrite', 'order_complete'),
       });
     }
@@ -40,7 +47,8 @@ export default function EventbriteWidget({ eventId }: { eventId: string }) {
     <>
       <div
         id={containerId}
-        className="min-h-[425px] w-full"
+        className="w-full"
+        style={{ minHeight: height }}
       />
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"

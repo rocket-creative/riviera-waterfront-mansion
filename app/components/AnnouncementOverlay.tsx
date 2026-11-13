@@ -14,6 +14,7 @@ import {
   ANNOUNCEMENT_CONFIG,
   type AnnouncementConfig,
 } from '../lib/announcement';
+import { useExpired } from './ExpiresAt';
 
 export type { AnnouncementConfig };
 export { ANNOUNCEMENT_CONFIG };
@@ -25,8 +26,10 @@ interface Props {
 export default function AnnouncementOverlay({ config = ANNOUNCEMENT_CONFIG }: Props) {
   const [isVisible, setIsVisible] = useState(true);
 
-  // Master kill-switch
-  if (!config.enabled) return null;
+  const expired = useExpired(config.endsAt);
+
+  // Master kill-switch, plus the automatic cut-off when the event ends
+  if (!config.enabled || expired) return null;
 
   const isExternal = config.ctaHref.startsWith('http');
 
